@@ -1,27 +1,38 @@
-<nav data-nav class="flex justify-between items-center center bg-white divider-grey relative">
+<header class="bg-[#020303] py-[26px] flex justify-center mx-auto">
+	<div class="flex w-[1237px] justify-between items-center gap-20">
+		<a href="/" class="font-inter text-xl font-normal text-white">
+			<img src="/logo.png" alt="logo" width="149" height="34" />
+		</a>
 
-	<!-- Logo -->
-	<a href="/" class="pa3 db mr4 h-100 w3 flex-none">
-		<img src="/img/logo.svg" alt="Kaldi logo" class="br0 db mb0 w-100"/>
-	</a>
+		<nav class="flex items-center gap-[50px]">
+			<div class="relative group">
+				<a href="/catalog"
+					class="font-family-inter text-xl focus:font-bold text-white hover:text-[#ba0108] transition-colors">Каталог</a>
+				<div
+					class="absolute left-0 top-full hidden group-hover:block bg-white text-black shadow-lg mt-2 rounded-md">
+					<div class="flex w-full gap-6 px-4 py-3">
+						<a href="#" class="hover:text-[#ba0108]">Політні стеки</a>
+						<a href="#" class="hover:text-[#ba0108]">Відеопередавачі VTX</a>
+						<a href="#" class="hover:text-[#ba0108]">ESC</a>
+					</div>
+				</div>
+			</div>
+			<a href="/faq"
+				class="font-family-inter text-xl font-normal text-white hover:text-[#ba0108] transition-colors">FAQ</a>
+			<a href="/guides"
+				class="font-family-inter text-xl font-normal text-white hover:text-[#ba0108] transition-colors">База
+				знань</a>
+			<a href="/contact"
+				class="font-family-inter text-xl font-normal text-white hover:text-[#ba0108] transition-colors">Контакти</a>
+		</nav>
 
-	<!-- Primary Nav -->
-	<div data-mobile-menu class="mobile-menu-container">
-		<svg viewBox="0 0 100 80" width="40" height="25" class="mobile-menu-icon">
-			<rect class="menu-icon-top mobile-menu-inner" width="100" height="8"></rect>
-			<rect class="menu-icon-middle mobile-menu-inner" y="30" width="100" height="8"></rect>
-			<rect class="menu-icon-bottom mobile-menu-inner" y="60" width="100" height="8"></rect>
-		</svg>
+		<div class="flex gap-[50px] justify-center">
+			<nav class="flex items-center gap-[30px]">
+				<a href="tel:(067) 298-29-29"
+					class="font-montserrat text-xl font-normal text-white hover:text-[#ba0108] transition-colors">(067)
+					298-29-29</a>
+				<div class="text-white/80 text-sm">UA | EN</div>
+			</nav>
+		</div>
 	</div>
-
-	<ul class="flex b grey-3 nav-menu">
-		<li><a href="/products" class="pa3 no-underline db">Products</a></li>
-
-		<li><a href="/values" class="pa3 no-underline db">Values</a></li>
-
-		<li><a href="/post" class="pa3 no-underline db">Blog</a></li>
-
-		<li><a href="/contact" class="pa3 no-underline db">Contact</a></li>
-	</ul>
-
-</nav>
+</header>
