@@ -1,50 +1,63 @@
-<footer class="bg-black ph3 pv4 white">
+<footer class="bg-[#020303] py-12">
+	<div class="w-[1237px] px-5 mx-auto">
+		<div class="flex justify-between pt-[26px]">
+			<div class="flex flex-col mt-20">
+				<a href="#" class="inline-block mb-4">
+					<img src="/logo.png" alt="Karma" width="149" height="34" />
+				</a>
+			</div>
 
-	<div class="mw7 center pt3">
+			<div class="flex flex-col gap-5">
+				<h3 class="font-montserrat text-2xl font-semibold text-white mb-6">Контакти</h3>
+				<div class="flex flex-col gap-3">
+					<div class="flex items-center gap-4">
+						<a href="tel:+380956156713" class="font-montserrat text-xl text-white hover:text-[#ba0108]">+380
+							95 61 56713</a>
+						<span class="font-montserrat text-lg text-white opacity-80">Контактний відділ</span>
+					</div>
+					<div class="flex items-center gap-4">
+						<a href="tel:+380956156713" class="font-montserrat text-xl text-white hover:text-[#ba0108]">+380
+							95 61 56713</a>
+						<span class="font-montserrat text-lg text-white opacity-80">Контактний відділ</span>
+					</div>
+					<div class="flex items-center gap-4">
+						<a href="tel:+380956156713" class="font-mонтserrat text-xl text-white hover:text-[#ba0108]">+380
+							95 61 56713</a>
+						<span class="font-montserrat text-lg text-white opacity-80">Контактний відділ</span>
+					</div>
+				</div>
+			</div>
 
-		<div class="measure-narrow center mb4">
+			<div class="flex flex-col gap-5">
+				<h3 class="font-montserrat text-2xl font-semibold text-white mb-6">Меню</h3>
+				<nav class="flex flex-col gap-3">
+					<a href="#" class="block font-montserrat text-xl text-white hover:text-[#ba0108]">Каталог</a>
+					<a href="#" class="block font-montserrat text-xl text-white hover:text-[#ba0108]">FAQ</a>
+					<a href="#" class="block font-montserrat text-xl text-white hover:text-[#ba0108]">База знань</a>
+					<a href="#" class="block font-montserrat text-xl text-white hover:text-[#ba0108]">Контакти</a>
+				</nav>
+			</div>
 
-			<img src="/img/logo.svg" alt="Kaldi logo" class="db w4 center mb4 br0">
-			<p class="f3 lh-title light-gray b tc mb2">{{ .Site.Data.footer.title }}</p>
-			<p>{{ .Site.Data.footer.blurb }}</p>
-
-			{{ partial "newsletter-form" . }}
-
+			<div class="flex flex-col items-end">
+				<div class="flex flex-col gap-3">
+					<a href="#" aria-label="Facebook" class="w-12 h-12 rounded-full flex items-center justify-center">
+						<img src="/facebook.svg" alt="facebook" width="36" height="36" />
+					</a>
+					<a href="#" aria-label="Instagram" class="w-12 h-12 rounded-full flex items-center justify-center">
+						<img src="/insta.svg" alt="instagram" width="36" height="36" />
+					</a>
+					<a href="#" aria-label="Telegram" class="w-12 h-12 rounded-full flex items-center justify-center">
+						<img src="/signal.png" alt="signal" width="36" height="36" />
+					</a>
+					<a href="#" aria-label="WhatsApp" class="w-12 h-12 rounded-full flex items-center justify-center">
+						<img src="/whatsapp.svg" alt="whatsapp" width="36" height="36" />
+					</a>
+				</div>
+			</div>
 		</div>
 
-		<div class="flex-ns justify-between">
-
-			<div>
-				<h3 class="f4 b lh-title mb1 primary">Kaldi</h3>
-				<ul class="mb3">
-					<li><a href="/" class="link">Home</a></li>
-					<li><a href="/products" class="link">Our products</a></li>
-					<li><a href="/values" class="link">About</a></li>
-					<li><a href="/post" class="link">Blog</a></li>
-					<li><a href="/contact" class="link">Contact</a></li>
-				</ul>
-			</div>
-
-			<div>
-				<h3 class="f4 b lh-title mb1 primary">Find out more</h3>
-				<ul class="mb3">
-					<li><a href="/post/jamaica-blue/" class="link">Latest offers</a></li>
-					<li><a href="/contact" class="link">Schedule an appointment</a></li>
-				</ul>
-			</div>
-
-			<div>
-				<h3 class="f4 b lh-title mb2 primary">Social media</h3>
-				<ul class="mhn2">
-					{{ partial "social-icon" (dict "link" "#" "svg" "icons-facebook" "alt" "Kaldi on Facebook") }}
-					{{ partial "social-icon" (dict "link" "#" "svg" "icons-twitter" "alt" "Kaldi on Twitter") }}
-					{{ partial "social-icon" (dict "link" "#" "svg" "icons-instagram" "alt" "Kaldi on Instagram") }}
-					{{ partial "social-icon" (dict "link" "#" "svg" "icons-vimeo" "alt" "Kaldi on Vimeo") }}
-				</ul>
-			</div>
-
+		<div class="pt-8 text-center">
+			<a href="#" class="font-inter text-lg text-[#929292] hover:text-[#ba0108]">Політика конфеденційності</a>
 		</div>
 	</div>
-
 </footer>
-

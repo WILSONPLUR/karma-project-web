@@ -1,16 +1,16 @@
-<div class="bg-off-white pv4 ph3">
-
-	<div class="mw7 center">
-
-		<h2 class="f2 b lh-title mb3">{{.heading}}</h2>
-		<p class="mw6">{{.description}}</p>
-
-		<div class="flex-ns mhn2-ns mw7">
-			{{ range .plans }}
-			<div class="w-33-ns ph2">{{ partial "table-column" . }}</div>
-			{{ end }}
-		</div>
-
-	</div>
-
-</div>
+<table class="w-full border-collapse">
+    {{ with .headers }}
+    <thead>
+        <tr>
+            {{ range . }}<th class="border-b px-3 py-2 text-left text-sm font-semibold">{{ . }}</th>{{ end }}
+        </tr>
+    </thead>
+    {{ end }}
+    <tbody>
+        {{ range $.rows }}
+        <tr>
+            {{ range . }}<td class="border-b px-3 py-2 text-sm">{{ . }}</td>{{ end }}
+        </tr>
+        {{ end }}
+    </tbody>
+</table>

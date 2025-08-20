@@ -1,6 +1,4 @@
-<div class="center mb3 ph3">
-	<blockquote class="bg-grey-1 primary pa3 mb3 br1 b mw6 center">
-		<p class="f4 mb0">“{{ .quote }}”</p>
-		<cite class="tr db grey-3">{{ .author }}</cite>
-	</blockquote>
-</div>
+<blockquote class="border-l-4 border-[#ba0108] pl-4 italic text-[#333]">
+    {{ with .quote }}<p>“{{ . }}”</p>{{ end }}
+    {{ with .cite }}<cite class="not-italic block mt-2 text-sm text-[#666]">— {{ . }}</cite>{{ end }}
+</blockquote>

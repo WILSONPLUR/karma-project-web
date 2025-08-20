@@ -1,19 +1,10 @@
-<div class="bg-off-white pv4">
-  <div class="ph3 mw7 center">
-    <h2 class="f2 b lh-title mb2">{{.intro.heading}}</h2>
-    <p class="mb4 mw6">{{.intro.text}}</p>
-
-    <div class="flex-ns mhn2-ns mb3">
-      {{ range .products }}
-      <div class="ph2-ns w-50-ns">
-        <img src="{{.image}}" alt="" class="center db mb3" style="width: 240px">
-        <p>{{.text}}</p>
-      </div>
-      {{ end }}
+<section class="py-8">
+    {{ with .heading }}<h2 class="text-2xl md:text-3xl font-semibold mb-3">{{ . }}</h2>{{ end }}
+    {{ with .description }}<p class="text-[#333] mb-6">{{ . }}</p>{{ end }}
+    {{ if .left }}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>{{ .left | safeHTML }}</div>
+        <div>{{ .right | safeHTML }}</div>
     </div>
-
-    <div class="tc">
-      <a href="/products" class="btn raise">See all products</a>
-    </div>
-  </div>
-</div>
+    {{ end }}
+</section>

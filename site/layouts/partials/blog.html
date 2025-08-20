@@ -1,19 +1,18 @@
-<div class="bg-off-white pv4">
-	<div class="ph3 mw7 center">
-
-		<h2 class="f2 b lh-title mb3">Latest stories</h2>
-
-		<div class="w-100 flex-ns mhn1-ns flex-wrap mb3">
-			{{ range first 4 (where .Data.Pages "Type" "post") }}
-				<div class="ph1-ns w-50-ns flex">
-					{{ .Render "li" }}
-				</div>
-			{{ end }}
-		</div>
-
-		<div class="tc">
-			<a href="/post" class="btn raise">Read more</a>
-		</div>
-
-	</div>
-</div>
+<section class="py-8">
+    <div class="max-w-[1237px] mx-auto px-5">
+        <h2 class="text-2xl md:text-3xl font-semibold mb-4">Останні пости</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {{ range first 3 (where .Site.RegularPages "Type" "post") }}
+            <article>
+                <a href="{{ .RelPermalink }}" class="block">
+                    {{ with .Params.image }}<img class="w-full h-auto mb-3" src="{{ . }}" alt="" />{{ end }}
+                    <h3 class="text-xl font-semibold mb-1">{{ .Title }}</h3>
+                    <p class="text-[#555] text-sm">{{ .Date.Format "2006-01-02" }}</p>
+                </a>
+            </article>
+            {{ else }}
+            <p class="text-[#666]">Немає постів.</p>
+            {{ end }}
+        </div>
+    </div>
+</section>

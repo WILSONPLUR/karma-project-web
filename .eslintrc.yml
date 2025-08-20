@@ -97,3 +97,9 @@ globals:
   process: true
   ENV: true
   module: true
+
+overrides:
+  - files: ["**/*.js", "**/*.jsx"]
+    parser: "@babel/eslint-parser"
+    parserOptions:
+      requireConfigFile: false
