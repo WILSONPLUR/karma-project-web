@@ -1,0 +1,9 @@
+<section class="w-full relative overflow-hidden">
+    {{ with .imageUrl }}
+    <img src="{{ . }}" alt="" class="w-full h-auto object-cover">
+    {{ end }}
+    <div class="max-w-[1237px] mx-auto px-5 py-8">
+        {{ with .title }}<h1 class="text-3xl md:text-5xl font-semibold text-black">{{ . }}</h1>{{ end }}
+        {{ with .subtitle }}<p class="mt-2 text-[#333]">{{ . }}</p>{{ end }}
+    </div>
+</section>

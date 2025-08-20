@@ -1,0 +1,12 @@
+<section class="py-6">
+    {{/* Placeholder media block reverse */}}
+    {{ if .title }}<h2 class="text-2xl font-semibold mb-3">{{ .title }}</h2>{{ end }}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+        <div class="order-2 md:order-1">
+            {{ with .text }}<p class="text-[#333]">{{ . }}</p>{{ end }}
+        </div>
+        <div class="order-1 md:order-2">
+            {{ with .image }}<img src="{{ . }}" alt="" class="w-full h-auto" />{{ end }}
+        </div>
+    </div>
+</section>

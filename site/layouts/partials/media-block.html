@@ -1,0 +1,6 @@
+<section class="py-6">
+    {{/* Placeholder media block */}}
+    {{ if .title }}<h2 class="text-2xl font-semibold mb-3">{{ .title }}</h2>{{ end }}
+    {{ with .text }}<p class="text-[#333]">{{ . }}</p>{{ end }}
+    {{ with .image }}<img src="{{ . }}" alt="" class="mt-4 w-full h-auto" />{{ end }}
+</section>
