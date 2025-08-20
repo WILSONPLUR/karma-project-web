@@ -59,6 +59,9 @@
   },
   "dependencies": {
     "@babel/preset-react": "^7.17.12",
+    "@dnd-kit/core": "^6.3.1",
+    "@dnd-kit/sortable": "^10.0.0",
+    "@dnd-kit/utilities": "^3.2.2",
     "@tailwindcss/postcss": "^4.1.12",
     "autoprefixer": "^10.4.19",
     "cypress": "^10.5.0",
@@ -70,8 +73,8 @@
     "postcss-custom-media": "^9.0.2",
     "postcss-import": "^14.1.0",
     "postcss-preset-env": "^7.8.3",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^17",
+    "react-dom": "^17",
     "tailwindcss": "^4.1.12",
     "to-string-loader": "^1.2.0"
   }
