@@ -1,0 +1,25 @@
+<section class="trusted-by-section">
+  <div class="container">
+    <h2 class="title">
+      <span>Н</span>АМ ДОВІРЯЮТЬ
+    </h2>
+    
+    <div class="swiper-wrapper">
+      <div class="swiper-container-trusted">
+        <div class="swiper-wrapper">
+          {{ range .Site.Data.trusted_companies.companies }}
+          <div class="swiper-slide">
+            <div class="logo-container">
+              <img src="{{ .logo }}" alt="{{ .alt }}" />
+              <p>{{ .name }}</p>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+        
+        <!-- Pagination -->
+        <div class="swiper-pagination-trusted"></div>
+      </div>
+    </div>
+  </div>
+</section>

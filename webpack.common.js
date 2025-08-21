@@ -19,10 +19,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.((png)|(eot)|(woff)|(woff2)|(ttf)|(svg)|(gif))(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.((png)|(svg)|(gif))(\?v=\d+\.\d+\.\d+)?$/,
         loader: "file-loader",
         options: {
-          name: "name=/[hash].[ext]"
+          name: "[hash].[ext]",
+          outputPath: "fonts/",
+          publicPath: "../fonts/"
         }
       },
       {
@@ -64,10 +66,13 @@ module.exports = {
       prettyPrint: true
     }),
     new CopyWebpackPlugin({
-      patterns: [{
-        from: "./src/fonts/",
-        to: "fonts/",
-      }]
+      patterns: [
+        // Only copy the .keep file
+        {
+          from: "./src/fonts/.keep",
+          to: "fonts/.keep"
+        }
+      ]
     }),
     new HtmlWebpackPlugin({
       filename: "admin/index.html",
