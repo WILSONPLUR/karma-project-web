@@ -1,0 +1,21 @@
+{{ $hideBgImage := .hideBgImage }}
+
+<section class="relative flex flex-col items-center bg-white py-[80px]">
+    {{ if not $hideBgImage }}
+    <img src="/img/bg-feature.png" alt="" class="object-cover absolute inset-0 w-full h-full -z-10" />
+    {{ end }}
+    <div class="w-full max-w-[1237px] px-5">
+        <h3 class="font-family-unbounded text-[40px] text-center text-[#020303] mb-6">
+            Зв'яжіться з нами
+        </h3>
+        <div class="max-w-[640px] mx-auto">
+            <form class="grid gap-4">
+                <input class="border border-[#E0E0E0] rounded-md px-4 h-11" placeholder="Ваше ім'я" />
+                <input class="border border-[#E0E0E0] rounded-md px-4 h-11" placeholder="Email" type="email" />
+                <textarea class="border border-[#E0E0E0] rounded-md px-4 py-3" rows="5"
+                    placeholder="Повідомлення"></textarea>
+                <button class="h-11 rounded-md bg-[#ba0108] text-white px-6">Надіслати</button>
+            </form>
+        </div>
+    </div>
+</section>
