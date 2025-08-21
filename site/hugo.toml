@@ -10,3 +10,16 @@ disableKinds = ["RSS", "taxonomy", "taxonomyTerm"]
 
 [params]
 images = ["img/og-image.jpg"]
+
+[build]
+  writeStats = true
+
+[imaging]
+  resampleFilter = "lanczos"
+  quality = 85
+  anchor = "smart"
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

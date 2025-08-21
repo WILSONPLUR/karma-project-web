@@ -35,14 +35,17 @@ module.exports = {
         test: /\.(sa|sc|c)ss$/,
         exclude: /node_modules/,
         use: [
-          "style-loader", 
+          "style-loader",
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
               esModule: false
             }
-          }, 
-          "css-loader",
+          },
+          {
+            loader: "css-loader",
+            options: {url: false}
+          },
           "postcss-loader",
           {
             loader: "sass-loader",
@@ -71,7 +74,7 @@ module.exports = {
     }),
     new HtmlWebpackPlugin({
       filename: "admin/index.html",
-      template: 'src/cms.html',
+      template: "src/cms.html",
       inject: true,
     })
   ]
