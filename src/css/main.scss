@@ -94,30 +94,6 @@
 @tailwind utilities;
 
 @layer base {
-  @font-face {
-    font-family: 'Inter';
-    src: url('../fonts/Inter-VariableFont_opsz,wght.ttf') format('ttf');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Montserrat';
-    src: url('../fonts/Montserrat-VariableFont_wght.ttf') format('ttf');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-
-  @font-face {
-    font-family: 'Unbounded';
-    src: url('../fonts/Unbounded-VariableFont_wght.ttf') format('ttf');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-  }
-
   /* Set default fonts */
   html, body {
     font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
