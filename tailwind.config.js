@@ -5,13 +5,17 @@ module.exports = {
 		"./site/content/**/*.{html,md}",
 		"./src/**/*.{js,ts,css,scss}",
 	],
-	theme: { 
-	extend: {
+	theme: {
+		extend: {
+			fontFamily: {
+				inter: ['Inter', 'sans-serif'],
+				montserrat: ['Montserrat', 'sans-serif'],
+				unbounded: ['Unbounded', 'sans-serif'],
+			},
+		},
 		fontFamily: {
-        inter: ['Inter', 'sans-serif'],
-        montserrat: ['Montserrat', 'sans-serif'],
-        unbounded: ['Unbounded', 'sans-serif'],
-      },
-	} },
+			sans: ['Montserrat', 'sans-serif'],
+		},
+	},
 	plugins: [],
-}; 
+};

@@ -1,0 +1,292 @@
+.contact-section {
+  position: relative;
+  padding: 80px 0;
+  background-color: #fff;
+  
+  .background-element1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 0;
+    
+    img {
+      max-width: 400px;
+      height: auto;
+    }
+  }
+  
+  .background-element2 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    
+    img {
+      max-width: 400px;
+      height: auto;
+    }
+  }
+  
+  .container {
+    max-width: 1237px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+  }
+  
+  .form-container {
+    flex: 1;
+    min-width: 300px;
+    
+    .title {
+      font-size: 40px;
+      color: #020303;
+      margin-bottom: 20px;
+      font-weight: 700;
+      
+      .titleHighlight {
+        color: #ba0108;
+      }
+    }
+    
+    .subtitle {
+      font-size: 18px;
+      color: #666;
+      margin-bottom: 30px;
+    }
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .inputRow {
+    display: flex;
+    gap: 20px;
+    
+    .input {
+      flex: 1;
+      border: 1px solid #E0E0E0;
+      border-radius: 8px;
+      padding: 12px 16px;
+      font-size: 16px;
+      height: 50px;
+      
+      &::placeholder {
+        color: #999;
+      }
+      
+      &:focus {
+        outline: none;
+        border-color: #ba0108;
+      }
+    }
+  }
+  
+  .textarea {
+    border: 1px solid #E0E0E0;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 16px;
+    resize: vertical;
+    
+    &::placeholder {
+      color: #999;
+    }
+    
+    &:focus {
+      outline: none;
+      border-color: #ba0108;
+    }
+  }
+  
+  .button {
+    background-color: #ba0108;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: fit-content;
+    height: 50px;
+    
+    &:hover {
+      background-color: #a00106;
+    }
+  }
+  
+  .contactInfo {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    .contactItem {
+      h3 {
+        font-size: 24px;
+        color: #020303;
+        margin-bottom: 20px;
+        font-weight: 700;
+      }
+      
+      .phone,
+      .email {
+        display: block;
+        font-size: 20px;
+        color: #020303;
+        text-decoration: none;
+        margin-bottom: 10px;
+        
+        &:hover {
+          color: #ba0108;
+        }
+      }
+    }
+  }
+}
+
+// Responsive styles
+@media (max-width: 1024px) {
+  .contact-section {
+    padding: 60px 0;
+    
+    .background-element1,
+    .background-element2 {
+      img {
+        max-width: 300px;
+      }
+    }
+    
+    .container {
+      gap: 30px;
+    }
+    
+    .form-container {
+      .title {
+        font-size: 32px;
+      }
+      
+      .subtitle {
+        font-size: 16px;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 40px 0;
+    
+    .background-element1 {
+      display: none;
+    }
+    
+    .background-element2 {
+      img {
+        max-width: 200px;
+      }
+    }
+    
+    .container {
+      flex-direction: column;
+      gap: 30px;
+      padding: 0 15px;
+    }
+    
+    .form-container {
+      .title {
+        font-size: 28px;
+        margin-bottom: 15px;
+      }
+      
+      .subtitle {
+        margin-bottom: 20px;
+      }
+    }
+    
+    .inputRow {
+      flex-direction: column;
+      gap: 15px;
+    }
+    
+    .contactInfo {
+      .contactItem {
+        h3 {
+          font-size: 20px;
+          margin-bottom: 15px;
+        }
+        
+        .phone,
+        .email {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 30px 0;
+    
+    .background-element2 {
+      display: none;
+    }
+    
+    .container {
+      padding: 0 10px;
+      gap: 20px;
+    }
+    
+    .form-container {
+      .title {
+        font-size: 24px;
+      }
+      
+      .subtitle {
+        font-size: 14px;
+      }
+    }
+    
+    .inputRow {
+      .input {
+        padding: 10px 12px;
+        font-size: 14px;
+        height: 45px;
+      }
+    }
+    
+    .textarea {
+      padding: 10px 12px;
+      font-size: 14px;
+    }
+    
+    .button {
+      padding: 10px 20px;
+      font-size: 14px;
+      height: 45px;
+    }
+    
+    .contactInfo {
+      .contactItem {
+        h3 {
+          font-size: 18px;
+        }
+        
+        .phone,
+        .email {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}

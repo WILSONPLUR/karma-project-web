@@ -1,0 +1,47 @@
+<section class="products-section">
+  <div class="background-element">
+    <img src="/img/bg-el-3.png" alt="" class="bg-image" />
+  </div>
+  
+  <div class="container">
+    <h2 class="title">
+      <span>Н</span>АШІ ТОВАРИ
+    </h2>
+    
+    <div class="swiper-wrapper">
+      <!-- Swiper container -->
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          {{ range .Site.Data.products.products }}
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="{{ .image }}" alt="{{ .alt }}" />
+              <h3>
+                {{ .name }}
+              </h3>
+              <ul>
+                {{ range .specs }}
+                <li>
+                  <span>{{ .label }}</span> <span>{{ .value }}</span>
+                </li>
+                {{ end }}
+              </ul>
+              <a href="/catalog/{{ .id }}" class="button">
+                Докладніше
+              </a>
+            </div>
+          </div>
+          {{ end }}
+        </div>
+      </div>
+      
+      <!-- Navigation arrows -->
+      <div class="swiper-button-prev-custom">
+        <img src="/img/nav_arrow.svg" alt="navigation prev arrow" />
+      </div>
+      <div class="swiper-button-next-custom">
+        <img src="/img/nav_arrow.svg" alt="navigation next arrow" />
+      </div>
+    </div>
+  </div>
+</section>

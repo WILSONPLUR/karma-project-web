@@ -9,10 +9,11 @@
   {{- with $assets.css }}
   {{ $css := resources.Get "css/main.css" }}
   <link rel="stylesheet" href="{{ relURL . }}">
-  <link rel="preload" href="/fonts/Montserrat-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>{{ end -}} 
+  <link rel="preload" href="/fonts/Montserrat-VariableFont_wght.ttf" as="font" type="font/ttf" crossorigin>{{ end -}}
+  <link rel="stylesheet" href="/js/swiper-bundle.min.css">
 </head>
 
-<body class="font-family-montserra">
+<body class="font-sans">
 
   {{ block "header" . }}{{ partial "nav" . }}{{end}}
 
@@ -24,6 +25,7 @@
   {{ with $script.js }}
   <script src="{{ relURL . }}"></script>
   {{ end }}
+  <script src="/js/swiper-bundle.min.js"></script>
 </body>
 
 </html>
