@@ -11,6 +11,7 @@ module.exports = {
 				inter: ['Inter', 'sans-serif'],
 				montserrat: ['Montserrat', 'sans-serif'],
 				unbounded: ['Unbounded', 'sans-serif'],
+				wallpoet: ['Wallpoet', 'sans-serif'],
 			},
 		},
 		fontFamily: {

@@ -90,12 +90,11 @@
 /* Uncomment out the line below to help debug layout issues */
 /*@use './imports/_debug';*/
 
-@import "tailwindcss/preflight";
-@tailwind utilities;
-
 @layer base {
   /* Set default fonts */
   html, body {
     font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+    box-sizing: border-box;
+    overflow-x: hidden;
   }
 }
