@@ -1,4 +1,21 @@
 <header class="bg-[#020303] py-[26px] flex justify-center mx-auto">
+  <style>
+    .nav-link {
+      position: relative;
+      display: inline-block;
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 58px;
+      height: 2px;
+      background-color: #ba0108;
+    }
+  </style>
   <div class="flex w-[1237px] justify-between items-center ">
     <a href="/" class="text-xl font-normal text-white font-inter">
       <img src="/logo.png" alt="logo" width="149" height="34" />
@@ -8,13 +25,11 @@
       <div class="relative group">
         <a
           href="/catalog"
-          class="font-['Inter'] text-xl focus:font-bold text-white hover:text-[#ba0108] transition-colors"
+          class="nav-link font-['Inter'] text-xl focus:font-bold text-white hover:text-[#ba0108] transition-colors"
         >
           Каталог
         </a>
-        <div
-          class="hidden absolute left-0 top-full mt-2 text-black bg-white rounded-md shadow-lg group-hover:block"
-        >
+        <div class="hidden absolute left-0 top-full mt-2 text-black bg-white rounded-md shadow-lg group-hover:block">
           <div class="flex gap-6 px-4 py-3 w-full">
             <a href="#" class="hover:text-[#ba0108]">Політні стеки</a>
             <a href="#" class="hover:text-[#ba0108]">Відеопередавачі VTX</a>
@@ -24,19 +39,19 @@
       </div>
       <a
         href="/faq"
-        class="font-['Inter'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
+        class="nav-link font-['Inter'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
       >
         FAQ
       </a>
       <a
         href="/knowledge-base"
-        class="font-['Inter'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
+        class="nav-link font-['Inter'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
       >
         База знань
       </a>
       <a
         href="/contact"
-        class="font-['Inter'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
+        class="nav-link font-['Inter'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
       >
         Контакти
       </a>
