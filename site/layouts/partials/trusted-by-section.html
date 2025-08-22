@@ -1,11 +1,26 @@
-<section class="bg-[#f9f9f9] py-12">
-    <div class="max-w-[1237px] mx-auto px-5">
-        <h3 class="mb-6 text-2xl text-center font-family-unbounded md:text-3xl">Нам довіряють</h3>
-        <div class="grid grid-cols-2 gap-6 justify-items-center items-center sm:grid-cols-3 md:grid-cols-4">
-            <img src="/img/magura.png" alt="magура" class="w-auto h-12" />
-            <img src="/img/toro.png" alt="toro" class="w-auto h-12" />
-            <img src="/img/mriadrone.png" alt="mriadrone" class="w-auto h-12" />
-            <img src="/img/stack.png" alt="stack" class="w-auto h-12" />
+<section class="trusted-by-section">
+  <div class="container">
+    <h2 class="title">
+      <span>Н</span>АМ ДОВІРЯЮТЬ
+    </h2>
+    
+    <div class="swiper-wrapper">
+      <div class="swiper-container-trusted">
+        <div class="swiper-wrapper">
+          {{ range .Site.Data.trusted_companies.companies }}
+          <div class="swiper-slide">
+            <div class="logo-container">
+              <img src="{{ .logo }}" alt="{{ .alt }}" />
+              <p>{{ .name }}</p>
+            </div>
+          </div>
+          {{ end }}
         </div>
+        
+        <!-- Pagination -->
+        <div class="swiper-pagination-trusted"></div>
+      </div>
     </div>
+  </div>
+>>>>>>> main
 </section>

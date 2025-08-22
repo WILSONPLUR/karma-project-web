@@ -8,19 +8,14 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        "unbounded": ["Unbounded", "sans-serif"],
-        "montserrat": ["Montserrat", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
+        montserrat: ["Montserrat", "sans-serif"],
+        unbounded: ["Unbounded", "sans-serif"],
+        wallpoet: ["Wallpoet", "sans-serif"],
       },
-      colors: {
-        "karma-red": "#dc2626",
-        "karma-black": "#1f2937",
-      },
-      screens: {
-        "sm": "560px",
-        "md": "800px",
-        "lg": "960px",
-        "xl": "1240px",
-      },
+    },
+    fontFamily: {
+      sans: ["Montserrat", "sans-serif"],
     },
   },
   plugins: [],

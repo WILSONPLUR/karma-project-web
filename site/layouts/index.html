@@ -1,13 +1,19 @@
 {{ define "main" }}
 
-{{ partial "jumbotron" (dict "imageUrl" .Params.image "title" .Title "subtitle" .Params.subtitle) }}
+{{ partial "hero-section" . }}
 
-{{ partial "short-text" .Params.blurb}}
+{{ partial "about-section" . }}
 
-{{ partial "2-up" .Params }}
+{{ partial "results-section" . }}
 
-{{ partial "text-and-image" (dict "heading" .Params.values.heading "text" .Params.values.text "buttonText" "Read more" "buttonLink" "/values") }}
+{{ partial "product-catalog-section" . }}
 
-{{ partial "blog" . }}
+{{ partial "advantages-section" . }}
+
+{{ partial "our-products-section" . }}
+
+{{ partial "trusted-by-section" . }}
+
+{{ partial "contact-form" . }}
 
 {{ end }}

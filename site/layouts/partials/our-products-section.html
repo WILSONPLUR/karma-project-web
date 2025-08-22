@@ -1,40 +1,48 @@
-{{ $hideBgImage := .hideBgImage }}
-
-<section class="relative flex flex-col items-center bg-white py-[80px]">
-    {{ if not $hideBgImage }}
-    <img src="/img/bg-feature.png" alt="" class="object-cover absolute inset-0 w-full h-full -z-10" />
-    {{ end }}
-    <div class="w-full max-w-[1237px] px-5">
-        <h3 class="font-family-unbounded text-[40px] text-center text-[#020303] mb-6">
-            Наші продукти
-        </h3>
-        <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
-            <!-- Product 1 -->
-            <div class="p-6 bg-white rounded-lg shadow-lg">
-                <img src="/img/our-product1.png" alt="Product 1" class="object-cover mb-4 w-full h-48 rounded-lg" />
-                <h4 class="mb-2 text-xl font-medium font-family-montserrat">KARMA F405 V1</h4>
-                <p class="text-gray-600 font-family-montserrat">
-                    Компактний та продуктивний польотний стек для FPV-дронів
-                </p>
+<section class="products-section">
+  <div class="background-element">
+    <img src="/img/bg-el-3.png" alt="" class="bg-image" />
+  </div>
+  
+  <div class="container">
+    <h2 class="title">
+      <span>Н</span>АШІ ТОВАРИ
+    </h2>
+    
+    <div class="swiper-wrapper">
+      <!-- Swiper container -->
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          {{ range .Site.Data.products.products }}
+          <div class="swiper-slide">
+            <div class="card">
+              <img src="{{ .image }}" alt="{{ .alt }}" />
+              <h3>
+                {{ .name }}
+              </h3>
+              <ul>
+                {{ range .specs }}
+                <li>
+                  <span>{{ .label }}</span> <span>{{ .value }}</span>
+                </li>
+                {{ end }}
+              </ul>
+              <a href="/catalog/{{ .id }}" class="button">
+                Докладніше
+              </a>
             </div>
-
-            <!-- Product 2 -->
-            <div class="p-6 bg-white rounded-lg shadow-lg">
-                <img src="/img/our-product2.png" alt="Product 2" class="object-cover mb-4 w-full h-48 rounded-lg" />
-                <h4 class="mb-2 text-xl font-medium font-family-montserrat">KARMA F405 V2</h4>
-                <p class="text-gray-600 font-family-montserrat">
-                    Покращена версія з додатковими функціями
-                </p>
-            </div>
-
-            <!-- Product 3 -->
-            <div class="p-6 bg-white rounded-lg shadow-lg">
-                <img src="/img/our-product1.png" alt="Product 3" class="object-cover mb-4 w-full h-48 rounded-lg" />
-                <h4 class="mb-2 text-xl font-medium font-family-montserrat">KARMA F405 V3</h4>
-                <p class="text-gray-600 font-family-montserrat">
-                    Найновіша версія з максимальною продуктивністю
-                </p>
-            </div>
+          </div>
+          {{ end }}
         </div>
+      </div>
+      
+      <!-- Navigation arrows -->
+      <div class="swiper-button-prev-custom">
+        <img src="/img/nav_arrow.svg" alt="navigation prev arrow" />
+      </div>
+      <div class="swiper-button-next-custom">
+        <img src="/img/nav_arrow.svg" alt="navigation next arrow" />
+      </div>
     </div>
+  </div>
+
 </section>

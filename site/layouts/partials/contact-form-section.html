@@ -1,21 +1,39 @@
-{{ $hideBgImage := .hideBgImage }}
-
-<section class="relative flex flex-col items-center bg-white py-[80px]">
-    {{ if not $hideBgImage }}
-    <img src="/img/bg-feature.png" alt="" class="object-cover absolute inset-0 w-full h-full -z-10" />
-    {{ end }}
-    <div class="w-full max-w-[1237px] px-5">
-        <h3 class="font-family-unbounded text-[40px] text-center text-[#020303] mb-6">
-            Зв'яжіться з нами
-        </h3>
-        <div class="max-w-[640px] mx-auto">
-            <form class="grid gap-4">
-                <input class="border border-[#E0E0E0] rounded-md px-4 h-11" placeholder="Ваше ім'я" />
-                <input class="border border-[#E0E0E0] rounded-md px-4 h-11" placeholder="Email" type="email" />
-                <textarea class="border border-[#E0E0E0] rounded-md px-4 py-3" rows="5"
-                    placeholder="Повідомлення"></textarea>
-                <button class="h-11 rounded-md bg-[#ba0108] text-white px-6">Надіслати</button>
-            </form>
+<section class="contact-section">
+  <div class="background-element1">
+    <img src="/img/bg-el-6.png" alt="bg element 6" class="bgImage" width="400" height="400" />
+  </div>
+  <div class="background-element2">
+    <img src="/img/bg-el-5.png" alt="" class="bgImage" width="400" height="400" />
+  </div>
+  <div class="container">
+    <div class="form-container">
+      <h2 class="title">
+        <span class="titleHighlight">З</span>В'ЯЖІТЬСЯ З НАМИ
+      </h2>
+      <p class="subtitle">
+        Введіть будь-ласка Ваші данні і ми зв'яжемось з Вами
+      </p>
+      <form class="form">
+        <div class="inputRow">
+          <input type="text" placeholder="Ваше ім'я" class="input" />
+          <input type="tel" placeholder="+380" class="input" />
         </div>
+        <textarea placeholder="Ваше повідомлення" class="textarea" rows="5"></textarea>
+        <button type="submit" class="button">
+          Відправити
+        </button>
+      </form>
     </div>
+    <div class="contactInfo">
+      <div class="contactItem">
+        <h3>Контактний відділ</h3>
+        <a href="tel:+380956156713" class="phone">
+          +380 95 61 56713
+        </a>
+        <a href="mailto:Info@karma.flights" class="email">
+          Info@karma.flights
+        </a>
+      </div>
+    </div>
+  </div>
 </section>
