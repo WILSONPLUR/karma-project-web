@@ -1,38 +1,39 @@
-{{ $title := .title }}
-{{ $subtitle := .subtitle }}
+{{ $title := .title }} {{ $subtitle := .subtitle }}
 
 <section class="faq-hero" style="--faq-bg: url('/img/faq-hero-bg.png')">
-    <div class="absolute bottom-0 left-0 z-[2]">
-        <img src="/img/drone-left.png" alt="" class="w-[340px] h-[220px]" />
-    </div>
-    <div class="absolute bottom-0 right-0 z-[2]">
-        <img src="/img/drone-right.png" alt="" class="w-[340px] h-[220px]" />
-    </div>
-    <div class="max-w-[1055px] mx-auto pt-[80px] pb-[142px] ">
-        <h2 class="title text-5xl font-normal text-[#fefefe]"><span>П</span>{{ $title }}</h2>
-        <p class="max-w-[1155px] mx-auto text-[#fefefe] text-xl leading-[1.7] mt-3">
-            {{ $subtitle }}
-        </p>
-    </div>
+  <div class="absolute bottom-0 left-0 z-[2]">
+    <img src="/img/drone-left.png" alt="" class="w-[340px] h-[220px]" />
+  </div>
+  <div class="absolute bottom-0 right-0 z-[2]">
+    <img src="/img/drone-right.png" alt="" class="w-[340px] h-[220px]" />
+  </div>
+  <div class="max-w-[1055px] mx-auto pt-[80px] pb-[142px]">
+    <h2 class="title text-[48px] font-medium font-[Unbounded] text-[#fefefe] mb-[15px]">
+      <span>П</span>{{ $title }}
+    </h2>
+    <p class="max-w-[1155px] mx-auto text-[#fefefe] text-[20px] font-[Montserrat] font-normal leading-[1.7]">
+      {{ $subtitle }}
+    </p>
+  </div>
 </section>
 
 <style>
-    .faq-hero {
-        position: relative;
-        overflow: hidden;
-        text-align: center;
-        background-image: var(--faq-bg);
-        background-size: cover;
-        background-position: center;
-    }
+  .faq-hero {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    background-image: var(--faq-bg);
+    background-size: cover;
+    background-position: center;
+  }
 
-    .title {
-        font-family: 'Unbounded', sans-serif;
-        font-weight: 600;
-        margin-bottom: 40px;
-    }
+  .title {
+    font-family: 'Unbounded', sans-serif;
+    font-weight: 600;
+    margin-bottom: 40px;
+  }
 
-    .title span {
-        color: #ba0108;
-    }
+  .title span {
+    color: #ba0108;
+  }
 </style>
