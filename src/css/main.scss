@@ -1,5 +1,7 @@
 /*! TACHYONS v4.5.5 | http://tachyons.io */
 
+/* Global reset */
+
 /*
  *
  *      ________            ______
@@ -24,61 +26,10 @@
  */
 
 
-
 /* External Library Includes */
 @use './imports/_reset';
-
-/* Modules */
-@use './imports/_box-sizing';
-@use './imports/_images';
-@use './imports/_background-size';
-@use './imports/_background-position';
-@use './imports/_outlines';
-@use './imports/_borders';
-@use './imports/_border-radius';
-@use './imports/_border-style';
-@use './imports/_border-widths';
-@use './imports/_border-colors';
-@use './imports/_code';
-@use './imports/_coordinates';
-@use './imports/_clears';
-@use './imports/_display';
-@use './imports/_flexbox';
-@use './imports/_floats';
-@use './imports/_font-style';
-@use './imports/_font-weight';
-@use './imports/_forms';
-@use './imports/_heights';
-@use './imports/_line-height';
-@use './imports/_links';
-@use './imports/_lists';
-@use './imports/_max-widths';
-@use './imports/_widths';
-@use './imports/_overflow';
-@use './imports/_position';
-@use './imports/_opacity';
-@use './imports/_spacing';
-@use './imports/_text-decoration';
-@use './imports/_text-align';
-@use './imports/_text-transform';
-@use './imports/_type-scale';
-@use './imports/_typography';
-@use './imports/_utilities';
-@use './imports/_visibility';
-@use './imports/_white-space';
-@use './imports/_vertical-align';
-@use './imports/_states';
-@use './imports/_z-index';
-@use './imports/_responsive-nav';
-@use './imports/_styles';
-@use './imports/_buttons';
-@use './imports/_svg';
-@use './imports/_cms';
-@use './imports/_products-section';
-@use './imports/_trusted-by-section';
-@use './imports/_contact-form-section';
-
-/* Variables */
+/* Tailwind CSS */
+@use "tailwindcss";
 /* Importing here will allow you to override any variables in the modules */
 @use './imports/_colors';
 @use './imports/_media-queries';

@@ -1,0 +1,116 @@
+.faq-acc-root {
+  interpolate-size: allow-keywords;
+  max-inline-size: 100%;
+  margin-inline: auto;
+}
+
+.faq-acc-summary {
+  position: relative !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 23px 45px !important;
+  transition: background-color 400ms ease, color 400ms ease !important;
+  color: #020303 !important;
+}
+
+.faq-acc-summary::-webkit-details-marker {
+  display: none;
+}
+.faq-acc-summary::marker {
+  content: '';
+}
+
+.faq-acc-root[open] .faq-acc-summary {
+  background: #ba0108;
+  color: #fff;
+  padding-top: 23px;
+  padding-bottom: 23px;
+}
+
+.faq-acc-icon {
+  margin-left: auto;
+  width: 33px;
+  height: 18px;
+  transform: rotate(0deg);
+  transition: transform 500ms ease-in-out, filter 300ms ease-in-out;
+}
+.faq-acc-root[open] .faq-acc-icon {
+  transform: rotate(-180deg);
+  filter: brightness(0) invert(1);
+}
+
+.faq-acc-content {
+  overflow: hidden !important;
+  max-height: 0 !important;
+  opacity: 1 !important;
+  transition: max-height 600ms ease !important;
+  width: 100% !important;
+  padding: 12px 46px !important;
+}
+.faq-acc-root[open] .faq-acc-content {
+  max-height: 1000px;
+}
+
+.title {
+  font-family: 'Unbounded', sans-serif;
+  font-weight: 600;
+  margin-bottom: 40px;
+  span {
+    color: #ba0108;
+  }
+}
+
+.faq-acc-title { color: inherit; }
+
+@media (max-width: 1240px) {
+  .faq-acc-summary {
+    padding-left: 24px;
+    padding-right: 24px;
+  }
+}
+@media (max-width: 960px) {
+  .faq-acc-summary {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+@media (max-width: 800px) {
+  .faq-acc-summary {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+@media (max-width: 560px) {
+  .faq-acc-root {
+    padding-left: 16px;
+    padding-right: 16px;
+    max-inline-size: 100%;
+  }
+  .faq-acc-icon {
+    display: none;
+  }
+}
+
+.faq-hero {
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+  background-size: cover;
+  background-position: center;
+}
+
+.faq-acc-summary,
+.faq-acc-content {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.faq-acc-summary { display: flex; align-items: center; padding: 23px 45px !important; }
+.faq-acc-content { padding: 12px 46px !important; }
+
+.faq-acc-summary h4,
+.faq-acc-content p { margin: 0; }
+
+/* маркер summary прибрано */
+.faq-acc-summary::marker { content: ''; }
+.faq-acc-summary::-webkit-details-marker { display: none; }

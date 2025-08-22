@@ -1,34 +1,32 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ $.Site.Language.Lang }}">
-{{- $assets := .Site.Data.webpack.main -}}
+  {{- $assets := .Site.Data.webpack.main -}}
 
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>{{ block "title" . }}{{ .Title }}{{ end }}</title>
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&family=Wallpoet&display=swap" rel="stylesheet">
-  {{- with $assets.css }}
-  {{ $css := resources.Get "css/main.css" }}
-  <link rel="stylesheet" href="{{ relURL . }}">{{ end -}}
-  <link rel="stylesheet" href="/js/swiper-bundle.min.css">
-</head>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{{ block "title" . }}{{ .Title }}{{ end }}</title>
 
-<body class="font-sans">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&family=Wallpoet&display=swap"
+      rel="stylesheet"
+    />
 
-  {{ block "header" . }}{{ partial "nav" . }}{{end}}
+    {{- with $assets.css }} {{ $css := resources.Get "css/main.css" }}
+    <link rel="stylesheet" href="{{ relURL . }}" />
+    {{ end -}}
+    <link rel="stylesheet" href="/js/swiper-bundle.min.css" />
+  </head>
 
-  {{ block "main" . }}{{ end }}
-
-  {{ block "footer" . }}{{ partial "footer" . }}{{end}}
-
-  {{ $script := .Site.Data.webpack.main }}
-  {{ with $script.js }}
-  <script src="{{ relURL . }}"></script>
-  {{ end }}
-  <script src="/js/swiper-bundle.min.js"></script>
-</body>
-
+  <body class="font-sans">
+    {{ block "header" . }}{{ partial "nav" . }}{{end}} {{ block "main" . }}{{
+    end }} {{ block "footer" . }}{{ partial "footer" . }}{{end}} {{ $script :=
+    .Site.Data.webpack.main }} {{ with $script.js }}
+    <script src="{{ relURL . }}"></script>
+    {{ end }}
+    <script src="/js/swiper-bundle.min.js"></script>
+  </body>
 </html>
