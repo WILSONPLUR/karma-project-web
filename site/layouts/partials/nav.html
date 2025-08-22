@@ -1,4 +1,21 @@
 <header class="bg-[#020303] py-[26px] flex justify-center mx-auto">
+  <style>
+    .nav-link {
+      position: relative;
+      display: inline-block;
+    }
+
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 58px;
+      height: 2px;
+      background-color: #ba0108;
+    }
+  </style>
   <div class="flex w-[1237px] justify-between items-center ">
     <a href="/" class="text-xl font-normal text-white font-inter">
       <img src="/logo.png" alt="logo" width="149" height="34" />
@@ -6,15 +23,11 @@
 
     <nav class="flex items-center gap-[50px]">
       <div class="relative group">
-        <a
-          href="/catalog"
-          class="font-family-inter text-xl focus:font-bold text-white hover:text-[#ba0108] transition-colors"
-        >
+        <a href="/catalog"
+          class="nav-link font-family-inter text-xl focus:font-bold text-white hover:text-[#ba0108] transition-colors{{ if eq .RelPermalink "/catalog/" }} active{{ end }}">
           Каталог
         </a>
-        <div
-          class="hidden absolute left-0 top-full mt-2 text-black bg-white rounded-md shadow-lg group-hover:block"
-        >
+        <div class="hidden absolute left-0 top-full mt-2 text-black bg-white rounded-md shadow-lg group-hover:block">
           <div class="flex gap-6 px-4 py-3 w-full">
             <a href="#" class="hover:text-[#ba0108]">Політні стеки</a>
             <a href="#" class="hover:text-[#ba0108]">Відеопередавачі VTX</a>
@@ -22,32 +35,24 @@
           </div>
         </div>
       </div>
-      <a
-        href="/faq"
-        class="font-family-inter text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
-      >
+      <a href="/faq"
+        class="nav-link font-family-inter text-xl font-normal text-white hover:text-[#ba0108] transition-colors{{ if eq .RelPermalink "/faq/" }} active{{ end }}">
         FAQ
       </a>
-      <a
-        href="/guides"
-        class="font-family-inter text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
-      >
+      <a href="/guides"
+        class="nav-link font-family-inter text-xl font-normal text-white hover:text-[#ba0108] transition-colors{{ if eq .RelPermalink "/guides/" }} active{{ end }}">
         База знань
       </a>
-      <a
-        href="/contact"
-        class="font-family-inter text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
-      >
+      <a href="/contact"
+        class="nav-link font-family-inter text-xl font-normal text-white hover:text-[#ba0108] transition-colors{{ if eq .RelPermalink "/contact/" }} active{{ end }}">
         Контакти
       </a>
     </nav>
 
     <div class="flex gap-[50px] justify-center">
       <nav class="flex items-center gap-[30px]">
-        <a
-          href="tel:(067) 298-29-29"
-          class="font-montserrat text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
-        >
+        <a href="tel:(067) 298-29-29"
+          class="font-montserrat text-xl font-normal text-white hover:text-[#ba0108] transition-colors">
           (067) 298-29-29
         </a>
         <div class="text-sm text-white/80">UA | EN</div>
