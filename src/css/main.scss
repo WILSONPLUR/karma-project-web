@@ -1,5 +1,7 @@
 /*! TACHYONS v4.5.5 | http://tachyons.io */
 
+/* Global reset */
+
 /*
  *
  *      ________            ______
@@ -23,9 +25,11 @@
  *
  */
 
-
 /* External Library Includes */
 @use './imports/_reset';
+
+/* Tailwind CSS */
+@use "tailwindcss";
 
 /* Modules */
 @use './imports/_box-sizing';
@@ -73,6 +77,7 @@
 @use './imports/_buttons';
 @use './imports/_svg';
 @use './imports/_cms';
+@use './imports/_faq';
 @use './imports/_products-section';
 @use './imports/_trusted-by-section';
 @use './imports/_contact-form-section';
