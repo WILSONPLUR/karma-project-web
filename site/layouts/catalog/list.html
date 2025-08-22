@@ -1,0 +1,11 @@
+{{ define "main" }}
+{{ partial "catalog-hero" . }}
+
+{{ partial "our-products-section" (dict "hideBgImage" true) }}
+
+{{ partial "catalog-why-choose" . }}
+
+{{ partial "catalog-knowledge-base" . }}
+
+{{ partial "catalog-faq" . }}
+{{ end }}

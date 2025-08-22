@@ -1,0 +1,13 @@
+{{ $contactsQuestions := slice
+(dict "question" "Як правильно налаштувати KARMA F405 V1?" "answer" "Для правильного налаштування рекомендуємо використовувати Betaflight Configurator та слідувати нашому гайду.")
+(dict "question" "Чи потрібні додаткові компоненти для KARMA F405 V1?" "answer" "KARMA F405 V1 включає всі необхідні компоненти для роботи. Додаткові компоненти залежать від ваших потреб.")
+(dict "question" "Яка гарантія на KARMA F405 V1?" "answer" "На KARMA F405 V1 надається гарантія 12 місяців від дати покупки.")
+(dict "question" "Чи можна використовувати KARMA F405 V1 для змагань?" "answer" "Так, KARMA F405 V1 ідеально підходить для змагань та професійного використання.")
+}}
+
+{{ partial "accordion" (dict
+"title" "Поширенні питання"
+"items" $contactsQuestions
+"className" "mt-[112px] mb-[80px]"
+"titleClassName" "!text-left"
+) }}

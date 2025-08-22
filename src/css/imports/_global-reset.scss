@@ -1,0 +1,53 @@
+
+* {
+  margin: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  font: inherit;
+  font-weight: inherit;
+}
+
+details > summary {
+  cursor: pointer;
+}
+summary {
+  list-style: none;
+}
+summary::marker {
+  content: '';
+}
+summary::-webkit-details-marker {
+  display: none;
+}
