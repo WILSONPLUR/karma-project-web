@@ -3,7 +3,7 @@
   <img
     src="/img/bg-el-1.png"
     alt=""
-    class="absolute z-[1] top-0 right-0 w-[350px] h-auto"
+    class="absolute z-[1] top-0 right-0 lg:w-[350px] max-[420px]:w-[100px] h-auto"
     width="350"
     height="360"
   />
@@ -15,32 +15,29 @@
     height="280"
   />
 
-  <div class="flex justify-center mx-auto px-5 relative z-[2]">
-    <div class="flex items-center justify-between gap-16">
+  <div class="w-[1237px] flex flex-col items-start mx-auto justify-center pt-[40px] mb-[64px] relative z-[2]">
+    <div class="flex max-[420px]:flex-col max-[420px]:justify-center items-center justify-between gap-16">
       <!-- Left Content -->
-      <div class="flex flex-col gap-5">
-        <div class=" font-bold leading-[1.1] text-black mb-6">
-          <span class="font-['Unbounded'] text-[#ba0108] block text-[64px] leading-[1.1] mb-2">
-            НОВИЙ СТЕК
+      <div class="flex flex-col gap-5 basis-[70%] max-[420px]:text-center">
+        <div class="font-bold leading-[1.1] text-black mb-2 xs:text-center">
+          <span class="font-['Unbounded'] text-[#ba0108] block lg:text-[64px] leading-[1.1] mb-2 max-[420px]:text-[32px] max-[420px]:text-center">
+           KARMA FLIGHTS
           </span>
-          <span class="font-['Unbounded'] text-black text-[52px] leading-[1.1]">
-            KARMA FLIGHTS
+          <span class="font-['Unbounded'] text-black lg:text-[40px] leading-[1.1] max-[420px]:text-[20px] max-[420px]:text-center">
+            НЕ ШУКАЙ КОМПРОМІСІВ
           </span>
         </div>
-        <p class="font-['Unbounded'] text-xl font-[300] text-black mb-8">
+        <p class="font-['Unbounded'] lg:text-xl max-[420px]:text-[16px] font-[300] text-black mb-8">
           Високотехнологічне українське виробництво
         </p>
-        <button class="bg-[#ba0108] text-white font-sans text-2xl font-normal w-[387px] px-12 !mt-[40px] h-[70px] border-none rounded-[25px] cursor-pointer transition-all duration-300 ease-in-out hover:bg-[#9a0106] hover:-translate-y-1 active:translate-y-0 shadow-lg">
-          Докладніше
-        </button>
       </div>
 
       <!-- Right Image -->
-      <div class="flex justify-center items-center relative flex-1 max-w-[600px]">
+      <div class="flex justify-center items-center relative">
         <img
           src="/img/stack.png"
           alt="Karma Flights - високотехнологічне українське виробництво"
-          class="w-full h-full"
+          class="w-fit h-fit"
         />
       </div>
     </div>
