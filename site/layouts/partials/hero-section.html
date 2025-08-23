@@ -3,31 +3,32 @@
   <img
     src="/img/bg-el-1.png"
     alt=""
-    class="absolute z-[1] top-0 right-0 lg:w-[350px] max-[420px]:w-[100px] h-auto"
+    class="absolute z-[1] top-0 right-0 lg:w-[350px] md:w-[250px] sm:w-[150px] max-[420px]:w-[100px] h-auto"
     width="350"
     height="360"
   />
   <img
     src="/img/bg-el-2.png"
     alt=""
-    class="absolute z-[1] bottom-0 left-0 w-[320px] h-auto"
+    class="absolute z-[1] bottom-0 left-0 lg:w-[320px] md:w-[250px] sm:w-[200px] max-[420px]:w-[150px] h-auto"
     width="320"
     height="280"
   />
 
-  <div class="w-[1237px] flex flex-col items-start mx-auto justify-center pt-[40px] mb-[64px] relative z-[2]">
-    <div class="flex max-[420px]:flex-col max-[420px]:justify-center items-center justify-between gap-16">
+  <!-- Desktop Layout -->
+  <div class="hidden lg:block w-[1237px] mx-auto pt-[40px] mb-[64px] relative z-[2]">
+    <div class="flex items-center justify-between gap-16">
       <!-- Left Content -->
-      <div class="flex flex-col gap-5 basis-[70%] max-[420px]:text-center">
-        <div class="font-bold leading-[1.1] text-black mb-2 xs:text-center">
-          <span class="font-['Unbounded'] text-[#ba0108] block lg:text-[64px] leading-[1.1] mb-2 max-[420px]:text-[32px] max-[420px]:text-center">
+      <div class="flex flex-col gap-5 basis-[70%]">
+        <div class="font-bold leading-[1.1] text-black mb-2">
+          <span class="font-['Unbounded'] text-[#ba0108] block text-[64px] leading-[1.1] mb-2">
            KARMA FLIGHTS
           </span>
-          <span class="font-['Unbounded'] text-black lg:text-[40px] leading-[1.1] max-[420px]:text-[20px] max-[420px]:text-center">
+          <span class="font-['Unbounded'] text-black text-[40px] leading-[1.1]">
             НЕ ШУКАЙ КОМПРОМІСІВ
           </span>
         </div>
-        <p class="font-['Unbounded'] lg:text-xl max-[420px]:text-[16px] font-[300] text-black mb-8">
+        <p class="font-['Unbounded'] text-xl font-[300] text-black mb-8">
           Високотехнологічне українське виробництво
         </p>
       </div>
@@ -37,7 +38,36 @@
         <img
           src="/img/stack.png"
           alt="Karma Flights - високотехнологічне українське виробництво"
-          class="w-fit h-fit"
+          class="w-fit h-fit max-[420px]:absolute"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile & Tablet Layout -->
+  <div class="block lg:hidden px-5 mx-auto w-full relative z-[2] py-8">
+    <div class="flex flex-col items-center text-center">
+      <!-- Main Title -->
+      <div class="font-bold leading-[1.1] text-black mb-6">
+        <span class="font-['Unbounded'] text-[#ba0108] block text-[32px] sm:text-[40px] md:text-[48px] leading-[1.1] mb-2">
+         KARMA FLIGHTS
+        </span>
+        <span class="font-['Unbounded'] text-black text-[20px] sm:text-[24px] md:text-[32px] leading-[1.1]">
+          НЕ ШУКАЙ КОМПРОМІСІВ
+        </span>
+      </div>
+      
+      <!-- Subtitle -->
+      <p class="font-['Unbounded'] text-[16px] sm:text-[18px] md:text-[20px] font-[300] text-black mb-8">
+        Високотехнологічне українське виробництво
+      </p>
+
+      <!-- Product Image -->
+      <div class="flex justify-center items-center relative">
+        <img
+          src="/img/stack.png"
+          alt="Karma Flights - високотехнологічне українське виробництво"
+          class="w-full max-w-[320px] sm:max-w-[380px] md:max-w-[450px] h-auto"
         />
       </div>
     </div>

@@ -1,5 +1,6 @@
 <footer class="bg-[#020303] py-12 relative">
-	<div class="w-[1237px] px-5 mx-auto">
+	<!-- Desktop Layout -->
+	<div class="hidden md:block w-[1237px] px-5 mx-auto">
 		<div class="flex justify-between pt-[26px]">
 			<div class="flex flex-col mt-20">
 				<a href="#" class="inline-block mb-4">
@@ -21,7 +22,7 @@
 						<span class="font-['Montserrat'] text-lg text-white opacity-80">Контактний відділ</span>
 					</div>
 					<div class="flex gap-4 items-center">
-						<a href="tel:+380956156713" class="font-mонтserrat text-xl text-white hover:text-[#ba0108]">+380
+						<a href="tel:+380956156713" class="font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">+380
 							95 61 56713</a>
 						<span class="font-['Montserrat'] text-lg text-white opacity-80">Контактний відділ</span>
 					</div>
@@ -58,6 +59,64 @@
 
 		<div class="pt-8 text-center">
 			<a href="#" class="font-inter text-lg text-[#929292] hover:text-[#ba0108]">Політика конфеденційності</a>
+		</div>
+	</div>
+
+	<!-- Mobile & Tablet Layout -->
+	<div class="block md:hidden px-5 mx-auto max-w-md">
+		<div class="flex flex-col items-center text-center">
+			<!-- Logo -->
+			<div class="mb-8">
+				<a href="#" class="inline-block">
+					<img src="/logo.png" alt="KARMA" class="h-8 w-auto" />
+				</a>
+			</div>
+
+			<!-- Navigation Menu -->
+			<nav class="flex flex-col gap-6 mb-8">
+				<a href="#" class="font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">Каталог</a>
+				<a href="#" class="font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">FAQ</a>
+				<a href="#" class="font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">База знань</a>
+				<a href="#" class="font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">Контакти</a>
+			</nav>
+
+			<!-- Language Switcher -->
+			<div class="flex items-center gap-2 mb-8">
+				<span class="font-['Montserrat'] text-xl text-[#ba0108] font-semibold">UA</span>
+				<span class="font-['Montserrat'] text-xl text-white">|</span>
+				<span class="font-['Montserrat'] text-xl text-white">EN</span>
+			</div>
+
+			<!-- Contact Section -->
+			<div class="mb-8">
+				<p class="font-['Montserrat'] text-base text-[#929292] mb-4">Зворотний зв'язок:</p>
+				<div class="flex flex-col gap-2">
+					<a href="tel:+380956156713" class="font-['Montserrat'] text-base text-white hover:text-[#ba0108]">+380 95 61 56713</a>
+					<a href="tel:+380956156713" class="font-['Montserrat'] text-base text-white hover:text-[#ba0108]">+380 95 61 56713</a>
+					<a href="tel:+380956156713" class="font-['Montserrat'] text-base text-white hover:text-[#ba0108]">+380 95 61 56713</a>
+				</div>
+			</div>
+
+			<!-- Social Media Icons -->
+			<div class="flex justify-center gap-4 mb-8">
+				<a href="#" aria-label="Facebook" class="flex justify-center items-center w-[38px] h-[38px] rounded-full">
+					<img src="/facebook.svg" alt="facebook" width="24" height="24" />
+				</a>
+				<a href="#" aria-label="Telegram" class="flex justify-center items-center w-[38px] h-[38px] rounded-full">
+					<img src="/signal.png" alt="signal" width="24" height="24" />
+				</a>
+				<a href="#" aria-label="Instagram" class="flex justify-center items-center w-[38px] h-[38px] rounded-full">
+					<img src="/insta.svg" alt="instagram" width="24" height="24" />
+				</a>
+				<a href="#" aria-label="WhatsApp" class="flex justify-center items-center w-[38px] h-[38px] rounded-full">
+					<img src="/whatsapp.svg" alt="whatsapp" width="24" height="24" />
+				</a>
+			</div>
+
+			<!-- Privacy Policy -->
+			<div class="text-center">
+				<a href="#" class="font-['Montserrat'] text-base text-[#929292] hover:text-[#ba0108]">Політика конфіденційності</a>
+			</div>
 		</div>
 	</div>
 </footer>

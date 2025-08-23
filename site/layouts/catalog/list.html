@@ -1,13 +1,38 @@
 {{ define "main" }}
-{{ partial "catalog-hero" . }}
+{{- $productSlug := .File.BaseFileName -}}
+{{- $categorySlug := .Parent.File.BaseFileName -}}
 
-{{ partial "our-products-section" (dict "hideBgImage" true) }}
+{{/* Always create product from page data to ensure content renders */}}
+{{- $currentProduct := dict 
+  "id" (.Params.product_id | default "unknown")
+  "name" .Title
+  "image" (.Params.image | default "/img/our-product1.png")
+  "alt" .Title
+  "specs" (.Params.specs | default (slice 
+    (dict "label" "Артикул" "value" (.Params.product_id | default "N/A"))
+    (dict "label" "Ціна" "value" (printf "%v %s" (.Params.price | default 0) (.Params.currency | default "грн")))
+    (dict "label" "Статус" "value" (cond (eq .Params.in_stock true) "В наявності" "Немає в наявності"))
+  ))
+-}}
 
-{{ partial "catalog-why-choose" . }}
+{{/* Get category data for context */}}
+{{- $products := index .Site.Data.products.categories $categorySlug -}}
 
-{{ partial "contact-modal.html" . }}
+{{/* Override with data file if product found */}}
+{{- if $products -}}
+  {{- range $products.products -}}
+    {{- $productNameSlug := .name | urlize -}}
+    {{- if or (eq $productNameSlug $productSlug) (eq .id $productSlug) -}}
+      {{- $currentProduct = . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
 
-{{ partial "catalog-knowledge-base" . }}
+{{/* Product Hero Section - ONLY the designed section */}}
+{{ partial "product-hero-detailed" (dict 
+  "context" . 
+  "product" $currentProduct 
+  "category" $products
+) }}
 
-{{ partial "catalog-faq" . }}
 {{ end }}

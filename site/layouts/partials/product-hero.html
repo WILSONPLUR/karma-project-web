@@ -1,0 +1,64 @@
+{{- $product := .product -}}
+{{- $category := .category -}}
+{{- $context := .context -}}
+
+<section class="bg-gradient-to-br from-blue-50 to-indigo-100 py-16 lg:py-24">
+  <div class="max-w-[1440px] mx-auto px-4">
+    <div class="grid lg:grid-cols-2 gap-12 items-center">
+      <!-- Product Image -->
+      <div class="order-2 lg:order-1">
+        <div class="relative">
+          <img 
+            src="{{ $product.image | default "/img/default-product.png" }}" 
+            alt="{{ $product.alt | default $product.name }}"
+            class="w-full h-auto rounded-2xl shadow-2xl"
+          />
+          <div class="absolute -bottom-4 -right-4 bg-white rounded-full p-4 shadow-lg">
+            <svg class="w-8 h-8 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Product Info -->
+      <div class="order-1 lg:order-2">
+        <div class="mb-4">
+          <span class="inline-block bg-blue-100 text-blue-800 text-sm font-medium px-3 py-1 rounded-full mb-4">
+            {{ $category.name }}
+          </span>
+        </div>
+        
+        <h1 class="text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+          {{ $product.name }}
+        </h1>
+        
+        <p class="text-xl text-gray-600 mb-8 leading-relaxed">
+          {{ $category.description | default "Політний стек спрощує монтаж та підключення електроніки в дроні, роблячи його ідеальним рішенням як для досвідчених пілотів, так і для початківців." }}
+        </p>
+
+        <!-- Quick Specs -->
+        {{- if $product.specs -}}
+        <div class="grid grid-cols-2 gap-4 mb-8">
+          {{- range first 4 $product.specs -}}
+          <div class="bg-white rounded-lg p-4 shadow-sm border">
+            <div class="text-sm text-gray-500 mb-1">{{ .label }}</div>
+            <div class="font-semibold text-gray-900">{{ .value }}</div>
+          </div>
+          {{- end -}}
+        </div>
+        {{- end -}}
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <button class="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
+            Замовити зараз
+          </button>
+          <button class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-blue-50 transition-colors">
+            Технічні характеристики
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

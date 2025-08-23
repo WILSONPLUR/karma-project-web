@@ -1,0 +1,73 @@
+{{- $items := .items -}}
+{{- $title := .title -}}
+{{- $titleClassName := .titleClassName -}}
+{{- $className := .className -}}
+
+<div class="{{ $className }}">
+  {{- if $title -}}
+  <h2 class="{{ $titleClassName | default "text-3xl font-bold text-center mb-12" }}">
+    {{ $title }}
+  </h2>
+  {{- end -}}
+  
+  <div class="max-w-4xl mx-auto">
+    <div class="space-y-4">
+      {{- range $index, $item := $items -}}
+      <div class="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+        <button 
+          class="accordion-trigger w-full px-6 py-4 text-left flex items-center justify-between hover:bg-gray-50 focus:outline-none focus:bg-gray-50 transition-colors"
+          data-target="accordion-{{ $index }}"
+        >
+          <span class="font-semibold text-gray-900 pr-4">{{ $item.question }}</span>
+          <svg class="accordion-icon w-5 h-5 text-gray-500 transform transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </button>
+        <div 
+          id="accordion-{{ $index }}" 
+          class="accordion-content hidden px-6 pb-4"
+        >
+          <div class="text-gray-600 leading-relaxed">
+            {{ $item.answer | markdownify }}
+          </div>
+        </div>
+      </div>
+      {{- end -}}
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const accordionTriggers = document.querySelectorAll('.accordion-trigger');
+  
+  accordionTriggers.forEach(trigger => {
+    trigger.addEventListener('click', function() {
+      const targetId = this.getAttribute('data-target');
+      const content = document.getElementById(targetId);
+      const icon = this.querySelector('.accordion-icon');
+      
+      // Close all other accordions
+      accordionTriggers.forEach(otherTrigger => {
+        if (otherTrigger !== trigger) {
+          const otherTargetId = otherTrigger.getAttribute('data-target');
+          const otherContent = document.getElementById(otherTargetId);
+          const otherIcon = otherTrigger.querySelector('.accordion-icon');
+          
+          otherContent.classList.add('hidden');
+          otherIcon.classList.remove('rotate-180');
+        }
+      });
+      
+      // Toggle current accordion
+      if (content.classList.contains('hidden')) {
+        content.classList.remove('hidden');
+        icon.classList.add('rotate-180');
+      } else {
+        content.classList.add('hidden');
+        icon.classList.remove('rotate-180');
+      }
+    });
+  });
+});
+</script>
