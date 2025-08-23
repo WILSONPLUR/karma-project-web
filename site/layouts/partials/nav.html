@@ -46,13 +46,50 @@
 
     /* Dropdown menu positioning */
     .dropdown-menu {
-      min-width: 280px;
+      min-width: 400px;
       z-index: 1000;
-      pointer-events: none;
+      display: none;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
     }
 
-    .group:hover .dropdown-menu {
-      pointer-events: auto;
+    .dropdown-parent:hover .dropdown-menu,
+    .dropdown-menu:hover,
+    .dropdown-parent.active .dropdown-menu {
+      display: block;
+    }
+
+    /* Add gap between parent and dropdown to prevent flickering */
+    .dropdown-parent::before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 12px;
+      z-index: 999;
+    }
+
+    /* Dropdown item styling */
+    .dropdown-item {
+      position: relative;
+      cursor: pointer;
+      display: block;
+      text-align: center;
+    }
+
+    .dropdown-item:hover {
+      background-color: rgba(186, 1, 8, 0.1);
+    }
+
+    .dropdown-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 20%;
+      height: 60%;
+      width: 2px;
+      background-color: #ba0108;
     }
 
     /* Responsive breakpoints */
@@ -90,18 +127,19 @@
 
     <!-- Desktop Navigation -->
     <nav class="desktop-nav flex items-center gap-[20px]">
-      <div class="relative group">
+      <div class="relative dropdown-parent">
         <a
-          href="/catalog"
+          href="#"
+          onclick="toggleDropdown(event)"
           class="nav-link font-['Inter'] text-xl focus:font-bold text-white hover:text-[#ba0108] transition-colors"
         >
           Каталог
         </a>
-        <div class="dropdown-menu hidden absolute left-0 top-full mt-2 text-black bg-white rounded-md shadow-lg group-hover:block">
-          <div class="flex gap-6 px-4 py-3 w-full whitespace-nowrap">
-            <a href="#" class="hover:text-[#ba0108] transition-colors">Політні стеки</a>
-            <a href="#" class="hover:text-[#ba0108] transition-colors">Відеопередавачі VTX</a>
-            <a href="#" class="hover:text-[#ba0108] transition-colors">ESC</a>
+        <div class="dropdown-menu absolute left-0 top-full mt-3 bg-[#020303] rounded-lg border-2 ">
+          <div class="flex w-full">
+            <a href="/catalog/" class="dropdown-item flex-1 px-8 py-6 text-white font-['Inter'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">Політні стеки</a>
+            <a href="/catalog/" class="dropdown-item flex-1 px-8 py-6 text-white font-['Inter'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">Відеопередавачі VTX</a>
+            <a href="/catalog/" class="dropdown-item flex-1 px-8 py-6 text-white font-['Inter'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">ESC</a>
           </div>
         </div>
       </div>
@@ -209,6 +247,12 @@
       hamburger.classList.toggle('open');
     }
 
+    function toggleDropdown(event) {
+      event.preventDefault();
+      const dropdownParent = event.target.closest('.dropdown-parent');
+      dropdownParent.classList.toggle('active');
+    }
+
     // Close mobile menu when clicking on a link
     document.querySelectorAll('#mobileMenu a').forEach(link => {
       link.addEventListener('click', () => {
@@ -216,15 +260,51 @@
       });
     });
 
-    // Close mobile menu when clicking outside
+    // Close mobile menu and dropdown when clicking outside
     document.addEventListener('click', (e) => {
       const mobileMenu = document.getElementById('mobileMenu');
       const hamburger = document.querySelector('.hamburger');
+      const dropdownParent = document.querySelector('.dropdown-parent');
       
+      // Close mobile menu
       if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
         mobileMenu.classList.remove('open');
         hamburger.classList.remove('open');
       }
+
+      // Close dropdown menu
+      if (!dropdownParent.contains(e.target)) {
+        dropdownParent.classList.remove('active');
+      }
+    });
+
+    // Keep dropdown open when hovering over it
+    document.addEventListener('DOMContentLoaded', () => {
+      const dropdownParent = document.querySelector('.dropdown-parent');
+      const dropdownMenu = document.querySelector('.dropdown-menu');
+      
+      let hoverTimeout;
+
+      dropdownParent.addEventListener('mouseenter', () => {
+        clearTimeout(hoverTimeout);
+        dropdownParent.classList.add('active');
+      });
+
+      dropdownParent.addEventListener('mouseleave', () => {
+        hoverTimeout = setTimeout(() => {
+          dropdownParent.classList.remove('active');
+        }, 300); // 300ms delay before hiding
+      });
+
+      dropdownMenu.addEventListener('mouseenter', () => {
+        clearTimeout(hoverTimeout);
+      });
+
+      dropdownMenu.addEventListener('mouseleave', () => {
+        hoverTimeout = setTimeout(() => {
+          dropdownParent.classList.remove('active');
+        }, 300);
+      });
     });
   </script>
 </header>
