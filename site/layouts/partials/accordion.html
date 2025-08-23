@@ -6,7 +6,7 @@
 <section class="relative flex flex-col items-center bg-white {{ $className }}">
     <div class="w-full max-w-[1237px] px-5">
         {{ if $title }}
-        <h3 class="font-[Unbounded] font-medium text-[40px] text-center text-[#020303] mb-6 {{ $titleClassName }}">
+        <h3 class="font-[Unbounded] font-medium lg:text-[40px] max-[420px]:text-[24px] text-center text-[#020303] mb-6 {{ $titleClassName }}">
             {{ $title }}
         </h3>
         {{ end }}
@@ -16,11 +16,11 @@
             <div class="faq-acc-wrapper">
                 <details class="faq-acc-root group border-b border-[#303030]">
                     <summary class="flex cursor-pointer select-none faq-acc-summary">
-                        <h4 class=" font-[Montserrat] text-[24px] font-medium">{{ .question }}</h4>
+                        <h4 class=" font-[Montserrat] lg:text-[24px] max-[420px]:text-[16px] font-medium">{{ .question }}</h4>
                         <img src="/img/arrow.svg" alt="Arrow" width="20" height="20" class="faq-acc-icon" />
                     </summary>
                     <div class="faq-acc-content">
-                        <p class="font-[Montserrat] text-[18px] font-normal text-[#1f2937]">
+                        <p class="font-[Montserrat] lg:text-[18px] max-[420px]:text-[16px] font-normal text-[#1f2937]">
                             {{ .answer }}
                         </p>
                     </div>

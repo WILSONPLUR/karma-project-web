@@ -131,7 +131,7 @@
         <a
           href="#"
           onclick="toggleDropdown(event)"
-          class="nav-link lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-xl focus:font-bold text-white hover:text-[#ba0108] transition-colors"
+          class="nav-link lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-xl focus:font-bold text-white hover:text-[#ba0108] transition-colors {{ if or (eq .Page.Section "catalog") (hasPrefix .Page.RelPermalink "/catalog/") }}active{{ end }}"
         >
           Каталог
         </a>
@@ -145,19 +145,19 @@
       </div>
       <a
         href="/faq"
-        class="nav-link lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
+        class="nav-link lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "faq" }}active{{ end }}"
       >
         FAQ
       </a>
       <a
         href="/knowledge-base"
-        class="nav-link lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
+        class="nav-link lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "knowledge-base" }}active{{ end }}"
       >
         База знань
       </a>
       <a
         href="/contact"
-        class="nav-link lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
+        class="nav-link lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "contact" }}active{{ end }}"
       >
         Контакти
       </a>
