@@ -1,45 +1,48 @@
 {{ define "main" }}
 <section class="bg-white min-h-screen">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-    <!-- Breadcrumbs -->
-    <div class="mb-5 flex items-center justify-start gap-2 text-[var(--color-karma-red)] font-[Montserrat]">
-      <a class="font-[Montserrat] text-[20px] font-normal text-[#ba0108]" href="/">
-        Головна
-      </a>
-      <span class="text-[#ba0108]">&rarr;</span>
-      <a class="font-[Montserrat]  text-[20px] font-normal text-[#ba0108]" href="#">
-        База знань
-      </a>
-    </div>
+    <!-- Header with Breadcrumbs and Search -->
+    <div class="mb-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+      <!-- Breadcrumbs -->
+      <div class="flex items-center justify-start gap-2 text-[var(--color-karma-red)] font-[Montserrat]">
+        <a class="font-[Montserrat] text-[20px] font-normal text-[#ba0108]" href="/">
+          Головна
+        </a>
+        <span class="text-[#ba0108]">&rarr;</span>
+        <a class="font-[Montserrat] text-[20px] font-normal text-[#ba0108]" href="#">
+          База знань
+        </a>
+      </div>
 
-    <!-- Search Section -->
-    <div class="mb-12">
-      <div class="flex items-center max-w-2xl mx-auto">
+      <!-- Search Section -->
+      <div class="flex items-center max-w-md">
         <div class="relative flex-1">
           <input 
             type="text" 
             placeholder="Введіть текст" 
-            class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-l-lg focus:outline-none focus:border-[#ba0108] bg-white text-gray-800 placeholder-gray-500"
+            class="h-[47px] w-full !rounded-[20px] border border-[#E0E0E0] pl-4 pr-[120px] text-[20px] outline-none focus:border-[#ba0108] bg-white"
+            id="knowledge-search"
           />
+          <button class="absolute z-10 right-0 top-1/2 -translate-y-1/2 w-[99px] h-[47px] rounded-[20px] bg-[#ba0108] flex items-center justify-center cursor-pointer hover:bg-[#a00007] transition-colors">
+            <img src="/img/search-icon.svg" alt="search" width="30" height="30" class="filter brightness-0 invert" />
+          </button>
         </div>
-        <button class="bg-[#ba0108] hover:bg-[#9a0106] text-white px-8 py-4 rounded-r-lg transition-colors duration-200 flex items-center justify-center">
-          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
-          </svg>
-        </button>
       </div>
     </div>
 
     <!-- Accordion Sections -->
     <div class="max-w-5xl mx-auto space-y-0">
-      {{ range .Params.sections }}
+      {{ $categories := slice "БПЛА" "ВІДЕОПЕРЕДАВАЧІ" "ESC" }}
+      {{ $guides := where .Site.RegularPages "Section" "guides" }}
+      {{ range $index, $category := $categories }}
+      {{ $categoryGuides := where $guides ".Params.category" $category }}
       <div class="knowledge-section">
         <!-- Section Header -->
-        <div class="section-header {{ if .isFirst }}bg-[#ba0108]{{ else }}bg-[#4a4a4a]{{ end }} text-white">
+        <div class="section-header {{ if eq $index 0 }}bg-[#ba0108]{{ else }}bg-[#4a4a4a]{{ end }} text-white rounded-none">
           <button class="w-full flex items-center justify-between px-8 py-6 text-left focus:outline-none" 
                   onclick="toggleSection(this)">
-            <h2 class="text-2xl font-bold font-[Montserrat] tracking-wide">{{ .title }}</h2>
-            <svg class="w-8 h-8 transform transition-transform duration-300 section-chevron" 
+            <h2 class="text-2xl font-bold font-[Montserrat] tracking-wide">{{ $category }}</h2>
+            <svg class="w-8 h-8 transform transition-transform duration-300 section-chevron {{ if eq $index 0 }}rotate-180{{ end }}" 
                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
@@ -47,34 +50,34 @@
         </div>
 
         <!-- Section Content -->
-        <div class="section-content {{ if .isFirst }}block{{ else }}hidden{{ end }} bg-white">
-          {{ if .items }}
-          <div class="accordion-items" data-accordion-list>
-            {{ range .items }}
+        <div class="section-content {{ if eq $index 0 }}block{{ else }}hidden{{ end }} bg-white">
+          {{ if $categoryGuides }}
+          <div class="accordion-items">
+            {{ range $categoryGuides }}
             <div class="knowledge-item border-b border-gray-200 last:border-b-0">
-              <details class="knowledge-accordion group">
-                <summary class="flex cursor-pointer select-none items-center justify-between px-8 py-6 hover:bg-gray-50 transition-colors">
-                  <div class="flex items-center space-x-4">
-                    <svg class="w-4 h-4 text-[#ba0108] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                    </svg>
-                    <h3 class="text-lg font-medium text-gray-900 font-[Montserrat]">{{ .question }}</h3>
-                  </div>
-                  <svg class="w-5 h-5 text-gray-400 transform transition-transform duration-200 group-open:rotate-180" 
-                       fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              <div class="flex cursor-pointer select-none items-start px-8 py-6 hover:bg-gray-50 transition-colors"
+                   onclick="window.location.href='{{ .Permalink }}'">
+                <div class="flex items-start space-x-4 flex-1">
+                  <svg class="w-4 h-4 text-[#ba0108] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
                   </svg>
-                </summary>
-                <div class="px-8 pb-6 pl-16">
-                  <p class="text-gray-600 font-[Montserrat] leading-relaxed">{{ .answer }}</p>
+                  <div class="flex-1">
+                    <h3 class="text-lg font-medium text-gray-900 font-[Montserrat] mb-2">{{ .Title }}</h3>
+                    {{ if .Params.description }}
+                    <p class="text-sm text-gray-600 leading-relaxed font-[Montserrat]">{{ .Params.description }}</p>
+                    {{ end }}
+                  </div>
                 </div>
-              </details>
+                <div class="text-xs text-gray-500 text-right ml-4">
+                  <span class="text-[#ba0108] underline cursor-pointer">&gt;&gt;</span>
+                </div>
+              </div>
             </div>
             {{ end }}
           </div>
           {{ else }}
           <div class="px-8 py-12 text-center text-gray-500">
-            <p class="text-lg">Контент скоро буде додано</p>
+            <p class="text-lg font-[Montserrat]">Контент скоро буде додано</p>
           </div>
           {{ end }}
         </div>
@@ -88,7 +91,7 @@
 /* Section Header Styles */
 .section-header {
   border: none;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  box-shadow: none;
 }
 
 .section-header button:hover {
@@ -101,25 +104,26 @@
   border-bottom: 1px solid #e5e7eb;
 }
 
-/* Knowledge Accordion Styles */
-.knowledge-accordion summary {
-  list-style: none;
+/* Knowledge Item Styles */
+.knowledge-item:hover {
+  background-color: #f9fafb;
 }
 
-.knowledge-accordion summary::-webkit-details-marker {
-  display: none;
+.knowledge-item h3 {
+  transition: color 0.2s ease;
 }
 
-.knowledge-accordion[open] summary {
-  background-color: #fef2f2;
-}
-
-.knowledge-accordion[open] summary h3 {
+.knowledge-item:hover h3 {
   color: #ba0108;
 }
 
-.knowledge-accordion[open] summary svg:first-of-type {
-  transform: rotate(90deg);
+/* Search functionality */
+.knowledge-item.hidden {
+  display: none;
+}
+
+.knowledge-item.highlighted {
+  background-color: #fef2f2;
 }
 
 /* Responsive Design */
@@ -132,17 +136,16 @@
     font-size: 1.25rem;
   }
   
-  .knowledge-accordion summary {
+  .knowledge-item {
     padding: 1rem;
   }
   
-  .knowledge-accordion summary h3 {
+  .knowledge-item h3 {
     font-size: 1rem;
   }
   
-  .knowledge-accordion div {
-    padding-left: 2rem;
-    padding-right: 1rem;
+  .knowledge-item p {
+    font-size: 0.875rem;
   }
 }
 
@@ -151,13 +154,12 @@
     padding: 0.75rem;
   }
   
-  .knowledge-accordion summary {
+  .knowledge-item {
     padding: 0.75rem;
   }
   
-  .knowledge-accordion div {
-    padding-left: 1.5rem;
-    padding-right: 0.75rem;
+  .knowledge-item h3 {
+    font-size: 0.875rem;
   }
 }
 </style>
@@ -180,45 +182,36 @@ function toggleSection(button) {
   }
 }
 
-// Accordion functionality within sections
 document.addEventListener('DOMContentLoaded', function() {
-  const accordionLists = document.querySelectorAll('[data-accordion-list]');
-  
-  accordionLists.forEach(function(list) {
-    const items = list.querySelectorAll('.knowledge-accordion');
-    
-    items.forEach(function(item) {
-      item.addEventListener('toggle', function() {
-        if (item.open) {
-          items.forEach(function(other) {
-            if (other !== item) {
-              other.open = false;
-            }
-          });
-        }
-      });
-    });
-  });
-
   // Search functionality
-  const searchInput = document.querySelector('input[placeholder="Введіть текст"]');
-  const searchButton = document.querySelector('button svg').closest('button');
+  const searchInput = document.getElementById('knowledge-search');
+  const searchButton = searchInput?.nextElementSibling;
+  
+  function performSearch() {
+    const query = searchInput.value.trim();
+    if (query) {
+      searchInContent(query);
+    } else {
+      resetSearch();
+    }
+  }
   
   if (searchInput && searchButton) {
-    searchButton.addEventListener('click', function() {
-      const query = searchInput.value.trim();
-      if (query) {
-        // Simple search implementation - highlights matching text
-        searchInContent(query);
-      }
-    });
+    searchButton.addEventListener('click', performSearch);
     
     searchInput.addEventListener('keypress', function(e) {
       if (e.key === 'Enter') {
-        const query = searchInput.value.trim();
-        if (query) {
-          searchInContent(query);
-        }
+        performSearch();
+      }
+    });
+    
+    // Real-time search as user types
+    searchInput.addEventListener('input', function() {
+      const query = this.value.trim();
+      if (query.length > 2) {
+        searchInContent(query);
+      } else if (query.length === 0) {
+        resetSearch();
       }
     });
   }
@@ -234,17 +227,17 @@ function searchInContent(query) {
     let sectionHasMatch = false;
     
     items.forEach(function(item) {
-      const question = item.querySelector('h3').textContent.toLowerCase();
-      const answer = item.querySelector('p').textContent.toLowerCase();
+      const title = item.querySelector('h3')?.textContent.toLowerCase() || '';
+      const description = item.querySelector('p')?.textContent.toLowerCase() || '';
       
-      if (question.includes(query.toLowerCase()) || answer.includes(query.toLowerCase())) {
-        item.style.display = 'block';
-        item.style.backgroundColor = '#fef2f2';
+      if (title.includes(query.toLowerCase()) || description.includes(query.toLowerCase())) {
+        item.classList.remove('hidden');
+        item.classList.add('highlighted');
         sectionHasMatch = true;
         found = true;
       } else {
-        item.style.display = 'none';
-        item.style.backgroundColor = '';
+        item.classList.add('hidden');
+        item.classList.remove('highlighted');
       }
     });
     
@@ -252,23 +245,74 @@ function searchInContent(query) {
       content.classList.remove('hidden');
       content.classList.add('block');
       const chevron = section.querySelector('.section-chevron');
-      chevron.style.transform = 'rotate(180deg)';
+      if (chevron) {
+        chevron.style.transform = 'rotate(180deg)';
+      }
+    } else {
+      // Hide sections with no matches during search
+      content.classList.add('hidden');
+      content.classList.remove('block');
+      const chevron = section.querySelector('.section-chevron');
+      if (chevron) {
+        chevron.style.transform = 'rotate(0deg)';
+      }
     }
   });
   
-  if (!found) {
-    alert('Нічого не знайдено за запитом: ' + query);
-    // Reset display
-    resetSearch();
+  if (!found && query.length > 0) {
+    // Show a subtle message instead of alert
+    showSearchMessage('Нічого не знайдено за запитом: "' + query + '"');
   }
 }
 
 function resetSearch() {
   const items = document.querySelectorAll('.knowledge-item');
+  const sections = document.querySelectorAll('.knowledge-section');
+  
   items.forEach(function(item) {
-    item.style.display = 'block';
-    item.style.backgroundColor = '';
+    item.classList.remove('hidden', 'highlighted');
   });
+  
+  // Reset to default state (first section open)
+  sections.forEach(function(section, index) {
+    const content = section.querySelector('.section-content');
+    const chevron = section.querySelector('.section-chevron');
+    
+    if (index === 0) {
+      content.classList.remove('hidden');
+      content.classList.add('block');
+      if (chevron) chevron.style.transform = 'rotate(180deg)';
+    } else {
+      content.classList.add('hidden');
+      content.classList.remove('block');
+      if (chevron) chevron.style.transform = 'rotate(0deg)';
+    }
+  });
+  
+  hideSearchMessage();
+}
+
+function showSearchMessage(message) {
+  let messageEl = document.getElementById('search-message');
+  if (!messageEl) {
+    messageEl = document.createElement('div');
+    messageEl.id = 'search-message';
+    messageEl.className = 'text-center py-8 text-gray-500 font-[Montserrat]';
+    
+    const container = document.querySelector('.max-w-5xl');
+    if (container) {
+      container.appendChild(messageEl);
+    }
+  }
+  messageEl.textContent = message;
+  messageEl.style.display = 'block';
+}
+
+function hideSearchMessage() {
+  const messageEl = document.getElementById('search-message');
+  if (messageEl) {
+    messageEl.style.display = 'none';
+  }
 }
 </script>
 {{ end }}

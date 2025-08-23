@@ -121,7 +121,15 @@
 }
 
 .contact-info {
+  display: flex;
+  justify-content: space-between;
   margin-top: 8px;
+}
+
+.contact-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
 }
 
 .contact-label {
