@@ -1,21 +1,21 @@
 {{ define "main" }}
 <section class="bg-white min-h-screen">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+  <div class="lg:max-w-7xl max-[450px]:max-w-full mx-auto lg:px-8 max-[450px]:px-5 py-8">
     <!-- Header with Breadcrumbs and Search -->
     <div class="mb-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
       <!-- Breadcrumbs -->
       <div class="flex items-center justify-start gap-2 text-[var(--color-karma-red)] font-[Montserrat]">
-        <a class="font-[Montserrat] text-[20px] font-normal text-[#ba0108]" href="/">
+        <a class="font-[Montserrat] lg:text-[20px] max-[450px]:text-[16px] font-normal text-[#ba0108]" href="/">
           Головна
         </a>
-        <span class="text-[#ba0108]">&rarr;</span>
-        <a class="font-[Montserrat] text-[20px] font-normal text-[#ba0108]" href="#">
+        <span class="text-[#ba0108]">→</span>
+        <a class="font-[Montserrat] lg:text-[20px] max-[450px]:text-[16px] font-normal text-[#ba0108]" href="#">
           База знань
         </a>
       </div>
 
-      <!-- Search Section -->
-      <div class="flex items-center max-w-md">
+      <!-- Search Section - Hidden on mobile -->
+      <div class="hidden lg:flex items-center max-w-md">
         <div class="relative flex-1">
           <input 
             type="text" 
@@ -31,7 +31,7 @@
     </div>
 
     <!-- Accordion Sections -->
-    <div class="w-full absolute left-0 mx-auto space-y-0">
+    <div class="w-full lg:absolute lg:left-0 mx-auto space-y-0">
       {{ $categories := slice "БПЛА" "ВІДЕОПЕРЕДАВАЧІ" "ESC" }}
       {{ $guides := where .Site.RegularPages "Section" "guides" }}
       {{ range $index, $category := $categories }}
@@ -39,10 +39,10 @@
       <div class="knowledge-section">
         <!-- Section Header -->
         <div class="section-header {{ if eq $index 0 }}bg-[#ba0108]{{ else }}bg-[#4a4a4a]{{ end }} text-white rounded-none">
-          <button class="w-full flex items-center justify-between px-8 py-6 text-left focus:outline-none" 
+          <button class="w-full flex items-center justify-between lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 text-left focus:outline-none" 
                   onclick="toggleSection(this)">
-            <h2 class="text-[40px] font-bold font-['Unbounded'] tracking-wide">{{ $category }}</h2>
-            <svg class="w-8 h-8 transform transition-transform duration-300 section-chevron {{ if eq $index 0 }}rotate-180{{ end }}" 
+            <h2 class="lg:text-[40px] max-[450px]:text-[24px] font-bold font-['Unbounded'] tracking-wide">{{ $category }}</h2>
+            <svg class="lg:w-8 lg:h-8 max-[450px]:w-6 max-[450px]:h-6 transform transition-transform duration-300 section-chevron {{ if eq $index 0 }}rotate-180{{ end }}" 
                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
@@ -55,29 +55,29 @@
           <div class="accordion-items">
             {{ range $categoryGuides }}
             <div class="knowledge-item border-b border-gray-200 last:border-b-0">
-              <div class="flex cursor-pointer select-none items-start px-8 py-6 hover:bg-gray-50 transition-colors"
+              <div class="flex cursor-pointer select-none items-start lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 hover:bg-gray-50 transition-colors"
                    onclick="window.location.href='{{ .Permalink }}'">
                 <div class="flex items-start space-x-4 flex-1">
-                  <svg class="w-4 h-4 text-[#ba0108] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 24 24">
+                  <svg class="lg:w-4 lg:h-4 max-[450px]:w-3 max-[450px]:h-3 text-[#ba0108] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
                   </svg>
                   <div class="flex-1">
-                    <h3 class="text-[20px] pl-10 font-medium text-gray-900 font-['Montserrat'] mb-2">{{ .Title }}</h3>
+                    <h3 class="lg:text-[20px] max-[450px]:text-[16px] font-medium text-gray-900 font-['Montserrat'] mb-2">{{ .Title }}</h3>
                     {{ if .Params.description }}
-                    <p class="text-[20px] text-gray-600 leading-relaxed font-['Montserrat']">{{ .Params.description }}</p>
+                    <p class="lg:text-[20px] max-[450px]:text-[14px] text-gray-600 leading-relaxed font-['Montserrat']">{{ .Params.description }}</p>
                     {{ end }}
                   </div>
                 </div>
                 <div class="text-xs text-gray-500 text-right ml-4">
-                  <span class="text-[#ba0108] underline cursor-pointer">&gt;&gt;</span>
+                  <span class="text-[#ba0108] underline cursor-pointer lg:text-[16px] max-[450px]:text-[14px]">&gt;&gt;</span>
                 </div>
               </div>
             </div>
             {{ end }}
           </div>
           {{ else }}
-          <div class="px-8 py-12 text-center text-gray-500">
-            <p class="text-[20px] font-['Montserrat']">Контент скоро буде додано</p>
+          <div class="lg:px-8 lg:py-12 max-[450px]:px-6 max-[450px]:py-8 text-center text-gray-500">
+            <p class="lg:text-[20px] max-[450px]:text-[16px] font-['Montserrat']">Контент скоро буде додано</p>
           </div>
           {{ end }}
         </div>
@@ -126,40 +126,59 @@
   background-color: #fef2f2;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
+/* Mobile Responsive Design */
+@media (max-width: 450px) {
+  .section-header {
+    width: 100%;
+  }
+  
   .section-header button {
-    padding: 1rem;
+    padding: 1rem 1.5rem;
+    width: 100%;
   }
   
   .section-header h2 {
-    font-size: 1.25rem;
+    font-size: 24px !important;
+    font-weight: bold;
+  }
+  
+  .section-chevron {
+    width: 24px !important;
+    height: 24px !important;
   }
   
   .knowledge-item {
-    padding: 1rem;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
   }
   
   .knowledge-item h3 {
-    font-size: 1rem;
+    font-size: 16px !important;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
   }
   
   .knowledge-item p {
-    font-size: 0.875rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .section-header button {
-    padding: 0.75rem;
+    font-size: 14px !important;
+    line-height: 1.5;
+    color: #6b7280;
   }
   
-  .knowledge-item {
-    padding: 0.75rem;
+  .knowledge-item svg {
+    width: 12px !important;
+    height: 12px !important;
+    margin-top: 2px;
   }
   
+  .knowledge-item .flex {
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+  
+  /* Remove left padding from title */
   .knowledge-item h3 {
-    font-size: 0.875rem;
+    padding-left: 0 !important;
   }
 }
 </style>

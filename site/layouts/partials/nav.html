@@ -1,4 +1,4 @@
-<header class="bg-[#020303] py-[26px] flex justify-center mx-auto">
+<header class="bg-[#020303] lg:py-[26px] max-[420px]:py-[13px] flex justify-center mx-auto">
   <style>
     .nav-link {
       position: relative;
@@ -131,33 +131,33 @@
         <a
           href="#"
           onclick="toggleDropdown(event)"
-          class="nav-link font-['Inter'] text-xl focus:font-bold text-white hover:text-[#ba0108] transition-colors"
+          class="nav-link lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-xl focus:font-bold text-white hover:text-[#ba0108] transition-colors {{ if or (eq .Page.Section "catalog") (hasPrefix .Page.RelPermalink "/catalog/") }}active{{ end }}"
         >
           Каталог
         </a>
         <div class="dropdown-menu absolute left-0 top-full mt-3 bg-[#020303] rounded-lg border-2 ">
           <div class="flex w-full">
-            <a href="/catalog/politni-steky/" class="dropdown-item flex-1 px-8 py-6 text-white font-['Inter'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">Політні стеки</a>
-            <a href="/catalog/videoperedavachi-vtx/" class="dropdown-item flex-1 px-8 py-6 text-white font-['Inter'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">Відеопередавачі VTX</a>
-            <a href="/catalog/esc/" class="dropdown-item flex-1 px-8 py-6 text-white font-['Inter'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">ESC</a>
+            <a href="/catalog/politni-steky/" class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">Політні стеки</a>
+            <a href="/catalog/videoperedavachi-vtx/" class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">Відеопередавачі VTX</a>
+            <a href="/catalog/esc/" class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">ESC</a>
           </div>
         </div>
       </div>
       <a
         href="/faq"
-        class="nav-link font-['Inter'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
+        class="nav-link lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "faq" }}active{{ end }}"
       >
         FAQ
       </a>
       <a
         href="/knowledge-base"
-        class="nav-link font-['Inter'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
+        class="nav-link lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "knowledge-base" }}active{{ end }}"
       >
         База знань
       </a>
       <a
         href="/contact"
-        class="nav-link font-['Inter'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
+        class="nav-link lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "contact" }}active{{ end }}"
       >
         Контакти
       </a>
@@ -183,7 +183,7 @@
     <!-- Mobile Navigation -->
     <div class="mobile-nav flex items-center gap-4">
       <!-- Search Icon -->
-      <button class="text-white hover:text-[#ba0108] transition-colors">
+      <button class="text-white hover:text-[#ba0108] transition-colors" onclick="toggleMobileSearch()">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -198,44 +198,76 @@
     </div>
   </div>
 
+  <!-- Mobile Search Overlay -->
+  <div id="mobile-search-overlay" class="mobile-search-overlay fixed inset-0 bg-black/80 z-50 hidden">
+    <div class="bg-[#020303] p-6 rounded-b-3xl">
+      <div class="flex items-center justify-between mb-4">
+        <a href="/" class="text-xl font-normal text-white font-inter">
+          <img src="/logo.png" alt="logo" width="149" height="34" />
+        </a>
+        <button class="text-white hover:text-[#ba0108] transition-colors" onclick="toggleMobileSearch()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="relative">
+        <input 
+          type="text" 
+          placeholder="Пошук по сайту" 
+          class="w-full h-[60px] rounded-full font-['Montserrat'] border-0 pl-6 pr-[140px] text-lg outline-none bg-white text-black placeholder-gray-500"
+          id="mobile-search-input"
+        />
+        <button class="absolute right-0 top-0 h-[60px] w-[120px] rounded-full bg-[#ba0108] flex items-center justify-center cursor-pointer hover:bg-[#a00007] transition-colors">
+          <span class="text-white font-['Montserrat'] text-lg font-medium">Пошук</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
   <!-- Mobile Menu Overlay -->
-  <div id="mobileMenu" class="mobile-menu fixed top-0 right-0 w-full h-screen bg-[#020303] z-40 flex flex-col">
-    <!-- Close Button -->
-    <div class="absolute top-6 right-6 z-50">
-      <button onclick="toggleMobileMenu()" class="text-white hover:text-[#ba0108] transition-colors">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
+  <div id="mobileMenu" class="mobile-menu fixed inset-0 bg-[#020303] z-40 flex flex-col">
+    <div class="flex justify-end items-center p-4 shadow-[0_2px_8px_rgba(255,255,255,0.4)]">
+      <button class="hamburger flex flex-col justify-center items-center w-8 h-8 relative" onclick="toggleMobileMenu()">
+        <span class="block w-6 h-0.5 bg-white absolute rotate-45"></span>
+        <span class="block w-6 h-0.5 bg-white absolute -rotate-45"></span>
       </button>
     </div>
     
-    <!-- Mobile Menu Content -->
-    <div class="flex flex-col items-center justify-center h-full space-y-8">
-      <a href="/catalog" class="font-['Inter'] text-2xl font-normal text-white hover:text-[#ba0108] transition-colors">
-        Каталог
-      </a>
-      <a href="/faq" class="font-['Inter'] text-2xl font-normal text-white hover:text-[#ba0108] transition-colors">
-        FAQ
-      </a>
-      <a href="/knowledge-base" class="font-['Inter'] text-2xl font-normal text-white hover:text-[#ba0108] transition-colors">
-        База знань
-      </a>
-      <a href="/contact" class="font-['Inter'] text-2xl font-normal text-white hover:text-[#ba0108] transition-colors">
-        Контакти
-      </a>
-      
-      <!-- Mobile Contact Info -->
-      <div class="flex flex-col items-center space-y-4 mt-8">
-        <a href="tel:(067) 298-29-29" class="font-['Montserrat'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors">
-          (067) 298-29-29
-        </a>
-        <div class="flex items-center gap-3 text-xl text-white/80">
-          <button class="font-['Montserrat'] font-[300] cursor-pointer hover:text-[#ba0108] focus:text-[#ba0108] transition-colors">UA</button>
-          |
-          <button class="font-['Montserrat'] font-[300] cursor-pointer hover:text-[#ba0108] focus:text-[#ba0108] transition-colors">EN</button>
+    <nav class="flex-1 flex flex-col items-center p-6 space-y-6">
+      <div class="relative">
+        <button onclick="toggleMobileCatalog()" class="w-full flex justify-center items-center text-white font-['Unbounded'] text-xl font-normal py-2">
+          <span class="font-['Unbounded'] text-xl font-normal text-white">Каталог</span>
+          <svg class="w-5 h-5 transform transition-transform mobile-catalog-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="mobile-catalog-menu overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
+          <div class="mt-2 pl-4 space-y-2 flex flex-col items-center">
+            <a href="/catalog/politni-steky/" class="block text-white/80 font-['Unbounded'] text-lg py-2 hover:text-[#ba0108] transition-colors">Політні стеки</a>
+            <a href="/catalog/videoperedavachi-vtx/" class="block text-white/80 font-['Unbounded'] text-lg py-2 hover:text-[#ba0108] transition-colors">Відеопередавачі VTX</a>
+            <a href="/catalog/esc/" class="block text-white/80 font-['Unbounded'] text-lg py-2 hover:text-[#ba0108] transition-colors">ESC</a>
+          </div>
         </div>
       </div>
-    </div>
+      <a href="/faq" class="text-white font-['Unbounded'] text-xl font-normal hover:text-[#ba0108] transition-colors">FAQ</a>
+      <a href="/knowledge-base" class="text-white font-['Unbounded'] text-xl font-normal hover:text-[#ba0108] transition-colors">База знань</a>
+      <a href="/contact" class="text-white font-['Unbounded'] text-xl font-normal hover:text-[#ba0108] transition-colors">Контакти</a>
+      
+      <div class="absolute bottom-10 flex flex-col items-center">
+        <a href="tel:(067) 298-29-29" class="block text-white font-['Montserrat'] text-xl font-normal mb-4 hover:text-[#ba0108] transition-colors">(067) 298-29-29</a>
+        <div class="flex items-center gap-3 text-2xl text-white">
+          <button class="!font-[Unbounded] font-[300] cursor-pointer hover:text-[#ba0108] focus:text-[#ba0108] transition-colors">
+            UA
+          </button>
+          |
+          <button class="!font-[Unbounded] font-[300] cursor-pointer hover:text-[#ba0108] focus:text-[#ba0108] transition-colors">
+            EN
+          </button>
+        </div>
+      </div>
+    </nav>
   </div>
 
   <script>
@@ -251,6 +283,38 @@
       event.preventDefault();
       const dropdownParent = event.target.closest('.dropdown-parent');
       dropdownParent.classList.toggle('active');
+    }
+
+    function toggleMobileCatalog() {
+      const catalogMenu = document.querySelector('.mobile-catalog-menu');
+      const arrow = document.querySelector('.mobile-catalog-arrow');
+      
+      if (catalogMenu.classList.contains('max-h-0')) {
+        catalogMenu.classList.remove('max-h-0', 'opacity-0');
+        catalogMenu.classList.add('max-h-96', 'opacity-100');
+        arrow.classList.add('rotate-180');
+      } else {
+        catalogMenu.classList.add('max-h-0', 'opacity-0');
+        catalogMenu.classList.remove('max-h-96', 'opacity-100');
+        arrow.classList.remove('rotate-180');
+      }
+    }
+
+    function toggleMobileSearch() {
+      const searchOverlay = document.getElementById('mobile-search-overlay');
+      const body = document.body;
+      
+      if (searchOverlay.classList.contains('hidden')) {
+        searchOverlay.classList.remove('hidden');
+        body.style.overflow = 'hidden';
+        // Focus on search input after animation
+        setTimeout(() => {
+          document.getElementById('mobile-search-input').focus();
+        }, 100);
+      } else {
+        searchOverlay.classList.add('hidden');
+        body.style.overflow = '';
+      }
     }
 
     // Close mobile menu when clicking on a link

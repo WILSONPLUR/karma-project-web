@@ -56,7 +56,7 @@ class CustomSlider {
     
     // Calculate slide width based on slidesPerView
     const slideWidth = 100 / this.options.slidesPerView;
-    const totalWidth = (this.slides.length / this.options.slidesPerView) * 100;
+    const totalWidth = this.slides.length * slideWidth;
     
     // Set wrapper styles
     this.wrapper.style.display = 'flex';
@@ -71,6 +71,9 @@ class CustomSlider {
       slide.style.display = 'flex';
       slide.style.alignItems = 'center';
       slide.style.justifyContent = 'center';
+      slide.style.padding = '0 10px';
+      slide.style.margin = '0';
+      slide.style.boxSizing = 'border-box';
     });
   }
   
@@ -195,12 +198,75 @@ document.addEventListener('DOMContentLoaded', () => {
     slidesPerView: 4
   });
   
-  // Initialize products slider - show 2 slides with navigation arrows
+  // Initialize desktop products slider - show 2 slides
   new CustomSlider('.swiper-container-products', {
     autoplay: false,
     loop: true,
     slidesPerView: 2
   });
+  
+  // Initialize mobile slider
+  const mobileSlider = document.getElementById('mobile-slider');
+  const mobileWrapper = document.getElementById('mobile-slider-wrapper');
+  const mobilePrev = document.querySelector('.mobile-prev');
+  const mobileNext = document.querySelector('.mobile-next');
+  
+  if (mobileSlider && mobileWrapper) {
+    let currentSlide = 0;
+    const totalSlides = mobileWrapper.children.length;
+    
+    function updateSlider() {
+      const translateX = -currentSlide * 100;
+      mobileWrapper.style.transform = `translateX(${translateX}%)`;
+    }
+    
+    if (mobilePrev) {
+      mobilePrev.addEventListener('click', () => {
+        currentSlide = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1;
+        updateSlider();
+      });
+    }
+    
+    if (mobileNext) {
+      mobileNext.addEventListener('click', () => {
+        currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
+        updateSlider();
+      });
+    }
+    
+    // Touch/swipe support
+    let startX = 0;
+    let isDragging = false;
+    
+    mobileSlider.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      isDragging = true;
+    });
+    
+    mobileSlider.addEventListener('touchmove', (e) => {
+      if (!isDragging) return;
+      e.preventDefault();
+    });
+    
+    mobileSlider.addEventListener('touchend', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      
+      const endX = e.changedTouches[0].clientX;
+      const diffX = startX - endX;
+      
+      if (Math.abs(diffX) > 50) {
+        if (diffX > 0) {
+          // Swipe left - next slide
+          currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
+        } else {
+          // Swipe right - previous slide
+          currentSlide = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1;
+        }
+        updateSlider();
+      }
+    });
+  }
 });
 
 // Say hello

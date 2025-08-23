@@ -11,25 +11,27 @@
   <div class="lg:max-w-[1237px] max-[420px]:max-w-full max-[420px]:mx-5 mx-auto relative z-[2]">
     <div class="flex max-[420px]:flex-col items-center gap-5">
       <!-- Left Image -->
-      <div class="flex flex-col h-[400px]">
+      <div class="flex flex-col lg:h-[400px] max-[420px]:h-full max-420px:relative">
+        <!-- Desktop Image -->
         <img
           src="/img/about.png"
           alt="Про нас - українська компанія високотехнологічного виробництва"
           width="500"
           height="400"
-          class="lg:w-full lg:flex lg:h-full max-[420px]:w-full max-[420px]:h-1/2 max-[420px]:hidden rounded-t-[8px] object-cover shadow-lg"
+          class="hidden lg:block w-full h-full rounded-t-[8px] object-cover shadow-lg"
         />
+        <!-- Mobile Image -->
         <img 
-          src="../../assets/img/about-mobile.png"
+          src="/img/about-mobile.png"
           alt="Про нас - українська компанія високотехнологічного виробництва"
-          width="500"
+          width="350"
           height="400"
-          class="!lg:hidden lg:w-full lg:h-full max-[420px]:w-full max-[420px]:h-1/2 !max-[420px]:flex rounded-t-[8px] object-cover shadow-lg" />
+          class="block lg:hidden w-full h-auto object-contain mb-6" />
       </div>
 
       <!-- Right Content -->
       <div class="flex flex-1 flex-col w-full">
-        <h2 class="lg:text-[40px] max-[420px]:text-[24px] text-left font-['Unbounded'] text-[#020303] font-semibold leading-[1.2]">
+        <h2 class="lg:text-[40px] max-[420px]:text-[24px] text-left font-['Unbounded'] text-[#020303] font-semibold leading-[1.2] hero-title">
           <span class="text-[#ba0108]">П</span>РО НАС
         </h2>
         <div class="mb-6">
