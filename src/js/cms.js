@@ -8,6 +8,7 @@ import HomePreview from "./cms-preview-templates/home";
 import PostPreview from "./cms-preview-templates/post";
 import ProductsPreview from "./cms-preview-templates/products";
 import ValuesPreview from "./cms-preview-templates/values";
+import KnowledgeBasePreview from "./cms-preview-templates/knowledge-base";
 
 import FooterPreview from "./cms-preview-templates/footer";
 
@@ -37,6 +38,34 @@ const config = {
         { label: 'Image', name: 'image', widget: 'image', required: false },
         { label: 'Body', name: 'body', widget: 'markdown' }
       ]
+    },
+    {
+      name: 'knowledge-base',
+      label: 'База знань',
+      folder: 'site/content/guides',
+      create: true,
+      slug: '{{slug}}',
+      fields: [
+        { label: 'Назва', name: 'title', widget: 'string' },
+        { label: 'Опис', name: 'description', widget: 'text' },
+        { label: 'Дата публікації', name: 'date', widget: 'datetime' },
+        { 
+          label: 'Категорія', 
+          name: 'category', 
+          widget: 'select',
+          options: ['БПЛА', 'ВІДЕОПЕРЕДАВАЧІ', 'ESC']
+        },
+        { 
+          label: 'Теги', 
+          name: 'tags', 
+          widget: 'list',
+          required: false,
+          field: { label: 'Тег', name: 'tag', widget: 'string' }
+        },
+        { label: 'Зображення', name: 'image', widget: 'image', required: false },
+        { label: 'Чернетка', name: 'draft', widget: 'boolean', default: false },
+        { label: 'Контент', name: 'body', widget: 'markdown' }
+      ]
     }
   ]
 };
@@ -46,6 +75,7 @@ CMS.registerPreviewTemplate("home", HomePreview);
 CMS.registerPreviewTemplate("post", PostPreview);
 CMS.registerPreviewTemplate("products", ProductsPreview);
 CMS.registerPreviewTemplate("values", ValuesPreview);
+CMS.registerPreviewTemplate("knowledge-base", KnowledgeBasePreview);
 CMS.registerPreviewTemplate("footer", FooterPreview);
 
 // Initialize CMS with manual config since config.yml loading fails in dev mode
