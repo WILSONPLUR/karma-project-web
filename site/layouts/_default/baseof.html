@@ -18,7 +18,6 @@
     {{- with $assets.css }} {{ $css := resources.Get "css/main.css" }}
     <link rel="stylesheet" href="{{ relURL . }}" />
     {{ end -}}
-    <link rel="stylesheet" href="/js/swiper-bundle.min.css" />
   </head>
 
   <body class="font-sans">
@@ -27,6 +26,5 @@
     .Site.Data.webpack.main }} {{ with $script.js }}
     <script src="{{ relURL . }}"></script>
     {{ end }}
-    <script src="/js/swiper-bundle.min.js"></script>
   </body>
 </html>
