@@ -20,7 +20,7 @@
     <div class="flex items-center justify-between gap-16">
       <!-- Left Content -->
       <div class="flex flex-col gap-5 basis-[70%]">
-        <div class="font-bold leading-[1.1] text-black mb-2">
+        <div class="font-bold leading-[1.1] text-black mb-2 hero-title">
           <span class="font-['Unbounded'] text-[#ba0108] block text-[64px] leading-[1.1] mb-2">
            KARMA FLIGHTS
           </span>
@@ -48,7 +48,7 @@
   <div class="block lg:hidden px-5 mx-auto w-full relative z-[2] py-8">
     <div class="flex flex-col items-center text-center">
       <!-- Main Title -->
-      <div class="font-bold leading-[1.1] text-black mb-6">
+      <div class="font-bold leading-[1.1] text-black mb-6 hero-title">
         <span class="font-['Unbounded'] text-[#ba0108] block text-[32px] sm:text-[40px] md:text-[48px] leading-[1.1] mb-2">
          KARMA FLIGHTS
         </span>
@@ -73,3 +73,56 @@
     </div>
   </div>
 </section>
+
+<style>
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-title {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease-out;
+}
+
+.hero-title.animate {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+</style>
+
+<script>
+// Hero title animation
+function animateHeroTitle() {
+  const heroTitles = document.querySelectorAll('.hero-title');
+  
+  const observerOptions = {
+    threshold: 0.3,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('animate');
+      } else {
+        // Remove animation class when out of view for repeatable effect
+        entry.target.classList.remove('animate');
+      }
+    });
+  }, observerOptions);
+
+  heroTitles.forEach(title => {
+    observer.observe(title);
+  });
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', animateHeroTitle);
+</script>
