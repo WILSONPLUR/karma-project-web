@@ -182,21 +182,12 @@
   }
 
   nav.fixed::-webkit-scrollbar {
-    width: 4px;
+    display: none;
   }
 
-  nav.fixed::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 2px;
-  }
-
-  nav.fixed::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    border-radius: 2px;
-  }
-
-  nav.fixed::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
+  nav.fixed {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
   /* Кастомні стилі для markdown контенту */

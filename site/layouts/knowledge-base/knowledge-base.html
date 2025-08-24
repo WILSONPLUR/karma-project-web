@@ -1,8 +1,8 @@
 {{ define "main" }}
-<section class="bg-white min-h-screen">
+<section class="min-h-screen bg-white">
   <div class="lg:max-w-7xl max-[450px]:max-w-full mx-auto lg:px-8 max-[450px]:px-5 py-8">
     <!-- Header with Breadcrumbs and Search -->
-    <div class="mb-8 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+    <div class="flex flex-col gap-4 mb-8 lg:flex-row lg:items-center lg:justify-between">
       <!-- Breadcrumbs -->
       <div class="flex items-center justify-start gap-2 text-[var(--color-karma-red)] font-[Montserrat]">
         <a class="font-[Montserrat] lg:text-[20px] max-[450px]:text-[16px] font-normal text-[#ba0108]" href="/">
@@ -15,7 +15,7 @@
       </div>
 
       <!-- Search Section - Hidden on mobile -->
-      <div class="hidden lg:flex items-center max-w-md">
+      <div class="hidden items-center max-w-md lg:flex">
         <div class="relative flex-1">
           <input 
             type="text" 
@@ -31,7 +31,7 @@
     </div>
 
     <!-- Accordion Sections -->
-    <div class="w-full lg:absolute lg:left-0 mx-auto space-y-0">
+    <div class="mx-auto space-y-0 w-full lg:absolute lg:left-0">
       {{ $categories := slice "БПЛА" "ВІДЕОПЕРЕДАВАЧІ" "ESC" }}
       {{ $guides := where .Site.RegularPages "Section" "guides" }}
       {{ range $index, $category := $categories }}
@@ -54,10 +54,10 @@
           {{ if $categoryGuides }}
           <div class="accordion-items">
             {{ range $categoryGuides }}
-            <div class="knowledge-item border-b border-gray-200 last:border-b-0">
+            <div class="border-b border-gray-200 knowledge-item last:border-b-0">
               <div class="flex cursor-pointer select-none items-start lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 hover:bg-gray-50 transition-colors"
                    onclick="window.location.href='{{ .Permalink }}'">
-                <div class="flex items-start space-x-4 flex-1">
+                <div class="flex flex-1 items-start space-x-4">
                   <svg class="lg:w-4 lg:h-4 max-[450px]:w-3 max-[450px]:h-3 text-[#ba0108] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
                   </svg>
@@ -68,7 +68,7 @@
                     {{ end }}
                   </div>
                 </div>
-                <div class="text-xs text-gray-500 text-right ml-4">
+                <div class="ml-4 text-xs text-right text-gray-500">
                   <span class="text-[#ba0108] underline cursor-pointer lg:text-[16px] max-[450px]:text-[14px]">&gt;&gt;</span>
                 </div>
               </div>

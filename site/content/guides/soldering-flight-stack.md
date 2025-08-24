@@ -13,28 +13,28 @@ tags: ["паяння", "політний стек", "інструкція", "п�
 <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Опис помилок</h2>
 <ul class="list-disc pl-5 space-y-2 text-[#333]">
 <li class="flex gap-3 items-start">
-<img width="35" height="35" class="cursor-pointer color-black" src="/img/list-guide-one.png" alt="" />
+<img width="35" height="35" class="cursor-pointer" src="/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;"/>
 <p class="text-[16px] font-normal font-[Montserrat]">
 Перегрівання компонентів. Занадто висока температура паяльника або тривалий контакт може пошкодити мікросхеми та контакти на платі. Це найчастіша помилка.
 </p>
 </li>
 
 <li class="flex gap-3 items-start">
-<img width="35" height="35" class="cursor-pointer color-black" src="/img/list-guide-two.png" alt="" />
+<img width="35" height="35" src="/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Перегрівання компонентів. Занадто <span class="text-[#ba0108] underline">висока температура</span> паяльника або тривалий контакт може пошкодити мікросхеми та контакти на платі. Це найчастіша помилка.
 </p>
 </li>
 
 <li class="flex gap-3 items-start">
-<img width="35" height="35" class="cursor-pointer color-black" src="/img/list-guide-three.png" alt="" />
+<img width="35" height="35" src="/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Перегрівання компонентів. Занадто висока температура паяльника або тривалий контакт може пошкодити мікросхеми та контакти на платі. Це найчастіша помилка.
 </p>
 </li>
 
 <li class="flex gap-3 items-start">
-<img width="35" height="35" class="color-black" src="/img/list-guide-four.png" alt="" />
+<img width="35" height="35" src="/img/list-guide-four.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Перегрівання компонентів. Занадто висока температура паяльника або тривалий контакт може пошкодити мікросхеми та контакти на платі. Це найчастіша помилка.
 </p>
@@ -67,28 +67,28 @@ tags: ["паяння", "політний стек", "інструкція", "п�
 <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Інструкція</h2>
 <ul class="list-disc pl-5 space-y-2 text-[#333]">
 <li class="flex gap-3 items-start">
-<img width="35" height="35" class="color-black" src="/img/list-guide-one.png" alt="" />
+<img width="35" height="35" src="/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Встановіть температуру паяльника відповідно до типу припою. Для свинцевого припою зазвичай вистачає 300-350°C, для безсвинцевого – 350-400°C.
 </p>
 </li>
 
 <li class="flex gap-3 items-start">
-<img width="35" height="35" class="color-black" src="/img/list-guide-two.png" alt="" />
+<img width="35" height="35" src="/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Встановіть температуру паяльника відповідно до типу припою. Для свинцевого припою зазвичай вистачає 300-350°C, для безсвинцевого – 350-400°C.
 </p>
 </li>
 
 <li class="flex gap-3 items-start">
-<img width="35" height="35" class="color-black" src="/img/list-guide-three.png" alt="" />
+<img width="35" height="35" src="/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Встановіть температуру паяльника відповідно до типу припою. Для свинцевого припою зазвичай вистачає 300-350°C, для безсвинцевого – 350-400°C.
 </p>
 </li>
 
 <li class="flex gap-3 items-start">
-<img width="35" height="35" class="color-black" src="/img/list-guide-four.png" alt="" />
+<img width="35" height="35" src="/img/list-guide-four.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Встановіть температуру паяльника відповідно до типу припою. Для свинцевого припою зазвичай вистачає 300-350°C, для безсвинцевого – 350-400°C.
 </p>
@@ -114,5 +114,5 @@ tags: ["паяння", "політний стек", "інструкція", "п�
 
 <section id="markdown" class="scroll-mt-24 max-w-[694px] h-[259px] px-[25px] py-[22px] mt-10 mb-16 rounded-[10px] shadow-[0_4px_16px_0_rgba(0,0,0,0.1)]">
 <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-semibold mb-3">Markdown</h2>
-<img src="/img/markdown.png" alt="Markdown" class="w-full h-auto"  />
+<img src="/img/markdown.png" alt="Markdown" class="w-full h-auto" width="644" height="195" />
 </section> 
