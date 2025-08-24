@@ -3,9 +3,35 @@
 
 <div class="bg-black text-white py-[69px]">
     <div class="flex flex-col justify-center items-center max-w-[1237px] w-full mx-auto">
-        <h3 class="max-w-[909px] font-medium text-[48px] font-[Unbounded] uppercase text-center mb-[9px]">
-            Чому варто обрати {{ $categoryData.name | lower }} від karma?
-        </h3>
+        <div class="relative max-w-[909px] mb-[9px]">
+            <h3 class="font-medium text-[48px] font-[Unbounded] uppercase text-center relative z-10">
+                Чому варто обрати {{ $categoryData.name | lower }} від karma?
+            </h3>
+            <!-- Decorative lines -->
+            <div class="absolute top-0 left-0 w-full h-full flex items-center justify-center pointer-events-none">
+                <!-- Top left corner -->
+                <div class="absolute top-0 left-0 w-[100px] h-[2px] bg-[#ba0108]"></div>
+                <div class="absolute top-0 left-0 w-[2px] h-[30px] bg-[#ba0108]"></div>
+                
+                <!-- Top right corner -->
+                <div class="absolute top-0 right-0 w-[100px] h-[2px] bg-[#ba0108]"></div>
+                <div class="absolute top-0 right-0 w-[2px] h-[30px] bg-[#ba0108]"></div>
+                
+                <!-- Bottom left corner -->
+                <div class="absolute bottom-0 left-0 w-[100px] h-[2px] bg-[#ba0108]"></div>
+                <div class="absolute bottom-0 left-0 w-[2px] h-[30px] bg-[#ba0108]"></div>
+                
+                <!-- Bottom right corner -->
+                <div class="absolute bottom-0 right-0 w-[100px] h-[2px] bg-[#ba0108]"></div>
+                <div class="absolute bottom-0 right-0 w-[2px] h-[30px] bg-[#ba0108]"></div>
+                
+                <!-- Center decorative elements -->
+                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <div class="w-[20px] h-[2px] bg-[#ba0108] mb-2"></div>
+                    <div class="w-[2px] h-[20px] bg-[#ba0108] mx-auto"></div>
+                </div>
+            </div>
+        </div>
         <div>
             <ol class="flex flex-col gap-[25px] list-none">
                 {{ if eq $category "politni-steky" }}
