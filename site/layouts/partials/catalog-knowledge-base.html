@@ -1,43 +1,44 @@
 {{ $category := .Params.category | default "politni-steky" }}
 {{ $categoryData := index .Site.Data.products.categories $category }}
 
-<div class="flex justify-center items-center flex-col max-w-[1240px] w-full mx-auto my-[80px]">
-    <h3 class="title text-black text-[40px] font-[Unbounded] font-medium mb-[30px]">
+<div class="flex justify-center items-center flex-col max-w-[1240px] w-full mx-auto my-[80px] px-[40px]">
+    <h3
+        class="title text-black text-[28px] lg:text-[32px] xl:text-[40px] font-[Unbounded] font-medium mb-[30px] text-center">
         <span class="text-[#ba0108]">Б</span>АЗА ЗНАНЬ. {{ $categoryData.name | upper }}
     </h3>
 
-    <div class="flex justify-center gap-[21px]">
+    <div class="flex flex-col md:flex-row justify-center gap-[21px]">
         {{ if eq $category "politni-steky" }}
-        <div class="flex flex-col gap-[10px]">
-            <img src="/img/card-img-1.png" alt="" />
-            <h4 class="text-[24px] font-[Montserrat] font-medium">
+        <div class="flex flex-col gap-[10px] w-full max-w-[400px] ">
+            <img src="/img/card-img-1.png" alt="" class="w-full h-auto rounded" />
+            <h4 class="text-[16px] lg:text-[20px] font-[Montserrat] font-medium">
                 Як правильно паяти політний стек. Інструкція
             </h4>
-            <p class="text-[20px] font-[Montserrat] font-normal">
+            <p class="text-[14px] lg:text-[16px] font-[Montserrat] font-normal">
                 Короткий опис того, яких помилок потрібно уникати, поради від експерта
                 <a class="text-[#ba0108] ml-[8px]" href="/guides/vtx-setup-guide/">
                     &gt;&gt;
                 </a>
             </p>
         </div>
-        <div class="flex flex-col gap-[10px]">
-            <img src="/img/card-img-2.png" alt="" />
-            <h4 class="text-[24px] font-[Montserrat] font-medium">
+        <div class="flex flex-col gap-[10px] w-full max-w-[400px] ">
+            <img src="/img/card-img-2.png" alt="" class="w-full h-auto rounded" />
+            <h4 class="text-[16px] lg:text-[20px] font-[Montserrat] font-medium">
                 Повна інструкція зі збірки FPV дрона
             </h4>
-            <p class="text-[20px] font-[Montserrat] font-normal">
+            <p class="text-[14px] lg:text-[16px] font-[Montserrat] font-normal">
                 Детальний гайд з вибору компонентів та збірки дрона
                 <a class="text-[#ba0108] ml-[8px]" href="/guides/drone-assembly-guide/">
                     &gt;&gt;
                 </a>
             </p>
         </div>
-        <div class="flex flex-col gap-[10px] ">
-            <img src="/img/card-img-1.png" alt="" />
-            <h4 class="text-[24px] font-[Montserrat] font-medium">
+        <div class="flex flex-col gap-[10px] w-full max-w-[400px] ">
+            <img src="/img/card-img-1.png" alt="" class="w-full h-auto rounded" />
+            <h4 class="text-[16px] lg:text-[20px] font-[Montserrat] font-medium">
                 Налаштування VTX та антен
             </h4>
-            <p class="text-[20px] font-[Montserrat] font-normal mt-[30px]">
+            <p class="text-[14px] lg:text-[16px] font-[Montserrat] font-normal mt-[30px]">
                 Правильне підключення та налаштування відеопередавача
                 <a class="text-[#ba0108] ml-[8px]" href="/guides/vtx-setup-guide/">
                     &gt;&gt;

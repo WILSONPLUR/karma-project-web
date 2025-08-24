@@ -6,14 +6,14 @@
 {{ partial "catalog-hero" . }}
 
 <!-- Products Section -->
-<section class="py-16 bg-white">
-    <div class="max-w-[1237px] mx-auto px-5">
-        <h2 class="lg:text-[48px] max-[420px]:text-[28px] font-['Unbounded'] font-bold text-center mb-12 hero-title">
+<section class="py-16 bg-white px-0 lg:px-[40px]">
+    <div class="max-w-[1237px] mx-auto">
+        <h2 class="text-[28px] lg:text-[48px] font-['Unbounded'] font-bold text-center mb-12 hero-title">
             <span class="text-[#ba0108]">Н</span>АШІ ТОВАРИ
         </h2>
 
         <!-- Products Grid -->
-        <div class="grid lg:grid-cols-2 max-[420px]:grid-cols-1 gap-8 justify-items-center">
+        <div class="grid gap-8 justify-items-center md:grid-cols-2">
             {{ range $categoryData.products }}
             <div
                 class="bg-white w-full max-w-[500px] rounded-[10px] shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
@@ -24,7 +24,7 @@
 
                 <!-- Product Info -->
                 <div class="p-6">
-                    <h3 class="lg:text-[24px] max-[420px]:text-[18px] font-['Unbounded'] font-bold text-center mb-6">
+                    <h3 class="text-[18px] lg:text-[24px] font-['Unbounded'] font-bold text-center mb-6">
                         {{ .name }}
                     </h3>
 
@@ -32,9 +32,9 @@
                     <div class="mb-6 space-y-3">
                         {{ range .specs }}
                         <div class="flex justify-between items-center py-2 border-b border-gray-200">
-                            <span class="font-['Montserrat'] lg:text-[16px] max-[420px]:text-[14px] text-gray-600">{{
+                            <span class="font-['Montserrat'] text-[14px] lg:text-[16px] text-gray-600">{{
                                 .label }}</span>
-                            <span class="font-['Montserrat'] lg:text-[16px] max-[420px]:text-[14px] font-medium">{{
+                            <span class="font-['Montserrat'] text-[14px] lg:text-[16px] font-medium">{{
                                 .value }}</span>
                         </div>
                         {{ end }}
@@ -43,7 +43,7 @@
                     <!-- Action Button -->
                     <div class="text-center">
                         <a href="/catalog/{{ $categorySlug }}/{{ .id }}/"
-                            class="inline-block bg-[#ba0108] text-white px-8 py-3 rounded-full font-['Montserrat'] lg:text-[16px] max-[420px]:text-[14px] font-medium hover:bg-[#a00007] transition-colors">
+                            class="inline-block bg-[#ba0108] text-white px-8 py-3 rounded-full font-['Montserrat'] text-[14px] lg:text-[16px] font-medium hover:bg-[#a00007] transition-colors">
                             Докладніше
                         </a>
                     </div>
