@@ -1,64 +1,62 @@
 {{ $product := .product | default dict }}
 {{ $category := .category | default dict }}
+{{ $context := .context }}
 
-<section class="bg-[#f5f5f7] min-h-screen relative overflow-hidden">
-    <div class="max-w-[1200px] mx-auto px-6 py-12 relative z-[2]">
-        <div class="flex items-center justify-between h-full">
+{{/* Get product data with fallbacks */}}
+{{ $productName := $product.name | default $context.Title }}
+{{ $productImage := $product.image | default $context.Params.image | default "/img/Stack-product.png" }}
+{{ $categoryName := $category.name | default "Політні стеки" }}
+
+<section class="bg-[#f8f9fa] relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute top-0 right-0 w-1/2 h-full opacity-5">
+        <img src="/img/bg-el-1.png" alt="" class="w-full h-full object-cover" />
+    </div>
+    
+    <div class="max-w-[1237px] mx-auto px-5 py-16 relative z-[2]">
+        <!-- Breadcrumbs -->
+        <nav class="mb-8">
+            <div class="flex items-center text-sm text-gray-500 font-['Montserrat']">
+                <a href="/" class="hover:text-[#ba0108] transition-colors">Головна</a>
+                <span class="mx-2">→</span>
+                <a href="/catalog/" class="hover:text-[#ba0108] transition-colors">{{ $categoryName }}</a>
+                <span class="mx-2">→</span>
+                <span class="text-[#ba0108]">{{ $productName }}</span>
+            </div>
+        </nav>
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
             <!-- Product Image Section -->
-            <div class="flex-1 flex justify-center items-center">
-                <div class="bg-white rounded-[24px] p-8 shadow-lg max-w-[480px] relative">
-                    <img src="{{ $product.image | default "/img/our-product1.png" }}" alt="{{ $product.alt | default "KARMA F405 V1" }}" 
-                        class="w-full h-auto object-contain" />
-                    <!-- Blue info icon -->
-                    <div class="absolute bottom-4 right-4 w-8 h-8 bg-[#4285f4] rounded-full flex items-center justify-center">
-                        <span class="text-white text-sm font-bold">i</span>
-                    </div>
+            <div class="flex justify-center">
+                <div class="bg-white rounded-[20px] p-12 shadow-xl max-w-[500px] w-full">
+                    <img src="{{ $productImage }}" 
+                         alt="{{ $productName }}" 
+                         class="w-full h-auto object-contain" />
                 </div>
             </div>
 
             <!-- Product Info Section -->
-            <div class="flex-1 pl-12">
-                <h1 class="font-[Unbounded] text-[48px] font-bold text-[#333333] leading-[1.1] mb-6">
-                    Політний стек KARMA<br>
-                    F405 V1
+            <div class="space-y-8">
+                <h1 class="font-['Unbounded'] text-[36px] lg:text-[48px] font-bold text-black leading-[1.1] uppercase">
+                    {{ $productName }}
                 </h1>
                 
-                <p class="font-[Montserrat] text-[16px] leading-[1.6] text-[#666666] mb-8 max-w-[500px]">
-                    Політний стек спрощує монтаж та підключення електроніки в дроні, роблячи його ідеальним рішенням як для досвідчених пілотів, так і для початківців.
-                </p>
-
-                <!-- Product Info Cards -->
-                <div class="grid grid-cols-2 gap-4 mb-8">
-                    <!-- Артикул Card -->
-                    <div class="bg-white rounded-[12px] p-4 border border-[#e0e0e0]">
-                        <div class="text-[#999999] text-[12px] font-[Montserrat] mb-1">Артикул</div>
-                        <div class="text-[#333333] text-[16px] font-[Montserrat] font-medium">2233</div>
-                    </div>
+                <div class="space-y-6">
+                    <p class="font-['Montserrat'] text-[18px] leading-[1.6] text-gray-700">
+                        {{ $context.Params.description | default "Політний стек спрощує монтаж та підключення електроніки в дроні, роблячи його ідеальним рішенням як для досвідчених пілотів, так і для початківців." }}
+                    </p>
                     
-                    <!-- Ціна Card -->
-                    <div class="bg-white rounded-[12px] p-4 border border-[#e0e0e0]">
-                        <div class="text-[#999999] text-[12px] font-[Montserrat] mb-1">Ціна</div>
-                        <div class="text-[#333333] text-[16px] font-[Montserrat] font-medium">2500 грн</div>
-                    </div>
-                    
-                    <!-- Статус Card -->
-                    <div class="bg-white rounded-[12px] p-4 border border-[#e0e0e0] col-span-2">
-                        <div class="text-[#999999] text-[12px] font-[Montserrat] mb-1">Статус</div>
-                        <div class="text-[#333333] text-[16px] font-[Montserrat] font-medium">В наявності</div>
-                    </div>
+                    <p class="font-['Montserrat'] text-[18px] leading-[1.6] text-gray-700">
+                        {{ $context.Content | default "Він забезпечує стабільний політ, точне керування та ефективне розподілення потужності до моторів." }}
+                    </p>
                 </div>
 
-                <!-- Action Buttons -->
-                <div class="flex gap-4">
+                <!-- Action Button -->
+                <div class="pt-4">
                     <button
-                        onclick="window.openContactModal()"
-                        class="bg-[#4285f4] text-white font-[Montserrat] text-[14px] font-medium px-6 py-3 rounded-[8px] cursor-pointer transition-all duration-300 ease-in-out hover:bg-[#3367d6]">
-                        Замовити зараз
-                    </button>
-                    
-                    <button
-                        class="bg-transparent border border-[#4285f4] text-[#4285f4] font-[Montserrat] text-[14px] font-medium px-6 py-3 rounded-[8px] cursor-pointer transition-all duration-300 ease-in-out hover:bg-[#4285f4] hover:text-white">
-                        Технічні характеристики
+                        onclick="window.openContactModal && window.openContactModal()"
+                        class="bg-[#ba0108] text-white font-['Montserrat'] text-[16px] font-medium px-8 py-4 rounded-[50px] cursor-pointer transition-all duration-300 ease-in-out hover:bg-[#a00007] shadow-lg">
+                        Отримати пропозицію
                     </button>
                 </div>
             </div>

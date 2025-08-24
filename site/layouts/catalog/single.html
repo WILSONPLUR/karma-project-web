@@ -1,51 +1,30 @@
 {{ define "main" }}
-{{- $productSlug := .File.BaseFileName -}}
-{{- $categorySlug := .Parent.File.BaseFileName -}}
 
-{{/* Always create product from page data to ensure content renders */}}
+{{/* Create product data from page frontmatter */}}
 {{- $currentProduct := dict 
-  "id" (.Params.product_id | default "unknown")
+  "id" (.Params.product_id | default "2233")
   "name" .Title
   "image" (.Params.image | default "/img/our-product1.png")
   "alt" .Title
-  "specs" (.Params.specs | default (slice 
-    (dict "label" "Артикул" "value" (.Params.product_id | default "N/A"))
-    (dict "label" "Ціна" "value" (printf "%v %s" (.Params.price | default 0) (.Params.currency | default "грн")))
-    (dict "label" "Статус" "value" (cond .Params.in_stock "В наявності" "Немає в наявності"))
-  ))
+  "price" (.Params.price | default 2500)
+  "currency" (.Params.currency | default "грн")
+  "in_stock" (.Params.in_stock | default true)
+  "specs" (.Params.specs | default slice)
 -}}
 
-{{/* Get category data for context */}}
-{{- $products := index .Site.Data.products.categories $categorySlug -}}
+{{/* Get category data dynamically */}}
+{{- $categorySlug := .Params.category | default "politni-steky" -}}
+{{- $categoryData := index .Site.Data.products.categories $categorySlug -}}
+{{- $category := dict 
+  "name" ($categoryData.name | default "Товари")
+-}}
 
-{{/* Override with data file if product found */}}
-{{- if $products -}}
-  {{- range $products.products -}}
-    {{- $productNameSlug := .name | urlize -}}
-    {{- if or (eq $productNameSlug $productSlug) (eq .id $productSlug) -}}
-      {{- $currentProduct = . -}}
-    {{- end -}}
-  {{- end -}}
-{{- end -}}
-
-{{/* Product Hero Section - New detailed design */}}
+{{/* Product Hero Section */}}
 {{ partial "product-hero-detailed" (dict 
   "context" . 
   "product" $currentProduct 
-  "category" $products
+  "category" $category
 ) }}
-
-{{/* Product Features Section - Dark background with 3 columns */}}
-{{ partial "product-features-section" . }}
-
-{{/* Product Specifications - Tables with product images */}}
-{{ partial "product-specifications" . }}
-
-{{/* Cost Calculation Section - 3 pricing tables */}}
-{{ partial "product-cost-calculation" . }}
-
-{{/* Instructions/Downloads Section */}}
-{{ partial "product-instructions" . }}
 
 {{/* FAQ Section */}}
 <div class="bg-white py-[80px]">
@@ -76,6 +55,45 @@
     ) }}
   </div>
 </div>
+
+{{/* Product Content Section */}}
+{{ if .Content }}
+<section class="bg-white py-16">
+  <div class="max-w-[1237px] mx-auto px-5">
+    <div class="prose prose-lg max-w-none">
+      {{ .Content }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{/* Related Products Section */}}
+{{ $relatedProducts := where (where .Site.RegularPages "Section" "catalog") ".Params.category" .Params.category }}
+{{ $relatedProducts = $relatedProducts | complement (slice .) }}
+{{ if gt (len $relatedProducts) 0 }}
+<section class="bg-[#f9f9f9] py-16">
+  <div class="max-w-[1237px] mx-auto px-5">
+    <h2 class="font-['Unbounded'] text-[32px] font-medium mb-8 text-center">
+      <span class="text-[#ba0108]">С</span>ХОЖІ ТОВАРИ
+    </h2>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {{ range $relatedProducts | first 3 }}
+      <div class="bg-white rounded-lg p-6 shadow-lg">
+        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-48 object-contain mb-4" />
+        <h3 class="font-['Montserrat'] text-xl font-semibold mb-2">{{ .Title }}</h3>
+        <p class="text-gray-600 mb-4">{{ .Params.description }}</p>
+        <a href="{{ .Permalink }}" class="inline-block bg-[#ba0108] text-white px-6 py-2 rounded-full hover:bg-[#9a0106] transition-colors">
+          Детальніше
+        </a>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</section>
+{{ end }}
+
+{{/* Knowledge Base Section */}}
+{{ partial "catalog-knowledge-base" . }}
 
 {{/* Contact Form Section */}}
 {{ partial "contact-form-section" . }}
