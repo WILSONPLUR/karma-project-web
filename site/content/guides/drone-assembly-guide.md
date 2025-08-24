@@ -69,21 +69,21 @@ tags: ["БПЛА", "збірка", "FPV", "дрон", "інструкція"]
 <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Покрокова збірка</h2>
 <h3 class="font-[Montserrat] text-[18px] font-normal mb-3">Крок 1: Монтаж моторів</h3>
 <ul class="list-disc pl-5 space-y-2 text-[#333]">
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Встановіть мотори на раму згідно з діаграмою
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Затягніть болти з правильним моментом
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Перевірте напрямок обертання моторів
@@ -93,21 +93,21 @@ tags: ["БПЛА", "збірка", "FPV", "дрон", "інструкція"]
 
 <h3 class="font-[Montserrat] text-[18px] font-normal mb-3 mt-6">Крок 2: Встановлення ESC</h3>
 <ul class="list-disc pl-5 space-y-2 text-[#333]">
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Розмістіть ESC на рамі з вентиляцією
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Підключіть сигнальні дроти до політного контролера
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Зафіксуйте ESC на рамі
@@ -141,28 +141,28 @@ tags: ["БПЛА", "збірка", "FPV", "дрон", "інструкція"]
 <section id="testing" class="mt-10 scroll-mt-24">
 <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Тестування та налаштування</h2>
 <ul class="list-disc pl-5 space-y-2 text-[#333]">
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 <strong>Калібрування ESC</strong> - синхронізація моторів
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 <strong>Налаштування PID</strong> - стабільність польоту
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 <strong>Тест FPV системи</strong> - якість відео
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-four.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 <strong>Перший політ</strong> - перевірка всіх систем

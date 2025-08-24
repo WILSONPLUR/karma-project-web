@@ -1,17 +1,58 @@
+{{ $category := .Params.category | default "politni-steky" }}
+{{ $categoryData := index .Site.Data.products.categories $category }}
+
 <div class="flex justify-center items-center flex-col max-w-[1240px] w-full mx-auto my-[80px]">
-    <h3 class="title text-black text-[40px] font-[Unbounded] font-medium">
-        <span>Б</span>АЗА ЗНАНЬ. ПОЛІТНІ СТЕКИ
+    <h3 class="title text-black text-[40px] font-[Unbounded] font-medium mb-[30px]">
+        <span class="text-[#ba0108]">Б</span>АЗА ЗНАНЬ. {{ $categoryData.name | upper }}
     </h3>
 
-    <div class="flex gap-[21px]">
-        <div class="flex flex-col gap-2.5">
-            <img src="/img/card-img-1.png" alt="" width="400" height="238" />
+    <div class="flex justify-center gap-[21px]">
+        {{ if eq $category "politni-steky" }}
+        <div class="flex flex-col gap-[10px]">
+            <img src="/img/card-img-1.png" alt="" />
             <h4 class="text-[24px] font-[Montserrat] font-medium">
                 Як правильно паяти політний стек. Інструкція
             </h4>
             <p class="text-[20px] font-[Montserrat] font-normal">
                 Короткий опис того, яких помилок потрібно уникати, поради від експерта
-                <a class="text-[#ba0108] ml-[8px]" href="#">
+                <a class="text-[#ba0108] ml-[8px]" href="/guides/vtx-setup-guide/">
+                    &gt;&gt;
+                </a>
+            </p>
+        </div>
+        <div class="flex flex-col gap-[10px]">
+            <img src="/img/card-img-2.png" alt="" />
+            <h4 class="text-[24px] font-[Montserrat] font-medium">
+                Повна інструкція зі збірки FPV дрона
+            </h4>
+            <p class="text-[20px] font-[Montserrat] font-normal">
+                Детальний гайд з вибору компонентів та збірки дрона
+                <a class="text-[#ba0108] ml-[8px]" href="/guides/drone-assembly-guide/">
+                    &gt;&gt;
+                </a>
+            </p>
+        </div>
+        <div class="flex flex-col gap-[10px] ">
+            <img src="/img/card-img-1.png" alt="" />
+            <h4 class="text-[24px] font-[Montserrat] font-medium">
+                Налаштування VTX та антен
+            </h4>
+            <p class="text-[20px] font-[Montserrat] font-normal mt-[30px]">
+                Правильне підключення та налаштування відеопередавача
+                <a class="text-[#ba0108] ml-[8px]" href="/guides/vtx-setup-guide/">
+                    &gt;&gt;
+                </a>
+            </p>
+        </div>
+        {{ else if eq $category "videoperedavachi-vtx" }}
+        <div class="flex flex-col gap-2.5">
+            <img src="/img/card-img-1.png" alt="" width="400" height="238" />
+            <h4 class="text-[24px] font-[Montserrat] font-medium">
+                Налаштування VTX та антен
+            </h4>
+            <p class="text-[20px] font-[Montserrat] font-normal">
+                Правильне підключення та налаштування відеопередавача
+                <a class="text-[#ba0108] ml-[8px]" href="/guides/vtx-setup-guide/">
                     &gt;&gt;
                 </a>
             </p>
@@ -19,11 +60,11 @@
         <div class="flex flex-col gap-2.5">
             <img src="/img/card-img-2.png" alt="" width="400" height="238" />
             <h4 class="text-[24px] font-[Montserrat] font-medium">
-                Як правильно паяти політний стек. Інструкція
+                Відеопередавачі VTX: вибір та налаштування
             </h4>
             <p class="text-[20px] font-[Montserrat] font-normal">
-                Короткий опис того, яких помилок потрібно уникати, поради від експерта
-                <a class="text-[#ba0108] ml-[8px]" href="#">
+                Як вибрати та правильно налаштувати VTX
+                <a class="text-[#ba0108] ml-[8px]" href="/guides/video-transmitter-setup/">
                     &gt;&gt;
                 </a>
             </p>
@@ -31,14 +72,52 @@
         <div class="flex flex-col gap-2.5">
             <img src="/img/card-img-1.png" alt="" width="400" height="238" />
             <h4 class="text-[24px] font-[Montserrat] font-medium">
-                Як правильно паяти політний стек. Інструкція
+                Основы FPV польоту
             </h4>
             <p class="text-[20px] font-[Montserrat] font-normal">
-                Короткий опис того, яких помилок потрібно уникати, поради від експерта
-                <a class="text-[#ba0108] ml-[8px]" href="#">
+                Базові принципи польоту з FPV окулярами
+                <a class="text-[#ba0108] ml-[8px]" href="/guides/fpv-flying-basics/">
                     &gt;&gt;
                 </a>
             </p>
         </div>
+        {{ else if eq $category "esc" }}
+        <div class="flex flex-col gap-2.5">
+            <img src="/img/card-img-1.png" alt="" width="400" height="238" />
+            <h4 class="text-[24px] font-[Montserrat] font-medium">
+                Калібрування ESC
+            </h4>
+            <p class="text-[20px] font-[Montserrat] font-normal">
+                Правильна калібрування регуляторів швидкості
+                <a class="text-[#ba0108] ml-[8px]" href="/guides/esc-calibration/">
+                    &gt;&gt;
+                </a>
+            </p>
+        </div>
+        <div class="flex flex-col gap-2.5">
+            <img src="/img/card-img-2.png" alt="" width="400" height="238" />
+            <h4 class="text-[24px] font-[Montserrat] font-medium">
+                Як правильно паяти політний стек
+            </h4>
+            <p class="text-[20px] font-[Montserrat] font-normal">
+                Інструкція з пайки політного стеку
+                <a class="text-[#ba0108] ml-[8px]" href="/guides/soldering-flight-stack/">
+                    &gt;&gt;
+                </a>
+            </p>
+        </div>
+        <div class="flex flex-col gap-2.5">
+            <img src="/img/card-img-1.png" alt="" width="400" height="238" />
+            <h4 class="text-[24px] font-[Montserrat] font-medium">
+                Збірка FPV дрона
+            </h4>
+            <p class="text-[20px] font-[Montserrat] font-normal">
+                Повна інструкція зі збірки дрона
+                <a class="text-[#ba0108] ml-[8px]" href="/guides/drone-assembly-guide/">
+                    &gt;&gt;
+                </a>
+            </p>
+        </div>
+        {{ end }}
     </div>
 </div>

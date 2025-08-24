@@ -34,28 +34,28 @@ FPV політ базується на кількох ключових прин�
 <section id="equipment" class="mt-10 scroll-mt-24">
 <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Необхідне обладнання</h2>
 <ul class="list-disc pl-5 space-y-2 text-[#333]">
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 <strong>FPV окуляри</strong> або монітор для відео
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 <strong>Передавач</strong> з правильними налаштуваннями
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 <strong>Надійний дрон</strong> з FPV системою
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-four.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 <strong>Резервні акумулятори</strong> для тривалої практики
@@ -104,28 +104,28 @@ FPV політ базується на кількох ключових прин�
 <section id="techniques" class="mt-10 scroll-mt-24">
 <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Техніки польоту</h2>
 <ul class="list-disc pl-5 space-y-2 text-[#333]">
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 <strong>Плавні рухи</strong> - уникайте різких змін напрямку
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 <strong>Постійна увага</strong> - слідкуйте за дроном та оточенням
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 <strong>Планування маршруту</strong> - заздалегідь обдумуйте траєкторію
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-four.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 <strong>Безпечна відстань</strong> - тримайтесь подалі від перешкод

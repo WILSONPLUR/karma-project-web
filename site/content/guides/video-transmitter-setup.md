@@ -47,21 +47,21 @@ tags: ["FPV", "відеопередавач", "налаштування", "ча�
 <strong>Важливо:</strong> Ніколи не вмикайте передавач без підключеної антени!
 </p>
 <ul class="list-disc pl-5 space-y-2 text-[#333]">
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Переконайтеся в надійності з'єднання
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Використовуйте якісні коаксіальні кабелі
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Перевірте SWR (коефіцієнт стоячих хвиль)
@@ -76,28 +76,28 @@ tags: ["FPV", "відеопередавач", "налаштування", "ча�
 У вкладці "Video Transmitter":
 </p>
 <ul class="list-disc pl-5 space-y-2 text-[#333]">
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Оберіть правильну таблицю частот
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Встановіть потужність передачі
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Увімкніть SmartAudio (якщо підтримується)
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-four.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Збережіть налаштування
@@ -125,28 +125,28 @@ tags: ["FPV", "відеопередавач", "налаштування", "ча�
 <section id="tips" class="mt-10 scroll-mt-24">
 <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Поради для покращення якості</h2>
 <ul class="list-disc pl-5 space-y-2 text-[#333]">
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Використовуйте поляризовані антени
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Тримайте антени подалі від карбонових деталей
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Регулярно перевіряйте з'єднання
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-four.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Використовуйте якісні компоненти

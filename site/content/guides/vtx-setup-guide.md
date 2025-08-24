@@ -12,28 +12,28 @@ tags: ["VTX", "відеопередавач", "налаштування", "FPV"]
 <section id="channels" class="mt-8 scroll-mt-24">
 <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Вибір каналу</h2>
 <ul class="list-disc pl-5 space-y-2 text-[#333]">
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" class="cursor-pointer" src="/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;"/>
 <p class="text-[16px] font-normal font-[Montserrat]">
 Перевірте доступні канали у вашому регіоні
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" class="cursor-pointer" src="/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;"/>
 <p class="text-[16px] font-normal font-[Montserrat]">
 Уникніть <span class="text-[#ba0108] underline">завантажених</span> каналів
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Використовуйте Race Band для змагань
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-four.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Перевірте локальні регуляції щодо частот
@@ -45,28 +45,28 @@ tags: ["VTX", "відеопередавач", "налаштування", "FPV"]
 <section id="power" class="mt-10 scroll-mt-24">
 <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Налаштування потужності</h2>
 <ul class="list-disc pl-5 space-y-2 text-[#333]">
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 25mW - для тренувань біля будинку
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 200mW - для звичайних польотів
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 600mW+ - для дальніх польотів
 </p>
 </li>
 
-<li class="flex gap-3 items-start">
+<li class="flex gap-3 items-center">
 <img width="35" height="35" src="/img/list-guide-four.png" alt="" style="filter: none; box-shadow: none;" />
 <p class="text-[16px] font-normal font-[Montserrat]">
 Перевірте дозволену потужність у вашому регіоні
