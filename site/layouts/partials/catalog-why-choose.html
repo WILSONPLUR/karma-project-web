@@ -2,39 +2,45 @@
 {{ $categoryData := index .Site.Data.products.categories $category }}
 
 <div class="bg-black text-white py-[69px]">
-    <div class="flex flex-col justify-center items-center max-w-[1237px] w-full mx-auto px-[40px]">
+    <div class="flex flex-col justify-center items-center max-w-[1237px] w-full mx-auto px-5 md:px-[40px] lg:px-[40px]">
         <h3
-            class="max-w-[909px] font-medium text-[28px] lg:text-[48px] font-[Unbounded] uppercase text-center mb-[9px]">
+            class="max-w-[909px] font-medium text-[24px] md:text-[32px] lg:text-[48px] font-[Unbounded] uppercase text-center mb-[9px]">
             Чому варто обрати {{ $categoryData.name | lower }} від karma?
         </h3>
         <div>
             <ol class="flex flex-col gap-[25px] list-none">
                 {{ if eq $category "politni-steky" }}
-                <li class="font-[Montserrat] font-medium text-[18px] lg:text-[24px] flex gap-[20px] items-center">
+                <li
+                    class="font-[Montserrat] font-medium text-[16px] md:text-[20px] lg:text-[24px] flex gap-[20px] items-center">
                     <img src="/img/list-one.png" alt="List One" width="57" height="57"
                         class="w-[40px] h-[40px] lg:w-[57px] lg:h-[57px]" />
                     Компактність та інтеграція
                 </li>
-                <li class="font-[Montserrat] font-medium text-[18px] lg:text-[24px] flex gap-[20px] items-center">
+                <li
+                    class="font-[Montserrat] font-medium text-[16px] md:text-[20px] lg:text-[24px] flex gap-[20px] items-center">
                     <img src="/img/list-two.png" alt="List Two" width="57" height="57"
                         class="w-[40px] h-[40px] lg:w-[57px] lg:h-[57px]" />
                     Висока продуктивність та універсальність
                 </li>
-                <li class="font-[Montserrat] font-medium text-[18px] lg:text-[24px] flex gap-[20px] items-center">
+                <li
+                    class="font-[Montserrat] font-medium text-[16px] md:text-[20px] lg:text-[24px] flex gap-[20px] items-center">
                     <img src="/img/list-three.png" alt="List Three" width="57" height="57"
                         class="w-[40px] h-[40px] lg:w-[57px] lg:h-[57px]" />
                     Багатий функціонал та зручність використання
                 </li>
                 {{ else if eq $category "videoperedavachi-vtx" }}
-                <li class=" font-[Montserrat] font-medium text-[24px] flex gap-[20px] items-center">
+                <li
+                    class=" font-[Montserrat] font-medium text-[16px] md:text-[20px] lg:text-[24px] flex gap-[20px] items-center">
                     <img src="/img/list-one.png" alt="List One" width="57" height="57" />
                     Стабільний сигнал та висока якість
                 </li>
-                <li class="font-[Montserrat] font-medium text-[24px] flex gap-[20px] items-center">
+                <li
+                    class="font-[Montserrat] font-medium text-[16px] md:text-[20px] lg:text-[24px]flex gap-[20px] items-center">
                     <img src="/img/list-two.png" alt="List Two" width="57" height="57" />
                     Велика дальність передачі
                 </li>
-                <li class="font-[Montserrat] font-medium text-[24px] flex gap-[20px] items-center">
+                <li
+                    class="font-[Montserrat] font-medium text-[16px] md:text-[20px] lg:text-[24px] flex gap-[20px] items-center">
                     <img src="/img/list-three.png" alt="List Three" width="57" height="57" />
                     Професійна якість та надійність
                 </li>

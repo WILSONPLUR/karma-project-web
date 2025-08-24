@@ -1,62 +1,63 @@
-{{ $category := .Params.category | default "politni-steky" }}
-{{ $categoryData := index .Site.Data.products.categories $category }}
+{{ $category := .Params.category | default "politni-steky" }} {{ $categoryData
+:= index .Site.Data.products.categories $category }}
 <section class="overflow-hidden relative bg-white">
     <!-- Background decorative elements -->
     <img src="/img/bg-el-1.png" alt="" class="absolute z-[1] top-0 right-0 w-[350px] h-[360px]" />
     <img src="/img/bg-el-2.png" alt="" class="absolute z-[1] bottom-0 left-0 w-[420px] h-[380px]" />
 
     <div
-        class="w-[1237px] flex flex-col items-start mx-auto justify-center px-[40px] pt-[40px] mb-[64px] relative z-[2]">
+        class="w-full md:w-[1237px] lg:w-[1237px] flex flex-col items-center md:items-start lg:items-start mx-auto justify-center px-5 md:px-[40px] lg:px-[40px] xl:px-0 pt-[40px] mb-[64px] relative z-[2]">
         <div class="flex items-center gap-2 text-[#ba0108] font-family-montserrat mb-[35px]">
             <a class="text-[20px] font-[Montserrat] font-medium" href="/">Головна</a>
             <span>&rarr;</span>
-            <a class="text-[20px] font-[Montserrat] font-medium" href="/catalog">Каталог</a>
+            <a class="text-[20px] font-[Montserrat] font-medium" href="/catalog">
+                Каталог
+            </a>
             <span>&rarr;</span>
-            <span class="text-[20px] font-[Montserrat] font-medium">{{ $categoryData.name }}</span>
+            <span class="text-[20px] font-[Montserrat] font-medium">
+                {{ $categoryData.name }}
+            </span>
         </div>
 
-        <div class="flex gap-8 justify-center items-center mx-auto">
-            <div class="flex flex-col gap-5 w-full">
+        <div class="flex gap-0 justify-center items-center mx-0 md:gap-8 lg:gap-8 lg:mx-auto">
+            <div class="flex flex-col gap-5 items-center w-full md:items-start lg:items-start">
                 <h1
-                    class="font-[Unbounded] uppercase leading-[1.1] mb-2 text-[48px] lg:text-[64px] text-[#ba0108] font-medium">
+                    class="font-[Unbounded] uppercase leading-[1.1] mb-2 text-[32px] md:text-[48px] lg:text-[64px] text-[#ba0108] font-medium">
                     {{ $categoryData.name }}
                 </h1>
-                <p class="font-[Montserrat] text-[16px] lg:text-[20px] leading-[1.7] text-[#333333] mb-8">
-                    {{ if eq $category "politni-steky" }}
-                    Компактна та продуктивна інтегрована система для дронів, що об'єднує
-                    польотний контролер (FC) на базі потужного мікроконтролера STM32F405
-                    та регулятор швидкості (ESC) 4-в-1 з підтримкою до 20А (25А піково).
+                <p
+                    class="font-[Montserrat] text-[16px] md:text-[16px] lg:text-[20px] leading-[1.7] text-[#333333] mb-8 w-[330px] md:w-[548px] lg:w-[749px]">
+                    {{ if eq $category "politni-steky" }} Компактна та продуктивна
+                    інтегрована система для дронів, що об'єднує польотний контролер (FC)
+                    на базі потужного мікроконтролера STM32F405 та регулятор швидкості
+                    (ESC) 4-в-1 з підтримкою до 20А (25А піково).
                     <br />
                     <br />
                     Завдяки своїм невеликим розмірам та високій функціональності,
                     включаючи вбудований OSD, а часто також барометр і "чорний ящик", він
-                    є ідеальним вибором для створення легких та маневрених FPV-дронів
-                    {{ else if eq $category "videoperedavachi-vtx" }}
-                    Професійні відеопередавачі для FPV систем з підтримкою різних частот
-                    та потужностей. Забезпечують стабільний сигнал та високу якість
-                    відеопередачі на великі відстані.
-                    {{ else if eq $category "esc" }}
+                    є ідеальним вибором для створення легких та маневрених FPV-дронів {{
+                    else if eq $category "videoperedavachi-vtx" }} Професійні
+                    відеопередавачі для FPV систем з підтримкою різних частот та
+                    потужностей. Забезпечують стабільний сигнал та високу якість
+                    відеопередачі на великі відстані. {{ else if eq $category "esc" }}
                     <br />
                     <br />
-                    Високоякісні електронні регулятори швидкості для безколекторних двигунів.
-                    Підтримують різні прошивки та забезпечують плавне керування швидкістю
-                    з високою точністю та надійністю.
-                    {{ end }}
+                    Високоякісні електронні регулятори швидкості для безколекторних
+                    двигунів. Підтримують різні прошивки та забезпечують плавне керування
+                    швидкістю з високою точністю та надійністю. {{ end }}
                 </p>
                 <button onclick="window.openContactModal()"
-                    class="bg-[#ba0108] text-white font-[Montserrat] text-2xl font-normal w-[458px] lg:w-[607px] py-[14px] px-[54px] mt-[60px] h-[70px] border-none rounded-[25px] cursor-pointer transition-all duration-300 ease-in-out hover:bg-[#9a0106] hover:-translate-y-1 active:translate-y-0 shadow-lg">
+                    class="bg-[#ba0108] text-white font-[Montserrat] text-[16px] md:text-[24px] lg:text-[24px] font-normal w-[354px] md:w-[458px] lg:w-[607px] py-[14px] px-[54px] mt-[60px] h-[70px] border-none rounded-[25px] cursor-pointer transition-all duration-300 ease-in-out hover:bg-[#9a0106] hover:-translate-y-1 active:translate-y-0 shadow-lg">
                     Отримати пропозицію
                 </button>
             </div>
-
             <div class="flex relative justify-center items-center w-full">
-                <img src="/img/stack-rotate.png" alt="Karma Flights - високотехнологічне українське виробництво"
-                    class="w-fit h-fit max-[420px]:absolute" />
+                <img src="/img/stack-rotate.png" alt="Karma Flights - високотехнологічне українське виробництво" class="hidden sm:block object-contain max-w-none h-auto 
+                         md:max-h-[300px] lg:max-h-[400px] xl:max-h-[500px]" />
+
                 <div
-                    class="pointer-events-none absolute -bottom-3 left-1/2 -translate-x-1/2 w-[300px] h-[50px] md:w-[350px] md:h-[60px] lg:w-[410px] lg:h-[80px] rounded-full bg-black/35 blur-2xl" />
+                    class="pointer-events-none absolute -bottom-3 left-1/2 -translate-x-1/2 w-[300px] h-[50px] md:w-[350px] md:h-[60px] lg:w-[410px] lg:h-[80px] rounded-full bg-black/35 blur-2xl hidden sm:block" />
             </div>
         </div>
     </div>
-
-
 </section>
