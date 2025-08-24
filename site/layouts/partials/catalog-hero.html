@@ -1,3 +1,5 @@
+{{ $category := .Params.category | default "politni-steky" }}
+{{ $categoryData := index .Site.Data.products.categories $category }}
 <section class="bg-white min-h-[600px] relative overflow-hidden">
     <!-- Background decorative elements -->
     <img src="/img/bg-el-1.png" alt="" class="absolute z-[1] top-0 right-0 w-[350px] h-[360px]" />
@@ -7,25 +9,43 @@
         <div class="flex items-center gap-2 text-[#ba0108] font-family-montserrat mb-[35px]">
             <a class="text-[20px] font-[Montserrat] font-medium" href="/">Головна</a>
             <span>&rarr;</span>
-            <a class="text-[20px] font-[Montserrat] font-medium" href="/catalog">Політні стеки</a>
+            <a class="text-[20px] font-[Montserrat] font-medium" href="/catalog">Каталог</a>
+            <span>&rarr;</span>
+            <span class="text-[20px] font-[Montserrat] font-medium">{{ $categoryData.name }}</span>
         </div>
 
         <div class="flex justify-center items-center mx-auto">
             <div class="flex flex-col gap-5 w-full">
-                <h1 class="font-[Unbounded] uppercase  leading-[1.1]mb-2 text-[64px] text-[#ba0108] font-medium">
-                    Політні стеки
+                <h1 class="font-[Unbounded] uppercase leading-[1.1] mb-2 text-[64px] text-[#ba0108] font-medium">
+                    {{ $categoryData.name }}
                 </h1>
                 <p class="font-[Montserrat] text-[20px] leading-[1.7] text-[#333333] mb-8">
+                    {{ $categoryData.description }}
+                    {{ if eq $category "politni-steky" }}
+                    <br />
+                    <br />
                     Компактна та продуктивна інтегрована система для дронів, що об'єднує
                     польотний контролер (FC) на базі потужного мікроконтролера STM32F405
                     та регулятор швидкості (ESC) 4-в-1 з підтримкою до 20А (25А піково).
-                    <br />
-                    <br />
                     Завдяки своїм невеликим розмірам та високій функціональності,
                     включаючи вбудований OSD, а часто також барометр і "чорний ящик", він
                     є ідеальним вибором для створення легких та маневрених FPV-дронів
+                    {{ else if eq $category "videoperedavachi-vtx" }}
+                    <br />
+                    <br />
+                    Професійні відеопередавачі для FPV систем з підтримкою різних частот
+                    та потужностей. Забезпечують стабільний сигнал та високу якість
+                    відеопередачі на великі відстані.
+                    {{ else if eq $category "esc" }}
+                    <br />
+                    <br />
+                    Високоякісні електронні регулятори швидкості для безколекторних двигунів.
+                    Підтримують різні прошивки та забезпечують плавне керування швидкістю
+                    з високою точністю та надійністю.
+                    {{ end }}
                 </p>
                 <button
+                    onclick="window.openContactModal()"
                     class="bg-[#ba0108] text-white font-[Montserrat] text-[24px] font-normal w-[607px] py-[14px] px-[54px] mt-[60px] h-[70px] border-none rounded-[25px] cursor-pointer transition-all duration-300 ease-in-out hover:bg-[#9a0106] hover:-translate-y-1 active:translate-y-0 shadow-lg">
                     Отримати пропозицію
                 </button>

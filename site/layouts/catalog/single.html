@@ -1,0 +1,83 @@
+{{ define "main" }}
+{{- $productSlug := .File.BaseFileName -}}
+{{- $categorySlug := .Parent.File.BaseFileName -}}
+
+{{/* Always create product from page data to ensure content renders */}}
+{{- $currentProduct := dict 
+  "id" (.Params.product_id | default "unknown")
+  "name" .Title
+  "image" (.Params.image | default "/img/our-product1.png")
+  "alt" .Title
+  "specs" (.Params.specs | default (slice 
+    (dict "label" "Артикул" "value" (.Params.product_id | default "N/A"))
+    (dict "label" "Ціна" "value" (printf "%v %s" (.Params.price | default 0) (.Params.currency | default "грн")))
+    (dict "label" "Статус" "value" (cond .Params.in_stock "В наявності" "Немає в наявності"))
+  ))
+-}}
+
+{{/* Get category data for context */}}
+{{- $products := index .Site.Data.products.categories $categorySlug -}}
+
+{{/* Override with data file if product found */}}
+{{- if $products -}}
+  {{- range $products.products -}}
+    {{- $productNameSlug := .name | urlize -}}
+    {{- if or (eq $productNameSlug $productSlug) (eq .id $productSlug) -}}
+      {{- $currentProduct = . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+
+{{/* Product Hero Section - New detailed design */}}
+{{ partial "product-hero-detailed" (dict 
+  "context" . 
+  "product" $currentProduct 
+  "category" $products
+) }}
+
+{{/* Product Features Section - Dark background with 3 columns */}}
+{{ partial "product-features-section" . }}
+
+{{/* Product Specifications - Tables with product images */}}
+{{ partial "product-specifications" . }}
+
+{{/* Cost Calculation Section - 3 pricing tables */}}
+{{ partial "product-cost-calculation" . }}
+
+{{/* Instructions/Downloads Section */}}
+{{ partial "product-instructions" . }}
+
+{{/* FAQ Section */}}
+<div class="bg-white py-[80px]">
+  <div class="max-w-[1440px] mx-auto px-4">
+    {{ partial "accordion-list" (dict
+      "context" .
+      "className" "mb-[48px]"
+      "title" "Найпоширеніші запитання про політні стеки"
+      "titleClassName" "!text-[48px] !text-center !uppercase !font-medium ![font-family:var(--font-unbounded)]"
+      "items" (slice
+        (dict 
+          "question" "Для яких типів дронів найкраще підходить польотний стек KARMA F405 V1?"
+          "answer" "Ідеально підходить для мікро- та невеликих FPV-дронів, а також для легких 3-дюймових або деяких 4-дюймових квадрокоптерів."
+        )
+        (dict 
+          "question" "Які основні переваги використання політного стеку KARMA F405 V1?"
+          "answer" "Політний стек забезпечує стабільний політ, точне керування, ефективне розподілення потужності до моторів та спрощує процес збірки дрона."
+        )
+        (dict 
+          "question" "Чи потрібні спеціальні навички для встановлення політного стеку?"
+          "answer" "Базові навички пайки та розуміння принципів роботи дронів будуть корисними, але політний стек розроблений для спрощення процесу встановлення."
+        )
+        (dict 
+          "question" "Яка гарантія на політний стек KARMA F405 V1?"
+          "answer" "На всі наші продукти надається офіційна гарантія виробника. Детальну інформацію про гарантійні умови можна отримати у нашому відділі продажів."
+        )
+      )
+    ) }}
+  </div>
+</div>
+
+{{/* Contact Form Section */}}
+{{ partial "contact-form-section" . }}
+
+{{ end }}

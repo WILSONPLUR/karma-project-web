@@ -1,32 +1,36 @@
+{{ $category := .Params.category | default "politni-steky" }}
+{{ $categoryData := index .Site.Data.products.categories $category }}
 <section class="relative flex flex-col justify-center items-center gap-[20px] px-[20px] py-[60px] bg-[#f9f9f9] overflow-hidden">
-  <div class="background-element">
-    <img src="/img/bg-el-3.png" alt="" class="bg-image" />
+  <div class="absolute top-0 right-0">
+    <img src="/img/bg-el-1.png" alt="" class="lg:w-[200px] lg:h-[400px] max-[420px]:w-[100px] max-[420px]:h-[100px] object-cover" />
   </div>
   
-  <div class="flex flex-col">
-    <h2 class="font-['Unbounded'] text-[40px] font-medium mb-5 text-center">
+  <div class="flex flex-col w-full max-w-[1200px]">
+    <h2 class="font-['Unbounded'] lg:text-[40px] max-[420px]:text-2xl font-medium mb-[40px] text-center hero-title">
         <span class="text-[#ba0108]">Н</span>АШІ ТОВАРИ
     </h2>
     
-    <div class="flex">
-      <div class="w-[800px] p-0 mx-[auto] my-[0]">
-        <div class="relative w-full max-w-[1237px] z-10">
-          {{ range .Site.Data.products.products }}
+    <!-- Desktop Layout -->
+    <div class="hidden lg:block relative">
+      <div class="swiper-container-products">
+        <div class="swiper-wrapper">
+          {{ range $categoryData.products }}
           <div class="swiper-slide">
-            <div class="bg-[#fff] rounded-[10px] p-[20px] [box-shadow:0_4px_16px_rgba(0,_0,_0,_0.1)] w-full max-w-[400px] text-center">
-              <img src="{{ .image }}" alt="{{ .alt }}" />
-              <h3 class="font-['Unbounded', sans-serif] text-[20px] font-semibold mt-[15px] mx-[0] mb-[20px] text-[#020303] leading-[1.2]">
+            <div class="bg-[#fff] rounded-[10px] p-[20px] [box-shadow:0_4px_16px_rgba(0,_0,_0,_0.1)] w-[400px] text-center mx-auto">
+              <img src="{{ .image }}" alt="{{ .alt }}" class="w-full h-[300px] object-contain mb-[15px]" />
+              <h3 class="font-['Montserrat'] text-2xl font-semibold mt-[15px] mx-[0] mb-[20px] text-[#020303] leading-[1.2]">
                 {{ .name }}
               </h3>
-              <ul>
+              <ul class="text-left space-y-[8px]">
                 {{ range .specs }}
-                <li>
-                  <span>{{ .label }}</span> <span>{{ .value }}</span>
+                <li class="flex justify-between text-[16px] font-['Montserrat']">
+                  <span class="font-medium text-[#666]">{{ .label }}</span> 
+                  <span class="text-[#333]">{{ .value }}</span>
                 </li>
                 {{ end }}
               </ul>
-              <a href="/catalog/{{ .id }}" class="bg-[#ba0108] text-[#fff] border-[none] px-[30px] py-[15px] rounded-[20px] cursor-pointer text-[20px] font-['Montserrat', sans-serif] font-normal [transition:background-color_0.3s_ease] w-full mt-[15px]">
-                Докладніше
+              <a href="/catalog/{{ $category }}/karma-f405-v{{ if eq .id "2233" }}1{{ else }}2{{ end }}/" class="inline-block bg-[#ba0108] text-[#fff] border-[none] px-[30px] py-[15px] mt-5 rounded-[20px] cursor-pointer text-2xl font-['Montserrat'] font-normal [transition:background-color_0.3s_ease] hover:bg-[#9a0106] w-full">
+                Детальніше
               </a>
             </div>
           </div>
@@ -34,12 +38,47 @@
         </div>
       </div>
       
-      <!-- Navigation arrows -->
-      <div class="swiper-button-prev-custom">
-        <img src="/img/nav_arrow.svg" alt="navigation prev arrow" />
+      <!-- Desktop Navigation arrows -->
+      <div class="swiper-button-prev-custom absolute left-[-60px] top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[70px] h-[70px] flex items-center justify-center transition-shadow">
+        <img src="/img/nav_arrow.svg" alt="navigation prev arrow" class="w-[40px] h-[40px] rotate-180" />
       </div>
-      <div class="swiper-button-next-custom">
-        <img src="/img/nav_arrow.svg" alt="navigation next arrow" />
+      <div class="swiper-button-next-custom absolute right-[-60px] top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[70px] h-[70px] flex items-center justify-center transition-shadow">
+        <img src="/img/nav_arrow.svg" alt="navigation next arrow" class="w-[40px] h-[40px]" />
+      </div>
+    </div>
+
+    <!-- Mobile Layout -->
+    <div class="block lg:hidden relative overflow-hidden max-[420px]:w-full" id="mobile-slider">
+      <div class="flex transition-transform duration-300 ease-in-out" id="mobile-slider-wrapper">
+        {{ range $index, $product := $categoryData.products }}
+        <div class="w-full flex-shrink-0 px-5">
+          <div class="bg-[#fff] rounded-[10px] p-[20px] [box-shadow:0_4px_16px_rgba(0,_0,_0,_0.1)] w-full max-w-[320px] text-center mx-auto">
+            <img src="{{ $product.image }}" alt="{{ $product.alt }}" class="w-full h-[300px] object-contain mb-[15px]" />
+            <h3 class="font-['Montserrat'] text-xl font-semibold mt-[15px] mx-[0] mb-[20px] text-[#020303] leading-[1.2]">
+              {{ $product.name }}
+            </h3>
+            <ul class="text-left space-y-[8px]">
+              {{ range $product.specs }}
+              <li class="flex justify-between text-[14px] font-['Montserrat']">
+                <span class="font-medium text-[#666]">{{ .label }}</span> 
+                <span class="text-[#333]">{{ .value }}</span>
+              </li>
+              {{ end }}
+            </ul>
+            <a href="/catalog/{{ $category }}/karma-f405-v{{ if eq $product.id "2233" }}1{{ else }}2{{ end }}/" class="inline-block bg-[#ba0108] text-[#fff] border-[none] px-[30px] py-[15px] mt-5 rounded-[20px] cursor-pointer text-lg font-['Montserrat'] font-normal [transition:background-color_0.3s_ease] hover:bg-[#9a0106] w-full">
+              Детальніше
+            </a>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+      
+      <!-- Mobile Navigation arrows -->
+      <div class="mobile-prev absolute left-2 top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[40px] h-[40px] flex items-center justify-center">
+        <img src="/img/nav_arrow.svg" alt="navigation prev arrow" class="w-[35px] h-[35px] rotate-180" />
+      </div>
+      <div class="mobile-next absolute right-2 top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[40px] h-[40px] flex items-center justify-center">
+        <img src="/img/nav_arrow.svg" alt="navigation next arrow" class="w-[35px] h-[35px]" />
       </div>
     </div>
   </div>

@@ -1,9 +1,10 @@
 {{ $title := .title }} {{ $items := .items }} {{ $isFirst := .isFirst }}
 
-<section class="flex relative flex-col items-center bg-white mt-[60px] mb-[60px] lg:mt-[112px]">
-    <div class="faq-accordion-container w-full max-w-[1237px] px-5">
-        <h3
-            class="faq-title font-[Unbounded] font-medium text-[32px] lg:text-[40px] text-center text-[#020303] mb-[30px]">
+<section class="flex relative flex-col items-center bg-white">
+    <div class="faq-accordion-container w-full max-w-[1237px] px-5" {{ if not $isFirst
+        }}style="margin-top: 80px !important;  margin-bottom: 0!important;" {{ else
+        }}style="margin-top: 122px !important; margin-bottom: 134px !important;" {{ end }}>
+        <h3 class="faq-title font-[Unbounded] font-medium text-[40px] text-center text-[#020303] mb-[30px]">
             {{ $title }}
         </h3>
         <div class="w-full mx-auto flex flex-col gap-[30px] max-w-[600px] md:max-w-[949px] lg:max-w-[949px] xl:max-w-[1237px]"
@@ -12,13 +13,13 @@
             <div class="faq-acc-wrapper">
                 <details class="faq-acc-root group border-b border-[#303030]">
                     <summary class="flex cursor-pointer select-none faq-acc-summary">
-                        <h4 class="font-[Montserrat] text-[20px] lg:text-[24px] font-medium">
+                        <h4 class="font-[Montserrat] text-[24px] font-medium">
                             {{ .question }}
                         </h4>
                         <img src="/img/arrow.svg" alt="Arrow" width="20" height="20" class="faq-acc-icon" />
                     </summary>
                     <div class="faq-acc-content">
-                        <p class="font-[Montserrat] text-[16px] lg:text-[18px] font-normal text-[#1f2937]">
+                        <p class="font-[Montserrat] text-[18px] font-normal text-[#1f2937]">
                             {{ .answer }}
                         </p>
                     </div>
@@ -32,6 +33,7 @@
 <style>
     .faq-acc-wrapper {
         width: 100%;
+        margin-bottom: 20px;
     }
 
     .faq-acc-root {
@@ -161,6 +163,10 @@
             padding-left: 16px !important;
             padding-right: 16px !important;
             max-width: 100% !important;
+        }
+
+        .faq-acc-content {
+            padding: 12px 0px !important;
         }
 
         .faq-acc-icon {
