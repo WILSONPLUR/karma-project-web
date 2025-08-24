@@ -4,22 +4,22 @@
     <div class="faq-accordion-container w-full max-w-[1237px] px-5" {{ if not $isFirst
         }}style="margin-top: 80px !important;  margin-bottom: 0!important;" {{ else
         }}style="margin-top: 122px !important; margin-bottom: 134px !important;" {{ end }}>
-        <h3 class="faq-title font-[Unbounded] font-medium lg:text-[40px] max-[420px]:text-[24px] text-center text-[#020303] mb-[30px]">
+        <h3 class="faq-title font-[Unbounded] font-medium text-[40px] text-center text-[#020303] mb-[30px]">
             {{ $title }}
         </h3>
-        <div class="w-full mx-auto flex flex-col gap-[30px] max-w-[600px] md:max-w-[740px] lg:max-w-[970px] xl:max-w-[1237px]"
+        <div class="w-full mx-auto flex flex-col gap-[30px] max-w-[600px] md:max-w-[949px] lg:max-w-[949px] xl:max-w-[1237px]"
             data-accordion-list>
             {{ range $items }}
             <div class="faq-acc-wrapper">
                 <details class="faq-acc-root group border-b border-[#303030]">
                     <summary class="flex cursor-pointer select-none faq-acc-summary">
-                        <h4 class="font-[Montserrat] lg:text-[24px] max-[420px]:text-[16px] font-medium">
+                        <h4 class="font-[Montserrat] text-[24px] font-medium">
                             {{ .question }}
                         </h4>
                         <img src="/img/arrow.svg" alt="Arrow" width="20" height="20" class="faq-acc-icon" />
                     </summary>
                     <div class="faq-acc-content">
-                        <p class="lg:font-[Montserrat] max-[420px]:font-['Unbounded'] lg:text-[18px] max-[420px]:text-[16px] font-normal text-[#1f2937]">
+                        <p class="font-[Montserrat] text-[18px] font-normal text-[#1f2937]">
                             {{ .answer }}
                         </p>
                     </div>
@@ -138,6 +138,23 @@
 
         .faq-acc-spacer {
             flex-basis: 30px !important;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .faq-acc-summary {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+            min-height: 70px !important;
+        }
+
+        .faq-acc-content {
+            padding: 10px 20px !important;
+        }
+
+        .faq-acc-icon {
+            width: 25px !important;
+            height: 15px !important;
         }
     }
 

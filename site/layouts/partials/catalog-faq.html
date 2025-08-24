@@ -1,13 +1,180 @@
 {{ $catalogQuestions := slice
-(dict "question" "Для яких типів дронів найкраще підходить польотний стек KARMA F405 V1?" "answer" "Ідеально підходитьдля мікро- та невеликих FPV-дронів, а також для легких 3-дюймових або деяких 4-дюймових квадрокоптерів.")
-(dict "question" "Для яких типів дронів найкраще підходить польотний стек KARMA F405 V1?" "answer" "Ідеально підходитьдля мікро- та невеликих FPV-дронів, а також для легких 3-дюймових або деяких 4-дюймових квадрокоптерів.")
-(dict "question" "Для яких типів дронів найкраще підходить польотний стек KARMA F405 V1?" "answer" "Ідеально підходитьдля мікро- та невеликих FPV-дронів, а також для легких 3-дюймових або деяких 4-дюймових квадрокоптерів.")
-(dict "question" "Для яких типів дронів найкраще підходить польотний стек KARMA F405 V1?" "answer" "Ідеально підходитьдля мікро- та невеликих FPV-дронів, а також для легких 3-дюймових або деяких 4-дюймових квадрокоптерів.")
+(dict "question" "Для яких типів дронів найкраще підходить польотний стек KARMA F405 V1?" "answer"
+"Ідеальнопідходитьдлямікро- та невеликих FPV-дронів, а також для легких 3-дюймових або деяких 4-дюймовихквадрокоптерів.")
+(dict "question" "Для яких типів дронів найкраще підходить польотний стек KARMA F405 V1?" "answer"
+"Ідеальнопідходитьдлямікро- та невеликих FPV-дронів, а також для легких 3-дюймових або деяких 4-дюймовихквадрокоптерів.")
+(dict "question" "Для яких типів дронів найкраще підходить польотний стек KARMA F405 V1?" "answer"
+"Ідеальнопідходитьдлямікро- та невеликих FPV-дронів, а також для легких 3-дюймових або деяких 4-дюймовихквадрокоптерів.")
+(dict "question" "Для яких типів дронів найкраще підходить польотний стек KARMA F405 V1?" "answer"
+"Ідеальнопідходитьдлямікро- та невеликих FPV-дронів, а також для легких 3-дюймових або деяких 4-дюймовихквадрокоптерів.")
 }}
 
-{{ partial "accordion" (dict
-"title" "Найпоширеніші запитання про політні стеки"
-"items" $catalogQuestions
-"className" "mb-[128px]"
-"titleClassName" "!text-[48px] !uppercase !font-medium !font-[Unbounded]"
-) }}
+<section class="relative flex flex-col items-center bg-white mt-[60px] mb-[128px] lg:mt-[112px] lg:mb-[80px]">
+    <div class="w-full max-w-[1237px] px-5">
+        <h3 class="font-[Unbounded] font-medium text-[32px] lg:text-[48px] text-center text-[#020303] mb-6 uppercase">
+            Найпоширеніші запитання про політні стеки
+        </h3>
+        <div class="w-full mx-auto flex flex-col gap-[30px] max-w-[600px] md:max-w-[949px] lg:max-w-[949px] xl:max-w-[1237px]"
+            data-accordion-list>
+            {{ range $catalogQuestions }}
+            <div class="accordion-wrapper">
+                <details class="accordion-root group border-b border-[#303030]">
+                    <summary class="flex cursor-pointer select-none accordion-summary">
+                        <h4 class="font-[Montserrat] text-[20px] lg:text-[24px] font-medium">{{ .question }}</h4>
+                        <img src="/img/arrow.svg" alt="Arrow" width="20" height="20" class="accordion-icon" />
+                    </summary>
+                    <div class="accordion-content">
+                        <p class="font-[Montserrat] text-[16px] lg:text-[18px] font-normal text-[#1f2937]">
+                            {{ .answer }}
+                        </p>
+                    </div>
+                </details>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+<style>
+    .accordion-wrapper {
+        width: 100%;
+    }
+
+    .accordion-root {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    .accordion-summary {
+        position: relative !important;
+        display: flex !important;
+        align-items: center !important;
+        padding: 23px 45px !important;
+        transition: background-color 400ms ease, color 400ms ease !important;
+        background: #fff !important;
+        color: #020303 !important;
+        cursor: pointer;
+        min-height: 80px !important;
+    }
+
+    .accordion-summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .accordion-summary::marker {
+        content: '';
+    }
+
+    .accordion-root[open] .accordion-summary {
+        background: #ba0108 !important;
+        color: #fff !important;
+    }
+
+    .accordion-icon {
+        margin-left: auto !important;
+        width: 33px !important;
+        height: 18px !important;
+        transform: rotate(0deg) !important;
+        transition: transform 500ms ease-in-out, filter 300ms ease-in-out !important;
+        filter: brightness(0) !important;
+    }
+
+    .accordion-root[open] .accordion-icon {
+        transform: rotate(-180deg) !important;
+        filter: brightness(0) invert(1) !important;
+    }
+
+    .accordion-root::details-content {
+        transition: block-size 600ms, content-visibility 600ms allow-discrete !important;
+        overflow: hidden !important;
+        block-size: 0 !important;
+        inline-size: 100% !important;
+        content-visibility: hidden !important;
+    }
+
+    .accordion-root[open]::details-content {
+        block-size: auto !important;
+        content-visibility: visible !important;
+    }
+
+    .accordion-content {
+        overflow: visible !important;
+        max-height: none !important;
+        opacity: 1 !important;
+        transition: none !important;
+        width: 100% !important;
+        padding: 12px 46px !important;
+    }
+
+    @media (max-width: 1240px) {
+        .accordion-summary {
+            padding-left: 24px !important;
+            padding-right: 24px !important;
+        }
+    }
+
+    @media (max-width: 960px) {
+        .accordion-summary {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+        }
+    }
+
+    @media (max-width: 800px) {
+        .accordion-summary {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+        }
+    }
+
+    @media (max-width: 1024px) {
+        .accordion-summary {
+            padding-left: 20px !important;
+            padding-right: 20px !important;
+            min-height: 70px !important;
+        }
+
+        .accordion-content {
+            padding: 10px 20px !important;
+        }
+
+        .accordion-icon {
+            width: 25px !important;
+            height: 15px !important;
+        }
+    }
+
+    @media (max-width: 560px) {
+        .accordion-root {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+            max-width: 100% !important;
+        }
+
+        .accordion-icon {
+            display: none !important;
+        }
+    }
+</style>
+
+<script>
+    (function () {
+        var lists = document.querySelectorAll('[data-accordion-list]');
+        lists.forEach(function (list) {
+            var items = Array.prototype.slice.call(
+                list.querySelectorAll('.accordion-root')
+            );
+            items.forEach(function (item) {
+                item.addEventListener('toggle', function () {
+                    if (item.open) {
+                        items.forEach(function (other) {
+                            if (other !== item) {
+                                other.open = false;
+                            }
+                        });
+                    }
+                });
+            });
+        });
+    })();
+</script>

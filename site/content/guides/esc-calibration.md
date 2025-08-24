@@ -9,91 +9,262 @@ tags: ["ESC", "калібрування", "мотори", "Betaflight"]
 
 Калібрування ESC (Electronic Speed Controller) є важливим кроком для забезпечення синхронної роботи всіх моторів дрона. Неправильно відкалібровані регулятори можуть призвести до вібрацій, нестабільного польоту та зниження ефективності.
 
-## Коли потрібно калібрувати ESC
-
+<section id="when" class="mt-8 scroll-mt-24">
+<h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Коли потрібно калібрувати ESC</h2>
+<p class="text-[16px] font-normal font-[Montserrat]">
 Калібрування необхідне в наступних випадках:
+<br />
+<br />
+<strong>Перша збірка дрона</strong> з новими ESC
+<br />
+<br />
+<strong>Заміна одного або кількох ESC</strong>
+<br />
+<br />
+<strong>Проблеми з синхронізацією моторів</strong>
+<br />
+<br />
+<strong>Після оновлення прошивки ESC</strong>
+</p>
+</section>
 
-- **Перша збірка дрона** з новими ESC
-- **Заміна одного або кількох ESC**
-- **Проблеми з синхронізацією моторів**
-- **Після оновлення прошивки ESC**
-
-## Підготовка до калібрування
-
+<section id="preparation" class="mt-10 scroll-mt-24">
+<h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Підготовка до калібрування</h2>
+<p class="text-[16px] font-normal font-[Montserrat]">
 Перед початком переконайтеся:
+</p>
+<ul class="list-disc pl-5 space-y-2 text-[#333]">
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+Зніміть пропелери для безпеки
+</p>
+</li>
 
-1. Зніміть пропелери для безпеки
-2. Підключіть дрон до комп'ютера
-3. Відкрийте Betaflight Configurator
-4. Переконайтеся в стабільності USB з'єднання
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+Підключіть дрон до комп'ютера
+</p>
+</li>
 
-## Метод 1: Калібрування через Betaflight
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+Відкрийте Betaflight Configurator
+</p>
+</li>
 
-### Крок 1: Налаштування діапазону
-1. Перейдіть на вкладку "Motors"
-2. Встановіть мінімальне значення (зазвичай 1000)
-3. Встановіть максимальне значення (зазвичай 2000)
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-four.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+Переконайтеся в стабільності USB з'єднання
+</p>
+</li>
+</ul>
+</section>
 
-### Крок 2: Процес калібрування
-1. **Відключіть** живлення дрона
-2. Встановіть **максимальний газ** на передавачі
-3. **Підключіть** акумулятор
-4. Дочекайтеся звукового сигналу ESC
-5. **Опустіть газ** до мінімуму
-6. Дочекайтеся підтверджуючих сигналів
+<section id="method1" class="scroll-mt-24 mt-10 bg-[#f5f5f5] px-[29px] py-[27px]">
+<h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Метод 1: Калібрування через Betaflight</h2>
+<h3 class="font-[Montserrat] text-[18px] font-normal mb-3">Крок 1: Налаштування діапазону</h3>
+<ul class="list-disc pl-5 space-y-2 text-[#333]">
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+Перейдіть на вкладку "Motors"
+</p>
+</li>
 
-## Метод 2: Ручне калібрування
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+Встановіть мінімальне значення (зазвичай 1000)
+</p>
+</li>
 
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+Встановіть максимальне значення (зазвичай 2000)
+</p>
+</li>
+</ul>
+
+<h3 class="font-[Montserrat] text-[18px] font-normal mb-3 mt-6">Крок 2: Процес калібрування</h3>
+<ul class="list-disc pl-5 space-y-2 text-[#333]">
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+<strong>Відключіть</strong> живлення дрона
+</p>
+</li>
+
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+Встановіть <strong>максимальний газ</strong> на передавачі
+</p>
+</li>
+
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+<strong>Підключіть</strong> акумулятор
+</p>
+</li>
+
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-four.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+Дочекайтеся звукового сигналу ESC
+</p>
+</li>
+</ul>
+</section>
+
+<section id="method2" class="mt-10 scroll-mt-24">
+<h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Метод 2: Ручне калібрування</h2>
+<p class="text-[16px] font-normal font-[Montserrat]">
 Для ESC що не підтримують автоматичне калібрування:
+</p>
+<ul class="list-disc pl-5 space-y-2 text-[#333]">
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+Встановіть максимальний газ
+</p>
+</li>
 
-1. Встановіть максимальний газ
-2. Підключіть живлення
-3. Дочекайтеся 2-3 звукових сигналів
-4. Швидко опустіть газ до мінімуму
-5. ESC видасть серію коротких сигналів
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+Підключіть живлення
+</p>
+</li>
 
-## Перевірка результатів
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+Дочекайтеся 2-3 звукових сигналів
+</p>
+</li>
 
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-four.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+Швидко опустіть газ до мінімуму
+</p>
+</li>
+
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+ESC видасть серію коротких сигналів
+</p>
+</li>
+</ul>
+</section>
+
+<section id="check" class="mt-10 scroll-mt-24">
+<h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Перевірка результатів</h2>
+<p class="text-[16px] font-normal font-[Montserrat]">
 Після калібрування перевірте:
+<br />
+<br />
+<strong>Синхронний запуск</strong> всіх моторів
+<br />
+<br />
+<strong>Однакову швидкість</strong> на одному значенні газу
+<br />
+<br />
+<strong>Плавне прискорення</strong> без ривків
+<br />
+<br />
+<strong>Відсутність вібрацій</strong> на холостому ходу
+</p>
+</section>
 
-- **Синхронний запуск** всіх моторів
-- **Однакову швидкість** на одному значенні газу
-- **Плавне прискорення** без ривків
-- **Відсутність вібрацій** на холостому ходу
+<section id="betaflight" class="mt-10 scroll-mt-24">
+<h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Налаштування в Betaflight</h2>
+<h3 class="font-[Montserrat] text-[18px] font-normal mb-3">ESC/Motor Features</h3>
+<ul class="list-disc pl-5 space-y-2 text-[#333]">
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+<code>DSHOT600</code> або <code>DSHOT300</code> для сучасних ESC
+</p>
+</li>
 
-## Налаштування в Betaflight
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+<code>Motor PWM frequency</code> - зазвичай 480Hz для PWM
+</p>
+</li>
 
-### ESC/Motor Features
-- `DSHOT600` або `DSHOT300` для сучасних ESC
-- `Motor PWM frequency` - зазвичай 480Hz для PWM
-- `ESC sensor` - увімкніть для телеметрії
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+<code>ESC sensor</code> - увімкніть для телеметрії
+</p>
+</li>
+</ul>
+</section>
 
-### Додаткові налаштування
-- `motor_pwm_rate` - частота ШІМ сигналу
-- `dshot_idle_value` - мінімальне значення для DShot
-- `use_unsynced_pwm` - для старих ESC
-
-## Поширені проблеми
-
-### ESC не реагує на калібрування
+<section id="problems" class="mt-10 scroll-mt-24">
+<h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Поширені проблеми</h2>
+<h3 class="font-[Montserrat] text-[18px] font-normal mb-3">ESC не реагує на калібрування</h3>
+<p class="text-[16px] font-normal font-[Montserrat]">
 - Перевірте підключення сигнальних проводів
+<br />
+<br />
 - Переконайтеся в правильності протоколу (PWM/DShot)
+<br />
+<br />
 - Спробуйте калібрувати кожен ESC окремо
+</p>
 
-### Мотори крутяться з різною швидкістю
+<h3 class="font-[Montserrat] text-[18px] font-normal mb-3 mt-6">Мотори крутяться з різною швидкістю</h3>
+<p class="text-[16px] font-normal font-[Montserrat]">
 - Повторіть калібрування
+<br />
+<br />
 - Перевірте якість живлення
+<br />
+<br />
 - Можливо потрібна заміна ESC
+</p>
+</section>
 
-### Звукові сигнали відсутні
-- Перевірте підключення buzzer на ESC
-- Деякі ESC не мають звукових сигналів
-- Орієнтуйтеся на поведінку моторів
+<section id="tips" class="mt-10 scroll-mt-24">
+<h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Поради експертів</h2>
+<ul class="list-disc pl-5 space-y-2 text-[#333]">
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+<strong>Завжди знімайте пропелери</strong> під час калібрування
+</p>
+</li>
 
-## Поради експертів
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+<strong>Використовуйте якісне живлення</strong> для стабільних результатів
+</p>
+</li>
 
-1. **Завжди знімайте пропелери** під час калібрування
-2. **Використовуйте якісне живлення** для стабільних результатів
-3. **Калібруйте всі ESC одночасно** для кращої синхронізації
-4. **Записуйте налаштування** після успішного калібрування
-5. **Тестуйте на малих обертах** перед повноцінним польотом
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+<strong>Калібруйте всі ESC одночасно</strong> для кращої синхронізації
+</p>
+</li>
+
+<li class="flex gap-3 items-center">
+<img width="35" height="35" src="/img/list-guide-four.png" alt="" style="filter: none; box-shadow: none;" />
+<p class="text-[16px] font-normal font-[Montserrat]">
+<strong>Тестуйте на малих обертах</strong> перед повноцінним польотом
+</p>
+</li>
+</ul>
+</section>

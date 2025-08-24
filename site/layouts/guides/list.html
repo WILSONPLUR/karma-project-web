@@ -1,23 +1,40 @@
 {{ define "main" }}
 <section class="py-6 bg-white">
-  <div class="max-w-[1237px] mx-auto px-5">
-    <div class="mb-5 flex items-center justify-start gap-2 text-[var(--color-karma-red)] font-[Montserrat]">
-      <a class="font-[Montserrat] text-[20px] font-normal text-[#ba0108]" href="/">
-        Головна
-      </a>
-      <span class="text-[#ba0108]">&rarr;</span>
-      <a class="font-[Montserrat]  text-[20px] font-normal text-[#ba0108]" href="#">
-        База знань
-      </a>
-      <span class="text-[#ba0108]">&rarr;</span>
-      <a class="font-[Montserrat] text-[20px] font-normal text-[#ba0108]" href="#">
-        Як правильно паяти політний стек. Інструкція
-      </a>
+  <div class="max-w-[1237px] mx-auto px-5 md:px-[40px]">
+    <div class="mb-5 flex flex-col sm:flex-row sm:items-center sm:justify-between font-[Montserrat] gap-3">
+      <div class="flex flex-wrap gap-2 items-center sm:gap-2">
+        <a class="font-[Montserrat] text-[16px] lg:text-[20px] font-normal text-[#ba0108] hover:underline" href="/">
+          Головна
+        </a>
+        <span class="text-[#ba0108] hidden sm:inline">&rarr;</span>
+        <a class="font-[Montserrat] text-[16px] lg:text-[20px] font-normal text-[#ba0108] hover:underline" href="#">
+          База знань
+        </a>
+        <span class="text-[#ba0108] hidden sm:inline">&rarr;</span>
+        <a class="font-[Montserrat] text-[16px] lg:text-[20px] font-normal text-[#ba0108] hover:underline break-words hyphens-auto"
+          href="#">
+          Як правильно паяти політний стек. Інструкція
+        </a>
+      </div>
+
+      <!-- Search for tablets -->
+      <div class="flex relative max-w-[300px] justify-center items-center lg:hidden">
+        <div class="flex flex-1 items-center">
+          <div class="relative flex-1 rounded-[20px]">
+            <input type="text" placeholder="Введіть текст"
+              class="h-[47px] w-full !rounded-[20px] border border-black pl-4 pr-[120px] text-[16px] outline-none focus:border-[#ba0108] bg-white" />
+            <button
+              class="absolute z-10 right-0 top-1/2 -translate-y-1/2 w-[99px] h-[47px] rounded-[20px] bg-[#ba0108] flex items-center justify-center cursor-pointer hover:bg-[#a00007] transition-colors">
+              <img src="/img/search-icon.svg" alt="search" width="30" height="30" class="filter brightness-0 invert" />
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr_220px] gap-6">
-      <div class="bg-[#fafafa] max-w-[285px] h-full rounded-2xl  border border-[#eee]">
-        <aside class="hidden relative pt-0 pr-0 pl-0 lg:block">
+    <div class="grid grid-cols-1 md:grid-cols-[180px_1fr_200px] lg:grid-cols-[280px_1fr_220px] gap-6">
+      <div class="bg-[#fafafa] max-w-[285px] h-full rounded-2xl border border-[#eee] hidden md:block">
+        <aside class="relative pt-0 pr-0 pl-0">
           <div class="p-0">
             <nav class="pt-[8px] fixed" style="width: 285px; max-height: calc(100vh - 200px); overflow-y: auto;">
               <details class="asideDetails">
@@ -134,11 +151,11 @@
       </div>
 
       <div class="max-w-[693px] min-h-0 pr-2">
-        <div class="flex relative max-w-[691px] justify-center items-center mb-5">
+        <div class="hidden lg:flex relative max-w-[691px] justify-center items-center mb-5">
           <div class="flex flex-1 items-center">
             <div class="relative flex-1 rounded-[20px]">
               <input type="text" placeholder="Введіть текст"
-                class="h-[47px] w-full !rounded-[20px] border border-[#E0E0E0] pl-4 pr-[120px] text-[20px] outline-none focus:border-[#ba0108] bg-white" />
+                class="h-[47px] w-full !rounded-[20px] border border-black pl-4 pr-[120px] text-[20px] outline-none focus:border-[#ba0108] bg-white" />
               <button
                 class="absolute z-10 right-0 top-1/2 -translate-y-1/2 w-[99px] h-[47px] rounded-[20px] bg-[#ba0108] flex items-center justify-center cursor-pointer hover:bg-[#a00007] transition-colors">
                 <img src="/img/search-icon.svg" alt="search" width="30" height="30"
@@ -155,10 +172,10 @@
           </div>
         </div>
 
-        <h1 class="mt-4 font-[Montserrat] text-[24px] font-medium text-black">
+        <h1 class="mt-4 font-[Montserrat] text-[24px] lg:text-[32px] font-medium text-black">
           Як правильно паяти політний стек. Інструкція
         </h1>
-        <p class="mt-2 font-[Montserrat] text-[16px] font-normal">
+        <p class="mt-2 font-[Montserrat] text-[16px] lg:text-[18px] font-normal">
           Для успішного паяння політного стека, важливо знати правильну техніку,
           уникати поширених помилок та дотримуватися певних рекомендацій. Цей
           процес вимагає точності та терпіння, щоб не пошкодити чутливі
@@ -166,13 +183,13 @@
         </p>
 
         <section id="errors" class="mt-8 scroll-mt-24">
-          <h2 class="font-[Montserrat] text-[20px] border-b border-[#ba0108]  pb-3 font-normal mb-3">
+          <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">
             Опис помилок
           </h2>
           <ol class="space-y-4">
             <li class="flex gap-3 items-start">
               <img width="35" height="35" class="cursor-pointer color-black" src="/img/list-guide-one.png" alt="" />
-              <p class="text-[16px] font-normal font-[Montserrat]">
+              <p class="text-[16px] lg:text-[18px] font-normal font-[Montserrat]">
                 Перегрівання компонентів. Занадто висока температура паяльника
                 або тривалий контакт може пошкодити мікросхеми та контакти на
                 платі. Це найчастіша помилка.
@@ -211,7 +228,7 @@
         </section>
 
         <section id="expert" class="mt-10 scroll-mt-24">
-          <h2 class="font-[Montserrat] text-[20px] border-b border-[#ba0108] pb-3 font-normal mb-3">
+          <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">
             Поради експерта
           </h2>
           <div class="space-y-2 text-[#333]">
@@ -244,7 +261,7 @@
         </section>
 
         <section id="howto" class="scroll-mt-24 mt-10 bg-[#f5f5f5] px-[29px] py-[27px]">
-          <h2 class="font-[Montserrat] text-[20px] border-b border-[#ba0108] pb-3 font-normal mb-3">
+          <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">
             Інструкція
           </h2>
           <ul class="list-disc pl-5 space-y-2 text-[#333]">
@@ -287,7 +304,7 @@
         </section>
 
         <section id="recommend" class="mt-10 scroll-mt-24">
-          <h2 class="font-[Montserrat] text-[20px] border-b border-[#ba0108] pb-3 font-normal mb-3">
+          <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">
             Рекомендації
           </h2>
           <p class="text-[16px] font-normal font-[Montserrat]">
@@ -314,43 +331,47 @@
 
         <section id="markdown"
           class="scroll-mt-24 max-w-[694px] h-[259px] px-[25px] py-[22px] mt-10 mb-16 rounded-[10px] shadow-[0_4px_16px_0_rgba(0,0,0,0.1)]">
-          <h2 class="font-[Montserrat] text-[20px] border-b border-[#ba0108] pb-3 font-semibold mb-3">
+          <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-semibold mb-3">
             Markdown
           </h2>
           <img src="/img/markdown.png" alt="Markdown" class="w-full h-auto" width="644" height="195" />
         </section>
       </div>
 
-      <aside class="hidden relative lg:block">
-        <nav >
+      <aside class="hidden lg:block relative bg-red-500 min-h-[200px]">
+        <nav>
           <div class="pt-0 h-full">
-            <nav class="fixed pt-[8px] " style="width: 285px; max-height: calc(100vh - 200px); overflow-y: auto;">
-              <h4 class="mb-3 font-[Montserrat] text-[16px] font-medium text-[#ba0108]">
+            <nav class="fixed pt-[8px] " style="width: 200px; max-height: calc(100vh - 200px); overflow-y: auto;">
+              <h4 class="mb-3 font-[Montserrat] text-[16px] lg:text-[18px] font-medium text-[#ba0108]">
                 На цій сторінці
               </h4>
-              <ul class="space-y-2 text-[16px] font-normal font-[Montserrat]">
+              <ul class="space-y-2 text-[16px] lg:text-[18px] font-normal font-[Montserrat]">
                 <li>
-                  <a href="#errors" class="block px-3 py-2 hover:text-[#ba0108] transition-colors">
+                  <a href="#errors"
+                    class="block py-2 hover:text-[#ba0108] transition-colors text-[16px] lg:text-[18px]">
                     Опис помилок
                   </a>
                 </li>
                 <li>
-                  <a href="#expert" class="block px-3 py-2 hover:text-[#ba0108] transition-colors">
+                  <a href="#expert"
+                    class="block py-2 hover:text-[#ba0108] transition-colors text-[16px] lg:text-[18px]">
                     Поради експерта
                   </a>
                 </li>
                 <li>
-                  <a href="#howto" class="block px-3 py-2 hover:text-[#ba0108] transition-colors">
+                  <a href="#howto" class="block py-2 hover:text-[#ba0108] transition-colors text-[16px] lg:text-[18px]">
                     Інструкція
                   </a>
                 </li>
                 <li>
-                  <a href="#recommend" class="block px-3 py-2 hover:text-[#ba0108] transition-colors">
+                  <a href="#recommend"
+                    class="block py-2 hover:text-[#ba0108] transition-colors text-[16px] lg:text-[18px]">
                     Рекомендації
                   </a>
                 </li>
                 <li>
-                  <a href="#markdown" class="block px-3 py-2 hover:text-[#ba0108] transition-colors">
+                  <a href="#markdown"
+                    class="block py-2 hover:text-[#ba0108] transition-colors text-[16px] lg:text-[18px]">
                     Markdown
                   </a>
                 </li>
@@ -431,6 +452,13 @@
 
   nav.fixed::-webkit-scrollbar-thumb:hover {
     background: #a8a8a8;
+  }
+
+  /* Адаптивні стилі для планшетів */
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
 

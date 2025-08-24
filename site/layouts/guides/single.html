@@ -1,26 +1,44 @@
 {{ define "main" }}
 <section class="py-6 bg-white">
-  <div class="max-w-[1237px] mx-auto px-5">
-    <div class="mb-5 flex items-center justify-start gap-2 text-[var(--color-karma-red)] font-[Montserrat]">
-      <a class="font-[Montserrat] lg:text-[20px] max-[420px]:text-[16px] font-normal text-[#ba0108]" href="/">
-        Головна
-      </a>
-      <span class="text-[#ba0108]">&rarr;</span>
-      <a class="font-[Montserrat] lg:text-[20px] max-[420px]:text-[16px] font-normal text-[#ba0108]" href="/knowledge-base">
-        База знань
-      </a>
-      <span class="text-[#ba0108]">&rarr;</span>
-      <a class="font-[Montserrat] lg:text-[20px] max-[420px]:text-[16px] font-normal text-[#ba0108]" href="#">
-        {{ .Title }}
-      </a>
+  <div class="max-w-[1237px] mx-auto px-5 md:px-[40px]">
+    <div class="mb-5 flex flex-col sm:flex-row sm:items-center sm:justify-between font-[Montserrat] gap-3">
+      <div class="flex flex-wrap gap-2 items-center sm:gap-2">
+        <a class="font-[Montserrat] text-[16px] lg:text-[20px] font-normal text-[#ba0108] hover:underline" href="/">
+          Головна
+        </a>
+        <span class="text-[#ba0108] hidden sm:inline">&rarr;</span>
+        <a class="font-[Montserrat] text-[16px] lg:text-[20px] font-normal text-[#ba0108] hover:underline"
+          href="/guides">
+          База знань
+        </a>
+        <span class="text-[#ba0108] hidden sm:inline">&rarr;</span>
+        <a class="font-[Montserrat] text-[16px] lg:text-[20px] font-normal text-[#ba0108] hover:underline break-words hyphens-auto"
+          href="#">
+          {{ .Title }}
+        </a>
+      </div>
+
+      <!-- Search for tablets -->
+      <div class="flex relative max-w-[300px] justify-center items-center lg:hidden">
+        <div class="flex flex-1 items-center">
+          <div class="relative flex-1 rounded-[20px]">
+            <input type="text" placeholder="Введіть текст"
+              class="h-[47px] w-full !rounded-[20px] border border-black pl-4 pr-[120px] text-[16px] outline-none focus:border-[#ba0108] bg-white" />
+            <button
+              class="absolute z-10 right-0 top-1/2 -translate-y-1/2 w-[99px] h-[47px] rounded-[20px] bg-[#ba0108] flex items-center justify-center cursor-pointer hover:bg-[#a00007] transition-colors">
+              <img src="/img/search-icon.svg" alt="search" width="30" height="30" class="filter brightness-0 invert" />
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-[280px_1fr_220px] gap-6">
-      <div class="bg-[#fafafa] max-w-[285px] h-full rounded-2xl  border border-[#eee]">
-        <aside class="hidden relative pt-0 pr-0 pl-0 lg:block">
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_200px] lg:grid-cols-[280px_1fr_220px] gap-6">
+      <div class="bg-[#fafafa] max-w-[285px] h-full rounded-2xl border border-[#eee] hidden lg:block">
+        <aside class="relative pt-0 pr-0 pl-0">
           <div class="p-0">
             <nav class="pt-[8px] fixed" style="width: 285px; max-height: calc(100vh - 200px); overflow-y: auto;">
-              {{ $categories := slice "БПЛА" "ВІДЕОПЕРЕДАВАЧІ" "ESC" }}
+              {{ $categories := slice "БПЛА" "Політні стеки" "Відеопередавачі" "ESC" }}
               {{ $guides := where .Site.RegularPages "Section" "guides" }}
               {{ range $index, $category := $categories }}
               {{ $categoryGuides := where $guides ".Params.category" $category }}
@@ -36,7 +54,8 @@
                   style="border-left: 1px solid #e0e0e0; margin-left: 36px; padding-left: 16px;  padding-right: 10px; ">
                   {{ range $categoryGuides }}
                   <li>
-                    <a href="{{ .Permalink }}" class="block  text-[16px] font-normal font-[Montserrat] {{ if eq .Title $.Title }}text-[#ba0108]{{ else }}hover:text-[#ba0108] transition-colors{{ end }}">
+                    <a href="{{ .Permalink }}"
+                      class="block text-[16px] font-normal font-[Montserrat] {{ if eq .Title $.Title }}text-[#ba0108]{{ else }}hover:text-[#ba0108] transition-colors{{ end }}">
                       {{ .Title }}
                     </a>
                   </li>
@@ -51,11 +70,11 @@
       </div>
 
       <div class="max-w-[693px] min-h-0 pr-2">
-        <div class="flex relative max-w-[691px] justify-center items-center mb-5">
+        <div class="hidden lg:flex relative max-w-[691px] justify-center items-center mb-5">
           <div class="flex flex-1 items-center">
             <div class="relative flex-1 rounded-[20px]">
               <input type="text" placeholder="Введіть текст"
-                class="h-[47px] w-full !rounded-[20px] border border-[#E0E0E0] pl-4 pr-[120px] lg:text-[20px] max-[420px]:text-[16px] outline-none focus:border-[#ba0108] bg-white" />
+                class="h-[47px] w-full !rounded-[20px] border border-black pl-4 pr-[120px] text-[20px] outline-none focus:border-[#ba0108] bg-white" />
               <button
                 class="absolute z-10 right-0 top-1/2 -translate-y-1/2 w-[99px] h-[47px] rounded-[20px] bg-[#ba0108] flex items-center justify-center cursor-pointer hover:bg-[#a00007] transition-colors">
                 <img src="/img/search-icon.svg" alt="search" width="30" height="30"
@@ -81,30 +100,29 @@
         </div>
         {{ end }}
 
-        <h1 class="mt-4 font-[Montserrat] text-[24px] font-medium text-black">
+        <h1 class="mt-4 font-[Montserrat] text-[24px] lg:text-[32px] font-medium text-black">
           {{ .Title }}
         </h1>
         {{ if .Params.description }}
-        <p class="mt-2 font-[Montserrat] text-[16px] font-normal">
+        <p class="mt-2 font-[Montserrat] text-[16px] lg:text-[18px] font-normal">
           {{ .Params.description }}
         </p>
         {{ end }}
 
-        <div class="prose prose-lg max-w-none mt-8">
-          <div class="text-gray-800 leading-relaxed font-[Montserrat]">
-            {{ .Content }}
-          </div>
+        <!-- Кастомний контейнер для markdown контенту -->
+        <div class="mt-8 markdown-content">
+          {{ .Content }}
         </div>
       </div>
 
-      <aside class="hidden relative lg:block">
-        <nav >
+      <aside class="hidden relative md:block">
+        <nav>
           <div class="pt-0 h-full">
-            <nav class="fixed pt-[8px] " style="width: 285px; max-height: calc(100vh - 200px); overflow-y: auto;">
-              <h4 class="mb-3 font-[Montserrat] text-[16px] font-medium text-[#ba0108]">
+            <nav class="fixed pt-[8px] " style="width: 220px; max-height: calc(100vh - 200px); overflow-y: auto;">
+              <h4 class="mb-3 font-[Montserrat] text-[16px] lg:text-[18px] font-medium text-[#ba0108]">
                 На цій сторінці
               </h4>
-              <ul class="space-y-2 text-[16px] font-normal font-[Montserrat]" id="page-toc">
+              <ul class="space-y-2 text-[16px] lg:text-[18px] font-normal font-[Montserrat]" id="page-toc">
                 <!-- Table of contents will be generated by JavaScript -->
               </ul>
             </nav>
@@ -164,143 +182,220 @@
   }
 
   nav.fixed::-webkit-scrollbar {
-    width: 4px;
+    display: none;
   }
 
-  nav.fixed::-webkit-scrollbar-track {
-    background: #f1f1f1;
-    border-radius: 2px;
+  nav.fixed {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
 
-  nav.fixed::-webkit-scrollbar-thumb {
-    background: #c1c1c1;
-    border-radius: 2px;
-  }
-
-  nav.fixed::-webkit-scrollbar-thumb:hover {
-    background: #a8a8a8;
-  }
-
-  /* Custom prose styles for better typography */
-  .prose h2 {
-    font-size: 1.25rem;
+  /* Кастомні стилі для markdown контенту */
+  .markdown-content h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+    line-height: 24px;
     font-weight: 400;
-    color: #000;
-    margin-top: 2.5rem;
-    margin-bottom: 0.75rem;
-    font-family: 'Montserrat', sans-serif;
     border-bottom: 1px solid #ba0108;
-    padding-bottom: 0.75rem;
+    padding-bottom: 12px;
+    margin-top: 32px;
+    margin-bottom: 12px;
+    color: #000;
   }
 
-  .prose h3 {
-    font-size: 1.125rem;
+  .markdown-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
     font-weight: 400;
+    margin-top: 24px;
+    margin-bottom: 12px;
     color: #000;
-    margin-top: 2rem;
-    margin-bottom: 0.75rem;
-    font-family: 'Montserrat', sans-serif;
-    border-bottom: 1px solid #ba0108;
-    padding-bottom: 0.75rem;
   }
 
-  .prose h4 {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #000;
-    margin-top: 1.5rem;
-    margin-bottom: 0.5rem;
+  .markdown-content p {
     font-family: 'Montserrat', sans-serif;
-  }
-
-  .prose p {
-    margin-bottom: 1rem;
+    font-size: 16px;
     line-height: 1.625;
-    font-size: 1rem;
-    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    margin-bottom: 16px;
     color: #333;
   }
 
-  .prose ul, .prose ol {
-    margin-bottom: 1rem;
-    padding-left: 1.5rem;
+  .markdown-content ol {
+    margin-bottom: 16px;
   }
 
-  .prose li {
-    margin-bottom: 0.5rem;
+  .markdown-content ol li {
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    margin-bottom: 16px;
     font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 18px;
+    font-weight: 400;
     color: #333;
   }
 
-  .prose strong {
+  .markdown-content ol li::before {
+    content: counter(list-item);
+    counter-increment: list-item;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    background-image: url('/img/list-guide-one.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    flex-shrink: 0;
+  }
+
+  .markdown-content ol li:nth-child(2)::before {
+    background-image: url('/img/list-guide-two.png');
+  }
+
+  .markdown-content ol li:nth-child(3)::before {
+    background-image: url('/img/list-guide-three.png');
+  }
+
+  .markdown-content ol li:nth-child(4)::before {
+    background-image: url('/img/list-guide-four.png');
+  }
+
+  .markdown-content ul {
+    margin-bottom: 16px;
+    padding-left: 20px;
+  }
+
+  .markdown-content ul li {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+    line-height: 1.625;
+    font-weight: 400;
+    margin-bottom: 8px;
+    color: #333;
+    list-style-type: disc;
+  }
+
+  .markdown-content strong {
     font-weight: 600;
     color: #000;
   }
 
-  .prose em {
+  .markdown-content em {
     font-style: italic;
   }
 
-  .prose code {
+  .markdown-content a {
+    color: #ba0108;
+    text-decoration: underline;
+  }
+
+  .markdown-content a:hover {
+    text-decoration: none;
+  }
+
+  .markdown-content img {
+    border-radius: 8px;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
+    margin: 24px 0;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .markdown-content blockquote {
+    background-color: #f5f5f5;
+    padding: 24px 29px;
+    border-radius: 8px;
+    margin: 24px 0;
+    font-style: italic;
+    color: #333;
+  }
+
+  .markdown-content code {
     background-color: #f3f4f6;
-    padding: 0.25rem 0.5rem;
-    border-radius: 0.25rem;
-    font-size: 0.875rem;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
     font-family: monospace;
   }
 
-  .prose pre {
+  .markdown-content pre {
     background-color: #111827;
     color: #f3f4f6;
-    padding: 1rem;
-    border-radius: 0.5rem;
+    padding: 16px;
+    border-radius: 8px;
     overflow-x: auto;
-    margin-bottom: 1rem;
+    margin-bottom: 16px;
   }
 
-  .prose blockquote {
-    border-left: 4px solid #ba0108;
-    padding-left: 1rem;
-    font-style: italic;
-    color: #374151;
-    margin-bottom: 1rem;
+  /* Стилі для підчеркувань */
+  .markdown-content .underline {
+    text-decoration: underline;
   }
 
-  .prose img {
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    margin: 1.5rem 0;
-  }
-
-  .prose a {
+  .markdown-content .text-red {
     color: #ba0108;
   }
 
-  .prose a:hover {
-    text-decoration: underline;
+  /* Стилі для секцій з фоном */
+  .markdown-content section {
+    margin-top: 40px;
+    scroll-margin-top: 96px;
+  }
+
+  .markdown-content section:first-of-type {
+    margin-top: 32px;
+  }
+
+  /* Стилі для секції з сірим фоном */
+  .markdown-content section.bg-gray {
+    background-color: #f5f5f5;
+    padding: 27px 29px;
+    border-radius: 8px;
+    margin: 40px 0;
+  }
+
+  /* Стилі для секції з тінню */
+  .markdown-content section.shadow {
+    max-width: 694px;
+    height: 259px;
+    padding: 22px 25px;
+    margin: 40px 0 64px 0;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  /* Адаптивні стилі */
+  @media (max-width: 768px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
   }
 </style>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {
     // Generate table of contents
-    const headings = document.querySelectorAll('.prose h2, .prose h3');
+    const headings = document.querySelectorAll('.markdown-content h2, .markdown-content h3');
     const tocList = document.getElementById('page-toc');
-    
+
     if (tocList && headings.length > 0) {
       headings.forEach((heading, index) => {
         // Create ID for heading if it doesn't exist
         if (!heading.id) {
           heading.id = 'heading-' + index;
         }
-        
+
         // Create TOC item
         const li = document.createElement('li');
         const a = document.createElement('a');
         a.href = '#' + heading.id;
         a.textContent = heading.textContent;
-        a.className = 'block px-3 py-2 hover:text-[#ba0108] transition-colors';
-        
+        a.className = 'block py-2 hover:text-[#ba0108] transition-colors text-[16px] lg:text-[18px]';
+
         li.appendChild(a);
         tocList.appendChild(li);
       });
@@ -324,7 +419,7 @@
     });
 
     // Highlight active section in TOC
-    const sections = document.querySelectorAll('.prose h2[id], .prose h3[id]');
+    const sections = document.querySelectorAll('.markdown-content h2[id], .markdown-content h3[id]');
     const navLinks = document.querySelectorAll('#page-toc a[href^="#"]');
 
     function highlightActiveSection() {

@@ -3,7 +3,7 @@
 {{- $categoryData := index .Site.Data.products.categories $categorySlug -}}
 
 <!-- Hero Section -->
-<section class="bg-white py-16 relative overflow-hidden">
+<section class="overflow-hidden relative py-16 bg-white">
   <!-- Background decorative elements -->
   <div class="absolute top-0 right-0 opacity-30">
     <img src="/img/bg-el-1.png" alt="" class="lg:w-[300px] max-[420px]:w-[150px] h-auto" />
@@ -17,10 +17,12 @@
       <!-- Left Content -->
       <div class="lg:w-1/2 max-[420px]:w-full">
         <!-- Breadcrumb -->
-        <div class="mb-6 flex items-center text-sm">
-          <a href="/" class="text-[#ba0108] hover:text-[#9a0106] transition-colors font-['Montserrat'] lg:text-[20px] max-[420px]:text-[16px]">Головна</a>
+        <div class="flex items-center mb-6 text-sm">
+          <a href="/"
+            class="text-[#ba0108] hover:text-[#9a0106] transition-colors font-['Montserrat'] lg:text-[20px] max-[420px]:text-[16px]">Головна</a>
           <span class="mx-2 text-[#ba0108]">→</span>
-          <span class="text-[#ba0108] font-['Montserrat'] lg:text-[20px] max-[420px]:text-[16px]">{{ $categoryData.name }}</span>
+          <span class="text-[#ba0108] font-['Montserrat'] lg:text-[20px] max-[420px]:text-[16px]">{{ $categoryData.name
+            }}</span>
         </div>
 
         <!-- Main Title -->
@@ -30,32 +32,32 @@
 
         <!-- Description -->
         <p class="lg:text-[18px] max-[420px]:text-[16px] font-['Montserrat'] text-gray-700 mb-6 leading-relaxed">
-          Компактна та продуктивна інтегрована система для дронів, що об'єднує польотний контролер (FC) на базі потужного мікроконтролера STM32F405 та регулятор швидкості (ESC) 4-в-1 з підтримкою до 20А (25А пікового).
+          Компактна та продуктивна інтегрована система для дронів, що об'єднує польотний контролер (FC) на базі
+          потужного мікроконтролера STM32F405 та регулятор швидкості (ESC) 4-в-1 з підтримкою до 20А (25А пікового).
         </p>
-        
+
         <p class="lg:text-[18px] max-[420px]:text-[16px] font-['Montserrat'] text-gray-700 mb-8 leading-relaxed">
-          Завдяки своїм невеликим розмірам та високій функціональності, включаючи вбудований OSD, а часто також барометр і "чорний ящик", він є ідеальним вибором для створення легких та маневрених FPV-дронів
+          Завдяки своїм невеликим розмірам та високій функціональності, включаючи вбудований OSD, а часто також барометр
+          і "чорний ящик", він є ідеальним вибором для створення легких та маневрених FPV-дронів
         </p>
-        
-        <button class="bg-[#ba0108] text-white px-8 py-4 rounded-full font-['Montserrat'] lg:text-[18px] max-[420px]:text-[16px] font-medium hover:bg-[#a00007] transition-colors">
+
+        <button
+          class="bg-[#ba0108] text-white px-8 py-4 rounded-full font-['Montserrat'] lg:text-[18px] max-[420px]:text-[16px] font-medium hover:bg-[#a00007] transition-colors">
           Отримати пропозицію
         </button>
       </div>
-      
+
       <!-- Right Image -->
       <div class="lg:w-1/2 max-[420px]:w-full flex justify-center">
-        <img 
-          src="/img/our-product1.png" 
-          alt="{{ $categoryData.name }}" 
-          class="w-full max-w-[500px] h-auto object-contain"
-        />
+        <img src="/img/our-product1.png" alt="{{ $categoryData.name }}"
+          class="w-full max-w-[500px] h-auto object-contain" />
       </div>
     </div>
   </div>
 </section>
 
 <!-- Products Section -->
-<section class="bg-white py-16">
+<section class="py-16 bg-white">
   <div class="max-w-[1237px] mx-auto px-5">
     <h2 class="lg:text-[48px] max-[420px]:text-[28px] font-['Unbounded'] font-bold text-center mb-12 hero-title">
       <span class="text-[#ba0108]">Н</span>АШІ ТОВАРИ
@@ -64,24 +66,21 @@
     <!-- Products Grid -->
     <div class="grid lg:grid-cols-2 max-[420px]:grid-cols-1 gap-8 justify-items-center">
       {{ range $categoryData.products }}
-      <div class="bg-white w-full max-w-[500px] rounded-[10px] shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+      <div
+        class="bg-white w-full max-w-[500px] rounded-[10px] shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
         <!-- Product Image -->
         <div class="h-[300px] overflow-hidden bg-gray-100 flex items-center justify-center">
-          <img 
-            src="{{ .image }}" 
-            alt="{{ .alt }}" 
-            class="w-full h-full object-contain p-4"
-          />
+          <img src="{{ .image }}" alt="{{ .alt }}" class="object-contain p-4 w-full h-full" />
         </div>
-        
+
         <!-- Product Info -->
         <div class="p-6">
           <h3 class="lg:text-[24px] max-[420px]:text-[18px] font-['Unbounded'] font-bold text-center mb-6">
             {{ .name }}
           </h3>
-          
+
           <!-- Specifications -->
-          <div class="space-y-3 mb-6">
+          <div class="mb-6 space-y-3">
             {{ range .specs }}
             <div class="flex justify-between items-center py-2 border-b border-gray-200">
               <span class="font-['Montserrat'] lg:text-[16px] max-[420px]:text-[14px] text-gray-600">{{ .label }}</span>
@@ -89,10 +88,11 @@
             </div>
             {{ end }}
           </div>
-          
+
           <!-- Action Button -->
           <div class="text-center">
-            <button class="bg-[#ba0108] text-white px-8 py-3 rounded-full font-['Montserrat'] lg:text-[16px] max-[420px]:text-[14px] font-medium hover:bg-[#a00007] transition-colors">
+            <button
+              class="bg-[#ba0108] text-white px-8 py-3 rounded-full font-['Montserrat'] lg:text-[16px] max-[420px]:text-[14px] font-medium hover:bg-[#a00007] transition-colors">
               Отримати пропозицію
             </button>
           </div>
@@ -110,7 +110,7 @@
       <!-- Left Content -->
       <div class="lg:w-1/2 max-[420px]:w-full">
         <!-- Breadcrumb -->
-        <div class="mb-6 flex items-center text-sm">
+        <div class="flex items-center mb-6 text-sm">
           <a href="/" class="text-[#ba0108] hover:text-[#9a0106] transition-colors font-['Montserrat']">Головна</a>
           <span class="mx-2 text-[#ba0108]">→</span>
           <span class="text-[#ba0108] font-['Montserrat']">{{ $categoryData.name }}</span>
@@ -119,82 +119,83 @@
         <h2 class="lg:text-[48px] max-[420px]:text-[28px] font-['Unbounded'] font-bold mb-6 hero-title">
           {{ upper $categoryData.name }}
         </h2>
-        
+
         <p class="lg:text-[18px] max-[420px]:text-[16px] font-['Montserrat'] text-gray-700 mb-6 leading-relaxed">
-          Компактна та продуктивна інтегрована система для дронів, що об'єднує польотний контролер (FC) на базі потужного мікроконтролера STM32F405 та регулятор швидкості (ESC) 4-в-1 з підтримкою до 20А (25А пікового).
+          Компактна та продуктивна інтегрована система для дронів, що об'єднує польотний контролер (FC) на базі
+          потужного мікроконтролера STM32F405 та регулятор швидкості (ESC) 4-в-1 з підтримкою до 20А (25А пікового).
         </p>
-        
+
         <p class="lg:text-[18px] max-[420px]:text-[16px] font-['Montserrat'] text-gray-700 mb-8 leading-relaxed">
-          Завдяки своїм невеликим розмірам та високій функціональності, включаючи вбудований OSD, а часто також барометр і "чорний ящик", він є ідеальним вибором для створення легких та маневрених FPV-дронів
+          Завдяки своїм невеликим розмірам та високій функціональності, включаючи вбудований OSD, а часто також барометр
+          і "чорний ящик", він є ідеальним вибором для створення легких та маневрених FPV-дронів
         </p>
-        
-        <button class="bg-[#ba0108] text-white px-8 py-4 rounded-full font-['Montserrat'] lg:text-[18px] max-[420px]:text-[16px] font-medium hover:bg-[#a00007] transition-colors">
+
+        <button
+          class="bg-[#ba0108] text-white px-8 py-4 rounded-full font-['Montserrat'] lg:text-[18px] max-[420px]:text-[16px] font-medium hover:bg-[#a00007] transition-colors">
           Отримати пропозицію
         </button>
       </div>
-      
+
       <!-- Right Image -->
       <div class="lg:w-1/2 max-[420px]:w-full flex justify-center">
-        <img 
-          src="/img/our-product1.png" 
-          alt="{{ $categoryData.name }}" 
-          class="w-full max-w-[400px] h-auto object-contain"
-        />
+        <img src="/img/our-product1.png" alt="{{ $categoryData.name }}"
+          class="w-full max-w-[400px] h-auto object-contain" />
       </div>
     </div>
   </div>
 </section>
 
 <style>
-@keyframes fadeInUp {
-  0% {
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-title {
     opacity: 0;
     transform: translateY(30px);
+    transition: all 0.6s ease-out;
   }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
+
+  .hero-title.animate {
+    animation: fadeInUp 0.8s ease-out forwards;
   }
-}
-
-.hero-title {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease-out;
-}
-
-.hero-title.animate {
-  animation: fadeInUp 0.8s ease-out forwards;
-}
 </style>
 
 <script>
-// Hero title animation
-function animateHeroTitle() {
-  const heroTitles = document.querySelectorAll('.hero-title');
-  
-  const observerOptions = {
-    threshold: 0.3,
-    rootMargin: '0px 0px -50px 0px'
-  };
+  // Hero title animation
+  function animateHeroTitle() {
+    const heroTitles = document.querySelectorAll('.hero-title');
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('animate');
-      } else {
-        entry.target.classList.remove('animate');
-      }
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        } else {
+          entry.target.classList.remove('animate');
+        }
+      });
+    }, observerOptions);
+
+    heroTitles.forEach(title => {
+      observer.observe(title);
     });
-  }, observerOptions);
+  }
 
-  heroTitles.forEach(title => {
-    observer.observe(title);
-  });
-}
-
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', animateHeroTitle);
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', animateHeroTitle);
 </script>
 
 {{ end }}
