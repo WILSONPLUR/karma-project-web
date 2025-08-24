@@ -1,17 +1,18 @@
 {{ define "main" }}
 <section class="py-6 bg-white">
   <div class="max-w-[1237px] mx-auto px-5">
-    <div class="mb-5 flex items-center justify-between gap-[93px] font-[Montserrat]">
-      <div class="flex gap-2 items-center">
-        <a class="font-[Montserrat] text-[13px] lg:text-[20px] font-normal text-[#ba0108]" href="/">
+    <div class="mb-5 flex flex-col sm:flex-row sm:items-center sm:justify-between font-[Montserrat] gap-3">
+      <div class="flex flex-wrap gap-2 items-center sm:gap-2">
+        <a class="font-[Montserrat] text-[16px] lg:text-[20px] font-normal text-[#ba0108] hover:underline" href="/">
           Головна
         </a>
-        <span class="text-[#ba0108]">&rarr;</span>
-        <a class="font-[Montserrat] text-[13px] lg:text-[20px] font-normal text-[#ba0108]" href="#">
+        <span class="text-[#ba0108] hidden sm:inline">&rarr;</span>
+        <a class="font-[Montserrat] text-[16px] lg:text-[20px] font-normal text-[#ba0108] hover:underline" href="#">
           База знань
         </a>
-        <span class="text-[#ba0108]">&rarr;</span>
-        <a class="font-[Montserrat] text-[13px] lg:text-[20px] font-normal text-[#ba0108]" href="#">
+        <span class="text-[#ba0108] hidden sm:inline">&rarr;</span>
+        <a class="font-[Montserrat] text-[16px] lg:text-[20px] font-normal text-[#ba0108] hover:underline break-words hyphens-auto"
+          href="#">
           Як правильно паяти політний стек. Інструкція
         </a>
       </div>
@@ -21,7 +22,7 @@
         <div class="flex flex-1 items-center">
           <div class="relative flex-1 rounded-[20px]">
             <input type="text" placeholder="Введіть текст"
-              class="h-[47px] w-full !rounded-[20px] border border-black pl-4 pr-[120px] text-[13px] outline-none focus:border-[#ba0108] bg-white" />
+              class="h-[47px] w-full !rounded-[20px] border border-black pl-4 pr-[120px] text-[16px] outline-none focus:border-[#ba0108] bg-white" />
             <button
               class="absolute z-10 right-0 top-1/2 -translate-y-1/2 w-[99px] h-[47px] rounded-[20px] bg-[#ba0108] flex items-center justify-center cursor-pointer hover:bg-[#a00007] transition-colors">
               <img src="/img/search-icon.svg" alt="search" width="30" height="30" class="filter brightness-0 invert" />
@@ -340,7 +341,7 @@
       <aside class="hidden relative md:block">
         <nav>
           <div class="pt-0 h-full">
-            <nav class="fixed pt-[8px] " style="width: 285px; max-height: calc(100vh - 200px); overflow-y: auto;">
+            <nav class="fixed pt-[8px] " style="width: 235px; max-height: calc(100vh - 200px); overflow-y: auto;">
               <h4 class="mb-3 font-[Montserrat] text-[16px] font-medium text-[#ba0108]">
                 На цій сторінці
               </h4>
@@ -361,7 +362,7 @@
                   </a>
                 </li>
                 <li>
-                    <a href="#recommend" class="block py-2 hover:text-[#ba0108] transition-colors">
+                  <a href="#recommend" class="block py-2 hover:text-[#ba0108] transition-colors">
                     Рекомендації
                   </a>
                 </li>
