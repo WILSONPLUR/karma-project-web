@@ -1,0 +1,122 @@
+{{ define "main" }}
+{{- $categorySlug := .File.BaseFileName -}}
+{{- $categoryData := index .Site.Data.products.categories $categorySlug -}}
+
+<!-- Hero Section -->
+{{ partial "catalog-hero" . }}
+
+<!-- Products Section -->
+<section class="py-16 bg-white">
+    <div class="max-w-[1237px] mx-auto px-5">
+        <h2 class="lg:text-[48px] max-[420px]:text-[28px] font-['Unbounded'] font-bold text-center mb-12 hero-title">
+            <span class="text-[#ba0108]">Н</span>АШІ ТОВАРИ
+        </h2>
+
+        <!-- Products Grid -->
+        <div class="grid lg:grid-cols-2 max-[420px]:grid-cols-1 gap-8 justify-items-center">
+            {{ range $categoryData.products }}
+            <div
+                class="bg-white w-full max-w-[500px] rounded-[10px] shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                <!-- Product Image -->
+                <div class="h-[300px] overflow-hidden bg-gray-100 flex items-center justify-center">
+                    <img src="{{ .image }}" alt="{{ .alt }}" class="object-contain p-4 w-full h-full" />
+                </div>
+
+                <!-- Product Info -->
+                <div class="p-6">
+                    <h3 class="lg:text-[24px] max-[420px]:text-[18px] font-['Unbounded'] font-bold text-center mb-6">
+                        {{ .name }}
+                    </h3>
+
+                    <!-- Specifications -->
+                    <div class="mb-6 space-y-3">
+                        {{ range .specs }}
+                        <div class="flex justify-between items-center py-2 border-b border-gray-200">
+                            <span class="font-['Montserrat'] lg:text-[16px] max-[420px]:text-[14px] text-gray-600">{{
+                                .label }}</span>
+                            <span class="font-['Montserrat'] lg:text-[16px] max-[420px]:text-[14px] font-medium">{{
+                                .value }}</span>
+                        </div>
+                        {{ end }}
+                    </div>
+
+                    <!-- Action Button -->
+                    <div class="text-center">
+                        <a href="/catalog/{{ $categorySlug }}/{{ .id }}/"
+                            class="inline-block bg-[#ba0108] text-white px-8 py-3 rounded-full font-['Montserrat'] lg:text-[16px] max-[420px]:text-[14px] font-medium hover:bg-[#a00007] transition-colors">
+                            Докладніше
+                        </a>
+                    </div>
+                </div>
+            </div>
+            {{ end }}
+        </div>
+    </div>
+</section>
+
+<!-- Why Choose Section -->
+{{ partial "catalog-why-choose" . }}
+
+<!-- Knowledge Base Section -->
+{{ partial "catalog-knowledge-base" . }}
+
+<!-- FAQ Section -->
+{{ partial "catalog-faq" . }}
+
+<!-- Contact Form Section -->
+{{ partial "contact-form-section" . }}
+
+<style>
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .hero-title {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
+    }
+
+    .hero-title.animate {
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+</style>
+
+<script>
+    // Hero title animation
+    function animateHeroTitle() {
+        const heroTitles = document.querySelectorAll('.hero-title');
+
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                } else {
+                    entry.target.classList.remove('animate');
+                }
+            });
+        }, observerOptions);
+
+        heroTitles.forEach(title => {
+            observer.observe(title);
+        });
+    }
+
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', animateHeroTitle);
+</script>
+
+{{ end }}

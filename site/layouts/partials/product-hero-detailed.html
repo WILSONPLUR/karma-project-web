@@ -1,0 +1,65 @@
+{{ $product := .product | default dict }}
+{{ $category := .category | default dict }}
+{{ $context := .context }}
+
+{{/* Get product data with fallbacks */}}
+{{ $productName := $product.name | default $context.Title }}
+{{ $productImage := $product.image | default $context.Params.image | default "/img/Stack-product.png" }}
+{{ $categoryName := $category.name | default "Політні стеки" }}
+
+<section class="bg-[#f8f9fa] relative overflow-hidden">
+    <!-- Background Pattern -->
+    <div class="absolute top-0 right-0 w-1/2 h-full opacity-5">
+        <img src="/img/bg-el-1.png" alt="" class="w-full h-full object-cover" />
+    </div>
+    
+    <div class="max-w-[1237px] mx-auto px-5 py-16 relative z-[2]">
+        <!-- Breadcrumbs -->
+        <nav class="mb-8">
+            <div class="flex items-center text-sm text-gray-500 font-['Montserrat']">
+                <a href="/" class="hover:text-[#ba0108] transition-colors">Головна</a>
+                <span class="mx-2">→</span>
+                <a href="/catalog/" class="hover:text-[#ba0108] transition-colors">{{ $categoryName }}</a>
+                <span class="mx-2">→</span>
+                <span class="text-[#ba0108]">{{ $productName }}</span>
+            </div>
+        </nav>
+
+        <div class="grid lg:grid-cols-2 gap-16 items-center">
+            <!-- Product Image Section -->
+            <div class="flex justify-center">
+                <div class="bg-white rounded-[20px] p-12 shadow-xl max-w-[500px] w-full">
+                    <img src="{{ $productImage }}" 
+                         alt="{{ $productName }}" 
+                         class="w-full h-auto object-contain" />
+                </div>
+            </div>
+
+            <!-- Product Info Section -->
+            <div class="space-y-8">
+                <h1 class="font-['Unbounded'] text-[36px] lg:text-[48px] font-bold text-black leading-[1.1] uppercase">
+                    {{ $productName }}
+                </h1>
+                
+                <div class="space-y-6">
+                    <p class="font-['Montserrat'] text-[18px] leading-[1.6] text-gray-700">
+                        {{ $context.Params.description | default "Політний стек спрощує монтаж та підключення електроніки в дроні, роблячи його ідеальним рішенням як для досвідчених пілотів, так і для початківців." }}
+                    </p>
+                    
+                    <p class="font-['Montserrat'] text-[18px] leading-[1.6] text-gray-700">
+                        {{ $context.Content | default "Він забезпечує стабільний політ, точне керування та ефективне розподілення потужності до моторів." }}
+                    </p>
+                </div>
+
+                <!-- Action Button -->
+                <div class="pt-4">
+                    <button
+                        onclick="window.openContactModal && window.openContactModal()"
+                        class="bg-[#ba0108] text-white font-['Montserrat'] text-[16px] font-medium px-8 py-4 rounded-[50px] cursor-pointer transition-all duration-300 ease-in-out hover:bg-[#a00007] shadow-lg">
+                        Отримати пропозицію
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

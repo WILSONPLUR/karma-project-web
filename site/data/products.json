@@ -1,0 +1,134 @@
+{
+  "categories": {
+    "politni-steky": {
+      "name": "Політні стеки",
+      "description": "Компактна та продуктивна інтегрована система для дронів",
+      "products": [
+        {
+          "id": "2233",
+          "name": "ПОЛІТНИЙ СТЕК KARMA F405 V1",
+          "image": "/img/our-product1.png",
+          "alt": "Політний стек KARMA F405 V1",
+          "specs": [
+            {
+              "label": "Гіроскоп/акселерометр",
+              "value": "ICM-42688-P"
+            },
+            {
+              "label": "Робочий струм",
+              "value": "50А"
+            },
+            {
+              "label": "Розмір",
+              "value": "48.5 x 40 мм"
+            },
+            {
+              "label": "Монтажні отвори",
+              "value": "30.5 x 30.5 мм"
+            },
+            {
+              "label": "Піковий струм",
+              "value": "60А"
+            },
+            {
+              "label": "Роз'єм живлення",
+              "value": "XT-60"
+            }
+          ]
+        },
+        {
+          "id": "2234",
+          "name": "ПОЛІТНИЙ СТЕК KARMA F405 V2",
+          "image": "/img/our-product2.png",
+          "alt": "Політний стек KARMA F405 V2",
+          "specs": [
+            {
+              "label": "Гіроскоп/акселерометр",
+              "value": "ICM-42688-P"
+            },
+            {
+              "label": "Робочий струм",
+              "value": "50А"
+            },
+            {
+              "label": "Розмір",
+              "value": "48.5 x 40 мм"
+            },
+            {
+              "label": "Монтажні отвори",
+              "value": "30.5 x 30.5 мм"
+            },
+            {
+              "label": "Піковий струм",
+              "value": "60А"
+            },
+            {
+              "label": "Роз'єм живлення",
+              "value": "XT-60"
+            }
+          ]
+        }
+      ]
+    },
+    "videoperedavachi-vtx": {
+      "name": "Відеопередавачі VTX",
+      "description": "Високоякісні відеопередавачі для FPV дронів",
+      "products": [
+        {
+          "id": "3001",
+          "name": "VTX KARMA 5.8GHz 800mW",
+          "image": "/img/vtx-product1.png",
+          "alt": "VTX KARMA 5.8GHz 800mW",
+          "specs": [
+            {
+              "label": "Частота",
+              "value": "5.8GHz"
+            },
+            {
+              "label": "Потужність",
+              "value": "800mW"
+            },
+            {
+              "label": "Канали",
+              "value": "48 каналів"
+            },
+            {
+              "label": "Живлення",
+              "value": "7-26V"
+            }
+          ]
+        }
+      ]
+    },
+    "esc": {
+      "name": "ESC",
+      "description": "Електронні регулятори швидкості для безколекторних двигунів",
+      "products": [
+        {
+          "id": "4001",
+          "name": "ESC KARMA 45A BLHeli_S",
+          "image": "/img/esc-product1.png",
+          "alt": "ESC KARMA 45A BLHeli_S",
+          "specs": [
+            {
+              "label": "Струм",
+              "value": "45A"
+            },
+            {
+              "label": "Прошивка",
+              "value": "BLHeli_S"
+            },
+            {
+              "label": "Живлення",
+              "value": "2-6S LiPo"
+            },
+            {
+              "label": "Розмір",
+              "value": "30x30mm"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

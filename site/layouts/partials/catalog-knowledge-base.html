@@ -1,0 +1,52 @@
+{{ $category := .Params.category | default "politni-steky" }}
+{{ $categoryData := index .Site.Data.products.categories $category }}
+
+{{/* Get guides from content files */}}
+{{ $guides := where .Site.RegularPages "Section" "guides" }}
+{{ $categoryGuides := slice }}
+
+{{/* Map product categories to guide categories */}}
+{{ if eq $category "politni-steky" }}
+  {{ $categoryGuides = where $guides ".Params.category" "Політні стеки" }}
+{{ else if eq $category "videoperedavachi-vtx" }}
+  {{ $categoryGuides = where $guides ".Params.category" "Відеопередавачі" }}
+{{ else if eq $category "esc" }}
+  {{ $categoryGuides = where $guides ".Params.category" "ESC" }}
+{{ else }}
+  {{ $categoryGuides = $guides }}
+{{ end }}
+
+<div class="flex justify-center items-center flex-col max-w-[1240px] w-full mx-auto my-[80px]">
+    <h3 class="title text-black text-[40px] font-[Unbounded] font-medium mb-[30px]">
+        <span class="text-[#ba0108]">Б</span>АЗА ЗНАНЬ. {{ $categoryData.name | upper }}
+    </h3>
+
+    <div class="flex justify-center gap-[21px] flex-wrap">
+        {{ range $categoryGuides | first 3 }}
+        <div class="flex flex-col gap-[10px] max-w-[400px]">
+            {{ if .Params.image }}
+            <img src="{{ .Params.image }}" alt="{{ .Title }}" width="400" height="238" class="rounded-lg" />
+            {{ else }}
+            <img src="/img/card-img-1.png" alt="{{ .Title }}" width="400" height="238" class="rounded-lg" />
+            {{ end }}
+            <h4 class="text-[24px] font-[Montserrat] font-medium">
+                {{ .Title }}
+            </h4>
+            <p class="text-[20px] font-[Montserrat] font-normal">
+                {{ .Params.description | default .Summary }}
+                <a class="text-[#ba0108] ml-[8px]" href="{{ .Permalink }}">
+                    &gt;&gt;
+                </a>
+            </p>
+        </div>
+        {{ end }}
+        
+        {{ if lt (len $categoryGuides) 1 }}
+        <div class="text-center">
+            <p class="text-[20px] font-[Montserrat] font-normal text-gray-500">
+                Поки що немає статей для цієї категорії. Додайте їх через CMS.
+            </p>
+        </div>
+        {{ end }}
+    </div>
+</div>

@@ -1,38 +1,445 @@
-<header class="bg-[#020303] py-[26px] flex justify-center mx-auto">
-	<div class="flex w-[1237px] justify-between items-center gap-20">
-		<a href="/" class="font-inter text-xl font-normal text-white">
-			<img src="/logo.png" alt="logo" width="149" height="34" />
-		</a>
+<header class="bg-[#020303] lg:py-[26px] max-[450px]:py-[13px] max-[768px]:h-[65px] flex justify-center mx-auto">
+  <style>
+    .nav-link {
+      position: relative;
+      display: inline-block;
+    }
 
-		<nav class="flex items-center gap-[50px]">
-			<div class="relative group">
-				<a href="/catalog"
-					class="font-family-inter text-xl focus:font-bold text-white hover:text-[#ba0108] transition-colors">Каталог</a>
-				<div
-					class="absolute left-0 top-full hidden group-hover:block bg-white text-black shadow-lg mt-2 rounded-md">
-					<div class="flex w-full gap-6 px-4 py-3">
-						<a href="#" class="hover:text-[#ba0108]">Політні стеки</a>
-						<a href="#" class="hover:text-[#ba0108]">Відеопередавачі VTX</a>
-						<a href="#" class="hover:text-[#ba0108]">ESC</a>
-					</div>
-				</div>
-			</div>
-			<a href="/faq"
-				class="font-family-inter text-xl font-normal text-white hover:text-[#ba0108] transition-colors">FAQ</a>
-			<a href="/guides"
-				class="font-family-inter text-xl font-normal text-white hover:text-[#ba0108] transition-colors">База
-				знань</a>
-			<a href="/contact"
-				class="font-family-inter text-xl font-normal text-white hover:text-[#ba0108] transition-colors">Контакти</a>
-		</nav>
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -11px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 58px;
+      height: 2px;
+      background-color: #ba0108;
+    }
 
-		<div class="flex gap-[50px] justify-center">
-			<nav class="flex items-center gap-[30px]">
-				<a href="tel:(067) 298-29-29"
-					class="font-montserrat text-xl font-normal text-white hover:text-[#ba0108] transition-colors">(067)
-					298-29-29</a>
-				<div class="text-white/80 text-sm">UA | EN</div>
-			</nav>
-		</div>
-	</div>
+    /* Mobile menu styles */
+    .mobile-menu {
+      transform: translateX(100%);
+      transition: transform 0.3s ease-in-out;
+      display: none;
+    }
+
+    .mobile-menu.open {
+      transform: translateX(0);
+    }
+
+    /* Hamburger animation */
+    .hamburger span {
+      transition: all 0.3s ease;
+    }
+
+    .hamburger.open span:nth-child(1) {
+      transform: rotate(45deg) translate(5px, 5px);
+    }
+
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .hamburger.open span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -6px);
+    }
+
+    /* Dropdown menu positioning */
+    .dropdown-menu {
+      min-width: 400px;
+      z-index: 1000;
+      display: none;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    .dropdown-parent:hover .dropdown-menu,
+    .dropdown-menu:hover,
+    .dropdown-parent.active .dropdown-menu {
+      display: block;
+    }
+
+    /* Add gap between parent and dropdown to prevent flickering */
+    .dropdown-parent::before {
+      content: '';
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      height: 12px;
+      z-index: 999;
+    }
+
+    /* Dropdown item styling */
+    .dropdown-item {
+      position: relative;
+      cursor: pointer;
+      display: block;
+      text-align: center;
+    }
+
+    .dropdown-item:hover {
+      background-color: rgba(186, 1, 8, 0.1);
+    }
+
+    .dropdown-item:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 20%;
+      height: 60%;
+      width: 2px;
+      background-color: #ba0108;
+    }
+
+    /* Responsive breakpoints */
+    @media (max-width: 768px) {
+      .desktop-nav {
+        display: none !important;
+      }
+      .mobile-nav {
+        display: flex !important;
+        min-height: 60px;
+      }
+      .mobile-menu {
+        display: flex !important;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .mobile-nav {
+        display: none !important;
+      }
+      .mobile-menu {
+        display: none !important;
+      }
+      .desktop-nav {
+        display: flex !important;
+      }
+    }
+
+    /* Tablet specific adjustments */
+    @media (max-width: 1024px) and (min-width: 769px) {
+      .nav-container {
+        gap: 10px;
+      }
+      .nav-link {
+        font-size: 16px;
+      }
+      .dropdown-menu {
+        min-width: 250px;
+      }
+      .dropdown-item {
+        padding: 12px 16px;
+        font-size: 14px;
+      }
+      /* Hide phone number on smaller tablets */
+      .contact-phone {
+        display: none;
+      }
+      /* Reduce language switcher gap */
+      .language-switcher {
+        gap: 8px;
+        font-size: 16px;
+      }
+    }
+
+    /* Medium tablet adjustments */
+    @media (max-width: 900px) and (min-width: 769px) {
+      .nav-link {
+        font-size: 14px;
+      }
+      .nav-container {
+        gap: 8px;
+      }
+    }
+  </style>
+  
+  <!-- Responsive container with breakpoint-specific widths -->
+  <div class="flex w-full max-w-[1237px] xl:max-w-[1237px] lg:max-w-[1024px] md:max-w-[768px] sm:max-w-[90%] px-4 justify-between items-center">
+    <!-- Logo -->
+    <a href="/" class="text-xl font-normal text-white font-inter z-50 relative">
+      <img src="/logo.png" alt="logo" width="149" height="34" />
+    </a>
+
+    <!-- Desktop Navigation -->
+    <nav class="nav-container desktop-nav flex items-center gap-[20px]">
+      <div class="relative dropdown-parent">
+        <a
+          href="#"
+          onclick="toggleDropdown(event)"
+          class="nav-link lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-xl focus:font-bold text-white hover:text-[#ba0108] transition-colors {{ if or (eq .Page.Section "catalog") (hasPrefix .Page.RelPermalink "/catalog/") }}active{{ end }}"
+        >
+          Каталог
+        </a>
+        <div class="dropdown-menu absolute left-0 top-full mt-3 bg-[#020303] rounded-lg border-2 ">
+          <div class="flex w-full">
+            <a href="/catalog/politni-steky/" class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">Політні стеки</a>
+            <a href="/catalog/videoperedavachi-vtx/" class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">Відеопередавачі VTX</a>
+            <a href="/catalog/esc/" class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">ESC</a>
+          </div>
+        </div>
+      </div>
+      <a
+        href="/faq"
+        class="nav-link lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "faq" }}active{{ end }}"
+      >
+        FAQ
+      </a>
+      <a
+        href="/knowledge-base"
+        class="nav-link lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "knowledge-base" }}active{{ end }}"
+      >
+        База знань
+      </a>
+      <a
+        href="/contact"
+        class="nav-link lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "contact" }}active{{ end }}"
+      >
+        Контакти
+      </a>
+    </nav>
+
+    <!-- Desktop Contact & Language -->
+    <div class="desktop-nav flex gap-[50px] justify-center items-center">
+      <nav class="flex items-center gap-[30px]">
+        <a
+          href="tel:(067) 298-29-29"
+          class=" font-['Montserrat'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
+        >
+          (067) 298-29-29
+        </a>
+        <div class="language-switcher flex items-center gap-3 text-xl text-white/80">
+          <button id="lang-ua" class="font-['Inter'] font-bold cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] focus:font-bold transition-colors" onclick="switchLanguage('ua')">UA</button>
+          |
+          <button id="lang-en" class="font-['Inter'] font-[300] cursor-pointer text-white/80 hover:text-[#ba0108] focus:text-[#ba0108] transition-colors" onclick="switchLanguage('en')">EN</button>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav flex items-center gap-4">
+      <!-- Search Icon -->
+      <button class="text-white hover:text-[#ba0108] transition-colors" onclick="toggleMobileSearch()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </button>
+
+      <!-- Hamburger Menu Button -->
+      <button class="hamburger flex flex-col justify-center items-center w-8 h-8 space-y-1" onclick="toggleMobileMenu()">
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+        <span class="block w-6 h-0.5 bg-white"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Search Overlay -->
+  <div id="mobile-search-overlay" class="mobile-search-overlay fixed inset-0 bg-black/80 z-50 hidden">
+    <div class="bg-[#020303] p-6 rounded-b-3xl">
+      <div class="flex items-center justify-between mb-4">
+        <a href="/" class="text-xl font-normal text-white font-inter">
+          <img src="/logo.png" alt="logo" width="149" height="34" />
+        </a>
+        <button class="text-white hover:text-[#ba0108] transition-colors" onclick="toggleMobileSearch()">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </button>
+      </div>
+      
+      <div class="relative">
+        <input 
+          type="text" 
+          placeholder="Пошук по сайту" 
+          class="w-full h-[60px] rounded-full font-['Montserrat'] border-0 pl-6 pr-[140px] text-lg outline-none bg-white text-black placeholder-gray-500"
+          id="mobile-search-input"
+        />
+        <button class="absolute right-0 top-0 h-[60px] w-[120px] rounded-full bg-[#ba0108] flex items-center justify-center cursor-pointer hover:bg-[#a00007] transition-colors">
+          <span class="text-white font-['Montserrat'] text-lg font-medium">Пошук</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobileMenu" class="mobile-menu fixed inset-0 bg-[#020303] z-40 flex flex-col">
+    <div class="flex justify-end items-center p-4 shadow-[0_2px_8px_rgba(255,255,255,0.4)]">
+      <button class="hamburger flex flex-col justify-center items-center w-8 h-8 relative" onclick="toggleMobileMenu()">
+        <span class="block w-6 h-0.5 bg-white absolute rotate-45"></span>
+        <span class="block w-6 h-0.5 bg-white absolute -rotate-45"></span>
+      </button>
+    </div>
+    
+    <nav class="flex-1 flex flex-col items-center p-6 space-y-6">
+      <div class="relative">
+        <button onclick="toggleMobileCatalog()" class="w-full flex justify-center items-center text-white font-['Unbounded'] text-xl font-normal py-2">
+          <span class="font-['Unbounded'] text-xl font-normal text-white">Каталог</span>
+          <svg class="w-5 h-5 transform transition-transform mobile-catalog-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="mobile-catalog-menu overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
+          <div class="mt-2 pl-4 space-y-2 flex flex-col items-center">
+            <a href="/catalog/politni-steky/" class="block text-white/80 font-['Unbounded'] text-lg py-2 hover:text-[#ba0108] transition-colors">Політні стеки</a>
+            <a href="/catalog/videoperedavachi-vtx/" class="block text-white/80 font-['Unbounded'] text-lg py-2 hover:text-[#ba0108] transition-colors">Відеопередавачі VTX</a>
+            <a href="/catalog/esc/" class="block text-white/80 font-['Unbounded'] text-lg py-2 hover:text-[#ba0108] transition-colors">ESC</a>
+          </div>
+        </div>
+      </div>
+      <a href="/faq" class="text-white font-['Unbounded'] text-xl font-normal hover:text-[#ba0108] transition-colors">FAQ</a>
+      <a href="/knowledge-base" class="text-white font-['Unbounded'] text-xl font-normal hover:text-[#ba0108] transition-colors">База знань</a>
+      <a href="/contact" class="text-white font-['Unbounded'] text-xl font-normal hover:text-[#ba0108] transition-colors">Контакти</a>
+      
+      <div class="absolute bottom-10 flex flex-col items-center">
+        <a href="tel:(067) 298-29-29" class="block text-white font-['Montserrat'] text-xl font-normal mb-4 hover:text-[#ba0108] transition-colors">(067) 298-29-29</a>
+        <div class="flex items-center gap-3 text-2xl text-white">
+          <button id="mobile-lang-ua" class="!font-[Unbounded] font-[300] cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] transition-colors" onclick="switchLanguage('ua')">
+            UA
+          </button>
+          |
+          <button id="mobile-lang-en" class="!font-[Unbounded] font-[300] cursor-pointer text-white/80 hover:text-[#ba0108] focus:text-[#ba0108] transition-colors" onclick="switchLanguage('en')">
+            EN
+          </button>
+        </div>
+      </div>
+    </nav>
+  </div>
+
+  <script>
+    function toggleMobileMenu() {
+      const mobileMenu = document.getElementById('mobileMenu');
+      const hamburger = document.querySelector('.hamburger');
+      
+      mobileMenu.classList.toggle('open');
+      hamburger.classList.toggle('open');
+    }
+
+    function toggleDropdown(event) {
+      event.preventDefault();
+      const dropdownParent = event.target.closest('.dropdown-parent');
+      dropdownParent.classList.toggle('active');
+    }
+
+    function toggleMobileCatalog() {
+      const catalogMenu = document.querySelector('.mobile-catalog-menu');
+      const arrow = document.querySelector('.mobile-catalog-arrow');
+      
+      if (catalogMenu.classList.contains('max-h-0')) {
+        catalogMenu.classList.remove('max-h-0', 'opacity-0');
+        catalogMenu.classList.add('max-h-96', 'opacity-100');
+        arrow.classList.add('rotate-180');
+      } else {
+        catalogMenu.classList.add('max-h-0', 'opacity-0');
+        catalogMenu.classList.remove('max-h-96', 'opacity-100');
+        arrow.classList.remove('rotate-180');
+      }
+    }
+
+    function toggleMobileSearch() {
+      const searchOverlay = document.getElementById('mobile-search-overlay');
+      const body = document.body;
+      
+      if (searchOverlay.classList.contains('hidden')) {
+        searchOverlay.classList.remove('hidden');
+        body.style.overflow = 'hidden';
+        // Focus on search input after animation
+        setTimeout(() => {
+          document.getElementById('mobile-search-input').focus();
+        }, 100);
+      } else {
+        searchOverlay.classList.add('hidden');
+        body.style.overflow = '';
+      }
+    }
+
+    function switchLanguage(lang) {
+      const uaDesktop = document.getElementById('lang-ua');
+      const enDesktop = document.getElementById('lang-en');
+      const uaMobile = document.getElementById('mobile-lang-ua');
+      const enMobile = document.getElementById('mobile-lang-en');
+      
+      if (lang === 'ua') {
+        // Set UA as active (red)
+        uaDesktop.className = "font-['Inter'] font-bold cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] focus:font-bold transition-colors";
+        enDesktop.className = "font-['Inter'] font-[300] cursor-pointer text-white/80 hover:text-[#ba0108] focus:text-[#ba0108] transition-colors";
+        uaMobile.className = "!font-[Unbounded] font-[300] cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] transition-colors";
+        enMobile.className = "!font-[Unbounded] font-[300] cursor-pointer text-white/80 hover:text-[#ba0108] focus:text-[#ba0108] transition-colors";
+      } else if (lang === 'en') {
+        // Set EN as active (red)
+        uaDesktop.className = "font-['Inter'] font-[300] cursor-pointer text-white/80 hover:text-[#ba0108] focus:text-[#ba0108] transition-colors";
+        enDesktop.className = "font-['Inter'] font-bold cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] focus:font-bold transition-colors";
+        uaMobile.className = "!font-[Unbounded] font-[300] cursor-pointer text-white/80 hover:text-[#ba0108] focus:text-[#ba0108] transition-colors";
+        enMobile.className = "!font-[Unbounded] font-[300] cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] transition-colors";
+      }
+      
+      // Store the selected language in localStorage
+      localStorage.setItem('selectedLanguage', lang);
+      
+      // Here you can add actual language switching logic
+      // For example, reload the page with a different language parameter
+      // window.location.href = window.location.pathname + '?lang=' + lang;
+    }
+
+    // Initialize language on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLang = localStorage.getItem('selectedLanguage') || 'ua';
+      switchLanguage(savedLang);
+    });
+
+    // Close mobile menu when clicking on a link
+    document.querySelectorAll('#mobileMenu a').forEach(link => {
+      link.addEventListener('click', () => {
+        toggleMobileMenu();
+      });
+    });
+
+    // Close mobile menu and dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      const mobileMenu = document.getElementById('mobileMenu');
+      const hamburger = document.querySelector('.hamburger');
+      const dropdownParent = document.querySelector('.dropdown-parent');
+      
+      // Close mobile menu
+      if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+        mobileMenu.classList.remove('open');
+        hamburger.classList.remove('open');
+      }
+
+      // Close dropdown menu
+      if (!dropdownParent.contains(e.target)) {
+        dropdownParent.classList.remove('active');
+      }
+    });
+
+    // Keep dropdown open when hovering over it
+    document.addEventListener('DOMContentLoaded', () => {
+      const dropdownParent = document.querySelector('.dropdown-parent');
+      const dropdownMenu = document.querySelector('.dropdown-menu');
+      
+      let hoverTimeout;
+
+      dropdownParent.addEventListener('mouseenter', () => {
+        clearTimeout(hoverTimeout);
+        dropdownParent.classList.add('active');
+      });
+
+      dropdownParent.addEventListener('mouseleave', () => {
+        hoverTimeout = setTimeout(() => {
+          dropdownParent.classList.remove('active');
+        }, 300); // 300ms delay before hiding
+      });
+
+      dropdownMenu.addEventListener('mouseenter', () => {
+        clearTimeout(hoverTimeout);
+      });
+
+      dropdownMenu.addEventListener('mouseleave', () => {
+        hoverTimeout = setTimeout(() => {
+          dropdownParent.classList.remove('active');
+        }, 300);
+      });
+    });
+  </script>
 </header>

@@ -1,0 +1,41 @@
+<section class="flex flex-col items-center px-[20px] py-[60px] bg-[#eaeaea] text-center trusted-section">
+  <div class="flex flex-col w-full max-w-[1200px]">
+    <h2 class="lg:text-[40px] max-[450px]:text-2xl font-['Unbounded'] mb-[40px] hero-title">
+      <span class="text-[#ba0108]">Н</span>АМ ДОВІРЯЮТЬ
+    </h2>
+    
+    <div class="w-full swiper-container-trusted">
+      <div class="swiper-wrapper">
+        {{ range .Site.Data.trusted_companies.companies }}
+        <div class="swiper-slide">
+          <div class="logo-container flex flex-col items-center justify-center h-[200px] px-[20px]">
+            <img src="{{ .logo }}" alt="{{ .alt }}" class="max-h-[80px] max-w-[160px] object-contain mb-[20px]" />
+            <p class="text-[16px] font-['Unbounded'] font-medium text-[#333] uppercase">{{ .name }}</p>
+          </div>
+        </div>
+        {{ end }}
+      </div>
+      
+      <!-- Pagination -->
+      <div class="swiper-pagination-trusted mt-[30px]"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .trusted-section {
+    margin-top: 60px !important;
+  }
+
+  @media (min-width: 768px) {
+    .trusted-section {
+      margin-top: 60px !important;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .trusted-section {
+      margin-top: 134px !important;
+    }
+  }
+</style>

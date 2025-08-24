@@ -8,7 +8,6 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: {
     main: path.join(__dirname, "src", "index.js"),
-    cms: path.join(__dirname, "src", "js", "cms.js"),
   },
 
   output: {
@@ -19,10 +18,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.((png)|(eot)|(woff)|(woff2)|(ttf)|(svg)|(gif))(\?v=\d+\.\d+\.\d+)?$/,
+        test: /\.((png)|(svg)|(gif))(\?v=\d+\.\d+\.\d+)?$/,
         loader: "file-loader",
         options: {
-          name: "name=/[hash].[ext]"
+          name: "[hash].[ext]",
+          outputPath: "fonts/",
+          publicPath: "../fonts/"
         }
       },
       {
@@ -35,14 +36,17 @@ module.exports = {
         test: /\.(sa|sc|c)ss$/,
         exclude: /node_modules/,
         use: [
-          "style-loader", 
+          "style-loader",
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
               esModule: false
             }
-          }, 
-          "css-loader",
+          },
+          {
+            loader: "css-loader",
+            options: {url: false}
+          },
           "postcss-loader",
           {
             loader: "sass-loader",
@@ -64,15 +68,13 @@ module.exports = {
       prettyPrint: true
     }),
     new CopyWebpackPlugin({
-      patterns: [{
-        from: "./src/fonts/",
-        to: "fonts/",
-      }]
+      patterns: [
+        // Only copy the .keep file
+        {
+          from: "./src/fonts/.keep",
+          to: "fonts/.keep"
+        }
+      ]
     }),
-    new HtmlWebpackPlugin({
-      filename: "admin/index.html",
-      template: 'src/cms.html',
-      inject: true,
-    })
   ]
 };

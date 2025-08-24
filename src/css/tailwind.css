@@ -1,1 +1,8 @@
 @import "tailwindcss";
+
+@layer base {
+  /* Set default fonts */
+  html, body {
+    font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  }
+}

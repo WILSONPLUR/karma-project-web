@@ -1,5 +1,7 @@
 /*! TACHYONS v4.5.5 | http://tachyons.io */
 
+/* Global reset */
+
 /*
  *
  *      ________            ______
@@ -26,55 +28,8 @@
 
 /* External Library Includes */
 @use './imports/_reset';
-
-/* Modules */
-@use './imports/_box-sizing';
-@use './imports/_images';
-@use './imports/_background-size';
-@use './imports/_background-position';
-@use './imports/_outlines';
-@use './imports/_borders';
-@use './imports/_border-radius';
-@use './imports/_border-style';
-@use './imports/_border-widths';
-@use './imports/_border-colors';
-@use './imports/_code';
-@use './imports/_coordinates';
-@use './imports/_clears';
-@use './imports/_display';
-@use './imports/_flexbox';
-@use './imports/_floats';
-@use './imports/_font-style';
-@use './imports/_font-weight';
-@use './imports/_forms';
-@use './imports/_heights';
-@use './imports/_line-height';
-@use './imports/_links';
-@use './imports/_lists';
-@use './imports/_max-widths';
-@use './imports/_widths';
-@use './imports/_overflow';
-@use './imports/_position';
-@use './imports/_opacity';
-@use './imports/_spacing';
-@use './imports/_text-decoration';
-@use './imports/_text-align';
-@use './imports/_text-transform';
-@use './imports/_type-scale';
-@use './imports/_typography';
-@use './imports/_utilities';
-@use './imports/_visibility';
-@use './imports/_white-space';
-@use './imports/_vertical-align';
-@use './imports/_states';
-@use './imports/_z-index';
-@use './imports/_responsive-nav';
-@use './imports/_styles';
-@use './imports/_buttons';
-@use './imports/_svg';
-@use './imports/_cms';
-
-/* Variables */
+/* Tailwind CSS */
+@use "tailwindcss";
 /* Importing here will allow you to override any variables in the modules */
 @use './imports/_colors';
 @use './imports/_media-queries';
@@ -84,5 +39,76 @@
 @use './imports/_debug-children';
 @use './imports/_debug-grid';
 
+/* Modal Styles */
+@use './imports/_modal';
+
 /* Uncomment out the line below to help debug layout issues */
 /*@use './imports/_debug';*/
+
+@layer base {
+  /* Set default fonts */
+  html, body {
+    font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+    box-sizing: border-box;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Slider Styles */
+.swiper-container-trusted,
+.swiper-container-products {
+  overflow: hidden;
+  position: relative;
+  height: auto;
+}
+
+.swiper-wrapper {
+  display: flex;
+  align-items: stretch;
+  height: auto;
+  transition: none;
+  max-width: 1200px;
+}
+
+.swiper-slide {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  justify-content: center;
+}
+
+.swiper-container-trusted .swiper-slide {
+  min-height: 200px;
+}
+
+.swiper-container-products .swiper-slide {
+  min-height: 400px;
+}
+
+.swiper-pagination-bullet-custom {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: #ccc;
+  border-radius: 50%;
+  margin: 0 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.swiper-pagination-bullet-active-custom {
+  background: #ba0108;
+  transform: scale(1.2);
+}
+
+.swiper-pagination-trusted {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.swiper-button-prev-custom,
+.swiper-button-next-custom {
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
