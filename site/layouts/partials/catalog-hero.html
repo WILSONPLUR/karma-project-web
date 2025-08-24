@@ -2,27 +2,35 @@
 := index .Site.Data.products.categories $category }}
 <section class="overflow-hidden relative bg-white">
     <!-- Background decorative elements -->
-    <img src="/img/bg-el-1.png" alt="" class="absolute z-[1] top-0 right-0 w-[350px] h-[360px]" />
-    <img src="/img/bg-el-2.png" alt="" class="absolute z-[1] bottom-0 left-0 w-[420px] h-[380px]" />
+    <img src="/img/bg-el-1.png" alt=""
+        class="absolute z-[1] top-0 right-0 w-[200px] h-[200px] md:w-[250px] md:h-[250px] lg:w-[350px] lg:h-[360px]" />
+    <img src="/img/bg-el-2.png" alt=""
+        class="absolute z-[1] bottom-0 left-0 w-[250px] h-[250px] md:w-[300px] md:h-[300px] lg:w-[420px] lg:h-[380px]" />
+
+    <!-- Stack elements for mobile -->
+    <div class="block sm:hidden lg:hidden">
+        <img src="/img/stack-left.png" alt="stack-left" class="absolute top-0 left-0 w-[100px] z-[1]" />
+        <img src="/img/stack-right.png" alt="stack-right" class="absolute bottom-0 right-0 w-[100px] z-[1]" />
+    </div>
 
     <div
-        class="w-full md:w-[1237px] lg:w-[1237px] flex flex-col items-center md:items-start lg:items-start mx-auto justify-center px-5 md:px-[40px] lg:px-[40px] xl:px-0 pt-[40px] mb-[64px] relative z-[2]">
-        <div class="flex items-center gap-2 text-[#ba0108] font-family-montserrat mb-[35px]">
-            <a class="text-[20px] font-[Montserrat] font-medium" href="/">Головна</a>
+        class="w-full md:w-[1237px] lg:w-[1237px] flex flex-col items-center sm:items-start lg:items-start mx-auto justify-center px-5 md:px-[40px] lg:px-[40px] xl:px-0 pt-[40px] mb-[64px] relative z-[2]">
+        <div class="flex items-center gap-2 text-[#ba0108] font-family-montserrat mb-[75px] md:mb-[35px] lg:mb-[35px]">
+            <a class="text-[16px] md:text-[20px] lg:text-[20px] font-[Montserrat] font-medium" href="/">Головна</a>
             <span>&rarr;</span>
-            <a class="text-[20px] font-[Montserrat] font-medium" href="/catalog">
+            <a class="text-[16px] md:text-[20px] lg:text-[20px] font-[Montserrat] font-medium" href="/catalog">
                 Каталог
             </a>
             <span>&rarr;</span>
-            <span class="text-[20px] font-[Montserrat] font-medium">
+            <span class="text-[16px] md:text-[20px] lg:text-[20px] font-[Montserrat] font-medium">
                 {{ $categoryData.name }}
             </span>
         </div>
 
-        <div class="flex gap-0 justify-center items-center mx-0 md:gap-8 lg:gap-8 lg:mx-auto">
-            <div class="flex flex-col gap-5 items-center w-full md:items-start lg:items-start">
+        <div class="flex flex-col gap-0 justify-center items-center mx-0 sm:flex-row md:gap-8 lg:gap-8 md:items-start">
+            <div class="flex flex-col gap-5 items-center w-full md:w-1/2 md:items-start lg:items-start">
                 <h1
-                    class="font-[Unbounded] uppercase leading-[1.1] mb-2 text-[32px] md:text-[48px] lg:text-[64px] text-[#ba0108] font-medium">
+                    class="font-[Unbounded] uppercase leading-[1.1] mb-2 text-[32px] md:text-[48px] lg:text-[64px] w-[330px] md:w-[548px] lg:w-[749px] text-[#ba0108] font-medium">
                     {{ $categoryData.name }}
                 </h1>
                 <p
@@ -51,12 +59,13 @@
                     Отримати пропозицію
                 </button>
             </div>
-            <div class="flex relative justify-center items-center w-full">
-                <img src="/img/stack-rotate.png" alt="Karma Flights - високотехнологічне українське виробництво" class="hidden sm:block object-contain max-w-none h-auto 
-                         md:max-h-[300px] lg:max-h-[400px] xl:max-h-[500px]" />
+            <div class="flex relative justify-center items-center w-full md:w-1/2">
+                <img src="/img/stack-rotate.png" alt="Karma Flights - високотехнологічне українське виробництво"
+                    class="hidden sm:block object-contain max-w-none 
+                            w-[250px] h-[167px] sm:w-[450px] sm:h-[450px] md:w-[450px] md:h-[450px] lg:w-[550px] lg:h-[350px]" />
 
                 <div
-                    class="pointer-events-none absolute -bottom-3 left-1/2 -translate-x-1/2 w-[300px] h-[50px] md:w-[350px] md:h-[60px] lg:w-[410px] lg:h-[80px] rounded-full bg-black/35 blur-2xl hidden sm:block" />
+                    class="pointer-events-none absolute -bottom-3 left-1/2 -translate-x-1/2 w-[200px] h-[30px] md:w-[250px] md:h-[40px] lg:w-[300px] lg:h-[50px] xl:w-[410px] xl:h-[80px] rounded-full bg-black/35 blur-2xl hidden sm:block" />
             </div>
         </div>
     </div>
