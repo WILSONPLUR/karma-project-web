@@ -1,4 +1,4 @@
-<header class="bg-[#020303] lg:py-[26px] max-[420px]:py-[13px] flex justify-center mx-auto">
+<header class="bg-[#020303] lg:py-[26px] max-[450px]:py-[13px] flex justify-center mx-auto">
   <style>
     .nav-link {
       position: relative;
@@ -99,6 +99,7 @@
       }
       .mobile-nav {
         display: flex !important;
+        min-height: 60px;
       }
       .mobile-menu {
         display: flex !important;
@@ -131,33 +132,33 @@
         <a
           href="#"
           onclick="toggleDropdown(event)"
-          class="nav-link lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-xl focus:font-bold text-white hover:text-[#ba0108] transition-colors {{ if or (eq .Page.Section "catalog") (hasPrefix .Page.RelPermalink "/catalog/") }}active{{ end }}"
+          class="nav-link lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-xl focus:font-bold text-white hover:text-[#ba0108] transition-colors {{ if or (eq .Page.Section "catalog") (hasPrefix .Page.RelPermalink "/catalog/") }}active{{ end }}"
         >
           Каталог
         </a>
         <div class="dropdown-menu absolute left-0 top-full mt-3 bg-[#020303] rounded-lg border-2 ">
           <div class="flex w-full">
-            <a href="/catalog/politni-steky/" class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">Політні стеки</a>
-            <a href="/catalog/videoperedavachi-vtx/" class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">Відеопередавачі VTX</a>
-            <a href="/catalog/esc/" class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">ESC</a>
+            <a href="/catalog/politni-steky/" class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">Політні стеки</a>
+            <a href="/catalog/videoperedavachi-vtx/" class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">Відеопередавачі VTX</a>
+            <a href="/catalog/esc/" class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">ESC</a>
           </div>
         </div>
       </div>
       <a
         href="/faq"
-        class="nav-link lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "faq" }}active{{ end }}"
+        class="nav-link lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "faq" }}active{{ end }}"
       >
         FAQ
       </a>
       <a
         href="/knowledge-base"
-        class="nav-link lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "knowledge-base" }}active{{ end }}"
+        class="nav-link lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "knowledge-base" }}active{{ end }}"
       >
         База знань
       </a>
       <a
         href="/contact"
-        class="nav-link lg:font-['Inter'] max-[420px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "contact" }}active{{ end }}"
+        class="nav-link lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "contact" }}active{{ end }}"
       >
         Контакти
       </a>
@@ -173,9 +174,9 @@
           (067) 298-29-29
         </a>
         <div class="flex items-center gap-3 text-xl text-white/80">
-          <button class="font-['Montserrat'] font-[300] cursor-pointer hover:text-[#ba0108] focus:text-[#ba0108] transition-colors">UA</button>
+          <button class="font-['Inter'] font-bold cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] focus:font-bold transition-colors">UA</button>
           |
-          <button class="font-['Montserrat'] font-[300] cursor-pointer hover:text-[#ba0108] focus:text-[#ba0108] transition-colors">EN</button>
+          <button class="font-['Inter'] font-[300] cursor-pointer hover:text-[#ba0108] focus:text-[#ba0108] focus:font-bold transition-colors">EN</button>
         </div>
       </nav>
     </div>
@@ -258,7 +259,7 @@
       <div class="absolute bottom-10 flex flex-col items-center">
         <a href="tel:(067) 298-29-29" class="block text-white font-['Montserrat'] text-xl font-normal mb-4 hover:text-[#ba0108] transition-colors">(067) 298-29-29</a>
         <div class="flex items-center gap-3 text-2xl text-white">
-          <button class="!font-[Unbounded] font-[300] cursor-pointer hover:text-[#ba0108] focus:text-[#ba0108] transition-colors">
+          <button class="!font-[Unbounded] font-[300] cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] transition-colors">
             UA
           </button>
           |
