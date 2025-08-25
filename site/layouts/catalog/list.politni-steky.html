@@ -5,54 +5,7 @@
 <!-- Hero Section -->
 {{ partial "catalog-hero" . }}
 
-<!-- Products Section -->
-<section class="py-16 bg-white">
-    <div class="max-w-[1237px] mx-auto px-5">
-        <h2 class="lg:text-[48px] max-[420px]:text-[28px] font-['Unbounded'] font-bold text-center mb-12 hero-title">
-            <span class="text-[#ba0108]">Н</span>АШІ ТОВАРИ
-        </h2>
-
-        <!-- Products Grid -->
-        <div class="grid lg:grid-cols-2 max-[420px]:grid-cols-1 gap-8 justify-items-center">
-            {{ range $categoryData.products }}
-            <div
-                class="bg-white w-full max-w-[500px] rounded-[10px] shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
-                <!-- Product Image -->
-                <div class="h-[300px] overflow-hidden bg-gray-100 flex items-center justify-center">
-                    <img src="{{ .image }}" alt="{{ .alt }}" class="object-contain p-4 w-full h-full" />
-                </div>
-
-                <!-- Product Info -->
-                <div class="p-6">
-                    <h3 class="lg:text-[24px] max-[420px]:text-[18px] font-['Unbounded'] font-bold text-center mb-6">
-                        {{ .name }}
-                    </h3>
-
-                    <!-- Specifications -->
-                    <div class="mb-6 space-y-3">
-                        {{ range .specs }}
-                        <div class="flex justify-between items-center py-2 border-b border-gray-200">
-                            <span class="font-['Montserrat'] lg:text-[16px] max-[420px]:text-[14px] text-gray-600">{{
-                                .label }}</span>
-                            <span class="font-['Montserrat'] lg:text-[16px] max-[420px]:text-[14px] font-medium">{{
-                                .value }}</span>
-                        </div>
-                        {{ end }}
-                    </div>
-
-                    <!-- Action Button -->
-                    <div class="text-center">
-                        <a href="/catalog/{{ $categorySlug }}/{{ .id }}/"
-                            class="inline-block bg-[#ba0108] text-white px-8 py-3 rounded-full font-['Montserrat'] lg:text-[16px] max-[420px]:text-[14px] font-medium hover:bg-[#a00007] transition-colors">
-                            Докладніше
-                        </a>
-                    </div>
-                </div>
-            </div>
-            {{ end }}
-        </div>
-    </div>
-</section>
+{{ partial "our-products-section" . }}
 
 <!-- Why Choose Section -->
 {{ partial "catalog-why-choose" . }}

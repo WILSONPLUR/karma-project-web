@@ -1,9 +1,10 @@
 {{ $category := .Params.category | default "politni-steky" }}
 {{ $categoryData := index .Site.Data.products.categories $category }}
 
-<div class="bg-black text-white py-[69px]">
+<div class="bg-black text-white py-[69px] px-[20px] md:px-[40px] lg:px-[40px]">
     <div class="flex flex-col justify-center items-center max-w-[1237px] w-full mx-auto">
-        <h3 class="max-w-[909px] font-medium text-[48px] font-[Unbounded] uppercase text-center mb-[9px]">
+        <h3
+            class="max-w-[909px] font-medium text-[24px] md:text-[32px] lg:text-[48px] font-[Unbounded] uppercase text-center mb-[9px]">
             Чому варто обрати {{ $categoryData.name | lower }} від karma?
         </h3>
         <div>
