@@ -2,6 +2,7 @@
 title: "ПОЛІТНИЙ СТЕК KARMA F405 V1 (Dynamic)"
 description: "Компактна та продуктивна інтегрована система для дронів з мікроконтролером STM32F405"
 date: 2024-08-25T00:00:00Z
+layout: "catalog"
 category: "politni-steky"
 product_id: "2233"
 image: "/img/our-product1.png"

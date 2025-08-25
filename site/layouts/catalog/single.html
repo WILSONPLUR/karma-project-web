@@ -1,101 +1,47 @@
 {{ define "main" }}
 
 {{/* Create product data from page frontmatter */}}
-{{- $currentProduct := dict 
-  "id" (.Params.product_id | default "2233")
-  "name" .Title
-  "image" (.Params.image | default "/img/our-product1.png")
-  "alt" .Title
-  "price" (.Params.price | default 2500)
-  "currency" (.Params.currency | default "грн")
-  "in_stock" (.Params.in_stock | default true)
-  "specs" (.Params.specs | default slice)
+{{- $currentProduct := dict
+"id" (.Params.product_id | default "2233")
+"name" .Title
+"image" (.Params.image | default "/img/our-product1.png")
+"alt" .Title
+"price" (.Params.price | default 2500)
+"currency" (.Params.currency | default "грн")
+"in_stock" (.Params.in_stock | default true)
 -}}
 
-{{/* Get category data dynamically */}}
-{{- $categorySlug := .Params.category | default "politni-steky" -}}
-{{- $categoryData := index .Site.Data.products.categories $categorySlug -}}
-{{- $category := dict 
-  "name" ($categoryData.name | default "Товари")
+{{/* Create category data */}}
+{{- $category := dict
+"name" "Політні стеки"
 -}}
 
-{{/* Product Hero Section */}}
-{{ partial "product-hero-detailed" (dict 
-  "context" . 
-  "product" $currentProduct 
-  "category" $category
+<!-- Product Hero Section -->
+{{ partial "product-hero-detailed" (dict
+"context" .
+"product" $currentProduct
+"category" $category
 ) }}
 
-{{/* FAQ Section */}}
-<div class="bg-white py-[80px]">
-  <div class="max-w-[1440px] mx-auto px-4">
-    {{ partial "accordion-list" (dict
-      "context" .
-      "className" "mb-[48px]"
-      "title" "Найпоширеніші запитання про політні стеки"
-      "titleClassName" "!text-[48px] !text-center !uppercase !font-medium ![font-family:var(--font-unbounded)]"
-      "items" (slice
-        (dict 
-          "question" "Для яких типів дронів найкраще підходить польотний стек KARMA F405 V1?"
-          "answer" "Ідеально підходить для мікро- та невеликих FPV-дронів, а також для легких 3-дюймових або деяких 4-дюймових квадрокоптерів."
-        )
-        (dict 
-          "question" "Які основні переваги використання політного стеку KARMA F405 V1?"
-          "answer" "Політний стек забезпечує стабільний політ, точне керування, ефективне розподілення потужності до моторів та спрощує процес збірки дрона."
-        )
-        (dict 
-          "question" "Чи потрібні спеціальні навички для встановлення політного стеку?"
-          "answer" "Базові навички пайки та розуміння принципів роботи дронів будуть корисними, але політний стек розроблений для спрощення процесу встановлення."
-        )
-        (dict 
-          "question" "Яка гарантія на політний стек KARMA F405 V1?"
-          "answer" "На всі наші продукти надається офіційна гарантія виробника. Детальну інформацію про гарантійні умови можна отримати у нашому відділі продажів."
-        )
-      )
-    ) }}
-  </div>
-</div>
+<!-- Product Specifications Section -->
+{{ partial "product-specifications" . }}
 
-{{/* Product Content Section */}}
-{{ if .Content }}
-<section class="bg-white py-16">
-  <div class="max-w-[1237px] mx-auto px-5">
-    <div class="prose prose-lg max-w-none">
-      {{ .Content }}
-    </div>
-  </div>
-</section>
-{{ end }}
+<!-- Product Features Section -->
+{{ partial "product-features-section" . }}
 
-{{/* Related Products Section */}}
-{{ $relatedProducts := where (where .Site.RegularPages "Section" "catalog") ".Params.category" .Params.category }}
-{{ $relatedProducts = $relatedProducts | complement (slice .) }}
-{{ if gt (len $relatedProducts) 0 }}
-<section class="bg-[#f9f9f9] py-16">
-  <div class="max-w-[1237px] mx-auto px-5">
-    <h2 class="font-['Unbounded'] text-[32px] font-medium mb-8 text-center">
-      <span class="text-[#ba0108]">С</span>ХОЖІ ТОВАРИ
-    </h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {{ range $relatedProducts | first 3 }}
-      <div class="bg-white rounded-lg p-6 shadow-lg">
-        <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-48 object-contain mb-4" />
-        <h3 class="font-['Montserrat'] text-xl font-semibold mb-2">{{ .Title }}</h3>
-        <p class="text-gray-600 mb-4">{{ .Params.description }}</p>
-        <a href="{{ .Permalink }}" class="inline-block bg-[#ba0108] text-white px-6 py-2 rounded-full hover:bg-[#9a0106] transition-colors">
-          Детальніше
-        </a>
-      </div>
-      {{ end }}
-    </div>
-  </div>
-</section>
-{{ end }}
 
-{{/* Knowledge Base Section */}}
-{{ partial "catalog-knowledge-base" . }}
+<!-- Product Cost Calculation Section -->
+{{ partial "product-cost-calculation" . }}
 
-{{/* Contact Form Section */}}
+
+<!-- Product Instructions Section -->
+{{ partial "product-instructions" . }}
+
+<!-- FAQ Section -->
+{{ partial "catalog-faq" . }}
+
+<!-- Contact Form Section -->
 {{ partial "contact-form-section" . }}
+
 
 {{ end }}
