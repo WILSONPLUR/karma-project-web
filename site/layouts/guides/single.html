@@ -203,7 +203,14 @@
     scrollbar-width: none;
   }
 
-  /* Кастомні стилі для markdown контенту */
+  #markdown {
+    border-radius: 10px;
+    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
+    margin: 24px 0;
+    max-width: 100%;
+    height: auto;
+  }
+
   .markdown-content h2 {
     font-family: 'Montserrat', sans-serif;
     font-size: 20px;
@@ -311,11 +318,7 @@
   }
 
   .markdown-content img {
-    border-radius: 8px;
-    box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
-    margin: 24px 0;
-    max-width: 100%;
-    height: auto;
+  
   }
 
   .markdown-content blockquote {
@@ -353,7 +356,6 @@
     color: #ba0108;
   }
 
-  /* Стилі для секцій з фоном */
   .markdown-content section {
     margin-top: 40px;
     scroll-margin-top: 96px;
@@ -363,7 +365,6 @@
     margin-top: 32px;
   }
 
-  /* Стилі для секції з сірим фоном */
   .markdown-content section.bg-gray {
     background-color: #f5f5f5;
     padding: 27px 29px;
@@ -371,7 +372,6 @@
     margin: 40px 0;
   }
 
-  /* Стилі для секції з тінню */
   .markdown-content section.shadow {
     max-width: 694px;
     height: 259px;
@@ -381,7 +381,8 @@
     box-shadow: 0 4px 16px 0 rgba(0, 0, 0, 0.1);
   }
 
-  /* Адаптивні стилі */
+
+
   @media (max-width: 768px) {
     .grid {
       grid-template-columns: 1fr;
@@ -454,6 +455,7 @@
 
     window.addEventListener('scroll', highlightActiveSection);
     highlightActiveSection();
+
   });
 </script>
 {{ end }}

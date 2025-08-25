@@ -1,13 +1,17 @@
 ---
-title: "Як правильно паяти політний стек. Інструкція"
-description: "Детальна інструкція по правильному паянню політного стека з порадами експертів"
+title: 'Як правильно паяти політний стек. Інструкція'
+description:
+  'Детальна інструкція по правильному паянню політного стека з порадами
+  експертів'
 date: 2024-01-01
 draft: false
-category: "Політні стеки"
-tags: ["паяння", "політний стек", "інструкція", "поради"]
+category: 'Політні стеки'
+tags: ['паяння', 'політний стек', 'інструкція', 'поради']
 ---
 
-Для успішного паяння політного стека, важливо знати правильну техніку, уникати поширених помилок та дотримуватися певних рекомендацій. Цей процес вимагає точності та терпіння, щоб не пошкодити чутливі компоненти.
+Для успішного паяння політного стека, важливо знати правильну техніку, уникати
+поширених помилок та дотримуватися певних рекомендацій. Цей процес вимагає
+точності та терпіння, щоб не пошкодити чутливі компоненти.
 
 <section id="errors" class="mt-8 scroll-mt-24">
 <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Опис помилок</h2>
@@ -112,7 +116,25 @@ tags: ["паяння", "політний стек", "інструкція", "п�
 </p>
 </section>
 
-<section id="markdown" class="scroll-mt-24 max-w-[694px] h-[259px] px-[25px] py-[22px] mt-10 mb-16 rounded-[10px] shadow-[0_4px_16px_0_rgba(0,0,0,0.1)]">
+<!-- Language buttons -->
+  <div class="mt-8 mb-6">
+        <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-[10px] md:gap-[5px] justify-items-start lg:justify-items-center max-w-4xl mx-auto">
+            <button class="bg-[#f0f0f0] hover:bg-[#e3e3e3] focus:bg-[#e3e3e3] py-[5px] px-[36px] rounded-[10px] w-[160px] md:w-[140px] transition-colors duration-200 outline-none" data-language="python">
+                Python
+            </button>
+            <button class="bg-[#f0f0f0] hover:bg-[#e3e3e3] focus:bg-[#e3e3e3] py-[5px] px-[36px] rounded-[10px] w-[160px] md:w-[140px] transition-colors duration-200 outline-none" data-language="java">
+                Java
+            </button>
+            <button class="bg-[#f0f0f0] hover:bg-[#e3e3e3] focus:bg-[#e3e3e3] py-[5px] px-[36px] rounded-[10px] w-[160px] md:w-[140px] transition-colors duration-200 outline-none" data-language="javascript">
+                Java
+            </button>
+            <button class="bg-[#f0f0f0] hover:bg-[#e3e3e3] focus:bg-[#e3e3e3] py-[5px] px-[36px] rounded-[10px] w-[160px] md:w-[140px] transition-colors duration-200 outline-none" data-language="cpp">
+                Java
+            </button>
+        </div>
+    </div>
+
+<section id="markdown" class="scroll-mt-24 max-w-[694px] h-[259px] px-[25px] py-[22px] mt-10 mb-16">
 <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-semibold mb-3">Markdown</h2>
 <img src="/img/markdown.png" alt="Markdown" class="w-full h-auto" width="644" height="195" />
-</section> 
+</section>
