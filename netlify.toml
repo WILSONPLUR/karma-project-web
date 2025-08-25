@@ -5,7 +5,7 @@
   HUGO_VERSION = "0.119.0"
 
 [build]
-  command = "yarn build"
+  command = "yarn build:webpack && hugo --gc --minify -s site -d ../dist"
   publish = "dist"
 
 # Enable Git Gateway for DecapCMS
@@ -20,7 +20,7 @@
     X-XSS-Protection = "1; mode=block"
 
 [context.deploy-preview]
-  command = "yarn build:preview"
+  command = "yarn build:webpack && hugo --gc --minify -s site -d ../dist -D -F"
 
 [dev]
   framework = "hugo"

@@ -7,7 +7,7 @@
   "scripts": {
     "lint": "eslint src cypress",
     "start": "run-p start:** && npx decap-server",
-    "start:hugo": "hugo -d ../dist -s site -w",
+    "start:hugo": "hugo server -s site -D --bind 0.0.0.0 --baseURL http://localhost:1313",
     "start:webpack": "webpack-dev-server --config webpack.dev.js --hot",
     "preview": "run-p preview:**",
     "preview:hugo": "npm run start:hugo -- -D -F",
@@ -15,8 +15,8 @@
     "prebuild": "rimraf dist",
     "build": "npm run build:webpack && npm run build:hugo",
     "build:preview": "npm run build:webpack && npm run build:hugo:preview",
-    "build:hugo": "hugo -d ../dist -s site -v",
-    "build:hugo:preview": "npm run build:hugo -- -D -F",
+    "build:hugo": "hugo --gc --minify -s site -d ../dist",
+    "build:hugo:preview": "hugo --gc --minify -s site -d ../dist -D -F",
     "build:webpack": "cross-env NODE_ENV=production webpack --config webpack.prod.js",
     "cypress:open": "cypress open --e2e",
     "cypress:run": "cypress run --e2e"
@@ -43,7 +43,6 @@
     "exports-loader": "^3.1.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.0",
-    "hugo-bin": "^0.98.0",
     "imports-loader": "^3.1.1",
     "mini-css-extract-plugin": "^2.4.4",
     "npm-run-all": "^4.1.5",
