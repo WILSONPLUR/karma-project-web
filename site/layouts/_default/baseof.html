@@ -5,11 +5,85 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>{{ block "title" . }}{{ .Title }}{{ end }}</title>
+  
+  <!-- SEO Meta Tags -->
+  <title>{{ block "title" . }}{{ if .Params.seo_title }}{{ .Params.seo_title }}{{ else if .Title }}{{ .Title }} | {{ .Site.Title }}{{ else }}{{ .Site.Title }}{{ end }}{{ end }}</title>
+  <meta name="description" content="{{ if .Params.seo_description }}{{ .Params.seo_description }}{{ else if .Params.description }}{{ .Params.description }}{{ else if .Summary }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+  <meta name="author" content="{{ .Site.Params.author }}" />
+  <meta name="robots" content="{{ if .Params.noindex }}noindex, nofollow{{ else }}index, follow{{ end }}" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{{ .Permalink }}" />
+  
+  <!-- Open Graph Meta Tags -->
+  <meta property="og:title" content="{{ if .Params.seo_title }}{{ .Params.seo_title }}{{ else if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}" />
+  <meta property="og:description" content="{{ if .Params.seo_description }}{{ .Params.seo_description }}{{ else if .Params.description }}{{ .Params.description }}{{ else if .Summary }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
+  <meta property="og:url" content="{{ .Permalink }}" />
+  <meta property="og:site_name" content="{{ .Site.Title }}" />
+  <meta property="og:locale" content="{{ .Site.Language.Lang }}" />
+  
+  <!-- Open Graph Image -->
+  {{ if .Params.seo_image }}
+    <meta property="og:image" content="{{ .Params.seo_image | absURL }}" />
+    <meta property="og:image:alt" content="{{ .Params.seo_image_alt | default .Title }}" />
+  {{ else if .Params.image }}
+    <meta property="og:image" content="{{ .Params.image | absURL }}" />
+    <meta property="og:image:alt" content="{{ .Title }}" />
+  {{ else }}
+    {{ range .Site.Params.images }}
+      <meta property="og:image" content="{{ . | absURL }}" />
+    {{ end }}
+  {{ end }}
+  
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ if .Params.seo_title }}{{ .Params.seo_title }}{{ else if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}" />
+  <meta name="twitter:description" content="{{ if .Params.seo_description }}{{ .Params.seo_description }}{{ else if .Params.description }}{{ .Params.description }}{{ else if .Summary }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}" />
+  {{ if .Params.seo_image }}
+    <meta name="twitter:image" content="{{ .Params.seo_image | absURL }}" />
+  {{ else if .Params.image }}
+    <meta name="twitter:image" content="{{ .Params.image | absURL }}" />
+  {{ else }}
+    {{ range first 1 .Site.Params.images }}
+      <meta name="twitter:image" content="{{ . | absURL }}" />
+    {{ end }}
+  {{ end }}
 
-  <!-- Google Fonts -->
+  <!-- Structured Data (JSON-LD) -->
+  {{ block "structured_data" . }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "{{ if .IsPage }}Article{{ else }}WebSite{{ end }}",
+    "name": "{{ .Site.Title }}",
+    "url": "{{ .Site.BaseURL }}",
+    {{ if .IsPage }}
+    "headline": "{{ .Title }}",
+    "description": "{{ if .Params.description }}{{ .Params.description }}{{ else if .Summary }}{{ .Summary }}{{ else }}{{ .Site.Params.description }}{{ end }}",
+    "author": {
+      "@type": "Organization",
+      "name": "{{ .Site.Params.author }}"
+    },
+    "datePublished": "{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}",
+    "dateModified": "{{ .Lastmod.Format "2006-01-02T15:04:05Z07:00" }}",
+    {{ end }}
+    "publisher": {
+      "@type": "Organization",
+      "name": "{{ .Site.Title }}",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "{{ "img/logo.png" | absURL }}"
+      }
+    }
+  }
+  </script>
+  {{ end }}
+
+  <!-- Google Fonts with preload for performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&family=Wallpoet&display=swap" />
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&family=Wallpoet&display=swap"
     rel="stylesheet" />
@@ -41,6 +115,33 @@
         document.body.style.overflow = 'hidden';
       }
     };
+
+    // Lazy loading for images (performance optimization)
+    document.addEventListener('DOMContentLoaded', function() {
+      if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const img = entry.target;
+              if (img.dataset.src) {
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+              }
+              if (img.dataset.srcset) {
+                img.srcset = img.dataset.srcset;
+                img.removeAttribute('data-srcset');
+              }
+              img.classList.remove('lazy');
+              imageObserver.unobserve(img);
+            }
+          });
+        });
+
+        document.querySelectorAll('img[data-src]').forEach(img => {
+          imageObserver.observe(img);
+        });
+      }
+    });
 
     // Netlify Identity Widget initialization
     if (window.netlifyIdentity) {

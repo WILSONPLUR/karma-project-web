@@ -1,3 +1,50 @@
+{{ define "title" }}{{ if .Params.seo.seo_title }}{{ .Params.seo.seo_title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}{{ end }}
+
+{{ define "structured_data" }}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org/",
+  "@type": "Product",
+  "name": "{{ .Title }}",
+  "description": "{{ if .Params.seo.seo_description }}{{ .Params.seo.seo_description }}{{ else if .Params.description }}{{ .Params.description }}{{ else }}{{ .Summary }}{{ end }}",
+  "image": "{{ if .Params.seo.seo_image }}{{ .Params.seo.seo_image | absURL }}{{ else if .Params.image }}{{ .Params.image | absURL }}{{ end }}",
+  "sku": "{{ .Params.product_id }}",
+  "brand": {
+    "@type": "Brand",
+    "name": "{{ .Site.Title }}"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "{{ .Permalink }}",
+    "priceCurrency": "{{ if eq .Params.currency "грн" }}UAH{{ else }}{{ .Params.currency }}{{ end }}",
+    "price": "{{ .Params.price }}",
+    "availability": "{{ if .Params.in_stock }}https://schema.org/InStock{{ else }}https://schema.org/OutOfStock{{ end }}",
+    "seller": {
+      "@type": "Organization",
+      "name": "{{ .Site.Title }}"
+    }
+  },
+  "category": "{{ .Params.category }}",
+  {{ if .Params.specs }}
+  "additionalProperty": [
+    {{ range $index, $spec := .Params.specs }}
+    {{ if $index }},{{ end }}
+    {
+      "@type": "PropertyValue",
+      "name": "{{ $spec.label }}",
+      "value": "{{ $spec.value }}"
+    }
+    {{ end }}
+  ],
+  {{ end }}
+  "manufacturer": {
+    "@type": "Organization",
+    "name": "{{ .Site.Title }}"
+  }
+}
+</script>
+{{ end }}
+
 {{ define "main" }}
 
 {{/* Create product data from page frontmatter */}}

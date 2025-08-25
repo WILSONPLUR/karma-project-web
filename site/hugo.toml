@@ -1,22 +1,38 @@
 baseurl = "/"
-languageCode = "UA-uk"
+languageCode = "uk"
 languageLang = "uk"
-title = "Karma"
+title = "Karma - Професійне обладнання для БПЛА"
+enableRobotsTXT = true
+enableGitInfo = true
 
-# RSS, categories and tags disabled for an easy start
-# See configuration options for more details: 
-# https://gohugo.io/getting-started/configuration/#toml-configuration
-disableKinds = ["RSS"]
+# Enable sitemap generation
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+
+# SEO-friendly permalinks (ЧПУ)
+[permalinks]
+  catalog = "/catalog/:slug/"
+  guides = "/guides/:slug/"
+  post = "/blog/:slug/"
 
 [taxonomies]
   category = "categories"
   tag = "tags"
 
-[permalinks]
-  catalog = "/catalog/:section/:filename/"
-
 [params]
-images = ["img/og-image.jpg"]
+  # Default meta description
+  description = "Karma - професійне обладнання для БПЛА, політні стеки, відеопередавачі VTX, ESC та аксесуари"
+  # Default Open Graph image
+  images = ["img/og-image.jpg"]
+  # Author information
+  author = "Karma"
+  # Social media links for structured data
+  social = [
+    "https://www.facebook.com/karma",
+    "https://www.instagram.com/karma"
+  ]
 
 [build]
   writeStats = true
@@ -30,3 +46,34 @@ images = ["img/og-image.jpg"]
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+
+# Minification settings for performance
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = true
+  [minify.tdewolff]
+    [minify.tdewolff.css]
+      keepCSS2 = true
+      precision = 0
+    [minify.tdewolff.html]
+      keepComments = false
+      keepConditionalComments = true
+      keepDefaultAttrVals = true
+      keepDocumentTags = true
+      keepEndTags = true
+      keepQuotes = false
+      keepWhitespace = false
+    [minify.tdewolff.js]
+      keepVarNames = false
+      precision = 0
+    [minify.tdewolff.json]
+      precision = 0
+    [minify.tdewolff.svg]
+      precision = 0
+    [minify.tdewolff.xml]
+      keepWhitespace = false

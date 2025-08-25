@@ -37,6 +37,16 @@ collections:
         fields:
           - {label: "Назва", name: "label", widget: "string"}
           - {label: "Значення", name: "value", widget: "string"}
+      - label: "SEO налаштування"
+        name: "seo"
+        widget: "object"
+        collapsed: true
+        fields:
+          - {label: "SEO заголовок", name: "seo_title", widget: "string", required: false, hint: "Заголовок для пошукових систем (50-60 символів)"}
+          - {label: "SEO опис", name: "seo_description", widget: "text", required: false, hint: "Опис для пошукових систем (150-160 символів)"}
+          - {label: "SEO зображення", name: "seo_image", widget: "image", required: false, hint: "Зображення для соціальних мереж (1200x630px)"}
+          - {label: "Alt текст для SEO зображення", name: "seo_image_alt", widget: "string", required: false}
+          - {label: "Приховати від індексації", name: "noindex", widget: "boolean", default: false}
       - {label: "Детальний опис", name: "body", widget: "markdown"}
       - {label: "Чернетка", name: "draft", widget: "boolean", default: false}
   - name: "knowledge-base"
@@ -55,6 +65,16 @@ collections:
         required: false
         field: {label: "Тег", name: "tag", widget: "string"}
       - {label: "Зображення", name: "image", widget: "image", required: false}
+      - label: "SEO налаштування"
+        name: "seo"
+        widget: "object"
+        collapsed: true
+        fields:
+          - {label: "SEO заголовок", name: "seo_title", widget: "string", required: false, hint: "Заголовок для пошукових систем (50-60 символів)"}
+          - {label: "SEO опис", name: "seo_description", widget: "text", required: false, hint: "Опис для пошукових систем (150-160 символів)"}
+          - {label: "SEO зображення", name: "seo_image", widget: "image", required: false, hint: "Зображення для соціальних мереж (1200x630px)"}
+          - {label: "Alt текст для SEO зображення", name: "seo_image_alt", widget: "string", required: false}
+          - {label: "Приховати від індексації", name: "noindex", widget: "boolean", default: false}
       - {label: "Чернетка", name: "draft", widget: "boolean", default: false}
       - {label: "Контент", name: "body", widget: "markdown"}
   - name: "post"
