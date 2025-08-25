@@ -1,4 +1,8 @@
 {{ define "main" }}
+{{/* Get all guides and categories */}}
+{{ $guides := where .Site.RegularPages "Section" "guides" }}
+{{ $categories := slice "БПЛА" "Політні стеки" "Відеопередавачі" "ESC" }}
+
 <section class="py-6 bg-white">
   <div class="max-w-[1237px] mx-auto px-5 md:px-[40px]">
     <div class="mb-5 flex flex-col sm:flex-row sm:items-center sm:justify-between font-[Montserrat] gap-3">
@@ -7,14 +11,9 @@
           Головна
         </a>
         <span class="text-[#ba0108] hidden sm:inline">&rarr;</span>
-        <a class="font-[Montserrat] text-[16px] lg:text-[20px] font-normal text-[#ba0108] hover:underline" href="/knowledge-base">
+        <span class="font-[Montserrat] text-[16px] lg:text-[20px] font-normal text-[#ba0108]">
           База знань
-        </a>
-        <span class="text-[#ba0108] hidden sm:inline">&rarr;</span>
-        <a class="font-[Montserrat] text-[16px] lg:text-[20px] font-normal text-[#ba0108] hover:underline break-words hyphens-auto"
-          href="#">
-          Як правильно паяти політний стек. Інструкція
-        </a>
+        </span>
       </div>
 
       <!-- Search for tablets -->
@@ -37,114 +36,29 @@
         <aside class="relative pt-0 pr-0 pl-0">
           <div class="p-0">
             <nav class="pt-[8px] fixed" style="width: 285px; max-height: calc(100vh - 200px); overflow-y: auto;">
+              {{ range $categories }}
+              {{ $categoryGuides := where $guides ".Params.category" . }}
               <details class="asideDetails">
                 <summary class="flex justify-between items-center px-4 py-3">
                   <span class="font-[Montserrat] font-normal text-[20px]">
-                    БПЛА
+                    {{ . }}
                   </span>
                   <img src="/img/arrow.svg" alt="" width="18" height="18" class="asideIcon" />
                 </summary>
+                {{ if $categoryGuides }}
                 <ul class="flex flex-col gap-[20px] b-l b-[#e0e0e0] ml-[36px] pr-[10px] max-w-[240px]"
                   style="border-left: 1px solid #e0e0e0; margin-left: 36px; padding-left: 16px;  padding-right: 10px; ">
+                  {{ range $categoryGuides }}
                   <li>
-                    <a href="#errors" class="block  text-[16px] font-normal font-[Montserrat]  ">
-                      Як правильно паяти політний стек. Інструкція
+                    <a href="{{ .Permalink }}" class="block text-[16px] font-normal font-[Montserrat] hover:text-[#ba0108] transition-colors">
+                      {{ .Title }}
                     </a>
                   </li>
-                  <li>
-                    <a href="#expert" class="block  text-[16px] font-normal font-[Montserrat]         ">
-                      Рекомендації по збірці дрона
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#howto" class="block  text-[16px] font-normal font-[Montserrat]   ">
-                      Як правильно паяти політний стек. Інструкція
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#recommend" class="block px-4 py-3 text-[16px] font-normal font-[Montserrat]   ">
-                      Рекомендації по збірці дрона
-                    </a>
-                  </li>
+                  {{ end }}
                 </ul>
+                {{ end }}
               </details>
-
-              <details class="asideDetails" open>
-                <summary class="flex justify-between items-center px-4 py-3">
-                  <span class="font-[Montserrat] font-normal text-[20px]">
-                    Політні стеки
-                  </span>
-                  <img src="/img/arrow.svg" alt="" width="18" height="18" class="asideIcon" />
-                </summary>
-                <ul class="flex flex-col gap-[20px] b-l b-[#e0e0e0] ml-[36px] pr-[10px]"
-                  style="border-left: 1px solid #e0e0e0; margin-left: 36px; padding-left: 16px;  padding-right: 10px; ">
-                  <li>
-                    <a href="#errors"
-                      class="block text-[16px] font-normal font-[Montserrat] hover:text-[#ba0108] transition-colors">
-                      Як правильно паяти політний стек. Інструкція
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#expert"
-                      class="block  text-[16px] font-normal font-[Montserrat] hover:text-[#ba0108] transition-colors">
-                      Рекомендації по збірці дрона
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#howto"
-                      class="block text-[16px] font-normal font-[Montserrat] text-[#ba0108]  transition-colors">
-                      Як правильно паяти політний стек. Інструкція
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#recommend"
-                      class="  text-[16px] font-normal font-[Montserrat] hover:text-[#ba0108] transition-colors">
-                      Як правильно паяти політний стек. Інструкція
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#markdown"
-                      class="text-[16px] font-normal font-[Montserrat] hover:text-[#ba0108] transition-colors">
-                      Рекомендації по збірці дрона
-                    </a>
-                  </li>
-                </ul>
-              </details>
-
-              <details class="asideDetails">
-                <summary class="flex justify-between items-center px-4 py-3 cursor-pointer select-none">
-                  <span class="font-[Montserrat] font-normal text-[20px] text-[#333]">
-                    Відеопередавачі
-                  </span>
-                  <img src="/img/arrow.svg" alt="" width="18" height="18" class="asideIcon" />
-                </summary>
-                <ul class="flex flex-col gap-[20px] b-l b-[#e0e0e0] ml-[36px] pl-4 pt-2 pr-10px"
-                  style="border-left: 1px solid #e0e0e0; margin-left: 36px; padding-left: 16px;  padding-right: 10px; ">
-                  <li>
-                    <a href="#howto" class="block px-4 py-3 text-[16px] font-normal font-[Montserrat] hover:bg-black/5">
-                      Налаштування VTX
-                    </a>
-                  </li>
-                </ul>
-              </details>
-
-              <details class="asideDetails">
-                <summary class="flex justify-between items-center px-4 py-3 cursor-pointer select-none">
-                  <span class="font-[Montserrat] font-normal text-[20px] text-[#333]">
-                    ESC
-                  </span>
-                  <img src="/img/arrow.svg" alt="" width="18" height="18" class="asideIcon" />
-                </summary>
-                <ul class="flex flex-col gap-[20px] b-l b-[#e0e0e0] ml-[36px] pr-[10px]"
-                  style="border-left: 1px solid #e0e0e0; margin-left: 36px; padding-left: 16px; padding-right: 10px; ">
-                  <li>
-                    <a href="#recommend"
-                      class="block px-4 py-3 text-[16px] font-normal font-[Montserrat] hover:bg-black/5">
-                      Базові поради
-                    </a>
-                  </li>
-                </ul>
-              </details>
+              {{ end }}
             </nav>
           </div>
         </aside>
@@ -165,216 +79,85 @@
           </div>
         </div>
 
-        <div class="relative overflow-hidden rounded-xl border border-[#E5E5E5]">
-          <img src="/img/drone-man.png" alt="Drone Man" class="w-full h-auto" width="900" height="400" />
+        <div class="relative overflow-hidden rounded-xl border border-[#E5E5E5] mb-8">
+          <img src="/img/drone-man.png" alt="База знань" class="w-full h-auto" width="900" height="400" />
           <div class="absolute -top-10 -right-10 opacity-20">
             <img src="/img/bg-el-6.png" alt="" width="320" height="320" />
           </div>
         </div>
 
-        <h1 class="mt-4 font-[Montserrat] text-[24px] lg:text-[32px] font-medium text-black">
-          Як правильно паяти політний стек. Інструкція
+        <h1 class="mt-4 font-[Montserrat] text-[24px] lg:text-[32px] font-medium text-black mb-6">
+          {{ .Title }}
         </h1>
-        <p class="mt-2 font-[Montserrat] text-[16px] lg:text-[18px] font-normal">
-          Для успішного паяння політного стека, важливо знати правильну техніку,
-          уникати поширених помилок та дотримуватися певних рекомендацій. Цей
-          процес вимагає точності та терпіння, щоб не пошкодити чутливі
-          компоненти.
+        <p class="mt-2 font-[Montserrat] text-[16px] lg:text-[18px] font-normal mb-8">
+          {{ .Content }}
         </p>
 
-        <section id="errors" class="mt-8 scroll-mt-24">
-          <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">
-            Опис помилок
-          </h2>
-          <ol class="space-y-4">
-            <li class="flex gap-3 items-start">
-              <img width="35" height="35" class="cursor-pointer color-black" src="/img/list-guide-one.png" alt="" />
-              <p class="text-[16px] lg:text-[18px] font-normal font-[Montserrat]">
-                Перегрівання компонентів. Занадто висока температура паяльника
-                або тривалий контакт може пошкодити мікросхеми та контакти на
-                платі. Це найчастіша помилка.
-              </p>
-            </li>
-
-            <li class="flex gap-3 items-start">
-              <img width="35" height="35" class="cursor-pointer color-black" src="/img/list-guide-two.png" alt="" />
-              <p class="text-[16px] font-normal font-[Montserrat]">
-                Перегрівання компонентів. Занадто
-                <span class="text-[#ba0108] underline">
-                  висока температура
-                </span>
-                паяльника або тривалий контакт може пошкодити мікросхеми та
-                контакти на платі. Це найчастіша помилка.
-              </p>
-            </li>
-
-            <li class="flex gap-3 items-start">
-              <img width="35" height="35" class="cursor-pointer color-black" src="/img/list-guide-three.png" alt="" />
-              <p class="text-[16px] font-normal font-[Montserrat]">
-                Перегрівання компонентів. Занадто висока температура паяльника
-                або тривалий контакт може пошкодити мікросхеми та контакти на
-                платі. Це найчастіша помилка.
-              </p>
-            </li>
-            <li class="flex gap-3 items-start">
-              <img width="35" height="35" class="color-black" src="/img/list-guide-four.png" alt="" />
-              <p class="text-[16px] font-normal font-[Montserrat]">
-                Перегрівання компонентів. Занадто висока температура паяльника
-                або тривалий контакт може пошкодити мікросхеми та контакти на
-                платі. Це найчастіша помилка.
-              </p>
-            </li>
-          </ol>
-        </section>
-
-        <section id="expert" class="mt-10 scroll-mt-24">
-          <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">
-            Поради експерта
-          </h2>
-          <div class="space-y-2 text-[#333]">
-            <p class="text-[16px] font-normal font-[Montserrat]">
-              Використовуйте якісне обладнання. Інвестуйте в хороший паяльник із
-              регулятором температури та тонким жалом. Це значно полегшить
-              процес.
-              <br />
-              <br />
-              Правильний припій. Віддавайте перевагу тонкому припою з каніфоллю
-              всередині. Це спростить процес, адже не потрібно буде додатково
-              наносити флюс на паяльник.
-              <br />
-              <br />
-              Терпіння — ключ до успіху. Не поспішайте. Краще витратити на
-              кілька секунд більше на кожен контакт, щоб уникнути помилок, ніж
-              потім виправляти їх.
-              <br />
-              <br />
-              Завжди використовуйте флюс. Навіть якщо ваш припій містить
-              каніфоль, додатковий флюс може значно покращити якість пайки,
-              особливо при роботі зі складними платами.
-              <br />
-              <br />
-              Охолодження. Після пайки дайте компонентам охолонути природним
-              шляхом. Не видувайте повітря на місце пайки, бо це може призвести
-              до утворення "холодної пайки".
+        <!-- All Guides Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {{ range $guides }}
+          <article class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+            {{ if .Params.image }}
+            <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-48 object-cover rounded-lg mb-4" />
+            {{ else }}
+            <div class="w-full h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
+              <span class="text-gray-500">{{ .Params.category }}</span>
+            </div>
+            {{ end }}
+            
+            <div class="mb-2">
+              <span class="inline-block bg-[#ba0108] text-white px-3 py-1 rounded-full text-sm font-medium">
+                {{ .Params.category }}
+              </span>
+            </div>
+            
+            <h2 class="font-[Montserrat] text-xl font-semibold mb-3 hover:text-[#ba0108] transition-colors">
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
+            </h2>
+            
+            <p class="text-gray-600 mb-4 line-clamp-3">
+              {{ .Params.description | default .Summary }}
             </p>
-          </div>
-        </section>
+            
+            <div class="flex justify-between items-center">
+              <time class="text-sm text-gray-500">
+                {{ .Date.Format "2 January 2006" }}
+              </time>
+              <a href="{{ .Permalink }}" class="text-[#ba0108] hover:underline font-medium">
+                Читати далі →
+              </a>
+            </div>
+          </article>
+          {{ end }}
+        </div>
 
-        <section id="howto" class="scroll-mt-24 mt-10 bg-[#f5f5f5] px-[29px] py-[27px]">
-          <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">
-            Інструкція
-          </h2>
-          <ul class="list-disc pl-5 space-y-2 text-[#333]">
-            <li class="flex gap-3 items-start">
-              <img width="35" height="35" class="color-black" src="/img/list-guide-one.png" alt="" />
-              <p class="text-[16px] font-normal font-[Montserrat]">
-                Встановіть температуру паяльника відповідно до типу припою. Для
-                свинцевого припою зазвичай вистачає 300-350°C, для безсвинцевого
-                – 350-400°C.
-              </p>
-            </li>
-
-            <li class="flex gap-3 items-start">
-              <img width="35" height="35" class="color-black" src="/img/list-guide-two.png" alt="" />
-              <p class="text-[16px] font-normal font-[Montserrat]">
-                Встановіть температуру паяльника відповідно до типу припою. Для
-                свинцевого припою зазвичай вистачає 300-350°C, для безсвинцевого
-                – 350-400°C.
-              </p>
-            </li>
-
-            <li class="flex gap-3 items-start">
-              <img width="35" height="35" class="color-black" src="/img/list-guide-three.png" alt="" />
-              <p class="text-[16px] font-normal font-[Montserrat]">
-                Встановіть температуру паяльника відповідно до типу припою. Для
-                свинцевого припою зазвичай вистачає 300-350°C, для безсвинцевого
-                – 350-400°C.
-              </p>
-            </li>
-
-            <li class="flex gap-3 items-start">
-              <img width="35" height="35" class="color-black" src="/img/list-guide-four.png" alt="" />
-              <p class="text-[16px] font-normal font-[Montserrat]">
-                Встановіть температуру паяльника відповідно до типу припою. Для
-                свинцевого припою зазвичай вистачає 300-350°C, для безсвинцевого
-                – 350-400°C.
-              </p>
-            </li>
-          </ul>
-        </section>
-
-        <section id="recommend" class="mt-10 scroll-mt-24">
-          <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">
-            Рекомендації
-          </h2>
-          <p class="text-[16px] font-normal font-[Montserrat]">
-            Почніть з паяння простих компонентів, таких як дрібні резистори чи
-            конденсатори, на старій або тестовій платі. Це допоможе вам відчути
-            температуру і кількість припою.
-            <br />
-            <br />
-            Почніть з паяння простих компонентів, таких як дрібні резистори чи
-            конденсатори, на старій або тестовій платі. Це допоможе вам відчути
-            температуру і кількість припою.
-            <br />
-            <br />
-            Почніть з паяння простих компонентів, таких як дрібні резистори чи
-            конденсатори, на старій або тестовій платі. Це допоможе вам відчути
-            температуру і кількість припою.
-            <br />
-            <br />
-            Почніть з паяння простих компонентів, таких як дрібні резистори чи
-            конденсатори, на старій або тестовій платі. Це допоможе вам відчути
-            температуру і кількість припою.
+        {{ if eq (len $guides) 0 }}
+        <div class="text-center py-12">
+          <p class="text-gray-500 text-lg">
+            Поки що немає статей у базі знань. Додайте їх через CMS.
           </p>
-        </section>
-
-        <section id="markdown"
-          class="scroll-mt-24 max-w-[694px] h-[259px] px-[25px] py-[22px] mt-10 mb-16 rounded-[10px] shadow-[0_4px_16px_0_rgba(0,0,0,0.1)]">
-          <h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-semibold mb-3">
-            Markdown
-          </h2>
-          <img src="/img/markdown.png" alt="Markdown" class="w-full h-auto" width="644" height="195" />
-        </section>
+        </div>
+        {{ end }}
       </div>
 
-      <aside class="hidden lg:block relative bg-red-500 min-h-[200px]">
+      <aside class="hidden lg:block relative">
         <nav>
           <div class="pt-0 h-full">
-            <nav class="fixed pt-[8px] " style="width: 200px; max-height: calc(100vh - 200px); overflow-y: auto;">
+            <nav class="fixed pt-[8px]" style="width: 220px; max-height: calc(100vh - 200px); overflow-y: auto;">
               <h4 class="mb-3 font-[Montserrat] text-[16px] lg:text-[18px] font-medium text-[#ba0108]">
-                На цій сторінці
+                Категорії
               </h4>
               <ul class="space-y-2 text-[16px] lg:text-[18px] font-normal font-[Montserrat]">
+                {{ range $categories }}
+                {{ $categoryGuides := where $guides ".Params.category" . }}
+                {{ if $categoryGuides }}
                 <li>
-                  <a href="#errors"
-                    class="block py-2 hover:text-[#ba0108] transition-colors text-[16px] lg:text-[18px]">
-                    Опис помилок
-                  </a>
+                  <span class="block py-2 font-medium text-[#ba0108]">
+                    {{ . }} ({{ len $categoryGuides }})
+                  </span>
                 </li>
-                <li>
-                  <a href="#expert"
-                    class="block py-2 hover:text-[#ba0108] transition-colors text-[16px] lg:text-[18px]">
-                    Поради експерта
-                  </a>
-                </li>
-                <li>
-                  <a href="#howto" class="block py-2 hover:text-[#ba0108] transition-colors text-[16px] lg:text-[18px]">
-                    Інструкція
-                  </a>
-                </li>
-                <li>
-                  <a href="#recommend"
-                    class="block py-2 hover:text-[#ba0108] transition-colors text-[16px] lg:text-[18px]">
-                    Рекомендації
-                  </a>
-                </li>
-                <li>
-                  <a href="#markdown"
-                    class="block py-2 hover:text-[#ba0108] transition-colors text-[16px] lg:text-[18px]">
-                    Markdown
-                  </a>
-                </li>
+                {{ end }}
+                {{ end }}
               </ul>
             </nav>
           </div>
