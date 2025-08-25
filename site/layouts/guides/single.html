@@ -41,7 +41,7 @@
       </div>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-[1fr_200px] lg:grid-cols-[280px_1fr_220px] gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-[1fr_250px] lg:grid-cols-[280px_1fr_220px] gap-6">
       <div class="bg-[#fafafa] max-w-[285px] h-full rounded-2xl border border-[#eee] hidden lg:block">
         <aside class="relative pt-0 pr-0 pl-0">
           <div class="p-0">
@@ -98,9 +98,7 @@
             height="400" />
           <img src="{{ .Params.image }}" alt="{{ .Title }}" class="hidden w-full h-auto sm:block" width="900"
             height="400" />
-          <div class="absolute -top-10 -right-10 opacity-20">
-            <img src="/img/bg-el-6.png" alt="" width="320" height="320" />
-          </div>
+
         </div>
         {{ else }}
         <div class="relative overflow-hidden rounded-xl border border-[#E5E5E5]">
@@ -108,9 +106,7 @@
             height="400" />
           <img src="/img/drone-man.png" alt="Drone Man" class="hidden w-full h-auto sm:block" width="900"
             height="400" />
-          <div class="absolute -top-10 -right-10 opacity-20">
-            <img src="/img/bg-el-6.png" alt="" width="320" height="320" />
-          </div>
+       
         </div>
         {{ end }}
 
