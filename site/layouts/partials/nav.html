@@ -97,10 +97,12 @@
       .desktop-nav {
         display: none !important;
       }
+
       .mobile-nav {
         display: flex !important;
         min-height: 60px;
       }
+
       .mobile-menu {
         display: flex !important;
       }
@@ -110,9 +112,11 @@
       .mobile-nav {
         display: none !important;
       }
+
       .mobile-menu {
         display: none !important;
       }
+
       .desktop-nav {
         display: flex !important;
       }
@@ -123,20 +127,25 @@
       .nav-container {
         gap: 10px;
       }
+
       .nav-link {
         font-size: 16px;
       }
+
       .dropdown-menu {
         min-width: 250px;
       }
+
       .dropdown-item {
         padding: 12px 16px;
         font-size: 14px;
       }
+
       /* Hide phone number on smaller tablets */
       .contact-phone {
         display: none;
       }
+
       /* Reduce language switcher gap */
       .language-switcher {
         gap: 8px;
@@ -149,14 +158,31 @@
       .nav-link {
         font-size: 14px;
       }
+
       .nav-container {
         gap: 8px;
       }
     }
+
+    @media (min-width: 768px) and (max-width: 1023px) {
+      .nav-container {
+        padding-top: 15px !important;
+        padding-bottom: 15px !important;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .nav-container {
+        padding-top: 0 !important;
+        padding-bottom: 0 !important;
+      }
+    }
   </style>
-  
+
   <!-- Responsive container with breakpoint-specific widths -->
-  <div class="flex w-full max-w-[1237px] xl:max-w-[1237px] lg:max-w-[1024px] md:max-w-[768px] sm:max-w-[90%] px-4 justify-between items-center">
+  <div
+    class="flex w-full max-w-[1237px] xl:max-w-[1237px] lg:max-w-[1024px] px-4 justify-between items-center nav-container"
+    style="padding-top: 20px; padding-bottom: 20px;">
     <!-- Logo -->
     <a href="/" class="text-xl font-normal text-white font-inter z-50 relative">
       <img src="/logo.png" alt="logo" width="149" height="34" />
@@ -165,37 +191,33 @@
     <!-- Desktop Navigation -->
     <nav class="nav-container desktop-nav flex items-center gap-[20px]">
       <div class="relative dropdown-parent">
-        <a
-          href="#"
-          onclick="toggleDropdown(event)"
-          class="nav-link lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-xl focus:font-bold text-white hover:text-[#ba0108] transition-colors {{ if or (eq .Page.Section "catalog") (hasPrefix .Page.RelPermalink "/catalog/") }}active{{ end }}"
-        >
+        <a href="#" onclick="toggleDropdown(event)"
+          class="nav-link lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-xl focus:font-bold text-white hover:text-[#ba0108] transition-colors {{ if or (eq .Page.Section "catalog") (hasPrefix .Page.RelPermalink "/catalog/" ) }}active{{ end }}">
           Каталог
         </a>
         <div class="dropdown-menu absolute left-0 top-full mt-3 bg-[#020303] rounded-lg border-2 ">
           <div class="flex w-full">
-            <a href="/catalog/politni-steky/" class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">Політні стеки</a>
-            <a href="/catalog/videoperedavachi-vtx/" class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">Відеопередавачі VTX</a>
-            <a href="/catalog/esc/" class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">ESC</a>
+            <a href="/catalog/politni-steky/"
+              class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">Політні
+              стеки</a>
+            <a href="/catalog/videoperedavachi-vtx/"
+              class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">Відеопередавачі
+              VTX</a>
+            <a href="/catalog/esc/"
+              class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">ESC</a>
           </div>
         </div>
       </div>
-      <a
-        href="/faq"
-        class="nav-link lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "faq" }}active{{ end }}"
-      >
+      <a href="/faq"
+        class="nav-link lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "faq" }}active{{ end }}">
         FAQ
       </a>
-      <a
-        href="/knowledge-base"
-        class="nav-link lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "knowledge-base" }}active{{ end }}"
-      >
+      <a href="/knowledge-base"
+        class="nav-link lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "knowledge-base" }}active{{ end }}">
         База знань
       </a>
-      <a
-        href="/contact"
-        class="nav-link lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "contact" }}active{{ end }}"
-      >
+      <a href="/contact"
+        class="nav-link lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors {{ if eq .Page.Section "contact" }}active{{ end }}">
         Контакти
       </a>
     </nav>
@@ -203,16 +225,18 @@
     <!-- Desktop Contact & Language -->
     <div class="desktop-nav flex gap-[50px] justify-center items-center">
       <nav class="flex items-center gap-[30px]">
-        <a
-          href="tel:(067) 298-29-29"
-          class=" font-['Montserrat'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
-        >
+        <a href="tel:(067) 298-29-29"
+          class=" font-['Montserrat'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors">
           (067) 298-29-29
         </a>
         <div class="language-switcher flex items-center gap-3 text-xl text-white/80">
-          <button id="lang-ua" class="font-['Inter'] font-bold cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] focus:font-bold transition-colors" onclick="switchLanguage('ua')">UA</button>
+          <button id="lang-ua"
+            class="font-['Inter'] font-bold cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] focus:font-bold transition-colors"
+            onclick="switchLanguage('ua')">UA</button>
           |
-          <button id="lang-en" class="font-['Inter'] font-[300] cursor-pointer text-white/80 hover:text-[#ba0108] focus:text-[#ba0108] transition-colors" onclick="switchLanguage('en')">EN</button>
+          <button id="lang-en"
+            class="font-['Inter'] font-[300] cursor-pointer text-white/80 hover:text-[#ba0108] focus:text-[#ba0108] transition-colors"
+            onclick="switchLanguage('en')">EN</button>
         </div>
       </nav>
     </div>
@@ -222,12 +246,15 @@
       <!-- Search Icon -->
       <button class="text-white hover:text-[#ba0108] transition-colors" onclick="toggleMobileSearch()">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <path
+            d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
         </svg>
       </button>
 
       <!-- Hamburger Menu Button -->
-      <button class="hamburger flex flex-col justify-center items-center w-8 h-8 space-y-1" onclick="toggleMobileMenu()">
+      <button class="hamburger flex flex-col justify-center items-center w-8 h-8 space-y-1"
+        onclick="toggleMobileMenu()">
         <span class="block w-6 h-0.5 bg-white"></span>
         <span class="block w-6 h-0.5 bg-white"></span>
         <span class="block w-6 h-0.5 bg-white"></span>
@@ -244,19 +271,18 @@
         </a>
         <button class="text-white hover:text-[#ba0108] transition-colors" onclick="toggleMobileSearch()">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
           </svg>
         </button>
       </div>
-      
+
       <div class="relative">
-        <input 
-          type="text" 
-          placeholder="Пошук по сайту" 
+        <input type="text" placeholder="Пошук по сайту"
           class="w-full h-[60px] rounded-full font-['Montserrat'] border-0 pl-6 pr-[140px] text-lg outline-none bg-white text-black placeholder-gray-500"
-          id="mobile-search-input"
-        />
-        <button class="absolute right-0 top-0 h-[60px] w-[120px] rounded-full bg-[#ba0108] flex items-center justify-center cursor-pointer hover:bg-[#a00007] transition-colors">
+          id="mobile-search-input" />
+        <button
+          class="absolute right-0 top-0 h-[60px] w-[120px] rounded-full bg-[#ba0108] flex items-center justify-center cursor-pointer hover:bg-[#a00007] transition-colors">
           <span class="text-white font-['Montserrat'] text-lg font-medium">Пошук</span>
         </button>
       </div>
@@ -271,35 +297,51 @@
         <span class="block w-6 h-0.5 bg-white absolute -rotate-45"></span>
       </button>
     </div>
-    
+
     <nav class="flex-1 flex flex-col items-center p-6 space-y-6">
       <div class="relative">
-        <button onclick="toggleMobileCatalog()" class="w-full flex justify-center items-center text-white font-['Unbounded'] text-xl font-normal py-2">
+        <button onclick="toggleMobileCatalog()"
+          class="w-full flex justify-center items-center text-white font-['Unbounded'] text-xl font-normal py-2">
           <span class="font-['Unbounded'] text-xl font-normal text-white">Каталог</span>
-          <svg class="w-5 h-5 transform transition-transform mobile-catalog-arrow" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <svg class="w-5 h-5 transform transition-transform mobile-catalog-arrow" fill="none" stroke="currentColor"
+            viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
         <div class="mobile-catalog-menu overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
           <div class="mt-2 pl-4 space-y-2 flex flex-col items-center">
-            <a href="/catalog/politni-steky/" class="block text-white/80 font-['Unbounded'] text-lg py-2 hover:text-[#ba0108] transition-colors">Політні стеки</a>
-            <a href="/catalog/videoperedavachi-vtx/" class="block text-white/80 font-['Unbounded'] text-lg py-2 hover:text-[#ba0108] transition-colors">Відеопередавачі VTX</a>
-            <a href="/catalog/esc/" class="block text-white/80 font-['Unbounded'] text-lg py-2 hover:text-[#ba0108] transition-colors">ESC</a>
+            <a href="/catalog/politni-steky/"
+              class="block text-white/80 font-['Unbounded'] text-lg py-2 hover:text-[#ba0108] transition-colors">Політні
+              стеки</a>
+            <a href="/catalog/videoperedavachi-vtx/"
+              class="block text-white/80 font-['Unbounded'] text-lg py-2 hover:text-[#ba0108] transition-colors">Відеопередавачі
+              VTX</a>
+            <a href="/catalog/esc/"
+              class="block text-white/80 font-['Unbounded'] text-lg py-2 hover:text-[#ba0108] transition-colors">ESC</a>
           </div>
         </div>
       </div>
-      <a href="/faq" class="text-white font-['Unbounded'] text-xl font-normal hover:text-[#ba0108] transition-colors">FAQ</a>
-      <a href="/knowledge-base" class="text-white font-['Unbounded'] text-xl font-normal hover:text-[#ba0108] transition-colors">База знань</a>
-      <a href="/contact" class="text-white font-['Unbounded'] text-xl font-normal hover:text-[#ba0108] transition-colors">Контакти</a>
-      
+      <a href="/faq"
+        class="text-white font-['Unbounded'] text-xl font-normal hover:text-[#ba0108] transition-colors">FAQ</a>
+      <a href="/knowledge-base"
+        class="text-white font-['Unbounded'] text-xl font-normal hover:text-[#ba0108] transition-colors">База знань</a>
+      <a href="/contact"
+        class="text-white font-['Unbounded'] text-xl font-normal hover:text-[#ba0108] transition-colors">Контакти</a>
+
       <div class="absolute bottom-10 flex flex-col items-center">
-        <a href="tel:(067) 298-29-29" class="block text-white font-['Montserrat'] text-xl font-normal mb-4 hover:text-[#ba0108] transition-colors">(067) 298-29-29</a>
+        <a href="tel:(067) 298-29-29"
+          class="block text-white font-['Montserrat'] text-xl font-normal mb-4 hover:text-[#ba0108] transition-colors">(067)
+          298-29-29</a>
         <div class="flex items-center gap-3 text-2xl text-white">
-          <button id="mobile-lang-ua" class="!font-[Unbounded] font-[300] cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] transition-colors" onclick="switchLanguage('ua')">
+          <button id="mobile-lang-ua"
+            class="!font-[Unbounded] font-[300] cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] transition-colors"
+            onclick="switchLanguage('ua')">
             UA
           </button>
           |
-          <button id="mobile-lang-en" class="!font-[Unbounded] font-[300] cursor-pointer text-white/80 hover:text-[#ba0108] focus:text-[#ba0108] transition-colors" onclick="switchLanguage('en')">
+          <button id="mobile-lang-en"
+            class="!font-[Unbounded] font-[300] cursor-pointer text-white/80 hover:text-[#ba0108] focus:text-[#ba0108] transition-colors"
+            onclick="switchLanguage('en')">
             EN
           </button>
         </div>
@@ -311,7 +353,7 @@
     function toggleMobileMenu() {
       const mobileMenu = document.getElementById('mobileMenu');
       const hamburger = document.querySelector('.hamburger');
-      
+
       mobileMenu.classList.toggle('open');
       hamburger.classList.toggle('open');
     }
@@ -325,7 +367,7 @@
     function toggleMobileCatalog() {
       const catalogMenu = document.querySelector('.mobile-catalog-menu');
       const arrow = document.querySelector('.mobile-catalog-arrow');
-      
+
       if (catalogMenu.classList.contains('max-h-0')) {
         catalogMenu.classList.remove('max-h-0', 'opacity-0');
         catalogMenu.classList.add('max-h-96', 'opacity-100');
@@ -340,7 +382,7 @@
     function toggleMobileSearch() {
       const searchOverlay = document.getElementById('mobile-search-overlay');
       const body = document.body;
-      
+
       if (searchOverlay.classList.contains('hidden')) {
         searchOverlay.classList.remove('hidden');
         body.style.overflow = 'hidden';
@@ -359,7 +401,7 @@
       const enDesktop = document.getElementById('lang-en');
       const uaMobile = document.getElementById('mobile-lang-ua');
       const enMobile = document.getElementById('mobile-lang-en');
-      
+
       if (lang === 'ua') {
         // Set UA as active (red)
         uaDesktop.className = "font-['Inter'] font-bold cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] focus:font-bold transition-colors";
@@ -373,17 +415,17 @@
         uaMobile.className = "!font-[Unbounded] font-[300] cursor-pointer text-white/80 hover:text-[#ba0108] focus:text-[#ba0108] transition-colors";
         enMobile.className = "!font-[Unbounded] font-[300] cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] transition-colors";
       }
-      
+
       // Store the selected language in localStorage
       localStorage.setItem('selectedLanguage', lang);
-      
+
       // Here you can add actual language switching logic
       // For example, reload the page with a different language parameter
       // window.location.href = window.location.pathname + '?lang=' + lang;
     }
 
     // Initialize language on page load
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
       const savedLang = localStorage.getItem('selectedLanguage') || 'ua';
       switchLanguage(savedLang);
     });
@@ -400,7 +442,7 @@
       const mobileMenu = document.getElementById('mobileMenu');
       const hamburger = document.querySelector('.hamburger');
       const dropdownParent = document.querySelector('.dropdown-parent');
-      
+
       // Close mobile menu
       if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
         mobileMenu.classList.remove('open');
@@ -417,7 +459,7 @@
     document.addEventListener('DOMContentLoaded', () => {
       const dropdownParent = document.querySelector('.dropdown-parent');
       const dropdownMenu = document.querySelector('.dropdown-menu');
-      
+
       let hoverTimeout;
 
       dropdownParent.addEventListener('mouseenter', () => {

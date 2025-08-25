@@ -34,7 +34,7 @@
                     {{ $categoryData.name }}
                 </h1>
                 <p
-                    class="font-[Montserrat] text-[16px] md:text-[16px] lg:text-[20px] leading-[1.7] text-[#333333] mb-8 w-[330px] md:w-[548px] lg:w-[749px]">
+                    class="font-[Montserrat] text-[16px] md:text-[16px] lg:text-[20px] leading-[1.7] text-[#333333] mb-8 w-[330px] md:w-[548px] lg:w-[749px] ">
                     {{ if eq $category "politni-steky" }} Компактна та продуктивна
                     інтегрована система для дронів, що об'єднує польотний контролер (FC)
                     на базі потужного мікроконтролера STM32F405 та регулятор швидкості
@@ -55,14 +55,14 @@
                     швидкістю з високою точністю та надійністю. {{ end }}
                 </p>
                 <button onclick="window.openContactModal()"
-                    class="bg-[#ba0108] text-white font-[Montserrat] text-[16px] md:text-[24px] lg:text-[24px] font-normal w-[354px] md:w-[458px] lg:w-[607px] py-[14px] px-[54px] mt-[60px] h-[70px] border-none rounded-[25px] cursor-pointer transition-all duration-300 ease-in-out hover:bg-[#9a0106] hover:-translate-y-1 active:translate-y-0 shadow-lg">
-                    Отримати пропозицію
+                    class="font-[Montserrat] text-[16px] md:text-[24px] lg:text-[24px] font-medium text-white bg-[#ba0108] hover:bg-[#a00007] transition-colors w-[354px] md:w-[458px] lg:w-[607px] py-[15px] rounded-[10px]">
+                    Замовити консультацію
                 </button>
             </div>
             <div class="flex relative justify-center items-center w-full md:w-1/2">
                 <img src="/img/stack-rotate.png" alt="Karma Flights - високотехнологічне українське виробництво"
                     class="hidden sm:block object-contain max-w-none 
-                            w-[250px] h-[167px] sm:w-[450px] sm:h-[450px] md:w-[450px] md:h-[450px] lg:w-[550px] lg:h-[350px]" />
+                            w-[250px] h-[167px] sm:w-[450px] sm:h-[450px] md:w-[348px] md:h-[348px] lg:w-[550px] lg:h-[350px]" />
 
                 <div
                     class="pointer-events-none absolute -bottom-3 left-1/2 -translate-x-1/2 w-[200px] h-[30px] md:w-[250px] md:h-[40px] lg:w-[300px] lg:h-[50px] xl:w-[410px] xl:h-[80px] rounded-full bg-black/35 blur-2xl hidden sm:block" />
@@ -70,3 +70,4 @@
         </div>
     </div>
 </section>
+

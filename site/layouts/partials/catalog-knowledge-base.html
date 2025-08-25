@@ -7,17 +7,17 @@
 
 {{/* Map product categories to guide categories */}}
 {{ if eq $category "politni-steky" }}
-  {{ $categoryGuides = where $guides ".Params.category" "Політні стеки" }}
+{{ $categoryGuides = where $guides ".Params.category" "Політні стеки" }}
 {{ else if eq $category "videoperedavachi-vtx" }}
-  {{ $categoryGuides = where $guides ".Params.category" "Відеопередавачі" }}
+{{ $categoryGuides = where $guides ".Params.category" "Відеопередавачі" }}
 {{ else if eq $category "esc" }}
-  {{ $categoryGuides = where $guides ".Params.category" "ESC" }}
+{{ $categoryGuides = where $guides ".Params.category" "ESC" }}
 {{ else }}
-  {{ $categoryGuides = $guides }}
+{{ $categoryGuides = $guides }}
 {{ end }}
 
 <div class="flex justify-center items-center flex-col max-w-[1240px] w-full mx-auto my-[80px]">
-    <h3 class="title text-black text-[40px] font-[Unbounded] font-medium mb-[30px]">
+    <h3 class="title text-black text-[24px] md:text-[32px] lg:text-[40px] font-[Unbounded] font-medium mb-[30px]">
         <span class="text-[#ba0108]">Б</span>АЗА ЗНАНЬ. {{ $categoryData.name | upper }}
     </h3>
 
@@ -40,7 +40,7 @@
             </p>
         </div>
         {{ end }}
-        
+
         {{ if lt (len $categoryGuides) 1 }}
         <div class="text-center">
             <p class="text-[20px] font-[Montserrat] font-normal text-gray-500">

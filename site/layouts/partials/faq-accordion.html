@@ -8,14 +8,14 @@
             class="faq-title font-[Unbounded] font-medium text-[24px] md:text-[32px] lg:text-[40px] text-center text-[#020303] mb-[30px]">
             {{ $title }}
         </h3>
-        <div class="w-full mx-auto flex flex-col gap-[30px] max-w-[600px] md:max-w-[949px] lg:max-w-[949px] xl:max-w-[1237px]"
+        <div class="w-full  flex flex-col gap-[30px] max-w-[600px] md:max-w-[949px] lg:max-w-[949px] xl:max-w-[1237px]"
             data-accordion-list>
             {{ range $items }}
             <div class="faq-acc-wrapper">
                 <details class="faq-acc-root group border-b border-[#303030]">
                     <summary class="flex cursor-pointer select-none faq-acc-summary">
                         <h4
-                            class="font-[Montserrat] text-[16px] md:text-[20px] lg:text-[24px] font-medium faq-question-text">
+                            class="font-[Unbounded] md:font-[Montserrat] lg:font-[Montserrat] text-[16px] md:text-[20px] lg:text-[24px] font-medium w-full">
                             {{ .question }}
                         </h4>
                         <img src="/img/arrow.svg" alt="Arrow" width="20" height="20" class="faq-acc-icon" />
@@ -38,12 +38,6 @@
         margin-bottom: 20px;
     }
 
-    .faq-question-text {
-        display: -webkit-box;
-        -webkit-line-clamp: 3;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-    }
 
 
 
@@ -193,8 +187,10 @@
         }
 
         .faq-acc-summary {
-            padding-left: 16px !important;
-            padding-right: 16px !important;
+            padding-top: 11px !important;
+            padding-bottom: 15px !important;
+            padding-left: 12px !important;
+            padding-right: 12px !important;
         }
 
         .faq-acc-icon {
@@ -203,9 +199,6 @@
         }
 
         .faq-question-text {
-            display: -webkit-box !important;
-            -webkit-line-clamp: 3 !important;
-            -webkit-box-orient: vertical !important;
             overflow: hidden !important;
             padding-right: 6px !important;
             text-align: left !important;
