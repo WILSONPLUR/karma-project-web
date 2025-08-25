@@ -1,5 +1,7 @@
 version: 1
 
+local_backend: true
+
 update_configs:
   - package_manager: javascript
     directory: /
