@@ -32,7 +32,7 @@
 
     <!-- Accordion Sections -->
     <div class="mx-auto space-y-0 w-full lg:absolute lg:left-0">
-      {{ $categories := slice "БПЛА" "ВІДЕОПЕРЕДАВАЧІ" "ESC" }}
+      {{ $categories := slice "БПЛА" "Відеопередавачі" "ESC" "Політні стеки" }}
       {{ $guides := where .Site.RegularPages "Section" "guides" }}
       {{ range $index, $category := $categories }}
       {{ $categoryGuides := where $guides ".Params.category" $category }}
