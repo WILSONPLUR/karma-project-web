@@ -15,82 +15,59 @@
 
 
     <div
-        class="w-full md:w-[1024px] lg:w-[1237px] flex flex-col items-center sm:items-start lg:items-start mx-auto justify-center px-5 md:px-[40px] lg:px-[40px] xl:px-0 pt-[40px] mb-0 md:mb-[64px] relative z-[2]">
+        class="w-full max-w-7xl flex flex-col items-center sm:items-center lg:items-start mx-auto justify-center px-4 sm:px-6 lg:px-8 pt-10 sm:pt-12 lg:pt-16 mb-0 sm:mb-8 lg:mb-16 relative z-[2]">
         <div
-            class="mb-5 flex flex-col sm:flex-row sm:items-center sm:justify-between font-[Montserrat] gap-3 mb-[75px] md:mb-[35px] lg:mb-[35px]">
+            class="mb-5 flex flex-col sm:flex-row sm:items-center sm:justify-between font-[Montserrat] gap-3 mb-12 sm:mb-16 lg:mb-20">
             <div class="flex flex-wrap gap-2 items-center sm:gap-2">
-                <a class="font-[Montserrat] text-[16px] lg:text-[20px] font-normal text-[#ba0108] hover:underline"
+                <a class="font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl font-normal text-[#ba0108] hover:underline"
                     href="/">
                     Головна
                 </a>
                 <span class="text-[#ba0108] sm:inline">&rarr;</span>
-                <a class="font-[Montserrat] text-[16px] lg:text-[20px] font-normal text-[#ba0108] hover:underline"
+                <a class="font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl font-normal text-[#ba0108] hover:underline"
                     href="/catalog">
                     Каталог
                 </a>
                 <span class="text-[#ba0108] sm:inline">&rarr;</span>
-                <a class="font-[Montserrat] text-[16px] lg:text-[20px] font-normal text-[#ba0108] hover:underline"
+                <a class="font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl font-normal text-[#ba0108] hover:underline"
                     href="/catalog/{{ $context.Params.category | default " politni-steky" }}/">
                     {{ $categoryName }}
                 </a>
                 <span class="text-[#ba0108] sm:inline">&rarr;</span>
-                <span class="font-[Montserrat] text-[16px] lg:text-[20px] font-normal text-[#ba0108]">
+                <span class="font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl font-normal text-[#ba0108]">
                     {{ $productName }}
                 </span>
             </div>
         </div>
 
-        <div class="flex flex-col gap-0 justify-start items-center mx-0 sm:flex-row md:gap-8 lg:gap-8 md:items-start">
-            <div class="flex relative justify-start items-center flex-col md:flex-row w-full">
+        <div
+            class="flex flex-col gap-6 justify-start items-center mx-0 sm:gap-8 lg:gap-12 sm:flex-row md:gap-8 lg:gap-8 md:items-start">
+            <div class="flex relative flex-col justify-start items-center w-full md:flex-row">
                 <img src="{{ $productImage }}" alt="{{ $productName }}"
                     class="object-contain max-w-none 
-                            w-[349px] h-[233px] sm:w-[450px] sm:h-[450px] md:w-[348px] md:h-[348px] lg:w-[550px] lg:h-[367px]" />
+                            w-[349px] h-[230px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[267px] lg:w-[450px] lg:h-[300px] xl:w-[500px] xl:h-[333px] 2xl:w-[550px] 2xl:h-[367px]" />
 
                 <div
-                    class="pointer-events-none absolute -bottom-3 left-1/2 -translate-x-1/2 w-[200px] h-[30px] md:w-[250px] md:h-[40px] lg:w-[300px] lg:h-[50px] xl:w-[410px] xl:h-[80px] rounded-full bg-black/35 blur-2xl hidden sm:block" />
+                    class="pointer-events-none absolute -bottom-3 left-1/2 -translate-x-1/2 w-[150px] h-[20px] sm:w-[200px] sm:h-[30px] md:w-[280px] md:h-[45px] lg:w-[300px] lg:h-[48px] xl:w-[320px] xl:h-[50px] 2xl:w-[410px] 2xl:h-[80px] rounded-full bg-black/35 blur-2xl hidden sm:block" />
             </div>
-            <div class="flex flex-col gap-5 items-center w-full md:items-start lg:items-start">
+            <div class="flex flex-col gap-4 items-center w-full sm:gap-5 md:items-start lg:items-start">
                 <h1
-                    class="font-[Unbounded] text-[#ba0108] uppercase leading-[1.1] mb-2 text-[24px] md:text-[32px] lg:text-[48px] w-full md:w-[500px] lg:w-[749px] font-medium text-center md:text-left">
+                    class="hidden sm:block font-[Unbounded] text-[#ba0108] uppercase leading-[1.1] mb-2 sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl font-medium text-center lg:text-left">
                     ПОЛІТНИЙ СТЕК<br><span class="text-black">KARMA F405 V1</span>
                 </h1>
                 <p
-                    class="font-[Montserrat] text-[16px] md:text-[18px] lg:text-[20px] leading-[1.7] text-[#333333] w-full md:w-[522px] lg:w-[749px] text-left">
+                    class="font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.7] text-[#333333] w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
                     {{ $context.Params.description | default "Політний стек спрощує монтаж та підключення електроніки вдроні, роблячи його ідеальним рішенням як для досвідчених пілотів, так і для початківців." }}
                 </p>
                 <p
-                    class="font-[Montserrat] text-[16px] md:text-[18px] lg:text-[20px] leading-[1.7] text-[#333333]  w-full md:w-[522px] lg:w-[749px] text-left">
+                    class="font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.7] text-[#333333] w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
                     Він забезпечує стабільний політ, точне керування та ефективне розподілення потужності до моторів.
                 </p>
                 <button onclick="window.openContactModal()"
-                    class="product-hero-button font-[Montserrat] text-[16px] md:text-[20px] lg:text-[24px] font-medium text-white bg-[#ba0108] hover:bg-[#a00007] transition-colors w-full md:w-[494px] lg:w-[607px] py-[25px] md:py-[15px] rounded-[10px]">
+                    class="product-hero-button font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium text-white bg-[#ba0108] hover:bg-[#a00007] transition-colors w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl py-4 sm:py-5 md:py-6 px-6 sm:px-8 md:px-10 rounded-[10px]">
                     Отримати пропозицію
                 </button>
             </div>
         </div>
     </div>
 </section>
-
-<style>
-    .hero-paragraph {
-        width: 330px;
-    }
-
-    @media (min-width: 639px) {
-        .hero-paragraph {
-            width: 460px;
-        }
-    }
-
-    @media (min-width: 768px) {
-        .hero-paragraph {
-            width: 548px;
-        }
-    }
-
-    @media (min-width: 1024px) {
-        .hero-paragraph {
-            width: 749px;
-        }
-    }
-</style>
