@@ -1,35 +1,36 @@
-<section class="overflow-hidden relative py-12 mb-20 sm:py-16 md:py-20 lg:py-24">
+<section class="overflow-hidden relative py-12 mb-20 sm:py-16 md:py-20 lg:py-24" aria-labelledby="features-heading">
     <!-- Background image -->
     <div class="absolute inset-0">
-        <img src="/img/benefits-bg.png" alt="" class="object-cover w-full h-full" />
+        <img src="/img/benefits-bg.png" alt="" aria-hidden="true" class="object-cover w-full h-full" />
     </div>
 
     <div class="w-full max-w-[1440px] mx-auto relative z-[2] px-4 sm:px-6 lg:px-8">
         <div class="relative mb-8 text-center sm:mb-12 md:mb-16 lg:mb-20">
-            <h2
+            <h2 id="features-heading"
                 class="mb-6 text-2xl font-bold text-white uppercase font-unbounded sm:text-3xl md:text-4xl lg:text-5xl sm:mb-8">
                 ОСОБЛИВОСТІ
             </h2>
 
             <div
                 class="hidden absolute transform -translate-y-1/2 top-16 md:block md:top-19 lg:top-23 left-[calc(41%-200px-2rem)] lg:left-[calc(35%-200px-2rem)]">
-                <img src="/img/line-left.svg" alt="" class="w-32 h-auto md:w-40 lg:w-56" />
+                <img src="/img/line-left.svg" alt="" aria-hidden="true" class="w-32 h-auto md:w-40 lg:w-56" />
             </div>
 
             <div class="hidden absolute top-16 left-1/2 transform -translate-x-1/2 md:block md:top-16 lg:top-23">
-                <img src="/img/line-center.svg" alt="" class="w-8 h-12 md:w-12 md:h-20 lg:w-16 lg:h-24" />
+                <img src="/img/line-center.svg" alt="" aria-hidden="true"
+                    class="w-8 h-12 md:w-12 md:h-20 lg:w-16 lg:h-24" />
             </div>
 
             <div
                 class="hidden absolute transform top-8 md:block md:top-6 lg:top-5 right-[calc(41%-200px-2rem)] lg:right-[calc(35%-200px-2rem)]">
-                <img src="/img/line-right.svg" alt="" class="w-32 h-auto md:w-40 lg:w-56" />
+                <img src="/img/line-right.svg" alt="" aria-hidden="true" class="w-32 h-auto md:w-40 lg:w-56" />
             </div>
         </div>
 
-        <div
-            class="grid relative grid-cols-1 gap-5 pt-8 md:grid-cols-3 sm:gap-5 md:gap-5 lg:gap-10 sm:pt-12 md:pt-16 lg:pt-20">
+        <div class="grid relative grid-cols-1 gap-5 pt-8 md:grid-cols-3 sm:gap-5 md:gap-5 lg:gap-10 sm:pt-12 md:pt-16 lg:pt-20"
+            role="list" aria-label="Особливості політного стеку KARMA F405 V1">
             <!-- Features -->
-            <div class="text-center relative z-[3]">
+            <article class="text-center relative z-[3]" role="listitem">
                 <h3
                     class="mb-4 text-lg font-bold text-white font-unbounded sm:text-xl md:text-xl lg:text-2xl sm:mb-6 feature-title">
                     Висока продуктивність
@@ -40,10 +41,10 @@
                     (наприклад, F4, F7, H7), які здатні обробляти дані з датчиків з
                     високою частотою.
                 </p>
-            </div>
+            </article>
 
             <!-- Feature 2 -->
-            <div class="text-center relative z-[3]">
+            <article class="text-center relative z-[3]" role="listitem">
                 <h3
                     class="mx-auto mb-4 w-full text-lg font-bold text-white font-unbounded sm:text-xl md:text-xl lg:text-2xl sm:mb-6 feature-title">
                     Гнучкість у налаштуваннях
@@ -54,10 +55,10 @@
                     відео стабілізацію, GPS-режими, функцію OSD (On-Screen Display) та
                     багато іншого. Оптимізувати поведінка дрона.
                 </p>
-            </div>
+            </article>
 
             <!-- Feature 3-->
-            <div class="text-center relative z-[3]">
+            <article class="text-center relative z-[3]" role="listitem">
                 <h3
                     class="mb-4 text-lg font-bold text-white font-unbounded sm:text-xl md:text-xl lg:text-2xl sm:mb-6 feature-title">
                     Легке встановлення
@@ -68,7 +69,7 @@
                     єдиному модулі. Це значно зменшує кількість проводів, спрощує монтаж
                     та зменшує загальну вагу та розмір системи.
                 </p>
-            </div>
+            </article>
         </div>
     </div>
 </section>

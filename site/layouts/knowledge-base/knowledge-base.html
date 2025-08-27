@@ -9,7 +9,8 @@
           Головна
         </a>
         <span class="text-[#ba0108]">→</span>
-        <a class="font-[Montserrat] lg:text-[20px] max-[450px]:text-[16px] font-normal text-[#ba0108]" href="/knowledge-base">
+        <a class="font-[Montserrat] lg:text-[20px] max-[450px]:text-[16px] font-normal text-[#ba0108]"
+          href="/knowledge-base">
           База знань
         </a>
       </div>
@@ -17,13 +18,11 @@
       <!-- Search Section - Hidden on mobile -->
       <div class="hidden items-center max-w-md lg:flex">
         <div class="relative flex-1">
-          <input 
-            type="text" 
-            placeholder="Введіть текст" 
+          <input type="text" placeholder="Введіть текст"
             class="h-[47px] w-full !rounded-[20px] font-[Montserrat] border border-[#E0E0E0] pl-4 pr-[120px] text-xl outline-none focus:border-[#ba0108] bg-white"
-            id="knowledge-search"
-          />
-          <button class="absolute z-10 right-0 top-1/2 -translate-y-1/2 w-[99px] h-[47px] rounded-[20px] bg-[#ba0108] flex items-center justify-center cursor-pointer hover:bg-[#a00007] transition-colors">
+            id="knowledge-search" />
+          <button
+            class="absolute z-10 right-0 top-1/2 -translate-y-1/2 w-[99px] h-[47px] rounded-[20px] bg-[#ba0108] flex items-center justify-center cursor-pointer hover:bg-[#a00007] transition-colors">
             <img src="/img/search-icon.svg" alt="search" width="30" height="30" class="filter brightness-0 invert" />
           </button>
         </div>
@@ -38,12 +37,16 @@
       {{ $categoryGuides := where $guides ".Params.category" $category }}
       <div class="knowledge-section">
         <!-- Section Header -->
-        <div class="section-header {{ if eq $index 0 }}bg-[#ba0108]{{ else }}bg-[#4a4a4a]{{ end }} text-white rounded-none">
-          <button class="w-full flex items-center justify-between lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 text-left focus:outline-none" 
-                  onclick="toggleSection(this)">
-            <h2 class="lg:text-[40px] max-[450px]:text-[24px] font-bold font-['Unbounded'] tracking-wide">{{ $category }}</h2>
-            <svg class="lg:w-8 lg:h-8 max-[450px]:w-6 max-[450px]:h-6 transform transition-transform duration-300 section-chevron {{ if eq $index 0 }}rotate-180{{ end }}" 
-                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <div
+          class="section-header {{ if eq $index 0 }}bg-[#ba0108]{{ else }}bg-[#4a4a4a]{{ end }} text-white rounded-none">
+          <button
+            class="w-full flex items-center justify-between lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 text-left focus:outline-none"
+            onclick="toggleSection(this)">
+            <h2 class="lg:text-[40px] max-[450px]:text-[24px] font-bold font-['Unbounded'] tracking-wide">{{ $category
+              }}</h2>
+            <svg
+              class="lg:w-8 lg:h-8 max-[450px]:w-6 max-[450px]:h-6 transform transition-transform duration-300 section-chevron {{ if eq $index 0 }}rotate-180{{ end }}"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
@@ -55,21 +58,27 @@
           <div class="accordion-items">
             {{ range $categoryGuides }}
             <div class="border-b border-gray-200 knowledge-item last:border-b-0">
-              <div class="flex cursor-pointer select-none items-start lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 hover:bg-gray-50 transition-colors"
-                   onclick="window.location.href='{{ .Permalink }}'">
+              <div
+                class="flex cursor-pointer select-none items-start lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 hover:bg-gray-50 transition-colors"
+                onclick="window.location.href='{{ .Permalink }}'">
                 <div class="flex flex-1 items-start space-x-4">
-                  <svg class="lg:w-4 lg:h-4 max-[450px]:w-3 max-[450px]:h-3 text-[#ba0108] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                  <svg class="lg:w-4 lg:h-4 max-[450px]:w-3 max-[450px]:h-3 text-[#ba0108] flex-shrink-0 mt-1"
+                    fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
                   </svg>
                   <div class="flex-1">
-                    <h3 class="lg:text-[20px] max-[450px]:text-[16px] font-medium text-gray-900 font-['Montserrat'] mb-2">{{ .Title }}</h3>
+                    <h3
+                      class="lg:text-[20px] max-[450px]:text-[16px] font-medium text-gray-900 font-['Montserrat'] mb-2">
+                      {{ .Title }}</h3>
                     {{ if .Params.description }}
-                    <p class="lg:text-[20px] max-[450px]:text-[14px] text-gray-600 leading-relaxed font-['Montserrat']">{{ .Params.description }}</p>
+                    <p class="lg:text-[20px] max-[450px]:text-[14px] text-gray-600 leading-relaxed font-['Montserrat']">
+                      {{ .Params.description }}</p>
                     {{ end }}
                   </div>
                 </div>
                 <div class="ml-4 text-xs text-right text-gray-500">
-                  <span class="text-[#ba0108] underline cursor-pointer lg:text-[16px] max-[450px]:text-[14px]">&gt;&gt;</span>
+                  <span
+                    class="text-[#ba0108] underline cursor-pointer lg:text-[16px] max-[450px]:text-[14px]">&gt;&gt;</span>
                 </div>
               </div>
             </div>
@@ -88,250 +97,250 @@
 </section>
 
 <style>
-/* Section Header Styles */
-.section-header {
-  border: none;
-  box-shadow: none;
-}
-
-.section-header button:hover {
-  opacity: 0.95;
-}
-
-.section-content {
-  border-left: 1px solid #e5e7eb;
-  border-right: 1px solid #e5e7eb;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-/* Knowledge Item Styles */
-.knowledge-item:hover {
-  background-color: #f9fafb;
-}
-
-.knowledge-item h3 {
-  transition: color 0.2s ease;
-}
-
-.knowledge-item:hover h3 {
-  color: #ba0108;
-}
-
-/* Search functionality */
-.knowledge-item.hidden {
-  display: none;
-}
-
-.knowledge-item.highlighted {
-  background-color: #fef2f2;
-}
-
-/* Mobile Responsive Design */
-@media (max-width: 450px) {
+  /* Section Header Styles */
   .section-header {
-    width: 100%;
+    border: none;
+    box-shadow: none;
   }
-  
-  .section-header button {
-    padding: 1rem 1.5rem;
-    width: 100%;
+
+  .section-header button:hover {
+    opacity: 0.95;
   }
-  
-  .section-header h2 {
-    font-size: 24px !important;
-    font-weight: bold;
-  }
-  
-  .section-chevron {
-    width: 24px !important;
-    height: 24px !important;
-  }
-  
-  .knowledge-item {
-    padding: 1rem 1.5rem;
+
+  .section-content {
+    border-left: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;
     border-bottom: 1px solid #e5e7eb;
   }
-  
+
+  /* Knowledge Item Styles */
+  .knowledge-item:hover {
+    background-color: #f9fafb;
+  }
+
   .knowledge-item h3 {
-    font-size: 16px !important;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
+    transition: color 0.2s ease;
   }
-  
-  .knowledge-item p {
-    font-size: 14px !important;
-    line-height: 1.5;
-    color: #6b7280;
+
+  .knowledge-item:hover h3 {
+    color: #ba0108;
   }
-  
-  .knowledge-item svg {
-    width: 12px !important;
-    height: 12px !important;
-    margin-top: 2px;
+
+  /* Search functionality */
+  .knowledge-item.hidden {
+    display: none;
   }
-  
-  .knowledge-item .flex {
-    align-items: flex-start;
-    gap: 0.75rem;
+
+  .knowledge-item.highlighted {
+    background-color: #fef2f2;
   }
-  
-  /* Remove left padding from title */
-  .knowledge-item h3 {
-    padding-left: 0 !important;
+
+  /* Mobile Responsive Design */
+  @media (max-width: 450px) {
+    .section-header {
+      width: 100%;
+    }
+
+    .section-header button {
+      padding: 1rem 1.5rem;
+      width: 100%;
+    }
+
+    .section-header h2 {
+      font-size: 24px !important;
+      font-weight: bold;
+    }
+
+    .section-chevron {
+      width: 24px !important;
+      height: 24px !important;
+    }
+
+    .knowledge-item {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .knowledge-item h3 {
+      font-size: 16px !important;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+    }
+
+    .knowledge-item p {
+      font-size: 14px !important;
+      line-height: 1.5;
+      color: #6b7280;
+    }
+
+    .knowledge-item svg {
+      width: 12px !important;
+      height: 12px !important;
+      margin-top: 2px;
+    }
+
+    .knowledge-item .flex {
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+
+    /* Remove left padding from title */
+    .knowledge-item h3 {
+      padding-left: 0 !important;
+    }
   }
-}
 </style>
 
 <script>
-// Section toggle functionality
-function toggleSection(button) {
-  const section = button.closest('.knowledge-section');
-  const content = section.querySelector('.section-content');
-  const chevron = button.querySelector('.section-chevron');
-  
-  if (content.classList.contains('hidden')) {
-    content.classList.remove('hidden');
-    content.classList.add('block');
-    chevron.style.transform = 'rotate(180deg)';
-  } else {
-    content.classList.remove('block');
-    content.classList.add('hidden');
-    chevron.style.transform = 'rotate(0deg)';
-  }
-}
+  // Section toggle functionality
+  function toggleSection(button) {
+    const section = button.closest('.knowledge-section');
+    const content = section.querySelector('.section-content');
+    const chevron = button.querySelector('.section-chevron');
 
-document.addEventListener('DOMContentLoaded', function() {
-  // Search functionality
-  const searchInput = document.getElementById('knowledge-search');
-  const searchButton = searchInput?.nextElementSibling;
-  
-  function performSearch() {
-    const query = searchInput.value.trim();
-    if (query) {
-      searchInContent(query);
+    if (content.classList.contains('hidden')) {
+      content.classList.remove('hidden');
+      content.classList.add('block');
+      chevron.style.transform = 'rotate(180deg)';
     } else {
-      resetSearch();
+      content.classList.remove('block');
+      content.classList.add('hidden');
+      chevron.style.transform = 'rotate(0deg)';
     }
   }
-  
-  if (searchInput && searchButton) {
-    searchButton.addEventListener('click', performSearch);
-    
-    searchInput.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        performSearch();
-      }
-    });
-    
-    // Real-time search as user types
-    searchInput.addEventListener('input', function() {
-      const query = this.value.trim();
-      if (query.length > 2) {
+
+  document.addEventListener('DOMContentLoaded', function () {
+    // Search functionality
+    const searchInput = document.getElementById('knowledge-search');
+    const searchButton = searchInput?.nextElementSibling;
+
+    function performSearch() {
+      const query = searchInput.value.trim();
+      if (query) {
         searchInContent(query);
-      } else if (query.length === 0) {
+      } else {
         resetSearch();
       }
-    });
-  }
-});
+    }
 
-function searchInContent(query) {
-  const sections = document.querySelectorAll('.knowledge-section');
-  let found = false;
-  
-  sections.forEach(function(section) {
-    const content = section.querySelector('.section-content');
-    const items = section.querySelectorAll('.knowledge-item');
-    let sectionHasMatch = false;
-    
-    items.forEach(function(item) {
-      const title = item.querySelector('h3')?.textContent.toLowerCase() || '';
-      const description = item.querySelector('p')?.textContent.toLowerCase() || '';
-      
-      if (title.includes(query.toLowerCase()) || description.includes(query.toLowerCase())) {
-        item.classList.remove('hidden');
-        item.classList.add('highlighted');
-        sectionHasMatch = true;
-        found = true;
+    if (searchInput && searchButton) {
+      searchButton.addEventListener('click', performSearch);
+
+      searchInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+          performSearch();
+        }
+      });
+
+      // Real-time search as user types
+      searchInput.addEventListener('input', function () {
+        const query = this.value.trim();
+        if (query.length > 2) {
+          searchInContent(query);
+        } else if (query.length === 0) {
+          resetSearch();
+        }
+      });
+    }
+  });
+
+  function searchInContent(query) {
+    const sections = document.querySelectorAll('.knowledge-section');
+    let found = false;
+
+    sections.forEach(function (section) {
+      const content = section.querySelector('.section-content');
+      const items = section.querySelectorAll('.knowledge-item');
+      let sectionHasMatch = false;
+
+      items.forEach(function (item) {
+        const title = item.querySelector('h3')?.textContent.toLowerCase() || '';
+        const description = item.querySelector('p')?.textContent.toLowerCase() || '';
+
+        if (title.includes(query.toLowerCase()) || description.includes(query.toLowerCase())) {
+          item.classList.remove('hidden');
+          item.classList.add('highlighted');
+          sectionHasMatch = true;
+          found = true;
+        } else {
+          item.classList.add('hidden');
+          item.classList.remove('highlighted');
+        }
+      });
+
+      if (sectionHasMatch) {
+        content.classList.remove('hidden');
+        content.classList.add('block');
+        const chevron = section.querySelector('.section-chevron');
+        if (chevron) {
+          chevron.style.transform = 'rotate(180deg)';
+        }
       } else {
-        item.classList.add('hidden');
-        item.classList.remove('highlighted');
+        // Hide sections with no matches during search
+        content.classList.add('hidden');
+        content.classList.remove('block');
+        const chevron = section.querySelector('.section-chevron');
+        if (chevron) {
+          chevron.style.transform = 'rotate(0deg)';
+        }
       }
     });
-    
-    if (sectionHasMatch) {
-      content.classList.remove('hidden');
-      content.classList.add('block');
+
+    if (!found && query.length > 0) {
+      // Show a subtle message instead of alert
+      showSearchMessage('Нічого не знайдено за запитом: "' + query + '"');
+    }
+  }
+
+  function resetSearch() {
+    const items = document.querySelectorAll('.knowledge-item');
+    const sections = document.querySelectorAll('.knowledge-section');
+
+    items.forEach(function (item) {
+      item.classList.remove('hidden', 'highlighted');
+    });
+
+    // Reset to default state (first section open)
+    sections.forEach(function (section, index) {
+      const content = section.querySelector('.section-content');
       const chevron = section.querySelector('.section-chevron');
-      if (chevron) {
-        chevron.style.transform = 'rotate(180deg)';
+
+      if (index === 0) {
+        content.classList.remove('hidden');
+        content.classList.add('block');
+        if (chevron) chevron.style.transform = 'rotate(180deg)';
+      } else {
+        content.classList.add('hidden');
+        content.classList.remove('block');
+        if (chevron) chevron.style.transform = 'rotate(0deg)';
       }
-    } else {
-      // Hide sections with no matches during search
-      content.classList.add('hidden');
-      content.classList.remove('block');
-      const chevron = section.querySelector('.section-chevron');
-      if (chevron) {
-        chevron.style.transform = 'rotate(0deg)';
+    });
+
+    hideSearchMessage();
+  }
+
+  function showSearchMessage(message) {
+    let messageEl = document.getElementById('search-message');
+    if (!messageEl) {
+      messageEl = document.createElement('div');
+      messageEl.id = 'search-message';
+      messageEl.className = 'text-center py-8 text-gray-500 font-[Montserrat]';
+
+      const container = document.querySelector('.max-w-5xl');
+      if (container) {
+        container.appendChild(messageEl);
       }
     }
-  });
-  
-  if (!found && query.length > 0) {
-    // Show a subtle message instead of alert
-    showSearchMessage('Нічого не знайдено за запитом: "' + query + '"');
+    messageEl.textContent = message;
+    messageEl.style.display = 'block';
   }
-}
 
-function resetSearch() {
-  const items = document.querySelectorAll('.knowledge-item');
-  const sections = document.querySelectorAll('.knowledge-section');
-  
-  items.forEach(function(item) {
-    item.classList.remove('hidden', 'highlighted');
-  });
-  
-  // Reset to default state (first section open)
-  sections.forEach(function(section, index) {
-    const content = section.querySelector('.section-content');
-    const chevron = section.querySelector('.section-chevron');
-    
-    if (index === 0) {
-      content.classList.remove('hidden');
-      content.classList.add('block');
-      if (chevron) chevron.style.transform = 'rotate(180deg)';
-    } else {
-      content.classList.add('hidden');
-      content.classList.remove('block');
-      if (chevron) chevron.style.transform = 'rotate(0deg)';
-    }
-  });
-  
-  hideSearchMessage();
-}
-
-function showSearchMessage(message) {
-  let messageEl = document.getElementById('search-message');
-  if (!messageEl) {
-    messageEl = document.createElement('div');
-    messageEl.id = 'search-message';
-    messageEl.className = 'text-center py-8 text-gray-500 font-[Montserrat]';
-    
-    const container = document.querySelector('.max-w-5xl');
-    if (container) {
-      container.appendChild(messageEl);
+  function hideSearchMessage() {
+    const messageEl = document.getElementById('search-message');
+    if (messageEl) {
+      messageEl.style.display = 'none';
     }
   }
-  messageEl.textContent = message;
-  messageEl.style.display = 'block';
-}
-
-function hideSearchMessage() {
-  const messageEl = document.getElementById('search-message');
-  if (messageEl) {
-    messageEl.style.display = 'none';
-  }
-}
 </script>
 {{ end }}

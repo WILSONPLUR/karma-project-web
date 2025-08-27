@@ -1,7 +1,7 @@
-<section class="bg-white min-h-screen">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<section class="min-h-screen bg-white">
+  <div class="px-4 py-8 mx-auto max-w-7xl sm:px-6 lg:px-8">
     <!-- Breadcrumbs -->
-    <div class="mb-8 flex items-center text-sm">
+    <div class="flex items-center mb-8 text-sm">
       <a href="/" class="text-[#ba0108] hover:text-[#9a0106] transition-colors">Головна</a>
       <span class="mx-2 text-[#ba0108]">→</span>
       <span class="text-[#ba0108]">База знань</span>
@@ -9,33 +9,32 @@
 
     <!-- Search Section -->
     <div class="mb-12">
-      <div class="flex items-center max-w-2xl mx-auto">
+      <div class="flex items-center mx-auto max-w-2xl">
         <div class="relative flex-1">
-          <input 
-            type="text" 
-            placeholder="Введіть текст" 
-            class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-l-lg focus:outline-none focus:border-[#ba0108] bg-white text-gray-800 placeholder-gray-500"
-          />
+          <input type="text" placeholder="Введіть текст"
+            class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-l-lg focus:outline-none focus:border-[#ba0108] bg-white text-gray-800 placeholder-gray-500" />
         </div>
-        <button class="bg-[#ba0108] hover:bg-[#9a0106] text-white px-8 py-4 rounded-r-lg transition-colors duration-200 flex items-center justify-center">
+        <button
+          class="bg-[#ba0108] hover:bg-[#9a0106] text-white px-8 py-4 rounded-r-lg transition-colors duration-200 flex items-center justify-center">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
         </button>
       </div>
     </div>
 
     <!-- Accordion Sections -->
-    <div class="max-w-5xl mx-auto space-y-0">
+    <div class="mx-auto space-y-0 max-w-5xl">
       {{ range .Params.sections }}
       <div class="knowledge-section">
         <!-- Section Header -->
         <div class="section-header {{ if .isFirst }}bg-[#ba0108]{{ else }}bg-[#4a4a4a]{{ end }} text-white">
-          <button class="w-full flex items-center justify-between px-8 py-6 text-left focus:outline-none" 
-                  onclick="toggleSection(this)">
+          <button class="flex justify-between items-center px-8 py-6 w-full text-left focus:outline-none"
+            onclick="toggleSection(this)">
             <h2 class="text-2xl font-bold font-[Montserrat] tracking-wide">{{ .title }}</h2>
-            <svg class="w-8 h-8 transform transition-transform duration-300 section-chevron" 
-                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-8 h-8 transition-transform duration-300 transform section-chevron" fill="none"
+              stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </button>
@@ -46,17 +45,18 @@
           {{ if .items }}
           <div class="accordion-items" data-accordion-list>
             {{ range .items }}
-            <div class="knowledge-item border-b border-gray-200 last:border-b-0">
+            <div class="border-b border-gray-200 knowledge-item last:border-b-0">
               <details class="knowledge-accordion group">
-                <summary class="flex cursor-pointer select-none items-center justify-between px-8 py-6 hover:bg-gray-50 transition-colors">
+                <summary
+                  class="flex justify-between items-center px-8 py-6 transition-colors cursor-pointer select-none hover:bg-gray-50">
                   <div class="flex items-center space-x-4">
                     <svg class="w-4 h-4 text-[#ba0108] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
+                      <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
                     </svg>
                     <h3 class="text-lg font-medium text-gray-900 font-[Montserrat]">{{ .question }}</h3>
                   </div>
-                  <svg class="w-5 h-5 text-gray-400 transform transition-transform duration-200 group-open:rotate-180" 
-                       fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg class="w-5 h-5 text-gray-400 transition-transform duration-200 transform group-open:rotate-180"
+                    fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
                   </svg>
                 </summary>
@@ -80,189 +80,189 @@
 </section>
 
 <style>
-/* Section Header Styles */
-.section-header {
-  border: none;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.section-header button:hover {
-  opacity: 0.95;
-}
-
-.section-content {
-  border-left: 1px solid #e5e7eb;
-  border-right: 1px solid #e5e7eb;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-/* Knowledge Accordion Styles */
-.knowledge-accordion summary {
-  list-style: none;
-}
-
-.knowledge-accordion summary::-webkit-details-marker {
-  display: none;
-}
-
-.knowledge-accordion[open] summary {
-  background-color: #fef2f2;
-}
-
-.knowledge-accordion[open] summary h3 {
-  color: #ba0108;
-}
-
-.knowledge-accordion[open] summary svg:first-of-type {
-  transform: rotate(90deg);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .section-header button {
-    padding: 1rem;
+  /* Section Header Styles */
+  .section-header {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
-  .section-header h2 {
-    font-size: 1.25rem;
+
+  .section-header button:hover {
+    opacity: 0.95;
   }
-  
+
+  .section-content {
+    border-left: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  /* Knowledge Accordion Styles */
   .knowledge-accordion summary {
-    padding: 1rem;
+    list-style: none;
   }
-  
-  .knowledge-accordion summary h3 {
-    font-size: 1rem;
-  }
-  
-  .knowledge-accordion div {
-    padding-left: 2rem;
-    padding-right: 1rem;
-  }
-}
 
-@media (max-width: 480px) {
-  .section-header button {
-    padding: 0.75rem;
+  .knowledge-accordion summary::-webkit-details-marker {
+    display: none;
   }
-  
-  .knowledge-accordion summary {
-    padding: 0.75rem;
+
+  .knowledge-accordion[open] summary {
+    background-color: #fef2f2;
   }
-  
-  .knowledge-accordion div {
-    padding-left: 1.5rem;
-    padding-right: 0.75rem;
+
+  .knowledge-accordion[open] summary h3 {
+    color: #ba0108;
   }
-}
+
+  .knowledge-accordion[open] summary svg:first-of-type {
+    transform: rotate(90deg);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .section-header button {
+      padding: 1rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.25rem;
+    }
+
+    .knowledge-accordion summary {
+      padding: 1rem;
+    }
+
+    .knowledge-accordion summary h3 {
+      font-size: 1rem;
+    }
+
+    .knowledge-accordion div {
+      padding-left: 2rem;
+      padding-right: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section-header button {
+      padding: 0.75rem;
+    }
+
+    .knowledge-accordion summary {
+      padding: 0.75rem;
+    }
+
+    .knowledge-accordion div {
+      padding-left: 1.5rem;
+      padding-right: 0.75rem;
+    }
+  }
 </style>
 
 <script>
-// Section toggle functionality
-function toggleSection(button) {
-  const section = button.closest('.knowledge-section');
-  const content = section.querySelector('.section-content');
-  const chevron = button.querySelector('.section-chevron');
-  
-  if (content.classList.contains('hidden')) {
-    content.classList.remove('hidden');
-    content.classList.add('block');
-    chevron.style.transform = 'rotate(180deg)';
-  } else {
-    content.classList.remove('block');
-    content.classList.add('hidden');
-    chevron.style.transform = 'rotate(0deg)';
-  }
-}
-
-// Accordion functionality within sections
-document.addEventListener('DOMContentLoaded', function() {
-  const accordionLists = document.querySelectorAll('[data-accordion-list]');
-  
-  accordionLists.forEach(function(list) {
-    const items = list.querySelectorAll('.knowledge-accordion');
-    
-    items.forEach(function(item) {
-      item.addEventListener('toggle', function() {
-        if (item.open) {
-          items.forEach(function(other) {
-            if (other !== item) {
-              other.open = false;
-            }
-          });
-        }
-      });
-    });
-  });
-
-  // Search functionality
-  const searchInput = document.querySelector('input[placeholder="Введіть текст"]');
-  const searchButton = document.querySelector('button svg').closest('button');
-  
-  if (searchInput && searchButton) {
-    searchButton.addEventListener('click', function() {
-      const query = searchInput.value.trim();
-      if (query) {
-        // Simple search implementation - highlights matching text
-        searchInContent(query);
-      }
-    });
-    
-    searchInput.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        const query = searchInput.value.trim();
-        if (query) {
-          searchInContent(query);
-        }
-      }
-    });
-  }
-});
-
-function searchInContent(query) {
-  const sections = document.querySelectorAll('.knowledge-section');
-  let found = false;
-  
-  sections.forEach(function(section) {
+  // Section toggle functionality
+  function toggleSection(button) {
+    const section = button.closest('.knowledge-section');
     const content = section.querySelector('.section-content');
-    const items = section.querySelectorAll('.knowledge-item');
-    let sectionHasMatch = false;
-    
-    items.forEach(function(item) {
-      const question = item.querySelector('h3').textContent.toLowerCase();
-      const answer = item.querySelector('p').textContent.toLowerCase();
-      
-      if (question.includes(query.toLowerCase()) || answer.includes(query.toLowerCase())) {
-        item.style.display = 'block';
-        item.style.backgroundColor = '#fef2f2';
-        sectionHasMatch = true;
-        found = true;
-      } else {
-        item.style.display = 'none';
-        item.style.backgroundColor = '';
-      }
-    });
-    
-    if (sectionHasMatch) {
+    const chevron = button.querySelector('.section-chevron');
+
+    if (content.classList.contains('hidden')) {
       content.classList.remove('hidden');
       content.classList.add('block');
-      const chevron = section.querySelector('.section-chevron');
       chevron.style.transform = 'rotate(180deg)';
+    } else {
+      content.classList.remove('block');
+      content.classList.add('hidden');
+      chevron.style.transform = 'rotate(0deg)';
+    }
+  }
+
+  // Accordion functionality within sections
+  document.addEventListener('DOMContentLoaded', function () {
+    const accordionLists = document.querySelectorAll('[data-accordion-list]');
+
+    accordionLists.forEach(function (list) {
+      const items = list.querySelectorAll('.knowledge-accordion');
+
+      items.forEach(function (item) {
+        item.addEventListener('toggle', function () {
+          if (item.open) {
+            items.forEach(function (other) {
+              if (other !== item) {
+                other.open = false;
+              }
+            });
+          }
+        });
+      });
+    });
+
+    // Search functionality
+    const searchInput = document.querySelector('input[placeholder="Введіть текст"]');
+    const searchButton = document.querySelector('button svg').closest('button');
+
+    if (searchInput && searchButton) {
+      searchButton.addEventListener('click', function () {
+        const query = searchInput.value.trim();
+        if (query) {
+          // Simple search implementation - highlights matching text
+          searchInContent(query);
+        }
+      });
+
+      searchInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+          const query = searchInput.value.trim();
+          if (query) {
+            searchInContent(query);
+          }
+        }
+      });
     }
   });
-  
-  if (!found) {
-    alert('Нічого не знайдено за запитом: ' + query);
-    // Reset display
-    resetSearch();
-  }
-}
 
-function resetSearch() {
-  const items = document.querySelectorAll('.knowledge-item');
-  items.forEach(function(item) {
-    item.style.display = 'block';
-    item.style.backgroundColor = '';
-  });
-}
+  function searchInContent(query) {
+    const sections = document.querySelectorAll('.knowledge-section');
+    let found = false;
+
+    sections.forEach(function (section) {
+      const content = section.querySelector('.section-content');
+      const items = section.querySelectorAll('.knowledge-item');
+      let sectionHasMatch = false;
+
+      items.forEach(function (item) {
+        const question = item.querySelector('h3').textContent.toLowerCase();
+        const answer = item.querySelector('p').textContent.toLowerCase();
+
+        if (question.includes(query.toLowerCase()) || answer.includes(query.toLowerCase())) {
+          item.style.display = 'block';
+          item.style.backgroundColor = '#fef2f2';
+          sectionHasMatch = true;
+          found = true;
+        } else {
+          item.style.display = 'none';
+          item.style.backgroundColor = '';
+        }
+      });
+
+      if (sectionHasMatch) {
+        content.classList.remove('hidden');
+        content.classList.add('block');
+        const chevron = section.querySelector('.section-chevron');
+        chevron.style.transform = 'rotate(180deg)';
+      }
+    });
+
+    if (!found) {
+      alert('Нічого не знайдено за запитом: ' + query);
+      // Reset display
+      resetSearch();
+    }
+  }
+
+  function resetSearch() {
+    const items = document.querySelectorAll('.knowledge-item');
+    items.forEach(function (item) {
+      item.style.display = 'block';
+      item.style.backgroundColor = '';
+    });
+  }
 </script>

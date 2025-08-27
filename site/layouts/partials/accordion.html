@@ -3,24 +3,27 @@
 {{ $className := .className | default "" }}
 {{ $titleClassName := .titleClassName | default "" }}
 
-<section class="relative flex flex-col items-center bg-white mt-[60px] mb-[60px] lg:mt-[112px] lg:mb-[80px]">
+<section class="relative flex flex-col items-center bg-white mt-[60px] mb-[60px] lg:mt-[112px] lg:mb-[80px]"
+    aria-labelledby="accordion-heading">
     <div class="w-full max-w-[1237px] px-5">
         {{ if $title }}
-        <h3
+        <h2 id="accordion-heading"
             class="font-[Unbounded] font-medium text-[32px] lg:text-[40px] text-center lg:!text-left text-[#020303] mb-6 {{ $titleClassName }}">
             {{ $title }}
-        </h3>
+        </h2>
         {{ end }}
         <div class="w-full mx-auto flex flex-col gap-[30px] max-w-[600px] md:max-w-[949px] lg:max-w-[949px] xl:max-w-[1237px]"
-            data-accordion-list>
-            {{ range $items }}
-            <div class="accordion-wrapper">
+            data-accordion-list role="list" aria-label="Список питань та відповідей">
+            {{ range $index, $item := $items }}
+            <div class="accordion-wrapper" role="listitem">
                 <details class="accordion-root group border-b border-[#303030]">
-                    <summary class="flex cursor-pointer select-none accordion-summary">
-                        <h4
+                    <summary class="flex cursor-pointer select-none accordion-summary"
+                        aria-label="Розгорнути відповідь на питання: {{ .question }}">
+                        <h3
                             class="font-[Montserrat] text-[16px] md:text-[20px] lg:text-[24px] font-medium accordion-question-text">
-                            {{ .question }}</h4>
-                        <img src="/img/arrow.svg" alt="Arrow" width="20" height="20" class="accordion-icon" />
+                            {{ .question }}</h3>
+                        <img src="/img/arrow.svg" alt="Іконка розгортання" width="20" height="20"
+                            class="accordion-icon" />
                     </summary>
                     <div class="accordion-content">
                         <p class="font-[Montserrat] text-[16px] lg:text-[18px] font-normal text-[#1f2937]">

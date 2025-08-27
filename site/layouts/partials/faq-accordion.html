@@ -1,24 +1,26 @@
 {{ $title := .title }} {{ $items := .items }} {{ $isFirst := .isFirst }}
 
-<section class="flex relative flex-col items-center bg-white">
+<section class="flex relative flex-col items-center bg-white" aria-labelledby="faq-accordion-heading">
     <div class="faq-accordion-container w-full max-w-[1237px] px-5" {{ if not $isFirst
         }}style="margin-top: 80px !important;  margin-bottom: 0!important;" {{ else
         }}style="margin-top: 122px !important; margin-bottom: 134px !important;" {{ end }}>
-        <h3
+        <h2 id="faq-accordion-heading"
             class="faq-title font-[Unbounded] font-medium text-[24px] md:text-[32px] lg:text-[40px] text-center text-[#020303] mb-[30px]">
             {{ $title }}
-        </h3>
+        </h2>
         <div class="w-full  flex flex-col gap-[30px] max-w-[600px] md:max-w-[949px] lg:max-w-[949px] xl:max-w-[1237px]"
-            data-accordion-list>
-            {{ range $items }}
-            <div class="faq-acc-wrapper">
+            data-accordion-list role="list" aria-label="Список питань та відповідей">
+            {{ range $index, $item := $items }}
+            <div class="faq-acc-wrapper" role="listitem">
                 <details class="faq-acc-root group border-b border-[#303030]">
-                    <summary class="flex cursor-pointer select-none faq-acc-summary">
-                        <h4
+                    <summary class="flex cursor-pointer select-none faq-acc-summary"
+                        aria-label="Розгорнути відповідь на питання: {{ .question }}">
+                        <h3
                             class="font-[Unbounded] md:font-[Montserrat] lg:font-[Montserrat] text-[16px] md:text-[20px] lg:text-[24px] font-medium w-full">
                             {{ .question }}
-                        </h4>
-                        <img src="/img/arrow.svg" alt="Arrow" width="20" height="20" class="faq-acc-icon" />
+                        </h3>
+                        <img src="/img/arrow.svg" alt="Іконка розгортання" width="20" height="20"
+                            class="faq-acc-icon" />
                     </summary>
                     <div class="faq-acc-content">
                         <p class="font-[Montserrat] text-[16px] lg:text-[20px]  font-normal text-[#1f2937]">

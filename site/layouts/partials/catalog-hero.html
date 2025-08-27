@@ -1,35 +1,48 @@
 {{ $category := .Params.category | default "politni-steky" }} {{ $categoryData
 := index .Site.Data.products.categories $category }}
-<section class="overflow-hidden relative bg-white">
+<section class="overflow-hidden relative bg-white" aria-labelledby="catalog-hero-heading">
     <!-- Background decorative elements -->
-    <img src="/img/bg-el-1.png" alt=""
+    <img src="/img/bg-el-1.png" alt="Декоративний фоновий елемент" aria-hidden="true"
         class="absolute z-[1] top-0 right-0 w-[200px] h-[200px] md:w-[250px] md:h-[250px] lg:w-[350px] lg:h-[360px]" />
-    <img src="/img/bg-el-2.png" alt=""
+    <img src="/img/bg-el-2.png" alt="Декоративний фоновий елемент" aria-hidden="true"
         class="absolute z-[1] bottom-0 left-0 w-[250px] h-[250px] md:w-[300px] md:h-[300px] lg:w-[420px] lg:h-[380px]" />
 
     <!-- Stack elements for mobile -->
     <div class="block sm:hidden lg:hidden">
-        <img src="/img/stack-left.png" alt="stack-left" class="absolute top-0 left-0 w-[100px] z-[1]" />
-        <img src="/img/stack-right.png" alt="stack-right" class="absolute bottom-0 right-0 w-[100px] z-[1]" />
+        <img src="/img/stack-left.png" alt="Елемент стеку зліва" aria-hidden="true"
+            class="absolute top-0 left-0 w-[100px] z-[1]" />
+        <img src="/img/stack-right.png" alt="Елемент стеку справа" aria-hidden="true"
+            class="absolute bottom-0 right-0 w-[100px] z-[1]" />
     </div>
 
     <div
         class="w-full md:w-[1237px] lg:w-[1237px] flex flex-col items-center sm:items-start lg:items-start mx-auto justify-center px-5 md:px-[40px] lg:px-[40px] xl:px-0 pt-[40px] mb-[64px] relative z-[2]">
-        <div class="flex items-center gap-2 text-[#ba0108] font-family-montserrat mb-[75px] md:mb-[35px] lg:mb-[35px]">
-            <a class="text-[16px] md:text-[20px] lg:text-[20px] font-[Montserrat] font-medium" href="/">Головна</a>
-            <span>&rarr;</span>
-            <a class="text-[16px] md:text-[20px] lg:text-[20px] font-[Montserrat] font-medium" href="/catalog">
-                Каталог
-            </a>
-            <span>&rarr;</span>
-            <span class="text-[16px] md:text-[20px] lg:text-[20px] font-[Montserrat] font-medium">
-                {{ $categoryData.name }}
-            </span>
-        </div>
+        <nav aria-label="Breadcrumb navigation"
+            class="flex items-center gap-2 text-[#ba0108] font-family-montserrat mb-[75px] md:mb-[35px] lg:mb-[35px]">
+            <ol class="flex gap-2 items-center">
+                <li>
+                    <a class="text-[16px] md:text-[20px] lg:text-[20px] font-[Montserrat] font-medium" href="/">
+                        Головна
+                    </a>
+                </li>
+                <li class="text-[#ba0108]" aria-hidden="true">&rarr;</li>
+                <li>
+                    <a class="text-[16px] md:text-[20px] lg:text-[20px] font-[Montserrat] font-medium" href="/catalog">
+                        Каталог
+                    </a>
+                </li>
+                <li class="text-[#ba0108]" aria-hidden="true">&rarr;</li>
+                <li>
+                    <span class="text-[16px] md:text-[20px] lg:text-[20px] font-[Montserrat] font-medium">
+                        {{ $categoryData.name }}
+                    </span>
+                </li>
+            </ol>
+        </nav>
 
         <div class="flex flex-col gap-0 justify-center items-center mx-0 sm:flex-row md:gap-8 lg:gap-8 md:items-start">
             <div class="flex flex-col gap-5 items-center w-full md:w-1/2 md:items-start lg:items-start">
-                <h1
+                <h1 id="catalog-hero-heading"
                     class="font-[Unbounded] uppercase leading-[1.1] mb-2 text-[32px] md:text-[48px] lg:text-[64px] w-[330px] md:w-[548px] lg:w-[749px] text-[#ba0108] font-medium hero-title">
                     {{ $categoryData.name }}
                 </h1>
@@ -55,12 +68,14 @@
                     швидкістю з високою точністю та надійністю. {{ end }}
                 </p>
                 <button onclick="window.openContactModal()"
+                    aria-label="Get commercial offer for {{ $categoryData.name }}"
                     class="font-[Montserrat] text-[16px] md:text-[24px] lg:text-[24px] font-medium text-white bg-[#ba0108] hover:bg-[#a00007] transition-colors w-[354px] md:w-[458px] lg:w-[607px] py-[15px] rounded-[10px]">
                     Отримати пропозицію
                 </button>
             </div>
             <div class="flex relative justify-center items-center w-full md:w-1/2">
                 <img src="/img/stack-rotate.png" alt="Karma Flights - високотехнологічне українське виробництво"
+                    loading="lazy"
                     class="hidden sm:block object-contain max-w-none 
                             w-[250px] h-[167px] sm:w-[450px] sm:h-[450px] md:w-[348px] md:h-[348px] lg:w-[550px] lg:h-[350px]" />
 

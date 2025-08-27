@@ -9,62 +9,73 @@
 
 <section class="overflow-hidden relative bg-white">
     <!-- Background decorative elements -->
-    <img src="/img/bg-el-1.png" alt=""
+    <img src="/img/bg-el-1.png" alt="" aria-hidden="true"
         class="absolute z-[1] top-[-33px] right-[-53px] md:top-0 md:right-0 w-[200px] h-[200px] md:w-[250px] md:h-[250px] lg:w-[350px] lg:h-[360px]" />
 
 
 
     <div
-        class="w-full max-w-7xl flex flex-col items-center sm:items-center lg:items-start mx-auto justify-center px-4 sm:px-6 lg:px-8 pt-10 sm:pt-12 lg:pt-16 mb-0 sm:mb-8 lg:mb-16 relative z-[2]">
-        <div
-            class="mb-5 flex flex-col sm:flex-row sm:items-center sm:justify-between font-[Montserrat] gap-3 mb-12 sm:mb-16 lg:mb-20">
-            <div class="flex flex-wrap gap-2 items-center sm:gap-2">
-                <a class="font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl font-normal text-[#ba0108] hover:underline"
-                    href="/">
-                    Головна
-                </a>
-                <span class="text-[#ba0108] sm:inline">&rarr;</span>
-                <a class="font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl font-normal text-[#ba0108] hover:underline"
-                    href="/catalog">
-                    Каталог
-                </a>
-                <span class="text-[#ba0108] sm:inline">&rarr;</span>
-                <a class="font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl font-normal text-[#ba0108] hover:underline"
-                    href="/catalog/{{ $context.Params.category | default " politni-steky" }}/">
-                    {{ $categoryName }}
-                </a>
-                <span class="text-[#ba0108] sm:inline">&rarr;</span>
-                <span class="font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl font-normal text-[#ba0108]">
-                    {{ $productName }}
-                </span>
-            </div>
-        </div>
+        class="w-full max-w-7xl flex flex-col items-center sm:items-center lg:items-start mx-auto justify-center px-5 sm:px-4 lg:px-8 pt-10 sm:pt-12 lg:pt-16 relative z-[2]">
+        <nav aria-label="Breadcrumb navigation"
+            class="flex flex-col sm:flex-row sm:items-center sm:justify-between font-[Montserrat] gap-3 mb-8 sm:mb-12 lg:mb-16">
+            <ol class="flex flex-wrap gap-2 items-center sm:gap-2">
+                <li>
+                    <a class="font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl font-normal text-[#ba0108] hover:underline"
+                        href="/">
+                        Головна
+                    </a>
+                </li>
+                <li class="text-[#ba0108] sm:inline" aria-hidden="true">&rarr;</li>
+                <li>
+                    <a class="font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl font-normal text-[#ba0108] hover:underline"
+                        href="/catalog">
+                        Каталог
+                    </a>
+                </li>
+                <li class="text-[#ba0108] sm:inline" aria-hidden="true">&rarr;</li>
+                <li>
+                    <a class="font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl font-normal text-[#ba0108] hover:underline"
+                        href="/catalog/{{ $context.Params.category | default " politni-steky" }}/">
+                        {{ $categoryName }}
+                    </a>
+                </li>
+                <li class="text-[#ba0108] sm:inline" aria-hidden="true">&rarr;</li>
+                <li>
+                    <span
+                        class="font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl font-normal text-[#ba0108]">
+                        {{ $productName }}
+                    </span>
+                </li>
+            </ol>
+        </nav>
 
         <div
-            class="flex flex-col gap-6 justify-start items-center mx-0 sm:gap-8 lg:gap-12 sm:flex-row md:gap-8 lg:gap-8 md:items-start">
+            class="flex flex-col gap-6 justify-start items-center mx-0 sm:gap-8 md:gap-8 lg:gap-12 sm:flex-row md:items-start">
             <div class="flex relative flex-col justify-start items-center w-full md:flex-row">
                 <img src="{{ $productImage }}" alt="{{ $productName }}"
-                    class="object-contain max-w-none 
-                            w-[349px] h-[230px] sm:w-[350px] sm:h-[350px] md:w-[400px] md:h-[267px] lg:w-[450px] lg:h-[300px] xl:w-[500px] xl:h-[333px] 2xl:w-[550px] 2xl:h-[367px]" />
+                    class="object-contain max-w-none relative z-10
+                            w-[349px] h-[230px] sm:w-[500px] sm:h-[500px] md:w-[400px] md:h-[267px] lg:w-[450px] lg:h-[300px] xl:w-[500px] xl:h-[333px] 2xl:w-[550px] 2xl:h-[367px]" />
 
                 <div
-                    class="pointer-events-none absolute -bottom-3 left-1/2 -translate-x-1/2 w-[150px] h-[20px] sm:w-[200px] sm:h-[30px] md:w-[280px] md:h-[45px] lg:w-[300px] lg:h-[48px] xl:w-[320px] xl:h-[50px] 2xl:w-[410px] 2xl:h-[80px] rounded-full bg-black/35 blur-2xl hidden sm:block" />
+                    class="pointer-events-none absolute bottom-19 left-[20%] sm:left-[22%] md:left-[8%] lg:left-[4%] xl:left-[4%] w-[150px] h-[20px] sm:w-[200px] sm:h-[30px] md:w-[280px] md:h-[45px] lg:w-[300px] lg:h-[48px] xl:w-[320px] xl:h-[50px] 2xl:w-[410px] 2xl:h-[80px] rounded-full bg-[#020303] opacity-15 blur-[33.65px] z-0 hidden sm:block" />
             </div>
-            <div class="flex flex-col gap-4 items-center w-full sm:gap-5 md:items-start lg:items-start">
+            <div
+                class="flex flex-col gap-4 items-center w-full sm:gap-5 md:items-start lg:items-start mt-[43px] sm:mt-[20px] md:mt-0">
                 <h2
-                    class="hidden sm:block font-[Unbounded] text-[#ba0108] uppercase leading-[1.1] mb-2 sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl font-medium text-center lg:text-left">
+                    class="hidden md:block font-[Unbounded] text-[#ba0108] uppercase leading-[1.1] sm:text-left mb-2 sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl w-full max-w-md sm:max-w-xl md:max-w-xl lg:max-w-2xl xl:max-w-3xl font-medium text-center lg:text-left">
                     ПОЛІТНИЙ СТЕК<br><span class="text-black">KARMA F405 V1</span>
                 </h2>
                 <p
-                    class="font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.7] text-[#333333] w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
-                    {{ $context.Params.description | default "Політний стек спрощує монтаж та підключення електроніки вдроні, роблячи його ідеальним рішенням як для досвідчених пілотів, так і для початківців." }}
+                    class="font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.7] text-[#333333] w-full max-w-md sm:max-w-xl md:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
+                    {{ $context.Params.description | default "Політний стек спрощує монтаж та підключення електроніки в дроні, роблячи його ідеальним рішенням як для досвідчених пілотів, так і для початківців." }}
                 </p>
                 <p
-                    class="font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.7] text-[#333333] w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
+                    class="font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl leading-[1.7] text-[#333333] w-full max-w-md sm:max-w-xl md:max-w-xl lg:max-w-2xl xl:max-w-3xl text-left">
                     Він забезпечує стабільний політ, точне керування та ефективне розподілення потужності до моторів.
                 </p>
                 <button onclick="window.openContactModal()"
-                    class="product-hero-button font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium text-white bg-[#ba0108] hover:bg-[#a00007] transition-colors w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl py-4 sm:py-5 md:py-6 px-6 sm:px-8 md:px-10 rounded-[10px]">
+                    aria-label="Отримати комерційну пропозицію для {{ $productName }}"
+                    class="product-hero-button font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium text-white bg-[#ba0108] hover:bg-[#a00007] transition-colors w-full max-w-md sm:max-w-xl md:max-w-xl lg:max-w-2xl py-4 sm:py-5 md:py-6 px-6 sm:px-8 md:px-10 rounded-[10px] cursor-pointer">
                     Отримати пропозицію
                 </button>
             </div>
