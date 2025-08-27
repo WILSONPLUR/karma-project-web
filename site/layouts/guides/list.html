@@ -84,21 +84,21 @@
           
         </div>
 
-        <h1 class="mt-4 font-[Montserrat] text-[24px] lg:text-[32px] font-medium text-black mb-6">
+        <h2 class="mt-4 font-[Montserrat] text-[24px] lg:text-[32px] font-medium text-black mb-6">
           {{ .Title }}
-        </h1>
+        </h2>
         <p class="mt-2 font-[Montserrat] text-[16px] lg:text-[18px] font-normal mb-8">
           {{ .Content }}
         </p>
 
         <!-- All Guides Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 gap-6 md:grid-cols-2">
           {{ range $guides }}
-          <article class="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow">
+          <article class="p-6 bg-white rounded-lg border border-gray-200 transition-shadow hover:shadow-lg">
             {{ if .Params.image }}
-            <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-48 object-cover rounded-lg mb-4" />
+            <img src="{{ .Params.image }}" alt="{{ .Title }}" class="object-cover mb-4 w-full h-48 rounded-lg" />
             {{ else }}
-            <div class="w-full h-48 bg-gray-200 rounded-lg mb-4 flex items-center justify-center">
+            <div class="flex justify-center items-center mb-4 w-full h-48 bg-gray-200 rounded-lg">
               <span class="text-gray-500">{{ .Params.category }}</span>
             </div>
             {{ end }}
@@ -113,7 +113,7 @@
               <a href="{{ .Permalink }}">{{ .Title }}</a>
             </h2>
             
-            <p class="text-gray-600 mb-4 line-clamp-3">
+            <p class="mb-4 text-gray-600 line-clamp-3">
               {{ .Params.description | default .Summary }}
             </p>
             
@@ -130,15 +130,15 @@
         </div>
 
         {{ if eq (len $guides) 0 }}
-        <div class="text-center py-12">
-          <p class="text-gray-500 text-lg">
+        <div class="py-12 text-center">
+          <p class="text-lg text-gray-500">
             Поки що немає статей у базі знань. Додайте їх через CMS.
           </p>
         </div>
         {{ end }}
       </div>
 
-      <aside class="hidden lg:block relative">
+      <aside class="hidden relative lg:block">
         <nav>
           <div class="pt-0 h-full">
             <nav class="fixed pt-[8px]" style="width: 220px; max-height: calc(100vh - 200px); overflow-y: auto;">

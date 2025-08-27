@@ -1,8 +1,112 @@
 {{ define "main" }}
 
-<h1 class="font-['Wallpoet'] text-[64px] text-[#ba0108] text-center">404
-    </h1>
-    <span class="font-['Montserrat'] text-[52px] text-center">Сторінку не знайдено</span>
-<h3><a href="{{ "/" | relURL }}">Повернутися на Головну</a></h3>
+<section class="flex overflow-hidden relative justify-center items-center py-16 min-h-screen bg-white">
+    <!-- Background decorative elements -->
+    <img src="/img/bg-el-1.png" alt=""
+        class="absolute z-[1] -top-8 -right-7 sm:top-0 sm:right-0 w-[150px] h-auto sm:w-[200px] md:w-[280px] lg:w-[350px] xl:w-[450px]"
+        width="350" height="360" />
+    <img src="/img/bg-el-2.png" alt=""
+        class="absolute z-[1] bottom-0 -left-7 sm:left-0 w-[150px] h-auto sm:w-[200px] md:w-[280px] lg:w-[350px] xl:w-[450px]"
+        width="320" height="280" />
+
+    <div class="absolute z-[1] top-8 left-0 sm:top-12 md:top-16 lg:top-20 xl:top-24">
+        <img src="/img/drone-left-404.png" alt=""
+            class="w-[120px] h-[72px] sm:w-[150px] sm:h-[90px] md:w-[180px] md:h-[108px] lg:w-[220px] lg:h-[132px] xl:w-[280px] xl:h-[168px] animate-bounce opacity-85"
+            style="animation-duration: 3s; animation-delay: 0s;" />
+    </div>
+    <div class="absolute z-[1] bottom-8 right-0 sm:bottom-12 md:bottom-16 lg:bottom-20 xl:bottom-24">
+        <img src="/img/drone-right-404.png" alt=""
+            class="w-[120px] h-[72px] sm:w-[150px] sm:h-[90px] md:w-[180px] md:h-[108px] lg:w-[220px] lg:h-[132px] xl:w-[280px] xl:h-[168px] animate-bounce opacity-85"
+            style="animation-duration: 3s; animation-delay: 1.5s;" />
+    </div>
+
+    <!-- Main Content -->
+    <div class="max-w-[1440px] xl:max-w-[1600px] mx-auto relative z-[2] px-8 text-center">
+        <div class="flex flex-col gap-8 justify-center items-center">
+
+            <h2 class="font-bold leading-[1.1] text-black mb-4">
+                <span
+                    class="font-['Unbounded'] text-[#ba0108] block text-[120px] xl:text-[160px] leading-[0.8] mb-4 animate-pulse">
+                    404
+                </span>
+                </h2>
+
+                <h3 class="font-bold leading-[1.1] text-black mb-6">
+                    <span
+                        class="font-['Unbounded'] text-black text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] leading-[1.1]">
+                        Сторінку не знайдено
+                    </span>
+                </h3>
+
+                <p
+                    class="font-['Montserrat'] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-normal text-gray-600 mb-12 max-w-[600px] leading-[1.6]">
+                    Схоже, що комплектуючі заблукали! Сторінку, яку ви шукаєте, не існує або була переміщена.
+                </p>
+
+                <button onclick="window.location.href='{{ .Site.BaseURL }}'"
+                    class="product-hero-button font-[Montserrat] text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium text-white bg-[#ba0108] hover:bg-[#a00007] transition-colors w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-2xl py-4 sm:py-5 md:py-6 px-6 sm:px-8 md:px-10 rounded-[10px]">
+                    На головну
+                </button>
+        </div>
+    </div>
+</section>
+
+<style>
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .animate-pulse {
+        animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @keyframes pulse {
+
+        0%,
+        100% {
+            opacity: 1;
+        }
+
+        50% {
+            opacity: 0.8;
+        }
+    }
+
+    .animate-bounce {
+        animation: bounce 3s infinite;
+    }
+
+    @keyframes bounce {
+
+        0%,
+        20%,
+        53%,
+        80%,
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+
+        40%,
+        43% {
+            transform: translate3d(0, -30px, 0);
+        }
+
+        70% {
+            transform: translate3d(0, -15px, 0);
+        }
+
+        90% {
+            transform: translate3d(0, -4px, 0);
+        }
+    }
+</style>
 
 {{ end }}
