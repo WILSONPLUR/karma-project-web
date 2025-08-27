@@ -10,7 +10,8 @@
       class="w-[200px] h-[120px] md:w-[280px] md:h-[170px] lg:w-[340px] lg:h-[220px]" />
   </div>
   <div class="max-w-[1055px] mx-auto pt-[101px] pb-[122px] md:pt-[80px] md:pb-[130px] lg:pb-[142px] px-5 md:px-[20px]">
-    <h2 class="title text-[24px] md:text-[32px] lg:text-[48px] font-medium font-[Unbounded] text-[#fefefe] mb-[15px]">
+    <h2
+      class="title hero-title text-[24px] md:text-[32px] lg:text-[48px] font-medium font-[Unbounded] text-[#fefefe] mb-[15px]">
       <span>П</span>{{ $title }}
     </h2>
     <p
@@ -40,4 +41,58 @@
   .title span {
     color: #ba0108;
   }
+
+
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-title {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+  }
+
+  .hero-title.animate {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
 </style>
+
+{{ "<!-- Hero title animation script -->" | safeHTML }}
+<script>
+  // Hero title animation
+  function animateHeroTitle() {
+    const heroTitles = document.querySelectorAll('.hero-title');
+
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        } else {
+          // Remove animation class when out of view for repeatable effect
+          entry.target.classList.remove('animate');
+        }
+      });
+    }, observerOptions);
+
+    heroTitles.forEach(title => {
+      observer.observe(title);
+    });
+  }
+
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', animateHeroTitle);
+</script>
