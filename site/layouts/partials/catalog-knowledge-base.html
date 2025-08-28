@@ -16,25 +16,29 @@
 {{ $categoryGuides = $guides }}
 {{ end }}
 
-<div class="flex justify-center items-center flex-col max-w-[1240px] w-full mx-auto my-[80px] px-5 sm:px-5 lg:px-10">
-    <h3 class="title hero-title text-black text-[24px] text-center md:text-[32px] lg:text-[40px] font-[Unbounded] font-medium mb-[30px]">
+<div
+    class="flex justify-center items-center flex-col max-w-[min(1240px,90vw)] w-full mx-auto my-[clamp(40px,6vw,80px)] px-[clamp(20px,4vw,40px)]">
+    <h3
+        class="title hero-title text-black text-[clamp(24px,3vw,40px)] text-center font-[Unbounded] font-medium mb-[clamp(20px,3vw,30px)]">
         <span class="text-[#ba0108]">Б</span>АЗА ЗНАНЬ. {{ $categoryData.name | upper }}
     </h3>
 
-    <div class="flex justify-center gap-[21px] flex-wrap">
+    <div class="flex justify-center gap-[clamp(16px,3vw,21px)] flex-wrap">
         {{ range $categoryGuides | first 3 }}
-        <div class="flex flex-col gap-[10px] max-w-[400px]">
+        <div class="flex flex-col gap-[clamp(8px,2vw,10px)] max-w-[clamp(280px,80vw,400px)]">
             {{ if .Params.image }}
-            <img src="{{ .Params.image }}" alt="{{ .Title }}" width="400" height="238" class="rounded-lg" />
+            <img src="{{ .Params.image }}" alt="{{ .Title }}" width="400" height="238"
+                class="rounded-lg w-full h-[clamp(150px,25vw,238px)] object-contain" />
             {{ else }}
-            <img src="/img/card-img-1.png" alt="{{ .Title }}" width="400" height="238" class="rounded-lg" />
+            <img src="/img/card-img-1.png" alt="{{ .Title }}" width="400" height="238"
+                class="rounded-lg w-full h-[clamp(150px,25vw,238px)] object-contain" />
             {{ end }}
-            <h4 class="text-[24px] font-[Montserrat] font-medium">
+            <h4 class="text-[clamp(20px,2vw,24px)] font-[Montserrat] font-medium">
                 {{ .Title }}
             </h4>
-            <p class="text-[20px] font-[Montserrat] font-normal">
+            <p class="text-[clamp(16px,2vw,20px)] font-[Montserrat] font-normal">
                 {{ .Params.description | default .Summary }}
-                <a class="text-[#ba0108] ml-[8px]" href="{{ .Permalink }}">
+                <a class="text-[#ba0108] ml-[clamp(4px,1vw,8px)]" href="{{ .Permalink }}">
                     &gt;&gt;
                 </a>
             </p>
@@ -43,7 +47,7 @@
 
         {{ if lt (len $categoryGuides) 1 }}
         <div class="text-center">
-            <p class="text-[20px] font-[Montserrat] font-normal text-gray-500">
+            <p class="text-[clamp(16px,2vw,20px)] font-[Montserrat] font-normal text-gray-500">
                 Поки що немає статей для цієї категорії. Додайте їх через CMS.
             </p>
         </div>
