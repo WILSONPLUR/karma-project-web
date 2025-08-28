@@ -1,7 +1,7 @@
 <section class="bg-white min-h-screen relative z-10">
   <div class="w-full px-4 sm:px-6 lg:px-8 py-8 pb-40">
     <!-- Breadcrumbs -->
-    <div class="mb-8 flex items-center text-sm">
+    <div class="flex items-center mb-8 text-sm">
       <a href="/" class="text-[#ba0108] hover:text-[#9a0106] transition-colors">Головна</a>
       <span class="mx-2 text-[#ba0108]">→</span>
       <span class="text-[#ba0108]">База знань34534543</span>
@@ -9,22 +9,20 @@
 
     <!-- Search Section -->
     <div class="mb-12">
-      <div class="flex items-center max-w-2xl mx-auto">
+      <div class="flex items-center mx-auto max-w-2xl">
         <div class="relative flex-1">
-          <input 
-            type="text" 
-            placeholder="Введіть текст" 
-            class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-l-lg focus:outline-none focus:border-[#ba0108] bg-white text-gray-800 placeholder-gray-500"
-          />
+          <input type="text" placeholder="Введіть текст"
+            class="w-full px-6 py-4 text-lg border-2 border-gray-300 rounded-l-lg focus:outline-none focus:border-[#ba0108] bg-white text-gray-800 placeholder-gray-500" />
         </div>
-        <button class="bg-[#ba0108] hover:bg-[#9a0106] text-white px-8 py-4 rounded-r-lg transition-colors duration-200 flex items-center justify-center">
+        <button
+          class="bg-[#ba0108] hover:bg-[#9a0106] text-white px-8 py-4 rounded-r-lg transition-colors duration-200 flex items-center justify-center">
           <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
         </button>
       </div>
     </div>
-
     <!-- Simple Accordion -->
     <div class="w-full space-y-4 relative z-20">
       {{ $categories := slice "БПЛА" "Відеопередавачі" "ESC" "Політні стеки" }}
@@ -209,40 +207,81 @@ button:focus {
 @media (max-width: 768px) {
   .section-header button {
     padding: 1rem;
+  /* Section Header Styles */
+  .section-header {
+    border: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-  
-  .section-header h2 {
-    font-size: 1.25rem;
-  }
-  
-  .knowledge-accordion summary {
-    padding: 1rem;
-  }
-  
-  .knowledge-accordion summary h3 {
-    font-size: 1rem;
-  }
-  
-  .knowledge-accordion div {
-    padding-left: 2rem;
-    padding-right: 1rem;
-  }
-}
 
-@media (max-width: 480px) {
-  .section-header button {
-    padding: 0.75rem;
+  .section-header button:hover {
+    opacity: 0.95;
   }
-  
+
+  .section-content {
+    border-left: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  /* Knowledge Accordion Styles */
   .knowledge-accordion summary {
-    padding: 0.75rem;
+    list-style: none;
   }
-  
-  .knowledge-accordion div {
-    padding-left: 1.5rem;
-    padding-right: 0.75rem;
+
+  .knowledge-accordion summary::-webkit-details-marker {
+    display: none;
   }
-}
+
+  .knowledge-accordion[open] summary {
+    background-color: #fef2f2;
+  }
+
+  .knowledge-accordion[open] summary h3 {
+    color: #ba0108;
+  }
+
+  .knowledge-accordion[open] summary svg:first-of-type {
+    transform: rotate(90deg);
+  }
+
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .section-header button {
+      padding: 1rem;
+    }
+
+    .section-header h2 {
+      font-size: 1.25rem;
+    }
+
+    .knowledge-accordion summary {
+      padding: 1rem;
+    }
+
+    .knowledge-accordion summary h3 {
+      font-size: 1rem;
+    }
+
+    .knowledge-accordion div {
+      padding-left: 2rem;
+      padding-right: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .section-header button {
+      padding: 0.75rem;
+    }
+
+    .knowledge-accordion summary {
+      padding: 0.75rem;
+    }
+
+    .knowledge-accordion div {
+      padding-left: 1.5rem;
+      padding-right: 0.75rem;
+    }
+  }
 </style>
 
 <script>
@@ -298,12 +337,10 @@ document.addEventListener('DOMContentLoaded', function() {
       if (e.key === 'Enter') {
         const query = searchInput.value.trim();
         if (query) {
+          // Simple search implementation - highlights matching text
           searchInContent(query);
         }
-      }
-    });
-  }
-});
+      });
 
 function searchInContent(query) {
   const accordions = document.querySelectorAll('[aria-controls]');
@@ -340,8 +377,6 @@ function searchInContent(query) {
     alert('Нічого не знайдено за запитом: ' + query);
     resetSearch();
   }
-}
-
 function resetSearch() {
   const links = document.querySelectorAll('a[href*="/guides/"]');
   links.forEach(function(link) {

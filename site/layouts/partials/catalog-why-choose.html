@@ -1,60 +1,69 @@
 {{ $category := .Params.category | default "politni-steky" }}
 {{ $categoryData := index .Site.Data.products.categories $category }}
 
-<div class="bg-black text-white py-[69px] px-[20px] md:px-[40px] lg:px-[40px]">
-    <div class="flex flex-col justify-center items-center max-w-[1237px] w-full mx-auto">
+<div class="bg-[#020303] text-white py-[clamp(40px,6vw,69px)] px-[clamp(20px,4vw,40px)]">
+    <div class="flex flex-col justify-center items-center max-w-[min(1237px,90vw)] w-full mx-auto">
         <h3
-            class="max-w-[909px] font-medium text-[24px] md:text-[32px] lg:text-[48px] font-[Unbounded] uppercase text-center mb-[9px]">
+            class="hero-title max-w-[clamp(280px,80vw,909px)] font-medium text-[clamp(24px,3vw,48px)] font-[Unbounded] uppercase text-center mb-[clamp(8px,2vw,9px)]">
             Чому варто обрати {{ $categoryData.name | lower }} від karma?
         </h3>
         <div>
-            <ol class="flex flex-col gap-[25px] list-none">
+            <ol class="flex flex-col gap-[clamp(16px,3vw,25px)] list-none">
                 {{ if eq $category "politni-steky" }}
                 <li
-                    class="font-[Montserrat] font-medium text-[16px] md:text-[20px] lg:text-[24px] flex gap-[20px] items-center">
+                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center">
                     <img src="/img/list-one.png" alt="List One" width="57" height="57"
-                        class="w-[40px] h-[40px] lg:w-[57px] lg:h-[57px]" />
+                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
                     Компактність та інтеграція
                 </li>
                 <li
-                    class="font-[Montserrat] font-medium text-[16px] md:text-[20px] lg:text-[24px] flex gap-[20px] items-center">
+                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center">
                     <img src="/img/list-two.png" alt="List Two" width="57" height="57"
-                        class="w-[40px] h-[40px] lg:w-[57px] lg:h-[57px]" />
+                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
                     Висока продуктивність та універсальність
                 </li>
                 <li
-                    class="font-[Montserrat] font-medium text-[16px] md:text-[20px] lg:text-[24px] flex gap-[20px] items-center">
+                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center">
                     <img src="/img/list-three.png" alt="List Three" width="57" height="57"
-                        class="w-[40px] h-[40px] lg:w-[57px] lg:h-[57px]" />
+                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
                     Багатий функціонал та зручність використання
                 </li>
                 {{ else if eq $category "videoperedavachi-vtx" }}
                 <li
-                    class=" font-[Montserrat] font-medium text-[16px] md:text-[20px] lg:text-[24px] flex gap-[20px] items-center">
-                    <img src="/img/list-one.png" alt="List One" width="57" height="57" />
+                    class=" font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center">
+                    <img src="/img/list-one.png" alt="List One" width="57" height="57"
+                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
                     Стабільний сигнал та висока якість
                 </li>
                 <li
-                    class="font-[Montserrat] font-medium text-[16px] md:text-[20px] lg:text-[24px]flex gap-[20px] items-center">
-                    <img src="/img/list-two.png" alt="List Two" width="57" height="57" />
+                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center">
+                    <img src="/img/list-two.png" alt="List Two" width="57" height="57"
+                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
                     Велика дальність передачі
                 </li>
                 <li
-                    class="font-[Montserrat] font-medium text-[16px] md:text-[20px] lg:text-[24px] flex gap-[20px] items-center">
-                    <img src="/img/list-three.png" alt="List Three" width="57" height="57" />
+                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center">
+                    <img src="/img/list-three.png" alt="List Three" width="57" height="57"
+                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
                     Професійна якість та надійність
                 </li>
                 {{ else if eq $category "esc" }}
-                <li class=" font-[Montserrat] font-medium text-[24px] flex gap-[20px] items-center">
-                    <img src="/img/list-one.png" alt="List One" width="57" height="57" />
+                <li
+                    class=" font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center">
+                    <img src="/img/list-one.png" alt="List One" width="57" height="57"
+                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
                     Плавне керування швидкістю
                 </li>
-                <li class="font-[Montserrat] font-medium text-[24px] flex gap-[20px] items-center">
-                    <img src="/img/list-two.png" alt="List Two" width="57" height="57" />
+                <li
+                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center">
+                    <img src="/img/list-two.png" alt="List Two" width="57" height="57"
+                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
                     Висока точність та надійність
                 </li>
-                <li class="font-[Montserrat] font-medium text-[24px] flex gap-[20px] items-center">
-                    <img src="/img/list-three.png" alt="List Three" width="57" height="57" />
+                <li
+                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center">
+                    <img src="/img/list-three.png" alt="List Three" width="57" height="57"
+                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
                     Підтримка різних прошивок
                 </li>
                 {{ end }}
@@ -62,3 +71,56 @@
         </div>
     </div>
 </div>
+
+<style>
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .hero-title {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease-out;
+    }
+
+    .hero-title.animate {
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+</style>
+
+<script>
+    // Hero title animation
+    function animateHeroTitle() {
+        const heroTitles = document.querySelectorAll('.hero-title');
+
+        const observerOptions = {
+            threshold: 0.3,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                } else {
+                    entry.target.classList.remove('animate');
+                }
+            });
+        }, observerOptions);
+
+        heroTitles.forEach(title => {
+            observer.observe(title);
+        });
+    }
+
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', animateHeroTitle);
+</script>

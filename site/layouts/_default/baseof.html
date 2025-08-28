@@ -5,11 +5,55 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>{{ block "title" . }}{{ .Title }}{{ end }}</title>
 
-  <!-- Google Fonts -->
+  <title>{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}</title>
+  <meta name="title" content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+  <meta name="description"
+    content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
+  <meta name="keywords"
+    content="{{ with .Params.keywords }}{{ . }}{{ else }}{{ .Site.Params.defaultKeywords }}{{ end }}">
+  <meta name="author" content="{{ .Site.Params.author }}">
+  <meta name="robots" content="{{ with .Params.robots }}{{ . }}{{ else }}index, follow{{ end }}"> 
+  <link rel="canonical" href="{{ .Permalink }}">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
+  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:title"
+    content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+  <meta property="og:description"
+    content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
+  <meta property="og:image"
+    content="{{ with .Params.ogImage }}{{ . | absURL }}{{ else }}{{ .Site.Params.ogImage | absURL }}{{ end }}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:site_name" content="{{ .Site.Title }}">
+  <meta property="og:locale" content="{{ .Site.Language.Lang }}">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="{{ .Permalink }}">
+  <meta property="twitter:title"
+    content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+  <meta property="twitter:description"
+    content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
+  <meta property="twitter:image"
+    content="{{ with .Params.ogImage }}{{ . | absURL }}{{ else }}{{ .Site.Params.ogImage | absURL }}{{ end }}">
+
+  <!-- Additional Meta Tags -->
+  <meta name="theme-color" content="{{ .Site.Params.themeColor }}">
+  <meta name="msapplication-TileColor" content="{{ .Site.Params.themeColor }}">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="{{ .Site.Params.favicon | absURL }}">
+  <link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.Params.appleTouchIcon | absURL }}">
+
+  <!-- Preconnect to external domains -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://www.google-analytics.com" />
+
+  <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&family=Wallpoet&display=swap"
     rel="stylesheet" />
@@ -17,9 +61,11 @@
   {{- with $assets.css }} {{ $css := resources.Get "css/main.css" }}
   <link rel="stylesheet" href="{{ relURL . }}" />
   {{ end -}}
-  
+
   <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+
+
 </head>
 
 <body class="font-sans">

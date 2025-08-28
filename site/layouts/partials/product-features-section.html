@@ -1,66 +1,74 @@
-<section class="py-[60px] md:py-[80px] relative overflow-hidden">
+<section class="overflow-hidden relative py-[clamp(48px,8vw,96px)] mb-[clamp(40px,8vw,80px)]"
+    aria-labelledby="features-heading">
     <!-- Background image -->
     <div class="absolute inset-0">
-        <img src="/img/benefits-bg.png" alt="" class="w-full h-full object-cover" />
+        <img src="/img/benefits-bg.png" alt="" aria-hidden="true" class="object-cover w-full h-full" />
     </div>
 
-    <div class="w-full md:w-[1237px] mx-auto relative z-[2] px-5 md:px-[40px]">
-        <!-- Main Title -->
-        <div class="text-center mb-[40px] md:mb-[78px] relative">
-            <h2 class="font-[Unbounded] text-[32px] md:text-[48px] font-bold text-white uppercase mb-8">
+    <div class="w-full max-w-[1440px] mx-auto relative z-[2] px-[clamp(20px,4vw,40px)]">
+        <div class="relative mb-[clamp(32px,6vw,80px)] text-center">
+            <h2 id="features-heading"
+                class="mb-[clamp(24px,4vw,48px)] text-[clamp(20px,4vw,60px)] font-bold text-white uppercase font-unbounded">
                 ОСОБЛИВОСТІ
             </h2>
-            <!-- Decorative Lines - Hidden on mobile -->
-            <div class="hidden md:block absolute top-[79px] left-[165px] transform -translate-y-1/2">
-                <img src="/img/line-left.svg" alt="" class="w-[183px] h-auto" />
+
+            <div class="hidden absolute top-10 md:block left-[calc(41%-224px-2rem)] lg:left-[calc(35%-224px-2rem)]">
+                <img src="/img/line-left.svg" alt="" aria-hidden="true" class="w-32 h-auto md:w-40 lg:w-56" />
             </div>
-            <div class="hidden md:block absolute top-[80px] left-1/2 transform -translate-x-1/2">
-                <img src="/img/line-center.svg" alt="" class="w-[50px] h-[80px]" />
+
+            <div class="hidden absolute left-1/2 transform -translate-x-1/2 top-23 md:block">
+                <img src="/img/line-center.svg" alt="" aria-hidden="true"
+                    class="w-8 h-12 md:w-12 md:h-20 lg:w-16 lg:h-24" />
             </div>
-            <div class="hidden md:block absolute top-[23px] right-[164px] transform ">
-                <img src="/img/line-right.svg" alt="" class="w-[183px] h-auto" />
+
+            <div class="hidden absolute  top-10 md:block right-[calc(41%-224px-2rem)] lg:right-[calc(35%-224px-2rem)]">
+                <img src="/img/line-right.svg" alt="" aria-hidden="true" class="w-32 h-auto md:w-40 lg:w-56" />
             </div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-[40px] md:gap-[67px] relative pt-[40px] md:pt-[78px]">
-            <!-- Feature 1: High Performance -->
-            <div class="text-center relative z-[3]">
+        <div class="grid relative grid-cols-1 gap-5 pt-8 md:grid-cols-3 lg:grid-cols-3 sm:gap-5 md:gap-8 lg:gap-10 xl:gap-10 sm:pt-12 md:pt-16 lg:pt-20"
+            role="list" aria-label="Особливості політного стеку KARMA F405 V1">
+            <!-- Features -->
+            <article class="text-center relative z-[3]" role="listitem">
                 <h3
-                    class="font-[Unbounded] text-[20px] md:text-[24px] font-bold text-white mb-4 md:mb-[20px] feature-title">
+                    class="mb-[clamp(16px,3vw,32px)] text-[clamp(19px,2vw,24px)] font-bold text-white font-unbounded feature-title  flex items-center justify-center">
                     Висока продуктивність
                 </h3>
                 <p
-                    class="font-[Montserrat] text-[16px] md:text-[20px] font-normal leading-[1.6] text-white w-full md:w-[350px] mx-auto">
-                    Сучасні контролери польоту оснащені потужними мікроконтролерами (наприклад, F4, F7, H7), які здатні
-                    обробляти дані з датчиків з високою частотою.
+                    class="mx-auto max-w-[min(400px,85vw)] text-[clamp(16px,2vw,20px)] font-normal leading-relaxed text-white font-montserrat">
+                    Сучасні контролери польоту оснащені потужними мікроконтролерами
+                    (наприклад, F4, F7, H7), які здатні обробляти дані з датчиків з
+                    високою частотою.
                 </p>
-            </div>
+            </article>
 
-            <!-- Feature 2: Flexibility in Settings -->
-            <div class="text-center relative z-[3]">
+            <!-- Feature 2 -->
+            <article class="text-center relative z-[3]" role="listitem">
                 <h3
-                    class="font-[Unbounded] text-[20px] md:text-[24px] font-bold text-white mb-4 md:mb-[20px] feature-title">
+                    class="mb-[clamp(16px,3vw,32px)] text-[clamp(20px,2vw,24px)] font-bold text-white font-unbounded feature-title flex items-center justify-center whitespace-nowrap">
                     Гнучкість у налаштуваннях
                 </h3>
                 <p
-                    class="font-[Montserrat] text-[16px] md:text-[20px] font-normal leading-[1.6] text-white w-full md:w-[350px] mx-auto">
-                    Можливість налаштовувати PID-коефіцієнти, фільтри, режими польоту, відсо стабілізації, GPS-режими,
-                    функції OSD (On-Screen Display) та багато іншого. Оптимізувати поведінка дрона.
+                    class="mx-auto max-w-[min(400px,85vw)] text-[clamp(16px,2vw,20px)] font-normal leading-relaxed text-white font-montserrat">
+                    Можливість налаштовувати PID-коефіцієнти, фільтри, режими польоту,
+                    відео стабілізацію, GPS-режими, функцію OSD (On-Screen Display) та
+                    багато іншого. Оптимізувати поведінка дрона.
                 </p>
-            </div>
+            </article>
 
-            <!-- Feature 3: Easy Installation -->
-            <div class="text-center relative z-[3]">
+            <!-- Feature 3-->
+            <article class="text-center relative z-[3]" role="listitem">
                 <h3
-                    class="font-[Unbounded] text-[20px] md:text-[24px] font-bold text-white mb-4 md:mb-[20px] feature-title">
+                    class="mb-[clamp(16px,3vw,32px)] text-[clamp(20px,2vw,24px)] font-bold text-white font-unbounded feature-title  flex items-center justify-center">
                     Легке встановлення
                 </h3>
                 <p
-                    class="font-[Montserrat] text-[16px] md:text-[20px] font-normal leading-[1.6] text-white w-full md:w-[350px] mx-auto">
-                    Політні стеки об'єднують контролер польоту та ESC на одній платі або в єдиному модулі. Це значно
-                    зменшує кількість проводів, спрощує монтаж та зменшує загальну вагу та розмір системи.
+                    class="mx-auto max-w-[min(400px,85vw)] text-[clamp(16px,2vw,20px)] font-normal leading-relaxed text-white font-montserrat">
+                    Політні стеки об'єднують контролер польоту та ESC на одній платі або в
+                    єдиному модулі. Це значно зменшує кількість проводів, спрощує монтаж
+                    та зменшує загальну вагу та розмір системи.
                 </p>
-            </div>
+            </article>
         </div>
     </div>
 </section>
