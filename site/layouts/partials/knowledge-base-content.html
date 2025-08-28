@@ -1,10 +1,10 @@
-<section class="bg-white min-h-screen">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+<section class="bg-white min-h-screen relative z-10">
+  <div class="w-full px-4 sm:px-6 lg:px-8 py-8 pb-40">
     <!-- Breadcrumbs -->
     <div class="mb-8 flex items-center text-sm">
       <a href="/" class="text-[#ba0108] hover:text-[#9a0106] transition-colors">Головна</a>
       <span class="mx-2 text-[#ba0108]">→</span>
-      <span class="text-[#ba0108]">База знань</span>
+      <span class="text-[#ba0108]">База знань34534543</span>
     </div>
 
     <!-- Search Section -->
@@ -25,61 +25,149 @@
       </div>
     </div>
 
-    <!-- Accordion Sections -->
-    <div class="max-w-5xl mx-auto space-y-0">
-      {{ range .Params.sections }}
-      <div class="knowledge-section">
-        <!-- Section Header -->
-        <div class="section-header {{ if .isFirst }}bg-[#ba0108]{{ else }}bg-[#4a4a4a]{{ end }} text-white">
-          <button class="w-full flex items-center justify-between px-8 py-6 text-left focus:outline-none" 
-                  onclick="toggleSection(this)">
-            <h2 class="text-2xl font-bold font-[Montserrat] tracking-wide">{{ .title }}</h2>
-            <svg class="w-8 h-8 transform transition-transform duration-300 section-chevron" 
-                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-            </svg>
-          </button>
-        </div>
-
-        <!-- Section Content -->
-        <div class="section-content {{ if .isFirst }}block{{ else }}hidden{{ end }} bg-white">
-          {{ if .items }}
-          <div class="accordion-items" data-accordion-list>
-            {{ range .items }}
-            <div class="knowledge-item border-b border-gray-200 last:border-b-0">
-              <details class="knowledge-accordion group">
-                <summary class="flex cursor-pointer select-none items-center justify-between px-8 py-6 hover:bg-gray-50 transition-colors">
-                  <div class="flex items-center space-x-4">
-                    <svg class="w-4 h-4 text-[#ba0108] flex-shrink-0" fill="currentColor" viewBox="0 0 24 24">
-                      <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                    </svg>
-                    <h3 class="text-lg font-medium text-gray-900 font-[Montserrat]">{{ .question }}</h3>
+    <!-- Simple Accordion -->
+    <div class="w-full space-y-4 relative z-20">
+      {{ $categories := slice "БПЛА" "Відеопередавачі" "ESC" "Політні стеки" }}
+      {{ $guides := where .Site.RegularPages "Section" "guides" }}
+      
+      {{ range $index, $category := $categories }}
+      {{ $categoryGuides := where $guides ".Params.category" $category }}
+      <div class="border border-gray-200 rounded-lg overflow-hidden relative z-30">
+        <!-- Header -->
+        <button 
+          class="w-full flex items-center justify-between px-6 py-4 text-left bg-[#ba0108] text-white"
+          onclick="toggleAccordion(this)"
+          aria-expanded="{{ if eq $index 0 }}true{{ else }}false{{ end }}"
+          aria-controls="section-{{ $index }}"
+        >
+          <h2 class="text-xl font-bold">{{ $category }}</h2>
+          <svg class="w-6 h-6 transform transition-transform" viewBox="0 0 20 20" fill="currentColor">
+            <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+          </svg>
+        </button>
+        
+        <!-- Content -->
+        <div 
+          id="section-{{ $index }}" 
+          class="bg-white overflow-hidden transition-all duration-300 relative z-40 {{ if ne $index 0 }}max-h-0{{ else }}max-h-none{{ end }}"
+        >
+          <div class="p-6">
+            {{ if $categoryGuides }}
+              {{ range $categoryGuides }}
+              <a 
+                href="{{ .Permalink }}" 
+                class="block py-3 px-4 hover:bg-gray-50 rounded-lg transition-colors mb-2 last:mb-0"
+              >
+                <div class="flex items-center">
+                  <span class="text-[#ba0108] mr-3">›</span>
+                  <div>
+                    <h3 class="font-medium text-gray-900">{{ .Title }}</h3>
+                    {{ if .Params.description }}
+                    <p class="text-sm text-gray-600 mt-1">{{ .Params.description }}</p>
+                    {{ end }}
                   </div>
-                  <svg class="w-5 h-5 text-gray-400 transform transition-transform duration-200 group-open:rotate-180" 
-                       fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
-                  </svg>
-                </summary>
-                <div class="px-8 pb-6 pl-16">
-                  <p class="text-gray-600 font-[Montserrat] leading-relaxed">{{ .answer }}</p>
+                  <span class="ml-auto text-[#ba0108]">→</span>
                 </div>
-              </details>
-            </div>
+              </a>
+              {{ end }}
+            {{ else }}
+              <p class="text-gray-500 text-center py-4">Контент скоро буде додано</p>
             {{ end }}
           </div>
-          {{ else }}
-          <div class="px-8 py-12 text-center text-gray-500">
-            <p class="text-lg">Контент скоро буде додано</p>
-          </div>
-          {{ end }}
         </div>
       </div>
       {{ end }}
     </div>
+
   </div>
 </section>
 
 <style>
+/* Simple Accordion Styles */
+[aria-expanded="true"] svg {
+  transform: rotate(180deg);
+}
+
+/* Smooth transitions */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 300ms;
+}
+
+/* Focus styles for better accessibility */
+button:focus {
+  outline: 2px solid #ba0108;
+  outline-offset: 2px;
+}
+
+/* Hover effect for accordion headers */
+[aria-expanded] {
+  transition: background-color 0.2s ease;
+}
+
+[aria-expanded]:hover {
+  background-color: #a00006 !important;
+}
+
+/* Z-index layering to prevent footer overlap */
+.knowledge-base-section {
+  position: relative;
+  z-index: 10;
+}
+
+.accordion-container {
+  position: relative;
+  z-index: 20;
+}
+
+.accordion-item {
+  position: relative;
+  z-index: 30;
+}
+
+.accordion-content {
+  position: relative;
+  z-index: 40;
+}
+
+/* Force accordion content above footer */
+.max-h-none {
+  position: relative !important;
+  z-index: 9999 !important;
+  overflow: visible !important;
+  max-height: none !important;
+}
+
+/* Ensure proper spacing from footer */
+.knowledge-base-section::after {
+  content: '';
+  display: block;
+  height: 300px;
+  width: 100%;
+}
+
+/* Mobile styles */
+@media (max-width: 640px) {
+  [aria-expanded] {
+    padding: 0.75rem 1rem;
+  }
+  
+  .p-6 {
+    padding: 1rem;
+  }
+  
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  .py-3 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+}
+
 /* Section Header Styles */
 .section-header {
   border: none;
@@ -158,44 +246,43 @@
 </style>
 
 <script>
-// Section toggle functionality
-function toggleSection(button) {
-  const section = button.closest('.knowledge-section');
-  const content = section.querySelector('.section-content');
-  const chevron = button.querySelector('.section-chevron');
+// Simple accordion functionality for guide categories
+function toggleAccordion(button) {
+  const content = document.getElementById(button.getAttribute('aria-controls'));
+  const isExpanded = button.getAttribute('aria-expanded') === 'true';
   
-  if (content.classList.contains('hidden')) {
-    content.classList.remove('hidden');
-    content.classList.add('block');
-    chevron.style.transform = 'rotate(180deg)';
+  // Close all other accordions
+  document.querySelectorAll('[aria-expanded]').forEach(btn => {
+    if (btn !== button) {
+      btn.setAttribute('aria-expanded', 'false');
+      const otherContent = document.getElementById(btn.getAttribute('aria-controls'));
+      if (otherContent) {
+        otherContent.style.maxHeight = '0px';
+        otherContent.classList.remove('max-h-none');
+      }
+    }
+  });
+  
+  if (isExpanded) {
+    // Close current accordion
+    button.setAttribute('aria-expanded', 'false');
+    content.style.maxHeight = '0px';
+    content.classList.remove('max-h-none');
   } else {
-    content.classList.remove('block');
-    content.classList.add('hidden');
-    chevron.style.transform = 'rotate(0deg)';
+    // Open current accordion
+    button.setAttribute('aria-expanded', 'true');
+    content.style.maxHeight = content.scrollHeight + 'px';
+    content.classList.add('max-h-none');
+    
+    // Set to none after transition for unlimited height
+    setTimeout(() => {
+      content.style.maxHeight = 'none';
+    }, 300);
   }
 }
 
-// Accordion functionality within sections
+// Search functionality
 document.addEventListener('DOMContentLoaded', function() {
-  const accordionLists = document.querySelectorAll('[data-accordion-list]');
-  
-  accordionLists.forEach(function(list) {
-    const items = list.querySelectorAll('.knowledge-accordion');
-    
-    items.forEach(function(item) {
-      item.addEventListener('toggle', function() {
-        if (item.open) {
-          items.forEach(function(other) {
-            if (other !== item) {
-              other.open = false;
-            }
-          });
-        }
-      });
-    });
-  });
-
-  // Search functionality
   const searchInput = document.querySelector('input[placeholder="Введіть текст"]');
   const searchButton = document.querySelector('button svg').closest('button');
   
@@ -203,7 +290,6 @@ document.addEventListener('DOMContentLoaded', function() {
     searchButton.addEventListener('click', function() {
       const query = searchInput.value.trim();
       if (query) {
-        // Simple search implementation - highlights matching text
         searchInContent(query);
       }
     });
@@ -220,49 +306,47 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function searchInContent(query) {
-  const sections = document.querySelectorAll('.knowledge-section');
+  const accordions = document.querySelectorAll('[aria-controls]');
+  const links = document.querySelectorAll('a[href*="/guides/"]');
   let found = false;
   
-  sections.forEach(function(section) {
-    const content = section.querySelector('.section-content');
-    const items = section.querySelectorAll('.knowledge-item');
-    let sectionHasMatch = false;
+  links.forEach(function(link) {
+    const title = link.querySelector('h3').textContent.toLowerCase();
+    const description = link.querySelector('p');
+    const descText = description ? description.textContent.toLowerCase() : '';
     
-    items.forEach(function(item) {
-      const question = item.querySelector('h3').textContent.toLowerCase();
-      const answer = item.querySelector('p').textContent.toLowerCase();
+    if (title.includes(query.toLowerCase()) || descText.includes(query.toLowerCase())) {
+      link.style.display = 'block';
+      link.style.backgroundColor = '#fef2f2';
+      found = true;
       
-      if (question.includes(query.toLowerCase()) || answer.includes(query.toLowerCase())) {
-        item.style.display = 'block';
-        item.style.backgroundColor = '#fef2f2';
-        sectionHasMatch = true;
-        found = true;
-      } else {
-        item.style.display = 'none';
-        item.style.backgroundColor = '';
+      // Open the parent accordion
+      const accordion = link.closest('[id^="section-"]');
+      if (accordion) {
+        const button = document.querySelector(`[aria-controls="${accordion.id}"]`);
+        if (button) {
+          button.setAttribute('aria-expanded', 'true');
+          accordion.style.maxHeight = 'none';
+          accordion.classList.add('max-h-none');
+        }
       }
-    });
-    
-    if (sectionHasMatch) {
-      content.classList.remove('hidden');
-      content.classList.add('block');
-      const chevron = section.querySelector('.section-chevron');
-      chevron.style.transform = 'rotate(180deg)';
+    } else {
+      link.style.display = 'none';
+      link.style.backgroundColor = '';
     }
   });
   
   if (!found) {
     alert('Нічого не знайдено за запитом: ' + query);
-    // Reset display
     resetSearch();
   }
 }
 
 function resetSearch() {
-  const items = document.querySelectorAll('.knowledge-item');
-  items.forEach(function(item) {
-    item.style.display = 'block';
-    item.style.backgroundColor = '';
+  const links = document.querySelectorAll('a[href*="/guides/"]');
+  links.forEach(function(link) {
+    link.style.display = 'block';
+    link.style.backgroundColor = '';
   });
 }
 </script>

@@ -1,8 +1,8 @@
 {{ define "main" }}
-<section class="min-h-screen bg-white">
-  <div class="lg:max-w-7xl max-[450px]:max-w-full mx-auto lg:px-8 max-[450px]:px-5 py-8">
+<section class="bg-white relative z-10">
+  <div class="w-full py-8 pb-40">
     <!-- Header with Breadcrumbs and Search -->
-    <div class="flex flex-col gap-4 mb-8 lg:flex-row lg:items-center lg:justify-between">
+    <div class="flex flex-col gap-4 mb-8 lg:flex-row lg:items-center lg:justify-between px-8 max-[450px]:px-5">
       <!-- Breadcrumbs -->
       <div class="flex items-center justify-start gap-2 text-[var(--color-karma-red)] font-[Montserrat]">
         <a class="font-[Montserrat] lg:text-[20px] max-[450px]:text-[16px] font-normal text-[#ba0108]" href="/">
@@ -31,45 +31,39 @@
     </div>
 
     <!-- Accordion Sections -->
-    <div class="mx-auto space-y-0 w-full lg:absolute lg:left-0">
+    <div class="w-full space-y-0 relative z-20">
       {{ $categories := slice "БПЛА" "Відеопередавачі" "ESC" "Політні стеки" }}
       {{ $guides := where .Site.RegularPages "Section" "guides" }}
       {{ range $index, $category := $categories }}
       {{ $categoryGuides := where $guides ".Params.category" $category }}
-      <div class="knowledge-section">
-        <!-- Section Header -->
-        <div class="section-header {{ if eq $index 0 }}bg-[#ba0108]{{ else }}bg-[#4a4a4a]{{ end }} text-white rounded-none">
-          <button class="w-full flex items-center justify-between lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 text-left focus:outline-none" 
-                  onclick="toggleSection(this)">
+      <details class="knowledge-section border-0 overflow-visible mb-0 relative z-30 group">
+        <summary class="section-header bg-[#4a4a4a] text-white rounded-none cursor-pointer list-none group-open:bg-[#ba0108]">
+          <div class="w-full flex items-center justify-between lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4">
             <h2 class="lg:text-[40px] max-[450px]:text-[24px] font-bold font-['Unbounded'] tracking-wide">{{ $category }}</h2>
-            <svg class="lg:w-8 lg:h-8 max-[450px]:w-6 max-[450px]:h-6 transform transition-transform duration-300 section-chevron {{ if eq $index 0 }}rotate-180{{ end }}" 
+            <svg class="lg:w-8 lg:h-8 max-[450px]:w-6 max-[450px]:h-6 transform transition-transform duration-300 group-open:rotate-180" 
                  fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
-          </button>
-        </div>
+          </div>
+        </summary>
 
         <!-- Section Content -->
-        <div class="section-content {{ if eq $index 0 }}block{{ else }}hidden{{ end }} bg-white">
+        <div class="section-content bg-white">
           {{ if $categoryGuides }}
           <div class="accordion-items">
             {{ range $categoryGuides }}
             <div class="border-b border-gray-200 knowledge-item last:border-b-0">
               <div class="flex cursor-pointer select-none items-start lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 hover:bg-gray-50 transition-colors"
                    onclick="window.location.href='{{ .Permalink }}'">
-                <div class="flex flex-1 items-start space-x-4">
-                  <svg class="lg:w-4 lg:h-4 max-[450px]:w-3 max-[450px]:h-3 text-[#ba0108] flex-shrink-0 mt-1" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/>
-                  </svg>
+                <div class="flex flex-1 gap-4 items-start space-x-4">
+                  <img src="/img/point.svg" />
                   <div class="flex-1">
-                    <h3 class="lg:text-[20px] max-[450px]:text-[16px] font-medium text-gray-900 font-['Montserrat'] mb-2">{{ .Title }}</h3>
+                    <h3 class="lg:text-[24px] max-[450px]:text-[16px] font-medium text-gray-900 font-['Montserrat'] mb-2">{{ .Title }}</h3>
                     {{ if .Params.description }}
-                    <p class="lg:text-[20px] max-[450px]:text-[14px] text-gray-600 leading-relaxed font-['Montserrat']">{{ .Params.description }}</p>
+                    <p class="lg:text-[16px] max-[450px]:text-[14px] text-black leading-relaxed font-['Montserrat']">{{ .Params.description }}  <span class="text-[#ba0108] underline cursor-pointer lg:text-[16px] max-[450px]:text-[14px]">&gt;&gt;</span></p>
+                    
                     {{ end }}
                   </div>
-                </div>
-                <div class="ml-4 text-xs text-right text-gray-500">
-                  <span class="text-[#ba0108] underline cursor-pointer lg:text-[16px] max-[450px]:text-[14px]">&gt;&gt;</span>
                 </div>
               </div>
             </div>
@@ -81,27 +75,49 @@
           </div>
           {{ end }}
         </div>
-      </div>
+      </details>
       {{ end }}
     </div>
   </div>
 </section>
 
 <style>
-/* Section Header Styles */
+/* Native Details/Summary Styles */
+.knowledge-section {
+  position: relative;
+  z-index: 30;
+}
+
+/* Hide default details marker */
+.knowledge-section summary {
+  list-style: none;
+}
+
+.knowledge-section summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Open state styling */
+.knowledge-section[open] summary {
+  background-color: #ba0108 !important;
+}
+
+/* Ensure content appears above footer */
+.section-content {
+  position: relative;
+  z-index: 40;
+  border-left: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
 .section-header {
   border: none;
   box-shadow: none;
 }
 
-.section-header button:hover {
+.section-header:hover {
   opacity: 0.95;
-}
-
-.section-content {
-  border-left: 1px solid #e5e7eb;
-  border-right: 1px solid #e5e7eb;
-  border-bottom: 1px solid #e5e7eb;
 }
 
 /* Knowledge Item Styles */
@@ -117,24 +133,10 @@
   color: #ba0108;
 }
 
-/* Search functionality */
-.knowledge-item.hidden {
-  display: none;
-}
-
-.knowledge-item.highlighted {
-  background-color: #fef2f2;
-}
-
 /* Mobile Responsive Design */
 @media (max-width: 450px) {
-  .section-header {
-    width: 100%;
-  }
-  
-  .section-header button {
+  .section-header div {
     padding: 1rem 1.5rem;
-    width: 100%;
   }
   
   .section-header h2 {
@@ -142,7 +144,7 @@
     font-weight: bold;
   }
   
-  .section-chevron {
+  .section-header svg {
     width: 24px !important;
     height: 24px !important;
   }
@@ -176,7 +178,6 @@
     gap: 0.75rem;
   }
   
-  /* Remove left padding from title */
   .knowledge-item h3 {
     padding-left: 0 !important;
   }
@@ -184,24 +185,9 @@
 </style>
 
 <script>
-// Section toggle functionality
-function toggleSection(button) {
-  const section = button.closest('.knowledge-section');
-  const content = section.querySelector('.section-content');
-  const chevron = button.querySelector('.section-chevron');
-  
-  if (content.classList.contains('hidden')) {
-    content.classList.remove('hidden');
-    content.classList.add('block');
-    chevron.style.transform = 'rotate(180deg)';
-  } else {
-    content.classList.remove('block');
-    content.classList.add('hidden');
-    chevron.style.transform = 'rotate(0deg)';
-  }
-}
-
+// Simple initialization for native details elements
 document.addEventListener('DOMContentLoaded', function() {
+
   // Search functionality
   const searchInput = document.getElementById('knowledge-search');
   const searchButton = searchInput?.nextElementSibling;
@@ -241,7 +227,6 @@ function searchInContent(query) {
   let found = false;
   
   sections.forEach(function(section) {
-    const content = section.querySelector('.section-content');
     const items = section.querySelectorAll('.knowledge-item');
     let sectionHasMatch = false;
     
@@ -261,25 +246,13 @@ function searchInContent(query) {
     });
     
     if (sectionHasMatch) {
-      content.classList.remove('hidden');
-      content.classList.add('block');
-      const chevron = section.querySelector('.section-chevron');
-      if (chevron) {
-        chevron.style.transform = 'rotate(180deg)';
-      }
+      section.open = true;
     } else {
-      // Hide sections with no matches during search
-      content.classList.add('hidden');
-      content.classList.remove('block');
-      const chevron = section.querySelector('.section-chevron');
-      if (chevron) {
-        chevron.style.transform = 'rotate(0deg)';
-      }
+      section.open = false;
     }
   });
   
   if (!found && query.length > 0) {
-    // Show a subtle message instead of alert
     showSearchMessage('Нічого не знайдено за запитом: "' + query + '"');
   }
 }
@@ -292,20 +265,9 @@ function resetSearch() {
     item.classList.remove('hidden', 'highlighted');
   });
   
-  // Reset to default state (first section open)
-  sections.forEach(function(section, index) {
-    const content = section.querySelector('.section-content');
-    const chevron = section.querySelector('.section-chevron');
-    
-    if (index === 0) {
-      content.classList.remove('hidden');
-      content.classList.add('block');
-      if (chevron) chevron.style.transform = 'rotate(180deg)';
-    } else {
-      content.classList.add('hidden');
-      content.classList.remove('block');
-      if (chevron) chevron.style.transform = 'rotate(0deg)';
-    }
+  // Close all sections
+  sections.forEach(function(section) {
+    section.open = false;
   });
   
   hideSearchMessage();
@@ -318,7 +280,7 @@ function showSearchMessage(message) {
     messageEl.id = 'search-message';
     messageEl.className = 'text-center py-8 text-gray-500 font-[Montserrat]';
     
-    const container = document.querySelector('.max-w-5xl');
+    const container = document.querySelector('.w-full');
     if (container) {
       container.appendChild(messageEl);
     }
