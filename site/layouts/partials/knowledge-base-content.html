@@ -207,81 +207,34 @@ button:focus {
 @media (max-width: 768px) {
   .section-header button {
     padding: 1rem;
-  /* Section Header Styles */
-  .section-header {
-    border: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
-
-  .section-header button:hover {
-    opacity: 0.95;
+  .p-6 {
+    padding: 1rem;
   }
-
-  .section-content {
-    border-left: 1px solid #e5e7eb;
-    border-right: 1px solid #e5e7eb;
-    border-bottom: 1px solid #e5e7eb;
+  
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
   }
-
-  /* Knowledge Accordion Styles */
-  .knowledge-accordion summary {
-    list-style: none;
+  
+  .py-3 {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
   }
+}
 
-  .knowledge-accordion summary::-webkit-details-marker {
-    display: none;
+/* Additional responsive styles */
+@media (max-width: 768px) {
+  h2 {
+    font-size: 1.25rem;
   }
+}
 
-  .knowledge-accordion[open] summary {
-    background-color: #fef2f2;
+@media (max-width: 480px) {
+  button {
+    padding: 0.75rem;
   }
-
-  .knowledge-accordion[open] summary h3 {
-    color: #ba0108;
-  }
-
-  .knowledge-accordion[open] summary svg:first-of-type {
-    transform: rotate(90deg);
-  }
-
-  /* Responsive Design */
-  @media (max-width: 768px) {
-    .section-header button {
-      padding: 1rem;
-    }
-
-    .section-header h2 {
-      font-size: 1.25rem;
-    }
-
-    .knowledge-accordion summary {
-      padding: 1rem;
-    }
-
-    .knowledge-accordion summary h3 {
-      font-size: 1rem;
-    }
-
-    .knowledge-accordion div {
-      padding-left: 2rem;
-      padding-right: 1rem;
-    }
-  }
-
-  @media (max-width: 480px) {
-    .section-header button {
-      padding: 0.75rem;
-    }
-
-    .knowledge-accordion summary {
-      padding: 0.75rem;
-    }
-
-    .knowledge-accordion div {
-      padding-left: 1.5rem;
-      padding-right: 0.75rem;
-    }
-  }
+}
 </style>
 
 <script>
@@ -337,10 +290,12 @@ document.addEventListener('DOMContentLoaded', function() {
       if (e.key === 'Enter') {
         const query = searchInput.value.trim();
         if (query) {
-          // Simple search implementation - highlights matching text
           searchInContent(query);
         }
-      });
+      }
+    });
+  }
+});
 
 function searchInContent(query) {
   const accordions = document.querySelectorAll('[aria-controls]');
@@ -377,6 +332,8 @@ function searchInContent(query) {
     alert('Нічого не знайдено за запитом: ' + query);
     resetSearch();
   }
+}
+
 function resetSearch() {
   const links = document.querySelectorAll('a[href*="/guides/"]');
   links.forEach(function(link) {

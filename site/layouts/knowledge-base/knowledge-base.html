@@ -81,6 +81,7 @@
 </section>
 
 <style>
+/* Native Details/Summary Styles */
 .knowledge-section {
   position: relative;
   z-index: 30;
@@ -146,99 +147,108 @@
     width: 24px !important;
     height: 24px !important;
   }
+}
 
-  .section-content {
-    border-left: 1px solid #e5e7eb;
-    border-right: 1px solid #e5e7eb;
+.knowledge-section summary::-webkit-details-marker {
+  display: none;
+}
+
+/* Open state styling */
+.knowledge-section[open] summary {
+  background-color: #ba0108 !important;
+}
+
+/* Ensure content appears above footer */
+.section-content {
+  position: relative;
+  z-index: 40;
+  border-left: 1px solid #e5e7eb;
+  border-right: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.section-header {
+  border: none;
+  box-shadow: none;
+}
+
+.section-header:hover {
+  opacity: 0.95;
+}
+
+/* Knowledge Item Styles */
+.knowledge-item:hover {
+  background-color: #f9fafb;
+}
+
+.knowledge-item h3 {
+  transition: color 0.2s ease;
+}
+
+.knowledge-item:hover h3 {
+  color: #ba0108;
+}
+
+/* Mobile Responsive Design */
+@media (max-width: 450px) {
+  .section-header div {
+    padding: 1rem 1.5rem;
+  }
+  
+  .section-header h2 {
+    font-size: 24px !important;
+    font-weight: bold;
+  }
+  
+  .section-header svg {
+    width: 24px !important;
+    height: 24px !important;
+  }
+  
+  .knowledge-item {
+    padding: 1rem 1.5rem;
     border-bottom: 1px solid #e5e7eb;
-  }
-
-  /* Knowledge Item Styles */
-  .knowledge-item:hover {
-    background-color: #f9fafb;
-  }
-
-  .knowledge-item h3 {
-    transition: color 0.2s ease;
-  }
-
-  .knowledge-item:hover h3 {
-    color: #ba0108;
-  }
-
-  /* Search functionality */
-  .knowledge-item.hidden {
-    display: none;
-  }
-
-  .knowledge-item.highlighted {
-    background-color: #fef2f2;
   }
   
   .knowledge-item h3 {
+    font-size: 16px !important;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
     padding-left: 0 !important;
-
-  /* Mobile Responsive Design */
-  @media (max-width: 450px) {
-    .section-header {
-      width: 100%;
-    }
-
-    .section-header button {
-      padding: 1rem 1.5rem;
-      width: 100%;
-    }
-
-    .section-header h2 {
-      font-size: 24px !important;
-      font-weight: bold;
-    }
-
-    .section-chevron {
-      width: 24px !important;
-      height: 24px !important;
-    }
-
-    .knowledge-item {
-      padding: 1rem 1.5rem;
-      border-bottom: 1px solid #e5e7eb;
-    }
-
-    .knowledge-item h3 {
-      font-size: 16px !important;
-      font-weight: 500;
-      margin-bottom: 0.5rem;
-      line-height: 1.4;
-    }
-
-    .knowledge-item p {
-      font-size: 14px !important;
-      line-height: 1.5;
-      color: #6b7280;
-    }
-
-    .knowledge-item svg {
-      width: 12px !important;
-      height: 12px !important;
-      margin-top: 2px;
-    }
-
-    .knowledge-item .flex {
-      align-items: flex-start;
-      gap: 0.75rem;
-    }
-
-    /* Remove left padding from title */
-    .knowledge-item h3 {
-      padding-left: 0 !important;
-    }
   }
+  
+  .knowledge-item p {
+    font-size: 14px !important;
+    line-height: 1.5;
+    color: #6b7280;
+  }
+  
+  .knowledge-item svg {
+    width: 12px !important;
+    height: 12px !important;
+    margin-top: 2px;
+  }
+  
+  .knowledge-item .flex {
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+}
+
+/* Search functionality */
+.knowledge-item.hidden {
+  display: none;
+}
+
+.knowledge-item.highlighted {
+  background-color: #fef2f2;
+}
 </style>
 
 <script>
 // Simple initialization for native details elements
 document.addEventListener('DOMContentLoaded', function() {
-
   // Search functionality
   const searchInput = document.getElementById('knowledge-search');
   const searchButton = searchInput?.nextElementSibling;
@@ -248,25 +258,29 @@ document.addEventListener('DOMContentLoaded', function() {
     if (query) {
       searchInContent(query);
     } else {
-      content.classList.remove('block');
-      content.classList.add('hidden');
-      chevron.style.transform = 'rotate(0deg)';
+      resetSearch();
     }
   }
-
-  document.addEventListener('DOMContentLoaded', function () {
-    // Search functionality
-    const searchInput = document.getElementById('knowledge-search');
-    const searchButton = searchInput?.nextElementSibling;
-
-    function performSearch() {
-      const query = searchInput.value.trim();
-      if (query) {
+  
+  if (searchInput && searchButton) {
+    searchButton.addEventListener('click', performSearch);
+    
+    searchInput.addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') {
+        performSearch();
+      }
+    });
+    
+    searchInput.addEventListener('input', function() {
+      const query = this.value.trim();
+      if (query.length > 2) {
         searchInContent(query);
-      } else {
+      } else if (query.length === 0) {
         resetSearch();
       }
-    }
+    });
+  }
+});
 
 function searchInContent(query) {
   const sections = document.querySelectorAll('.knowledge-section');
@@ -285,6 +299,11 @@ function searchInContent(query) {
         item.classList.add('highlighted');
         sectionHasMatch = true;
         found = true;
+      } else {
+        item.classList.add('hidden');
+        item.classList.remove('highlighted');
+      }
+    });
     
     if (sectionHasMatch) {
       section.open = true;
@@ -306,7 +325,6 @@ function resetSearch() {
     item.classList.remove('hidden', 'highlighted');
   });
   
-  // Close all sections
   sections.forEach(function(section) {
     section.open = false;
   });
@@ -326,5 +344,15 @@ function showSearchMessage(message) {
       container.appendChild(messageEl);
     }
   }
+  messageEl.textContent = message;
+  messageEl.style.display = 'block';
+}
+
+function hideSearchMessage() {
+  const messageEl = document.getElementById('search-message');
+  if (messageEl) {
+    messageEl.style.display = 'none';
+  }
+}
 </script>
 {{ end }}
