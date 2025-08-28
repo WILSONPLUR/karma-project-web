@@ -1,27 +1,30 @@
 {{ $title := .title }} {{ $items := .items }} {{ $isFirst := .isFirst }}
 
-<section class="flex relative flex-col items-center bg-white">
-    <div class="faq-accordion-container w-full max-w-[1237px] px-5" {{ if not $isFirst
-        }}style="margin-top: 80px !important;  margin-bottom: 0!important;" {{ else
-        }}style="margin-top: 122px !important; margin-bottom: 134px !important;" {{ end }}>
-        <h3
-            class="faq-title font-[Unbounded] font-medium text-[24px] md:text-[32px] lg:text-[40px] text-center text-[#020303] mb-[30px]">
+<section class="flex relative flex-col items-center bg-white" aria-labelledby="faq-accordion-heading">
+    <div class="faq-accordion-container w-full max-w-[min(1237px,90vw)] px-[clamp(20px,4vw,40px)]" {{ if not $isFirst
+        }}style="margin-top: clamp(40px,6vw,80px) !important; margin-bottom: 0!important;" {{ else
+        }}style="margin-top: clamp(60px,8vw,122px) !important; margin-bottom: clamp(60px,10vw,134px) !important;" {{ end
+        }}>
+        <h2 id="faq-accordion-heading"
+            class="faq-title font-[Unbounded] font-medium text-[clamp(20px,4vw,40px)] text-center text-[#020303] mb-[clamp(20px,3vw,30px)]">
             {{ $title }}
-        </h3>
-        <div class="w-full  flex flex-col gap-[30px] max-w-[600px] md:max-w-[949px] lg:max-w-[949px] xl:max-w-[1237px]"
-            data-accordion-list>
-            {{ range $items }}
-            <div class="faq-acc-wrapper">
+        </h2>
+        <div class="w-full flex flex-col gap-[clamp(20px,3vw,30px)] max-w-[min(1237px,85vw)]" data-accordion-list
+            role="list" aria-label="Список питань та відповідей">
+            {{ range $index, $item := $items }}
+            <div class="faq-acc-wrapper" role="listitem">
                 <details class="faq-acc-root group border-b border-[#303030]">
-                    <summary class="flex cursor-pointer select-none faq-acc-summary">
-                        <h4
-                            class="font-[Unbounded] md:font-[Montserrat] lg:font-[Montserrat] text-[16px] md:text-[20px] lg:text-[24px] font-medium w-full">
+                    <summary class="flex cursor-pointer select-none faq-acc-summary"
+                        aria-label="Розгорнути відповідь на питання: {{ .question }}">
+                        <h3
+                            class="font-[Unbounded] md:font-[Montserrat] lg:font-[Montserrat] text-[clamp(14px,2vw,24px)] font-medium w-full">
                             {{ .question }}
-                        </h4>
-                        <img src="/img/arrow.svg" alt="Arrow" width="20" height="20" class="faq-acc-icon" />
+                        </h3>
+                        <img src="/img/arrow.svg" alt="Іконка розгортання" width="20" height="20"
+                            class="faq-acc-icon" />
                     </summary>
                     <div class="faq-acc-content">
-                        <p class="font-[Montserrat] text-[16px]  font-normal text-[#1f2937]">
+                        <p class="font-[Montserrat] text-[clamp(14px,2vw,20px)] font-normal text-[#1f2937]">
                             {{ .answer }}
                         </p>
                     </div>
@@ -35,29 +38,24 @@
 <style>
     .faq-acc-wrapper {
         width: 100%;
-        margin-bottom: 20px;
+        margin-bottom: clamp(15px, 2vw, 20px);
     }
-
-
-
 
     .faq-acc-root {
         max-width: 100%;
         margin: 0 auto;
     }
 
-
-
     .faq-acc-summary {
         position: relative !important;
         display: flex !important;
         align-items: center !important;
-        padding: 23px 45px !important;
+        padding: clamp(15px, 3vw, 45px) clamp(20px, 4vw, 45px) !important;
         transition: background-color 400ms ease, color 400ms ease !important;
         background: #fff !important;
         color: #020303 !important;
         cursor: pointer;
-        min-height: 80px !important;
+        min-height: clamp(60px, 8vw, 80px) !important;
     }
 
     .faq-acc-summary::-webkit-details-marker {
@@ -74,13 +72,13 @@
     }
 
     .faq-acc-spacer {
-        flex: 0 0 80px !important;
+        flex: 0 0 clamp(30px, 6vw, 80px) !important;
     }
 
     .faq-acc-icon {
         margin-left: auto !important;
-        width: 33px !important;
-        height: 18px !important;
+        width: clamp(20px, 3vw, 33px) !important;
+        height: clamp(12px, 2vw, 18px) !important;
         transform: rotate(0deg) !important;
         transition: transform 500ms ease-in-out, filter 300ms ease-in-out !important;
         filter: brightness(0) !important;
@@ -111,67 +109,47 @@
         opacity: 1 !important;
         transition: none !important;
         width: 100% !important;
-        padding: 12px 46px !important;
+        padding: clamp(10px, 2vw, 46px) !important;
     }
 
-    @media (max-width: 1240px) {
+    /* Responsive breakpoints for better control */
+    @media (min-width: 640px) {
         .faq-acc-summary {
-            padding-left: 24px !important;
-            padding-right: 24px !important;
-        }
-
-        .faq-acc-spacer {
-            flex-basis: 60px !important;
+            padding-left: clamp(24px, 4vw, 45px) !important;
+            padding-right: clamp(24px, 4vw, 45px) !important;
         }
     }
 
-    @media (max-width: 960px) {
+    @media (min-width: 768px) {
         .faq-acc-summary {
-            padding-left: 20px !important;
-            padding-right: 20px !important;
-        }
-
-        .faq-acc-spacer {
-            flex-basis: 45px !important;
+            padding-left: clamp(30px, 5vw, 45px) !important;
+            padding-right: clamp(30px, 5vw, 45px) !important;
         }
     }
 
-    @media (max-width: 800px) {
+    @media (min-width: 1024px) {
         .faq-acc-summary {
-            padding-left: 16px !important;
-            padding-right: 16px !important;
-        }
-
-        .faq-acc-spacer {
-            flex-basis: 30px !important;
+            padding-left: clamp(35px, 6vw, 45px) !important;
+            padding-right: clamp(35px, 6vw, 45px) !important;
         }
     }
 
-    @media (max-width: 1024px) {
+    @media (min-width: 1280px) {
         .faq-acc-summary {
-            padding-left: 20px !important;
-            padding-right: 20px !important;
-            min-height: 70px !important;
-        }
-
-        .faq-acc-content {
-            padding: 10px 25px !important;
-        }
-
-        .faq-acc-icon {
-            width: 25px !important;
-            height: 15px !important;
+            padding-left: 45px !important;
+            padding-right: 45px !important;
         }
     }
 
-    @media (max-width: 560px) {
+    /* Mobile specific adjustments */
+    @media (max-width: 640px) {
         .faq-accordion-container {
-            margin-top: 60px !important;
-            margin-bottom: 60px !important;
+            margin-top: clamp(40px, 8vw, 60px) !important;
+            margin-bottom: clamp(40px, 8vw, 60px) !important;
         }
 
         .faq-acc-wrapper {
-            width: 349px !important;
+            width: 100% !important;
             margin: 0 auto !important;
         }
 
@@ -179,33 +157,19 @@
             max-width: 100% !important;
             padding-left: 0 !important;
             padding-right: 0 !important;
-
         }
 
         .faq-acc-content {
-            padding: 10px !important;
+            padding: clamp(8px, 2vw, 12px) !important;
         }
 
         .faq-acc-summary {
-            padding-top: 11px !important;
-            padding-bottom: 15px !important;
-            padding-left: 12px !important;
-            padding-right: 12px !important;
+            padding: clamp(10px, 3vw, 15px) !important;
         }
 
         .faq-acc-icon {
             align-self: flex-start !important;
             margin-top: 0 !important;
-        }
-
-        .faq-question-text {
-            overflow: hidden !important;
-            padding-right: 6px !important;
-            text-align: left !important;
-        }
-
-        .faq-acc-spacer {
-            flex-basis: 15px !important;
         }
     }
 </style>

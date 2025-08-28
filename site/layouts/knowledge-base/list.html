@@ -3,19 +3,19 @@
   {{ partial "knowledge-base-content.html" . }}
 {{ else }}
 <section class="py-8 bg-white">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
     <!-- Breadcrumbs -->
-    <div class="mb-8 flex items-center text-sm">
+    <div class="flex items-center mb-8 text-sm">
       <a href="/" class="text-[#ba0108] hover:text-[#9a0106] transition-colors">Головна</a>
       <span class="mx-2 text-[#ba0108]">→</span>
       <span class="text-[#ba0108]">База знань</span>
     </div>
 
-    <div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+    <div class="grid grid-cols-1 gap-8 lg:grid-cols-4">
       <!-- Sidebar -->
       <div class="lg:col-span-1">
-        <div class="bg-gray-50 rounded-xl p-6 shadow-sm">
-          <h2 class="text-xl font-semibold mb-4 text-gray-900">Категорії</h2>
+        <div class="p-6 bg-gray-50 rounded-xl shadow-sm">
+          <h2 class="mb-4 text-xl font-semibold text-gray-900">Категорії</h2>
           <nav class="space-y-2">
             {{ range .Site.Taxonomies.categories }}
             <a href="{{ .Page.Permalink }}" class="block px-4 py-2 rounded-lg hover:bg-gray-100 text-gray-700 hover:text-[#ba0108] transition-colors">
@@ -29,7 +29,7 @@
       <!-- Main Content -->
       <div class="lg:col-span-3">
         <div class="mb-8">
-          <h1 class="text-3xl font-bold text-gray-900 mb-2">База знань</h1>
+          <h2 class="mb-2 text-3xl font-bold text-gray-900">База знань</h2>
           <p class="text-gray-600">Корисні статті та довідкова інформація про нашу продукцію</p>
         </div>
 
@@ -37,7 +37,7 @@
         <div class="mb-8">
           <div class="relative">
             <input type="text" placeholder="Пошук у базі знань..." class="w-full px-4 py-3 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#ba0108] focus:border-transparent">
-            <svg class="absolute left-3 top-3.5 h-5 w-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg class="absolute left-3 top-3.5 w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
             </svg>
           </div>
@@ -46,27 +46,27 @@
         <!-- Articles Grid -->
         <div class="grid gap-6 md:grid-cols-2">
           {{ range .Pages }}
-          <article class="group bg-white rounded-xl shadow-sm overflow-hidden border border-gray-100 hover:shadow-md transition-shadow duration-300">
+          <article class="overflow-hidden bg-white rounded-xl border border-gray-100 shadow-sm transition-shadow duration-300 group hover:shadow-md">
             {{ if .Params.image }}
-            <div class="h-48 overflow-hidden">
-              <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105">
+            <div class="overflow-hidden h-48">
+              <img src="{{ .Params.image }}" alt="{{ .Title }}" class="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105">
             </div>
             {{ end }}
             <div class="p-6">
-              <div class="flex items-center text-sm text-gray-500 mb-2">
+              <div class="flex items-center mb-2 text-sm text-gray-500">
                 <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "02.01.2006" }}</time>
                 <span class="mx-2">•</span>
                 <span>{{ .ReadingTime }} хв. читання</span>
               </div>
-              <h2 class="text-xl font-semibold text-gray-900 mb-2">
+              <h2 class="mb-2 text-xl font-semibold text-gray-900">
                 <a href="{{ .RelPermalink }}" class="hover:text-[#ba0108] transition-colors">
                   {{ .Title }}
                 </a>
               </h2>
-              <p class="text-gray-600 mb-4">{{ .Summary | truncate 120 }}</p>
+              <p class="mb-4 text-gray-600">{{ .Summary | truncate 120 }}</p>
               <div class="flex flex-wrap gap-2">
                 {{ range .Params.tags }}
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
+                <span class="inline-flex items-center px-2.5 py-0.5 text-xs font-medium text-gray-800 bg-gray-100 rounded-full">
                   {{ . }}
                 </span>
                 {{ end }}
@@ -78,10 +78,10 @@
 
         <!-- Pagination -->
         {{ if gt .Paginator.TotalPages 1 }}
-        <div class="mt-10 flex justify-center">
+        <div class="flex justify-center mt-10">
           <nav class="flex items-center space-x-2">
             {{ if .Paginator.HasPrev }}
-            <a href="{{ .Paginator.Prev.URL }}" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+            <a href="{{ .Paginator.Prev.URL }}" class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50">
               &larr; Назад
             </a>
             {{ end }}
@@ -91,7 +91,7 @@
             </span>
             
             {{ if .Paginator.HasNext }}
-            <a href="{{ .Paginator.Next.URL }}" class="px-4 py-2 border border-gray-300 rounded-lg hover:bg-gray-50">
+            <a href="{{ .Paginator.Next.URL }}" class="px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-50">
               Вперед &rarr;
             </a>
             {{ end }}

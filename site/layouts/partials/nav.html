@@ -141,19 +141,16 @@
         font-size: 14px;
       }
 
-      /* Hide phone number on smaller tablets */
       .contact-phone {
         display: none;
       }
 
-      /* Reduce language switcher gap */
       .language-switcher {
         gap: 8px;
         font-size: 16px;
       }
     }
 
-    /* Medium tablet adjustments */
     @media (max-width: 900px) and (min-width: 769px) {
       .nav-link {
         font-size: 14px;
@@ -184,7 +181,7 @@
     class="flex w-full max-w-[1237px] xl:max-w-[1237px] lg:max-w-[1024px] px-4 justify-between items-center nav-container"
     style="padding-top: 20px; padding-bottom: 20px;">
     <!-- Logo -->
-    <a href="/" class="text-xl font-normal text-white font-inter z-50 relative">
+    <a href="/" class="relative z-50 text-xl font-normal text-white font-inter">
       <img src="/logo.png" alt="logo" width="149" height="34" />
     </a>
 
@@ -229,7 +226,7 @@
           class=" font-['Montserrat'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors">
           (067) 298-29-29
         </a>
-        <div class="language-switcher flex items-center gap-3 text-xl text-white/80">
+        <div class="flex gap-3 items-center text-xl language-switcher text-white/80">
           <button id="lang-ua"
             class="font-['Inter'] font-bold cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] focus:font-bold transition-colors"
             onclick="switchLanguage('ua')">UA</button>
@@ -242,9 +239,9 @@
     </div>
 
     <!-- Mobile Navigation -->
-    <div class="mobile-nav flex items-center gap-4">
+    <div class="flex gap-4 items-center mobile-nav">
       <!-- Search Icon -->
-      <button class="text-white hover:text-[#ba0108] transition-colors" onclick="toggleMobileSearch()">
+      <button class="text-white hover:text-[#ba0108] transition-colors cursor-pointer" onclick="toggleMobileSearch()">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z"
@@ -253,7 +250,7 @@
       </button>
 
       <!-- Hamburger Menu Button -->
-      <button class="hamburger flex flex-col justify-center items-center w-8 h-8 space-y-1"
+      <button class="flex flex-col justify-center items-center space-y-1 w-8 h-8 cursor-pointer hamburger"
         onclick="toggleMobileMenu()">
         <span class="block w-6 h-0.5 bg-white"></span>
         <span class="block w-6 h-0.5 bg-white"></span>
@@ -263,13 +260,13 @@
   </div>
 
   <!-- Mobile Search Overlay -->
-  <div id="mobile-search-overlay" class="mobile-search-overlay fixed inset-0 bg-black/80 z-50 hidden">
+  <div id="mobile-search-overlay" class="hidden fixed inset-0 z-50 mobile-search-overlay bg-black/80">
     <div class="bg-[#020303] p-6 rounded-b-3xl">
-      <div class="flex items-center justify-between mb-4">
+      <div class="flex justify-between items-center mb-4">
         <a href="/" class="text-xl font-normal text-white font-inter">
           <img src="/logo.png" alt="logo" width="149" height="34" />
         </a>
-        <button class="text-white hover:text-[#ba0108] transition-colors" onclick="toggleMobileSearch()">
+        <button class="text-white hover:text-[#ba0108] transition-colors cursor-pointer" onclick="toggleMobileSearch()">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" />
@@ -292,24 +289,25 @@
   <!-- Mobile Menu Overlay -->
   <div id="mobileMenu" class="mobile-menu fixed inset-0 bg-[#020303] z-40 flex flex-col">
     <div class="flex justify-end items-center p-4 shadow-[0_2px_8px_rgba(255,255,255,0.4)]">
-      <button class="hamburger flex flex-col justify-center items-center w-8 h-8 relative" onclick="toggleMobileMenu()">
-        <span class="block w-6 h-0.5 bg-white absolute rotate-45"></span>
-        <span class="block w-6 h-0.5 bg-white absolute -rotate-45"></span>
+      <button class="flex relative flex-col justify-center items-center w-8 h-8 cursor-pointer hamburger"
+        onclick="toggleMobileMenu()">
+        <span class="block absolute w-6 h-0.5 bg-white rotate-45"></span>
+        <span class="block absolute w-6 h-0.5 bg-white -rotate-45"></span>
       </button>
     </div>
 
-    <nav class="flex-1 flex flex-col items-center p-6 space-y-6">
+    <nav class="flex flex-col flex-1 items-center p-6 space-y-6">
       <div class="relative">
         <button onclick="toggleMobileCatalog()"
-          class="w-full flex justify-center items-center text-white font-['Unbounded'] text-xl font-normal py-2">
+          class="w-full flex justify-center items-center text-white font-['Unbounded'] text-xl font-normal py-2 cursor-pointer">
           <span class="font-['Unbounded'] text-xl font-normal text-white">Каталог</span>
-          <svg class="w-5 h-5 transform transition-transform mobile-catalog-arrow" fill="none" stroke="currentColor"
+          <svg class="w-5 h-5 transition-transform transform mobile-catalog-arrow" fill="none" stroke="currentColor"
             viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
-        <div class="mobile-catalog-menu overflow-hidden transition-all duration-300 ease-in-out max-h-0 opacity-0">
-          <div class="mt-2 pl-4 space-y-2 flex flex-col items-center">
+        <div class="overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out mobile-catalog-menu">
+          <div class="flex flex-col items-center pl-4 mt-2 space-y-2">
             <a href="/catalog/politni-steky/"
               class="block text-white/80 font-['Unbounded'] text-lg py-2 hover:text-[#ba0108] transition-colors">Політні
               стеки</a>
@@ -328,11 +326,11 @@
       <a href="/contact"
         class="text-white font-['Unbounded'] text-xl font-normal hover:text-[#ba0108] transition-colors">Контакти</a>
 
-      <div class="absolute bottom-10 flex flex-col items-center">
+      <div class="flex absolute bottom-10 flex-col items-center">
         <a href="tel:(067) 298-29-29"
           class="block text-white font-['Montserrat'] text-xl font-normal mb-4 hover:text-[#ba0108] transition-colors">(067)
           298-29-29</a>
-        <div class="flex items-center gap-3 text-2xl text-white">
+        <div class="flex gap-3 items-center text-2xl text-white">
           <button id="mobile-lang-ua"
             class="!font-[Unbounded] font-[300] cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] transition-colors"
             onclick="switchLanguage('ua')">
