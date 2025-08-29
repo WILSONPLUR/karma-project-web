@@ -54,7 +54,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&family=Wallpoet&display=swap"
     rel="stylesheet" /> 
-  <link rel="stylesheet" href="/main.e0719.css" />
+  <link rel="stylesheet" href="/main.d7bce.css" />
   
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
@@ -246,7 +246,10 @@
     style="padding-top: 20px; padding-bottom: 20px;">
     
     <a href="/" class="relative z-50 text-xl font-normal text-white font-inter">
+      
+      
       <img src="/logo.png" alt="logo" width="149" height="34" />
+      
     </a>
 
     
@@ -328,7 +331,10 @@
     <div class="bg-[#020303] p-6 rounded-b-3xl">
       <div class="flex justify-between items-center mb-4">
         <a href="/" class="text-xl font-normal text-white font-inter">
+          
+          
           <img src="/logo.png" alt="logo" width="149" height="34" />
+          
         </a>
         <button class="text-white hover:text-[#ba0108] transition-colors cursor-pointer" onclick="toggleMobileSearch()">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -550,36 +556,64 @@
   
 
 
-<section class="relative flex items-center justify-center px-[20px] py-[60px] sm:py-[80px] lg:py-[80px] overflow-hidden">
-  <div class="background-element2">
-    <img src="/img/bg-el-5.png" alt="" class="max-[450px]:w-[200px] max-[450px]:h-[200px]" width="400" height="400" />
+<section class="flex overflow-hidden relative justify-center items-center px-5 py-16 sm:py-20 lg:py-20">
+  <div class="hidden background-element1 xl:block">
+    
+    
+    
+    <img src="/img/bg-el-8_hu_53c0e57b27bbc923.webp" alt="" class="w-[299px] h-auto object-contain" />
+    
   </div>
-  <div class="lg:w-[1237px] max-[450px]:w-full flex lg:flex-row max-[450px]:flex-col justify-center lg:gap-[150px] max-[450px]:gap-[20px] !mx-auto">
-    <div class="flex flex-col gap-3">
-      <h2 class="lg:text-[40px] max-[450px]:text-2xl font-['Unbounded'] font-[400] hero-title">
-        <span class="text-[#BA0108]">З</span>В'ЯЖІТЬСЯ З НАМИ
+  <div class="hidden background-element2 sm:block">
+    
+    
+    
+    <img src="/img/bg-el-5_hu_d38d2ad42f015886.webp" alt="" class="w-[250px] h-auto object-contain xl:w-[400px]" />
+    
+  </div>
+
+  <div
+    class="w-full max-w-[1237px] mx-auto relative z-10 flex flex-col md:flex-col xl:flex-row xl:justify-between xl:items-center lg:gap-[clamp(20px,4vw,32px)]">
+    <div class="flex flex-col gap-3 w-full text-center md:text-left">
+      <h2 class="text-[clamp(24px,3vw,40px)] font-medium font-['Unbounded']">
+        <span class="text-[#BA0108]">З</span>
+        В'ЯЖІТЬСЯ З НАМИ
       </h2>
-      <p class="font-['Montserrat'] lg:text-xl max-[450px]:text-[16px] font-[300]">
+      <p class="mb-4 text-[clamp(16px,2vw,20px)] font-medium text-black font-['Montserrat']">
         Введіть будь-ласка Ваші данні і ми зв'яжемось з Вами
       </p>
-      <form class="w-full flex flex-col gap-2 !font-['Montserrat']">
-        <div class="flex gap-2">
-          <input type="text" placeholder="Ваше ім'я" class="flex-1 w-1/2 px-[20px] py-[15px] border-[1px] border-solid border-[#ddd] rounded-[5px] text-[16px] bg-[#fff] [transition:border-color_0.3s_ease]" />
-          <input type="tel" placeholder="+380" class="flex-1 w-1/2 px-[20px] py-[15px] border-[1px] border-solid border-[#ddd] rounded-[5px] text-[16px] bg-[#fff] [transition:border-color_0.3s_ease]" />
+
+      <form class="flex flex-col gap-[clamp(20px,3vw,27px)] font-['Montserrat'] w-full">
+        <div class="flex flex-col gap-[clamp(15px,2vw,23px)] md:flex-row xl:flex-row">
+          <input type="text" placeholder="Ваше ім'я"
+            class="form-input w-full xl:w-[373px] flex-1 px-5 bg-white py-4 placeholder:text-gray-500 border border-gray-600 rounded-md text-base bg-white transition-all duration-300 ease-in-out" />
+          <input type="tel" placeholder="+380"
+            class="form-input w-full xl:w-[373px] flex-1 px-5 bg-white py-4 placeholder:text-gray-500 border border-gray-600 rounded-md text-base bg-white transition-all duration-300 ease-in-out" />
         </div>
-        <textarea placeholder="Ваше повідомлення" class="px-[20px] py-[15px] border-[1px] border-solid border-[#ddd] rounded-[5px] text-[16px] bg-[#fff] resize-y min-h-[120px] [transition:border-color_0.3s_ease] [font-family:'Montserrat']" rows="5"></textarea>
-        <button type="submit" class="bg-[#ba0108] !font-['Montserrat'] text-[#fff] border-[none] px-[40px] py-[18px] rounded-[20px] cursor-pointer lg:text-2xl max-[450px]:text-[16px] font-[300] [transition:background-color_0.3s_ease]">
+
+        <textarea placeholder="Ваше повідомлення" rows="5"
+          class="form-input w-full xl:w-[770px] px-5 py-4 placeholder:text-gray-500 bg-white border border-gray-600 rounded-md text-base bg-white resize-y min-h-[120px] transition-all duration-300 ease-in-out font-['Montserrat']"></textarea>
+
+        <button type="submit"
+          class="form-button w-full xl:w-[770px] bg-[#ba0108] text-white border-none px-10 h-[70px] mt-[50px] lg:h-auto lg:py-5 lg:mt-0 rounded-2xl cursor-pointer text-[clamp(16px,2vw,24px)] font-medium font-['Montserrat'] transition-all duration-300 ease-in-out">
           Відправити
         </button>
       </form>
     </div>
-    <div class="contactInfo">
-      <div class="contactItem">
-        <h3 class="lg:text-xl max-[450px]:text-[16px] font-['Montserrat'] text-black">Контактний відділ</h3>
-        <a href="tel:+380956156713" class="block font-['Unbounded'] lg:text-[36px] max-[450px]:text-[24px] font-semibold text-[#ba0108] no-underline mb-[15px] [transition:color_0.3s_ease]">
+    <div
+      class="flex flex-col justify-center items-center mt-8 text-center sm:flex-row sm:items-center sm:text-left md:flex-row lg:flex-row lg:items-center lg:justify-center lg:text-center xl:flex-col xl:items-start xl:text-left xl:mt-0 xl:gap-3">
+      <h3 class="text-[clamp(16px,2vw,20px)] font-medium text-black font-['Montserrat'] mb-3 sm:mb-0 lg:mb-0 xl:mb-3">
+        Контактний відділ
+      </h3>
+      <div class="flex flex-col gap-3">
+        <a href="tel:+380956156713" class="block text-[clamp(24px,3vw,36px)] font-medium text-[#ba0108] 
+             no-underline transition-colors duration-300 ease-in-out font-['Unbounded'] 
+             hover:text-red-800">
           +380 95 61 56713
         </a>
-        <a href="mailto:Info@karma.flights" class="block font-['Unbounded'] lg:text-[24px] max-[450px]:text-[24px] text-[#020303] no-underline font-medium [transition:color_0.3s_ease]">
+        <a href="mailto:Info@karma.flights" class="block text-[clamp(24px,3vw,36px)] font-medium text-gray-900 
+             no-underline transition-colors duration-300 ease-in-out font-['Unbounded'] 
+             hover:text-gray-700">
           Info@karma.flights
         </a>
       </div>
@@ -588,162 +622,40 @@
 </section>
 
 <style>
-  .contact-section {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto;
-    padding: 80px 20px;
-    overflow: hidden;
-}
-
-.background-element1 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 0;
-}
-
-.background-element2 {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  z-index: 0;
-}
-
-.bg-image {
-  width: 400px;
-  height: auto;
-}
-
-.container {
-  display: flex;
-  width: 100%;
-  width: 1200px;
-  justify-content: center;
-  margin: 0 auto;
-  gap: 80px;
-  z-index: 10;
-  position: relative;
-}
-
-.form-container {
-  flex: 1;
-  max-width: 600px;
-}
-
-.title {
-  font-family: "Unbounded", sans-serif;
-  font-size: 40px;
-  font-weight: 600;
-  color: #020303;
-  margin-bottom: 20px;
-}
-
-.titleHighlight {
-  color: #ba0108;
-}
-
-.subtitle {
-  font-size: 16px;
-  color: #666;
-  margin-bottom: 40px;
-  line-height: 1.5;
-}
-
-.form {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.input-row {
-  display: flex;
-  gap: 20px;
-}
-
-.input {
-  flex: 1;
-  padding: 15px 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: #fff;
-  transition: border-color 0.3s ease;
-}
-
-.input:focus {
-  outline: none;
-  border-color: #ba0108;
-}
-
-.textarea {
-  padding: 15px 20px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  font-size: 16px;
-  background-color: #fff;
-  resize: vertical;
-  min-height: 120px;
-  transition: border-color 0.3s ease;
-  font-family: inherit;
-}
-
-.textarea:focus {
-  outline: none;
-  border-color: #ba0108;
-}
-
-.button {
-  background-color: #ba0108;
-  color: #fff;
-  border: none;
-  padding: 18px 40px;
-  border-radius: 20px;
-  cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 16px;
-  font-weight: 600;
-  transition: background-color 0.3s ease;
-}
-
-.button:hover {
-  background-color: #9a0107;
-}
-
-.contactInfo {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-left: 40px;
-}
-
-.contactItem h3 {
-  font-size: 20px;
-  color: #666;
-  margin-bottom: 20px;
-  font-weight: normal;
-}
-
-
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-    gap: 40px;
+  .background-element1 {
+    position: absolute;
+    top: -56px;
+    left: 0;
+    z-index: 0;
   }
 
-  .contactInfo {
-    padding-left: 0;
-    text-align: center;
+  .background-element2 {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index: 0;
   }
 
-  .inputRow {
-    flex-direction: column;
-    gap: 15px;
+  @media (max-width: 1279px) {
+    .background-element1 {
+      display: none;
+    }
+
+    .background-element2 {
+      bottom: 55%;
+      right: 0;
+    }
   }
-}
+
+  .form-input:focus {
+    outline: none;
+    border-color: #ba0108;
+    box-shadow: 0 0 0 3px rgba(186, 1, 8, 0.1);
+  }
+
+  .form-button:hover {
+    background-color: #9a0107;
+  }
 </style>
 
 
@@ -1037,25 +949,31 @@
 		<div class="flex justify-between pt-[26px]">
 			<div class="flex flex-col mt-20">
 				<a href="#" class="inline-block mb-4">
+					
+					
 					<img src="/logo.png" alt="Karma" width="149" height="34" />
+					
 				</a>
 			</div>
 
 			<div class="flex flex-col gap-5">
 				<h3 class="font-['Montserrat'] text-2xl font-semibold text-white mb-6">Контакти</h3>
 				<div class="flex flex-col gap-3">
-					<div class="flex items-center gap-4">
-						<a href="tel:+380956156713" class="font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">+380
-							95 61 56713</a>
-						<span class="font-['Montserrat'] text-lg text-white opacity-80">Контактний відділ</span>
-					</div>
-					<div class="flex items-center gap-4">
-						<a href="tel:+380956156713" class="font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">+380
+					<div class="flex gap-4 items-center">
+						<a href="tel:+380956156713"
+							class="font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">+380
 							95 61 56713</a>
 						<span class="font-['Montserrat'] text-lg text-white opacity-80">Контактний відділ</span>
 					</div>
 					<div class="flex gap-4 items-center">
-						<a href="tel:+380956156713" class="font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">+380
+						<a href="tel:+380956156713"
+							class="font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">+380
+							95 61 56713</a>
+						<span class="font-['Montserrat'] text-lg text-white opacity-80">Контактний відділ</span>
+					</div>
+					<div class="flex gap-4 items-center">
+						<a href="tel:+380956156713"
+							class="font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">+380
 							95 61 56713</a>
 						<span class="font-['Montserrat'] text-lg text-white opacity-80">Контактний відділ</span>
 					</div>
@@ -1067,8 +985,10 @@
 				<nav class="flex flex-col gap-3">
 					<a href="#" class="block font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">Каталог</a>
 					<a href="/faq" class="block font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">FAQ</a>
-					<a href="/knowledge-base" class="block font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">База знань</a>
-					<a href="/contacts" class="block font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">Контакти</a>
+					<a href="/knowledge-base"
+						class="block font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">База знань</a>
+					<a href="/contacts"
+						class="block font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">Контакти</a>
 				</nav>
 			</div>
 
@@ -1081,7 +1001,10 @@
 						<img src="/insta.svg" alt="instagram" width="36" height="36" />
 					</a>
 					<a href="#" aria-label="Telegram" class="flex justify-center items-center w-12 h-12 rounded-full">
+						
+						
 						<img src="/signal.png" alt="signal" width="36" height="36" />
+						
 					</a>
 					<a href="#" aria-label="WhatsApp" class="flex justify-center items-center w-12 h-12 rounded-full">
 						<img src="/whatsapp.svg" alt="whatsapp" width="36" height="36" />
@@ -1096,12 +1019,15 @@
 	</div>
 
 	
-	<div class="block md:hidden px-5 mx-auto max-w-md">
+	<div class="block px-5 mx-auto max-w-md md:hidden">
 		<div class="flex flex-col items-center text-center">
 			
 			<div class="mb-8">
 				<a href="#" class="inline-block">
-					<img src="/logo.png" alt="KARMA" class="h-8 w-auto" />
+					
+					
+					<img src="/logo.png" alt="KARMA" class="w-auto h-8" />
+					
 				</a>
 			</div>
 
@@ -1109,12 +1035,13 @@
 			<nav class="flex flex-col gap-6 mb-8">
 				<a href="#" class="font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">Каталог</a>
 				<a href="/faq" class="font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">FAQ</a>
-				<a href="/knowledge-base" class="font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">База знань</a>
+				<a href="/knowledge-base" class="font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">База
+					знань</a>
 				<a href="/contacts" class="font-['Montserrat'] text-xl text-white hover:text-[#ba0108]">Контакти</a>
 			</nav>
 
 			
-			<div class="flex items-center gap-2 mb-8">
+			<div class="flex gap-2 items-center mb-8">
 				<span class="font-['Montserrat'] text-xl text-[#ba0108] font-semibold">UA</span>
 				<span class="font-['Montserrat'] text-xl text-white">|</span>
 				<span class="font-['Montserrat'] text-xl text-white">EN</span>
@@ -1124,31 +1051,42 @@
 			<div class="mb-8">
 				<p class="font-['Montserrat'] text-base text-[#929292] mb-4">Зворотний зв'язок:</p>
 				<div class="flex flex-col gap-2">
-					<a href="tel:+380956156713" class="font-['Montserrat'] text-base text-white hover:text-[#ba0108]">+380 95 61 56713</a>
-					<a href="tel:+380956156713" class="font-['Montserrat'] text-base text-white hover:text-[#ba0108]">+380 95 61 56713</a>
-					<a href="tel:+380956156713" class="font-['Montserrat'] text-base text-white hover:text-[#ba0108]">+380 95 61 56713</a>
+					<a href="tel:+380956156713"
+						class="font-['Montserrat'] text-base text-white hover:text-[#ba0108]">+380 95 61 56713</a>
+					<a href="tel:+380956156713"
+						class="font-['Montserrat'] text-base text-white hover:text-[#ba0108]">+380 95 61 56713</a>
+					<a href="tel:+380956156713"
+						class="font-['Montserrat'] text-base text-white hover:text-[#ba0108]">+380 95 61 56713</a>
 				</div>
 			</div>
 
 			
-			<div class="flex justify-center gap-4 mb-8">
-				<a href="#" aria-label="Facebook" class="flex justify-center items-center w-[38px] h-[38px] rounded-full">
+			<div class="flex gap-4 justify-center mb-8">
+				<a href="#" aria-label="Facebook"
+					class="flex justify-center items-center w-[38px] h-[38px] rounded-full">
 					<img src="/facebook.svg" alt="facebook" width="24" height="24" />
 				</a>
-				<a href="#" aria-label="Telegram" class="flex justify-center items-center w-[38px] h-[38px] rounded-full">
+				<a href="#" aria-label="Telegram"
+					class="flex justify-center items-center w-[38px] h-[38px] rounded-full">
+					
+					
 					<img src="/signal.png" alt="signal" width="24" height="24" />
+					
 				</a>
-				<a href="#" aria-label="Instagram" class="flex justify-center items-center w-[38px] h-[38px] rounded-full">
+				<a href="#" aria-label="Instagram"
+					class="flex justify-center items-center w-[38px] h-[38px] rounded-full">
 					<img src="/insta.svg" alt="instagram" width="24" height="24" />
 				</a>
-				<a href="#" aria-label="WhatsApp" class="flex justify-center items-center w-[38px] h-[38px] rounded-full">
+				<a href="#" aria-label="WhatsApp"
+					class="flex justify-center items-center w-[38px] h-[38px] rounded-full">
 					<img src="/whatsapp.svg" alt="whatsapp" width="24" height="24" />
 				</a>
 			</div>
 
 			
 			<div class="text-center">
-				<a href="#" class="font-['Montserrat'] text-base text-[#929292] hover:text-[#ba0108]">Політика конфіденційності</a>
+				<a href="#" class="font-['Montserrat'] text-base text-[#929292] hover:text-[#ba0108]">Політика
+					конфіденційності</a>
 			</div>
 		</div>
 	</div>
@@ -1435,7 +1373,7 @@
 </script>
   
   
-  <script src="/main.e0719.js"></script>
+  <script src="/main.d7bce.js"></script>
   
 
   <script>

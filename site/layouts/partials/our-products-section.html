@@ -1,49 +1,68 @@
 {{ $category := "politni-steky" }}
 {{ $context := . }}
 {{ if isset . "category" }}
-  {{ $category = .category }}
+{{ $category = .category }}
 {{ end }}
 {{ if isset . "context" }}
-  {{ $context = .context }}
+{{ $context = .context }}
 {{ end }}
 {{ if isset $context.Params "category" }}
-  {{ $category = $context.Params.category }}
+{{ $category = $context.Params.category }}
 {{ end }}
 
 {{/* Get products from content files instead of data files */}}
 {{ $products := where $context.Site.RegularPages "Section" "catalog" }}
 {{ $categoryProducts := where $products ".Params.category" $category }}
 {{ $categoryData := index $context.Site.Data.products.categories $category }}
-<section class="relative flex flex-col justify-center items-center gap-[20px] px-[20px] py-[60px] bg-[#f9f9f9] overflow-hidden">
+<section
+  class="relative flex flex-col justify-center items-center gap-[20px] px-[20px] py-[60px] bg-[#f9f9f9] overflow-hidden">
   <div class="absolute top-0 right-0">
-    <img src="/img/bg-el-1.png" alt="" class="lg:w-[200px] lg:h-[400px] max-[450px]:w-[100px] max-[450px]:h-[100px] object-cover" />
+    {{ $bgEl1 := resources.Get "img/bg-el-1.png" }}
+    {{ if $bgEl1 }}
+    {{ $bgEl1Processed := $bgEl1.Resize "200x400 webp q80" }}
+    <img src="{{ $bgEl1Processed.RelPermalink }}" alt=""
+      class="lg:w-[200px] lg:h-[400px] max-[450px]:w-[100px] max-[450px]:h-[100px] object-cover" />
+    {{ else }}
+    <img src="/img/bg-el-1.png" alt=""
+      class="lg:w-[200px] lg:h-[400px] max-[450px]:w-[100px] max-[450px]:h-[100px] object-cover" />
+    {{ end }}
   </div>
-  
+
   <div class="flex flex-col w-full max-w-[1200px]">
     <h2 class="font-['Unbounded'] lg:text-[40px] max-[450px]:text-2xl font-medium mb-[40px] text-center hero-title">
-        <span class="text-[#ba0108]">Н</span>АШІ ТОВАРИ
+      <span class="text-[#ba0108]">Н</span>АШІ ТОВАРИ
     </h2>
-    
+
     <!-- Desktop Layout -->
-    <div class="hidden lg:block relative">
+    <div class="hidden relative lg:block">
       <div class="swiper-container-products">
         <div class="swiper-wrapper">
           {{ range $categoryProducts }}
           <div class="swiper-slide">
-            <div class="bg-[#fff] rounded-[10px] p-[20px] [box-shadow:0_4px_16px_rgba(0,_0,_0,_0.1)] w-[400px] text-center mx-2">
+            <div
+              class="bg-[#fff] rounded-[10px] p-[20px] [box-shadow:0_4px_16px_rgba(0,_0,_0,_0.1)] w-[400px] text-center mx-2">
+              {{ $productImage := resources.Get .Params.image }}
+              {{ if $productImage }}
+              {{ $productImageProcessed := $productImage.Resize "400x300 webp q80" }}
+              <img src="{{ $productImageProcessed.RelPermalink }}" alt="{{ .Title }}"
+                class="w-full h-[300px] object-contain mb-[15px]" />
+              {{ else }}
               <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-[300px] object-contain mb-[15px]" />
-              <h3 class="font-['Montserrat'] text-2xl font-semibold mt-[15px] mx-[0] mb-[20px] text-[#020303] leading-[1.2]">
+              {{ end }}
+              <h3
+                class="font-['Montserrat'] text-2xl font-semibold mt-[15px] mx-[0] mb-[20px] text-[#020303] leading-[1.2]">
                 {{ .Title }}
               </h3>
               <ul class="text-left space-y-[8px]">
                 {{ range .Params.specs }}
                 <li class="flex justify-between text-[16px] font-['Montserrat']">
-                  <span class="font-medium text-[#666]">{{ .label }}</span> 
+                  <span class="font-medium text-[#666]">{{ .label }}</span>
                   <span class="text-[#333]">{{ .value }}</span>
                 </li>
                 {{ end }}
               </ul>
-              <a href="{{ .Permalink }}" class="inline-block bg-[#ba0108] text-[#fff] border-[none] px-[30px] py-[15px] mt-5 rounded-[20px] cursor-pointer text-2xl font-['Montserrat'] font-normal [transition:background-color_0.3s_ease] hover:bg-[#9a0106] w-full">
+              <a href="{{ .Permalink }}"
+                class="inline-block bg-[#ba0108] text-[#fff] border-[none] px-[30px] py-[15px] mt-5 rounded-[20px] cursor-pointer text-2xl font-['Montserrat'] font-normal [transition:background-color_0.3s_ease] hover:bg-[#9a0106] w-full">
                 Детальніше
               </a>
             </div>
@@ -51,12 +70,14 @@
           {{ end }}
         </div>
       </div>
-      
+
       <!-- Desktop Navigation arrows -->
-      <div class="swiper-button-prev-custom absolute left-[-60px] top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[70px] h-[70px] flex items-center justify-center transition-shadow">
+      <div
+        class="swiper-button-prev-custom absolute left-[-60px] top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[70px] h-[70px] flex items-center justify-center transition-shadow">
         <img src="/img/nav_arrow.svg" alt="navigation prev arrow" class="w-[40px] h-[40px] rotate-180" />
       </div>
-      <div class="swiper-button-next-custom absolute right-[-60px] top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[70px] h-[70px] flex items-center justify-center transition-shadow">
+      <div
+        class="swiper-button-next-custom absolute right-[-60px] top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[70px] h-[70px] flex items-center justify-center transition-shadow">
         <img src="/img/nav_arrow.svg" alt="navigation next arrow" class="w-[40px] h-[40px]" />
       </div>
     </div>
@@ -65,33 +86,46 @@
     <div class="block lg:hidden relative overflow-hidden max-[450px]:w-full" id="mobile-slider">
       <div class="flex transition-transform duration-300 ease-in-out" id="mobile-slider-wrapper">
         {{ range $index, $product := $categoryProducts }}
-        <div class="w-full flex-shrink-0 px-5">
-          <div class="bg-[#fff] rounded-[10px] p-[20px] [box-shadow:0_4px_16px_rgba(0,_0,_0,_0.1)] w-full max-w-[320px] text-center mx-auto">
-            <img src="{{ $product.Params.image }}" alt="{{ $product.Title }}" class="w-full h-[300px] object-contain mb-[15px]" />
-            <h3 class="font-['Montserrat'] text-xl font-semibold mt-[15px] mx-[0] mb-[20px] text-[#020303] leading-[1.2]">
+        <div class="flex-shrink-0 px-5 w-full">
+          <div
+            class="bg-[#fff] rounded-[10px] p-[20px] [box-shadow:0_4px_16px_rgba(0,_0,_0,_0.1)] w-full max-w-[320px] text-center mx-auto">
+            {{ $productImageMobile := resources.Get $product.Params.image }}
+            {{ if $productImageMobile }}
+            {{ $productImageMobileProcessed := $productImageMobile.Resize "320x300 webp q80" }}
+            <img src="{{ $productImageMobileProcessed.RelPermalink }}" alt="{{ $product.Title }}"
+              class="w-full h-[300px] object-contain mb-[15px]" />
+            {{ else }}
+            <img src="{{ $product.Params.image }}" alt="{{ $product.Title }}"
+              class="w-full h-[300px] object-contain mb-[15px]" />
+            {{ end }}
+            <h3
+              class="font-['Montserrat'] text-xl font-semibold mt-[15px] mx-[0] mb-[20px] text-[#020303] leading-[1.2]">
               {{ $product.Title }}
             </h3>
             <ul class="text-left space-y-[8px]">
               {{ range $product.Params.specs }}
               <li class="flex justify-between text-[14px] font-['Montserrat']">
-                <span class="font-medium text-[#666]">{{ .label }}</span> 
+                <span class="font-medium text-[#666]">{{ .label }}</span>
                 <span class="text-[#333]">{{ .value }}</span>
               </li>
               {{ end }}
             </ul>
-            <a href="{{ $product.Permalink }}" class="inline-block bg-[#ba0108] text-[#fff] border-[none] px-[30px] py-[15px] mt-5 rounded-[20px] cursor-pointer text-lg font-['Montserrat'] font-normal [transition:background-color_0.3s_ease] hover:bg-[#9a0106] w-full">
+            <a href="{{ $product.Permalink }}"
+              class="inline-block bg-[#ba0108] text-[#fff] border-[none] px-[30px] py-[15px] mt-5 rounded-[20px] cursor-pointer text-lg font-['Montserrat'] font-normal [transition:background-color_0.3s_ease] hover:bg-[#9a0106] w-full">
               Детальніше
             </a>
           </div>
         </div>
         {{ end }}
       </div>
-      
+
       <!-- Mobile Navigation arrows -->
-      <div class="mobile-prev absolute left-2 top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[40px] h-[40px] flex items-center justify-center">
+      <div
+        class="mobile-prev absolute left-2 top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[40px] h-[40px] flex items-center justify-center">
         <img src="/img/nav_arrow.svg" alt="navigation prev arrow" class="w-[35px] h-[35px] rotate-180" />
       </div>
-      <div class="mobile-next absolute right-2 top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[40px] h-[40px] flex items-center justify-center">
+      <div
+        class="mobile-next absolute right-2 top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[40px] h-[40px] flex items-center justify-center">
         <img src="/img/nav_arrow.svg" alt="navigation next arrow" class="w-[35px] h-[35px]" />
       </div>
     </div>

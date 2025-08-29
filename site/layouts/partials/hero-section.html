@@ -1,11 +1,28 @@
 <section class="bg-white min-h-[600px] relative overflow-hidden py-16 flex justify-center items-center">
   <!-- Background decorative elements -->
+  {{ $bgEl1 := resources.Get "img/bg-el-1.png" }}
+  {{ if $bgEl1 }}
+  {{ $bgEl1Processed := $bgEl1.Resize "350x360 webp q80" }}
+  <img src="{{ $bgEl1Processed.RelPermalink }}" alt=""
+    class="absolute z-[1] top-0 right-0 lg:w-[350px] md:w-[250px] sm:w-[150px] max-[450px]:w-[100px] h-auto" width="350"
+    height="360" />
+  {{ else }}
   <img src="/img/bg-el-1.png" alt=""
     class="absolute z-[1] top-0 right-0 lg:w-[350px] md:w-[250px] sm:w-[150px] max-[450px]:w-[100px] h-auto" width="350"
     height="360" />
+  {{ end }}
+
+  {{ $bgEl2 := resources.Get "img/bg-el-2.png" }}
+  {{ if $bgEl2 }}
+  {{ $bgEl2Processed := $bgEl2.Resize "320x280 webp q80" }}
+  <img src="{{ $bgEl2Processed.RelPermalink }}" alt=""
+    class="absolute z-[1] bottom-0 left-0 lg:w-[320px] md:w-[250px] sm:w-[200px] max-[450px]:w-[150px] h-auto"
+    width="320" height="280" />
+  {{ else }}
   <img src="/img/bg-el-2.png" alt=""
     class="absolute z-[1] bottom-0 left-0 lg:w-[320px] md:w-[250px] sm:w-[200px] max-[450px]:w-[150px] h-auto"
     width="320" height="280" />
+  {{ end }}
 
   <!-- Desktop Layout -->
   <div class="hidden lg:block max-w-[1440px] xl:max-w-[1600px] mx-auto pt-[40px] mb-[64px] relative z-[2] px-8">
@@ -27,8 +44,16 @@
 
       <!-- Right Image -->
       <div class="flex relative flex-shrink-0 justify-center items-center">
+        {{ $stackDesktop := resources.Get "img/stack.png" }}
+        {{ if $stackDesktop }}
+        {{ $stackDesktopProcessed := $stackDesktop.Resize "500x500 webp q80" }}
+        <img src="{{ $stackDesktopProcessed.RelPermalink }}"
+          alt="Karma Flights - високотехнологічне українське виробництво"
+          class="w-auto h-auto max-w-[400px] xl:max-w-[500px] max-h-[400px] xl:max-h-[500px] object-contain" />
+        {{ else }}
         <img src="/img/stack.png" alt="Karma Flights - високотехнологічне українське виробництво"
           class="w-auto h-auto max-w-[400px] xl:max-w-[500px] max-h-[400px] xl:max-h-[500px] object-contain" />
+        {{ end }}
       </div>
     </div>
   </div>
@@ -54,8 +79,16 @@
 
       <!-- Product Image -->
       <div class="flex relative justify-center items-center">
+        {{ $stackMobile := resources.Get "img/stack.png" }}
+        {{ if $stackMobile }}
+        {{ $stackMobileProcessed := $stackMobile.Resize "450x450 webp q80" }}
+        <img src="{{ $stackMobileProcessed.RelPermalink }}"
+          alt="Karma Flights - високотехнологічне українське виробництво"
+          class="w-full max-w-[320px] sm:max-w-[380px] md:max-w-[450px] h-auto" />
+        {{ else }}
         <img src="/img/stack.png" alt="Karma Flights - високотехнологічне українське виробництво"
           class="w-full max-w-[320px] sm:max-w-[380px] md:max-w-[450px] h-auto" />
+        {{ end }}
       </div>
     </div>
   </div>

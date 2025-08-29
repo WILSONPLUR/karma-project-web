@@ -182,7 +182,13 @@
     style="padding-top: 20px; padding-bottom: 20px;">
     <!-- Logo -->
     <a href="/" class="relative z-50 text-xl font-normal text-white font-inter">
+      {{ $logo := resources.Get "logo.png" }}
+      {{ if $logo }}
+      {{ $logoProcessed := $logo.Resize "149x34 webp q80" }}
+      <img src="{{ $logoProcessed.RelPermalink }}" alt="logo" width="149" height="34" />
+      {{ else }}
       <img src="/logo.png" alt="logo" width="149" height="34" />
+      {{ end }}
     </a>
 
     <!-- Desktop Navigation -->
@@ -264,7 +270,13 @@
     <div class="bg-[#020303] p-6 rounded-b-3xl">
       <div class="flex justify-between items-center mb-4">
         <a href="/" class="text-xl font-normal text-white font-inter">
+          {{ $logoMobile := resources.Get "logo.png" }}
+          {{ if $logoMobile }}
+          {{ $logoMobileProcessed := $logoMobile.Resize "149x34 webp q80" }}
+          <img src="{{ $logoMobileProcessed.RelPermalink }}" alt="logo" width="149" height="34" />
+          {{ else }}
           <img src="/logo.png" alt="logo" width="149" height="34" />
+          {{ end }}
         </a>
         <button class="text-white hover:text-[#ba0108] transition-colors cursor-pointer" onclick="toggleMobileSearch()">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

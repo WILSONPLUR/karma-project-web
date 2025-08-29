@@ -2,17 +2,47 @@
 := index .Site.Data.products.categories $category }}
 <section class="overflow-hidden relative bg-white" aria-labelledby="catalog-hero-heading">
     <!-- Background decorative elements -->
+    {{ $bgEl1 := resources.Get "img/bg-el-1.png" }}
+    {{ if $bgEl1 }}
+    {{ $bgEl1Processed := $bgEl1.Resize "420x webp q80" }}
+    <img src="{{ $bgEl1Processed.RelPermalink }}" alt="Декоративний фоновий елемент" aria-hidden="true"
+        class="absolute z-[1] top-0 right-0 w-[200px] h-[200px] md:w-[250px] md:h-[250px] lg:w-[350px] lg:h-[360px]" />
+    {{ else }}
     <img src="/img/bg-el-1.png" alt="Декоративний фоновий елемент" aria-hidden="true"
         class="absolute z-[1] top-0 right-0 w-[200px] h-[200px] md:w-[250px] md:h-[250px] lg:w-[350px] lg:h-[360px]" />
+    {{ end }}
+
+    {{ $bgEl2 := resources.Get "img/bg-el-2.png" }}
+    {{ if $bgEl2 }}
+    {{ $bgEl2Processed := $bgEl2.Resize "420x webp q80" }}
+    <img src="{{ $bgEl2Processed.RelPermalink }}" alt="Декоративний фоновий елемент" aria-hidden="true"
+        class="absolute z-[1] bottom-0 left-0 w-[250px] h-[250px] md:w-[300px] md:h-[300px] lg:w-[420px] lg:h-[380px]" />
+    {{ else }}
     <img src="/img/bg-el-2.png" alt="Декоративний фоновий елемент" aria-hidden="true"
         class="absolute z-[1] bottom-0 left-0 w-[250px] h-[250px] md:w-[300px] md:h-[300px] lg:w-[420px] lg:h-[380px]" />
+    {{ end }}
 
     <!-- Stack elements for mobile -->
     <div class="block sm:hidden lg:hidden">
+        {{ $stackLeft := resources.Get "img/stack-left.png" }}
+        {{ if $stackLeft }}
+        {{ $stackLeftProcessed := $stackLeft.Resize "100x webp q80" }}
+        <img src="{{ $stackLeftProcessed.RelPermalink }}" alt="Елемент стеку зліва" aria-hidden="true"
+            class="absolute top-0 left-0 w-[100px] z-[1]" />
+        {{ else }}
         <img src="/img/stack-left.png" alt="Елемент стеку зліва" aria-hidden="true"
             class="absolute top-0 left-0 w-[100px] z-[1]" />
+        {{ end }}
+
+        {{ $stackRight := resources.Get "img/stack-right.png" }}
+        {{ if $stackRight }}
+        {{ $stackRightProcessed := $stackRight.Resize "100x webp q80" }}
+        <img src="{{ $stackRightProcessed.RelPermalink }}" alt="Елемент стеку справа" aria-hidden="true"
+            class="absolute bottom-0 right-0 w-[100px] z-[1]" />
+        {{ else }}
         <img src="/img/stack-right.png" alt="Елемент стеку справа" aria-hidden="true"
             class="absolute bottom-0 right-0 w-[100px] z-[1]" />
+        {{ end }}
     </div>
 
     <div
@@ -69,10 +99,19 @@
                 </button>
             </div>
             <div class="flex relative justify-center items-center w-full md:w-1/2">
+                {{ $stackRotate := resources.Get "img/stack-rotate.png" }}
+                {{ if $stackRotate }}
+                {{ $stackRotateProcessed := $stackRotate.Resize "550x webp q80" }}
+                <img src="{{ $stackRotateProcessed.RelPermalink }}"
+                    alt="Karma Flights - високотехнологічне українське виробництво" loading="lazy"
+                    class="hidden sm:block object-contain max-w-none 
+                              w-[250px] h-[167px] sm:w-[450px] sm:h-[450px] md:w-[348px] md:h-[348px] lg:w-[clamp(400px,35vw,550px)] lg:h-[clamp(250px,25vw,350px)]" />
+                {{ else }}
                 <img src="/img/stack-rotate.png" alt="Karma Flights - високотехнологічне українське виробництво"
                     loading="lazy"
                     class="hidden sm:block object-contain max-w-none 
-                            w-[250px] h-[167px] sm:w-[450px] sm:h-[450px] md:w-[348px] md:h-[348px] lg:w-[clamp(400px,35vw,550px)] lg:h-[clamp(250px,25vw,350px)]" />
+                              w-[250px] h-[167px] sm:w-[450px] sm:h-[450px] md:w-[348px] md:h-[348px] lg:w-[clamp(400px,35vw,550px)] lg:h-[clamp(250px,25vw,350px)]" />
+                {{ end }}
 
                 <div
                     class="pointer-events-none absolute -bottom-3 left-1/2 -translate-x-1/2 w-[200px] h-[30px] md:w-[250px] md:h-[40px] lg:w-[300px] lg:h-[50px] xl:w-[410px] xl:h-[80px] rounded-full bg-black/35 blur-2xl hidden sm:block" />

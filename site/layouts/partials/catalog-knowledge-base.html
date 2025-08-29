@@ -27,11 +27,25 @@
         {{ range $categoryGuides | first 3 }}
         <div class="flex flex-col gap-[clamp(8px,2vw,10px)] max-w-[clamp(280px,80vw,400px)]">
             {{ if .Params.image }}
+            {{ $guideImage := resources.Get .Params.image }}
+            {{ if $guideImage }}
+            {{ $guideImageProcessed := $guideImage.Resize "400x238 webp q80" }}
+            <img src="{{ $guideImageProcessed.RelPermalink }}" alt="{{ .Title }}" width="400"
+                class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] h-[238px] object-cover" />
+            {{ else }}
             <img src="{{ .Params.image }}" alt="{{ .Title }}" width="400"
+                class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] h-[238px] object-cover" />
+            {{ end }}
+            {{ else }}
+            {{ $defaultImage := resources.Get "img/card-img-1.png" }}
+            {{ if $defaultImage }}
+            {{ $defaultImageProcessed := $defaultImage.Resize "400x238 webp q80" }}
+            <img src="{{ $defaultImageProcessed.RelPermalink }}" alt="{{ .Title }}" width="400"
                 class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] h-[238px] object-cover" />
             {{ else }}
             <img src="/img/card-img-1.png" alt="{{ .Title }}" width="400"
                 class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] h-[238px] object-cover" />
+            {{ end }}
             {{ end }}
             <h4 class="text-[clamp(20px,2vw,24px)] font-[Montserrat] font-medium">
                 {{ .Title }}
