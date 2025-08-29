@@ -1,9 +1,25 @@
 <section class="relative bg-white">
   <!-- Background decorative element -->
+  {{ $bgEl3 := resources.Get "img/bg-el-3.png" }}
+  {{ if $bgEl3 }}
+  {{ $bgEl3Processed := $bgEl3.Resize "200x270 webp q80" }}
+  <img src="{{ $bgEl3Processed.RelPermalink }}" alt="" class="absolute z-[1] bottom-0 right-0 w-[200px] h-auto"
+    width="200" height="270" />
+  {{ else }}
   <img src="/img/bg-el-3.png" alt="" class="absolute z-[1] bottom-0 right-0 w-[200px] h-auto" width="200"
     height="270" />
+  {{ end }}
+
+  {{ $aboutDesktop := resources.Get "img/about.png" }}
+  {{ if $aboutDesktop }}
+  {{ $aboutDesktopProcessed := $aboutDesktop.Resize "500x400 webp q80" }}
+  <img src="{{ $aboutDesktopProcessed.RelPermalink }}"
+    alt="Про нас - українська компанія високотехнологічного виробництва" width="500" height="400"
+    class="hidden absolute left-0 lg:block w-[42%] h-full rounded-t-[8px] object-cover shadow-lg" />
+  {{ else }}
   <img src="/img/about.png" alt="Про нас - українська компанія високотехнологічного виробництва" width="500"
     height="400" class="hidden absolute left-0 lg:block w-[42%] h-full rounded-t-[8px] object-cover shadow-lg" />
+  {{ end }}
   <div class="lg:max-w-[1237px] max-[450px]:max-w-full max-[450px]:mx-5 mx-auto relative z-[2]">
 
     <div class="flex lg:flex-row-reverse max-[450px]:flex-col items-center gap-8">
@@ -36,8 +52,16 @@
         <!-- Desktop Image -->
 
         <!-- Mobile Image -->
+        {{ $aboutMobile := resources.Get "img/about-mobile.png" }}
+        {{ if $aboutMobile }}
+        {{ $aboutMobileProcessed := $aboutMobile.Resize "350x400 webp q80" }}
+        <img src="{{ $aboutMobileProcessed.RelPermalink }}"
+          alt="Про нас - українська компанія високотехнологічного виробництва" width="350" height="400"
+          class="block object-contain mb-6 w-full h-auto lg:hidden" />
+        {{ else }}
         <img src="/img/about-mobile.png" alt="Про нас - українська компанія високотехнологічного виробництва"
           width="350" height="400" class="block object-contain mb-6 w-full h-auto lg:hidden" />
+        {{ end }}
       </div>
     </div>
   </div>

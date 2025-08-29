@@ -2,7 +2,14 @@
     aria-labelledby="features-heading">
     <!-- Background image -->
     <div class="absolute inset-0">
+        {{ $benefitsBg := resources.Get "img/benefits-bg.png" }}
+        {{ if $benefitsBg }}
+        {{ $benefitsBgProcessed := $benefitsBg.Resize "1440x webp q80" }}
+        <img src="{{ $benefitsBgProcessed.RelPermalink }}" alt="" aria-hidden="true"
+            class="object-cover w-full h-full" />
+        {{ else }}
         <img src="/img/benefits-bg.png" alt="" aria-hidden="true" class="object-cover w-full h-full" />
+        {{ end }}
     </div>
 
     <div class="w-full max-w-[1440px] mx-auto relative z-[2] px-[clamp(20px,4vw,40px)]">

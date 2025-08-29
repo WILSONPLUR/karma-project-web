@@ -1,98 +1,118 @@
 {{ $title := .title }} {{ $subtitle := .subtitle }}
 
-<section class="faq-hero" style="--faq-bg: url('/img/faq-hero-bg.png')" aria-labelledby="faq-hero-heading">
+{{ $droneLeft := resources.Get "img/drone-left.png" }}
+{{ $droneRight := resources.Get "img/drone-right.png" }}
+{{ $faqBg := resources.Get "img/faq-hero-bg.png" }}
+
+{{ if and $droneLeft $droneRight $faqBg }}
+{{ $droneLeftWebp := $droneLeft.Resize "680x webp q80" }}
+{{ $droneRightWebp := $droneRight.Resize "680x webp q80" }}
+{{ $faqBgWebp := $faqBg.Resize "2110x webp q80" }}
+
+<section class="faq-hero" style="--faq-bg: url('{{ $faqBgWebp.RelPermalink }}')" aria-labelledby="faq-hero-heading">
   <div class="absolute bottom-0 left-0 z-[2]">
-    <img src="/img/drone-left.png" alt="Декоративний дрон зліва" aria-hidden="true"
-      class="w-[clamp(150px,15vw,340px)] h-[clamp(90px,9vw,220px)]" />
+    <img src="{{ $droneLeftWebp.RelPermalink }}" alt="Декоративний дрон зліва" aria-hidden="true"
+      class="w-[clamp(150px,15vw,340px)] h-[clamp(90px,9vw,220px)]" loading="lazy" />
   </div>
   <div class="absolute top-0 right-0 md:bottom-0 md:top-auto z-[2]">
-    <img src="/img/drone-right.png" alt="Декоративний дрон справа" aria-hidden="true"
-      class="w-[clamp(150px,15vw,340px)] h-[clamp(90px,9vw,220px)]" />
+    <img src="{{ $droneRightWebp.RelPermalink }}" alt="Декоративний дрон справа" aria-hidden="true"
+      class="w-[clamp(150px,15vw,340px)] h-[clamp(90px,9vw,220px)]" loading="lazy" />
   </div>
-  <div
-    class="max-w-[min(1055px,90vw)] mx-auto pt-[clamp(60px,8vw,101px)] pb-[clamp(80px,10vw,142px)] px-[clamp(20px,4vw,40px)]">
-    <h1 id="faq-hero-heading"
-      class="title hero-title text-[clamp(20px,4vw,48px)] font-medium font-[Unbounded] text-[#fefefe] mb-[clamp(10px,2vw,20px)]">
-      <span>П</span>{{ $title }}
-    </h1>
-    <p
-      class="max-w-[min(1155px,85vw)] mx-auto text-[#fefefe] text-[clamp(14px,2vw,20px)] font-[Montserrat] font-normal leading-[1.7]">
-      {{ $subtitle }}
-    </p>
-  </div>
-</section>
+  {{ else }}
+  <section class="faq-hero" style="--faq-bg: url('/img/faq-hero-bg.png')" aria-labelledby="faq-hero-heading">
+    <div class="absolute bottom-0 left-0 z-[2]">
+      <img src="/img/drone-left.png" alt="Декоративний дрон зліва" aria-hidden="true"
+        class="w-[clamp(150px,15vw,340px)] h-[clamp(90px,9vw,220px)]" loading="lazy" />
+    </div>
+    <div class="absolute top-0 right-0 md:bottom-0 md:top-auto z-[2]">
+      <img src="/img/drone-right.png" alt="Декоративний дрон справа" aria-hidden="true"
+        class="w-[clamp(150px,15vw,340px)] h-[clamp(90px,9vw,220px)]" loading="lazy" />
+    </div>
+    {{ end }}
+    <div
+      class="max-w-[min(1055px,90vw)] mx-auto pt-[clamp(60px,8vw,101px)] pb-[clamp(80px,10vw,142px)] px-[clamp(20px,4vw,40px)]">
+      <h1 id="faq-hero-heading"
+        class="title hero-title text-[clamp(20px,4vw,48px)] font-medium font-[Unbounded] text-[#fefefe] mb-[clamp(10px,2vw,20px)]">
+        <span>П</span>{{ $title }}
+      </h1>
+      <p
+        class="max-w-[min(1155px,85vw)] mx-auto text-[#fefefe] text-[clamp(14px,2vw,20px)] font-[Montserrat] font-normal leading-[1.7]">
+        {{ $subtitle }}
+      </p>
+    </div>
+  </section>
 
-<style>
-  .faq-hero {
-    position: relative;
-    overflow: hidden;
-    text-align: center;
-    background-image: var(--faq-bg);
-    background-size: cover;
-    background-position: center;
-    margin-bottom: 20px;
-  }
+  <style>
+    .faq-hero {
+      position: relative;
+      overflow: hidden;
+      text-align: center;
+      background-image: var(--faq-bg);
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 20px;
+    }
 
-  .title {
-    font-family: 'Unbounded', sans-serif;
-    font-weight: 600;
-    margin-bottom: 40px;
-  }
+    .title {
+      font-family: 'Unbounded', sans-serif;
+      font-weight: 600;
+      margin-bottom: 40px;
+    }
 
-  .title span {
-    color: #ba0108;
-  }
+    .title span {
+      color: #ba0108;
+    }
 
-  @keyframes fadeInUp {
-    0% {
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-title {
       opacity: 0;
       transform: translateY(30px);
+      transition: all 0.6s ease-out;
     }
 
-    100% {
-      opacity: 1;
-      transform: translateY(0);
+    .hero-title.animate {
+      animation: fadeInUp 0.8s ease-out forwards;
     }
-  }
+  </style>
 
-  .hero-title {
-    opacity: 0;
-    transform: translateY(30px);
-    transition: all 0.6s ease-out;
-  }
+  {{ "<!-- Hero title animation script -->" | safeHTML }}
+  <script>
+    // Hero title animation
+    function animateHeroTitle() {
+      const heroTitles = document.querySelectorAll('.hero-title');
 
-  .hero-title.animate {
-    animation: fadeInUp 0.8s ease-out forwards;
-  }
-</style>
+      const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '0px 0px -50px 0px'
+      };
 
-{{ "<!-- Hero title animation script -->" | safeHTML }}
-<script>
-  // Hero title animation
-  function animateHeroTitle() {
-    const heroTitles = document.querySelectorAll('.hero-title');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animate');
+          } else {
+            // Remove animation class when out of view for repeatable effect
+            entry.target.classList.remove('animate');
+          }
+        });
+      }, observerOptions);
 
-    const observerOptions = {
-      threshold: 0.3,
-      rootMargin: '0px 0px -50px 0px'
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('animate');
-        } else {
-          // Remove animation class when out of view for repeatable effect
-          entry.target.classList.remove('animate');
-        }
+      heroTitles.forEach(title => {
+        observer.observe(title);
       });
-    }, observerOptions);
+    }
 
-    heroTitles.forEach(title => {
-      observer.observe(title);
-    });
-  }
-
-  // Initialize when DOM is loaded
-  document.addEventListener('DOMContentLoaded', animateHeroTitle);
-</script>
+    // Initialize when DOM is loaded
+    document.addEventListener('DOMContentLoaded', animateHeroTitle);
+  </script>

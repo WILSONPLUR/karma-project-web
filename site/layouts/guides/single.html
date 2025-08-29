@@ -96,19 +96,47 @@
 
         {{ if .Params.image }}
         <div class="relative overflow-hidden rounded-xl border border-[#E5E5E5]">
+          {{ $droneManMobile := resources.Get "img/drone-man-mobile.png" }}
+          {{ if $droneManMobile }}
+          {{ $droneManMobileProcessed := $droneManMobile.Resize "900x400 webp q80" }}
+          <img src="{{ $droneManMobileProcessed.RelPermalink }}" alt="{{ .Title }}" class="w-full h-auto sm:hidden"
+            width="900" height="400" />
+          {{ else }}
           <img src="/img/drone-man-mobile.png" alt="{{ .Title }}" class="w-full h-auto sm:hidden" width="900"
             height="400" />
+          {{ end }}
+
+          {{ $customImage := resources.Get .Params.image }}
+          {{ if $customImage }}
+          {{ $customImageProcessed := $customImage.Resize "900x400 webp q80" }}
+          <img src="{{ $customImageProcessed.RelPermalink }}" alt="{{ .Title }}" class="hidden w-full h-auto sm:block"
+            width="900" height="400" />
+          {{ else }}
           <img src="{{ .Params.image }}" alt="{{ .Title }}" class="hidden w-full h-auto sm:block" width="900"
             height="400" />
-
+          {{ end }}
         </div>
         {{ else }}
         <div class="relative overflow-hidden rounded-xl border border-[#E5E5E5]">
+          {{ $droneManMobile := resources.Get "img/drone-man-mobile.png" }}
+          {{ if $droneManMobile }}
+          {{ $droneManMobileProcessed := $droneManMobile.Resize "900x400 webp q80" }}
+          <img src="{{ $droneManMobileProcessed.RelPermalink }}" alt="Drone Man" class="w-full h-auto sm:hidden"
+            width="900" height="400" />
+          {{ else }}
           <img src="/img/drone-man-mobile.png" alt="Drone Man" class="w-full h-auto sm:hidden" width="900"
             height="400" />
+          {{ end }}
+
+          {{ $droneMan := resources.Get "img/drone-man.png" }}
+          {{ if $droneMan }}
+          {{ $droneManProcessed := $droneMan.Resize "900x400 webp q80" }}
+          <img src="{{ $droneManProcessed.RelPermalink }}" alt="Drone Man" class="hidden w-full h-auto sm:block"
+            width="900" height="400" />
+          {{ else }}
           <img src="/img/drone-man.png" alt="Drone Man" class="hidden w-full h-auto sm:block" width="900"
             height="400" />
-
+          {{ end }}
         </div>
         {{ end }}
 
