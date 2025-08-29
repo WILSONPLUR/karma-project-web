@@ -54,7 +54,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&family=Wallpoet&display=swap"
     rel="stylesheet" /> 
-  <link rel="stylesheet" href="/main.80cc8.css" />
+  <link rel="stylesheet" href="/main.e0719.css" />
   
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
@@ -548,18 +548,17 @@
   </script>
 </header>
   
-<section class="min-h-screen bg-white">
-  <div class="lg:max-w-7xl max-[450px]:max-w-full mx-auto lg:px-8 max-[450px]:px-5 py-8">
+<section class="relative z-10 bg-white">
+  <div class="py-8 pb-40 w-full">
     
-    <div class="flex flex-col gap-4 mb-8 lg:flex-row lg:items-center lg:justify-between">
+    <div class="flex flex-col gap-4 mb-8 lg:flex-row lg:items-center lg:justify-between px-8 max-[450px]:px-5">
       
       <div class="flex items-center justify-start gap-2 text-[var(--color-karma-red)] font-[Montserrat]">
-        <a class="font-[Montserrat] lg:text-[20px] max-[450px]:text-[16px] font-normal text-[#ba0108]" href="/">
+        <a class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-normal text-[#ba0108]" href="/">
           Головна
         </a>
         <span class="text-[#ba0108]">→</span>
-        <a class="font-[Montserrat] lg:text-[20px] max-[450px]:text-[16px] font-normal text-[#ba0108]"
-          href="/knowledge-base">
+        <a class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-normal text-[#ba0108]" href="/knowledge-base">
           База знань
         </a>
       </div>
@@ -579,80 +578,64 @@
     </div>
 
     
-    <div class="mx-auto space-y-0 w-full lg:absolute lg:left-0">
+    <div class="relative z-20 space-y-0 w-full">
       
       
       
       
-      <div class="knowledge-section">
-        
-        <div
-          class="section-header bg-[#ba0108] text-white rounded-none">
-          <button
-            class="w-full flex items-center justify-between lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 text-left focus:outline-none"
-            onclick="toggleSection(this)">
-            <h2 class="lg:text-[40px] max-[450px]:text-[24px] font-bold font-['Unbounded'] tracking-wide">БПЛА</h2>
-            <svg
-              class="lg:w-8 lg:h-8 max-[450px]:w-6 max-[450px]:h-6 transform transition-transform duration-300 section-chevron rotate-180"
+      <details class="overflow-visible relative z-30 mb-0 border-0 knowledge-section group">
+        <summary
+          class="section-header bg-[#4a4a4a] text-white rounded-none cursor-pointer list-none group-open:bg-[#ba0108]">
+          <div class="flex justify-between items-center px-6 py-4 w-full lg:px-8 lg:py-6">
+            <h2 class="text-[clamp(24px,3vw,40px)] font-bold font-['Unbounded'] tracking-wide">БПЛА</h2>
+            <svg class="w-6 h-6 transition-transform duration-300 transform lg:w-8 lg:h-8 group-open:rotate-180"
               fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
-          </button>
-        </div>
+          </div>
+        </summary>
 
         
-        <div class="section-content block bg-white">
+        <div class="bg-white section-content">
           
           <div class="accordion-items">
             
             <div class="border-b border-gray-200 knowledge-item last:border-b-0">
               <div
-                class="flex cursor-pointer select-none items-start lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 hover:bg-gray-50 transition-colors"
+                class="flex items-start px-6 py-4 transition-colors cursor-pointer select-none lg:px-8 lg:py-6 hover:bg-gray-50"
                 onclick="window.location.href='http:\/\/localhost:1313\/guides\/fpv-flying-basics\/'">
-                <div class="flex flex-1 items-start space-x-4">
-                  <svg class="lg:w-4 lg:h-4 max-[450px]:w-3 max-[450px]:h-3 text-[#ba0108] flex-shrink-0 mt-1"
-                    fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
-                  </svg>
+                <div class="flex flex-1 gap-4 items-start space-x-4">
+                  <img src="/img/point.svg" />
                   <div class="flex-1">
-                    <h3
-                      class="lg:text-[20px] max-[450px]:text-[16px] font-medium text-gray-900 font-['Montserrat'] mb-2">
+                    <h3 class="text-[clamp(16px,2vw,24px)] font-medium text-gray-900 font-['Montserrat'] mb-2">
                       Основи FPV польоту для початківців: частина 1</h3>
                     
-                    <p class="lg:text-[20px] max-[450px]:text-[14px] text-gray-600 leading-relaxed font-['Montserrat']">
-                      Базові принципи та техніки FPV польоту для новачків</p>
+                    <p class="text-[clamp(14px,1.5vw,16px)] text-black leading-relaxed font-['Montserrat']">Базові принципи та техніки FPV польоту для новачків <span
+                        class="text-[#ba0108] underline cursor-pointer text-[clamp(14px,1.5vw,16px)]">&gt;&gt;</span>
+                    </p>
+
                     
                   </div>
-                </div>
-                <div class="ml-4 text-xs text-right text-gray-500">
-                  <span
-                    class="text-[#ba0108] underline cursor-pointer lg:text-[16px] max-[450px]:text-[14px]">&gt;&gt;</span>
                 </div>
               </div>
             </div>
             
             <div class="border-b border-gray-200 knowledge-item last:border-b-0">
               <div
-                class="flex cursor-pointer select-none items-start lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 hover:bg-gray-50 transition-colors"
+                class="flex items-start px-6 py-4 transition-colors cursor-pointer select-none lg:px-8 lg:py-6 hover:bg-gray-50"
                 onclick="window.location.href='http:\/\/localhost:1313\/guides\/drone-assembly-guide\/'">
-                <div class="flex flex-1 items-start space-x-4">
-                  <svg class="lg:w-4 lg:h-4 max-[450px]:w-3 max-[450px]:h-3 text-[#ba0108] flex-shrink-0 mt-1"
-                    fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
-                  </svg>
+                <div class="flex flex-1 gap-4 items-start space-x-4">
+                  <img src="/img/point.svg" />
                   <div class="flex-1">
-                    <h3
-                      class="lg:text-[20px] max-[450px]:text-[16px] font-medium text-gray-900 font-['Montserrat'] mb-2">
+                    <h3 class="text-[clamp(16px,2vw,24px)] font-medium text-gray-900 font-['Montserrat'] mb-2">
                       Повна інструкція зі збірки FPV дрона</h3>
                     
-                    <p class="lg:text-[20px] max-[450px]:text-[14px] text-gray-600 leading-relaxed font-['Montserrat']">
-                      Детальний покроковий посібник зі збірки FPV дрона з нуля до першого польоту</p>
+                    <p class="text-[clamp(14px,1.5vw,16px)] text-black leading-relaxed font-['Montserrat']">Детальний покроковий посібник зі збірки FPV дрона з нуля до першого польоту <span
+                        class="text-[#ba0108] underline cursor-pointer text-[clamp(14px,1.5vw,16px)]">&gt;&gt;</span>
+                    </p>
+
                     
                   </div>
-                </div>
-                <div class="ml-4 text-xs text-right text-gray-500">
-                  <span
-                    class="text-[#ba0108] underline cursor-pointer lg:text-[16px] max-[450px]:text-[14px]">&gt;&gt;</span>
                 </div>
               </div>
             </div>
@@ -660,78 +643,62 @@
           </div>
           
         </div>
-      </div>
+      </details>
       
       
-      <div class="knowledge-section">
-        
-        <div
-          class="section-header bg-[#4a4a4a] text-white rounded-none">
-          <button
-            class="w-full flex items-center justify-between lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 text-left focus:outline-none"
-            onclick="toggleSection(this)">
-            <h2 class="lg:text-[40px] max-[450px]:text-[24px] font-bold font-['Unbounded'] tracking-wide">Відеопередавачі</h2>
-            <svg
-              class="lg:w-8 lg:h-8 max-[450px]:w-6 max-[450px]:h-6 transform transition-transform duration-300 section-chevron "
+      <details class="overflow-visible relative z-30 mb-0 border-0 knowledge-section group">
+        <summary
+          class="section-header bg-[#4a4a4a] text-white rounded-none cursor-pointer list-none group-open:bg-[#ba0108]">
+          <div class="flex justify-between items-center px-6 py-4 w-full lg:px-8 lg:py-6">
+            <h2 class="text-[clamp(24px,3vw,40px)] font-bold font-['Unbounded'] tracking-wide">Відеопередавачі</h2>
+            <svg class="w-6 h-6 transition-transform duration-300 transform lg:w-8 lg:h-8 group-open:rotate-180"
               fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
-          </button>
-        </div>
+          </div>
+        </summary>
 
         
-        <div class="section-content hidden bg-white">
+        <div class="bg-white section-content">
           
           <div class="accordion-items">
             
             <div class="border-b border-gray-200 knowledge-item last:border-b-0">
               <div
-                class="flex cursor-pointer select-none items-start lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 hover:bg-gray-50 transition-colors"
+                class="flex items-start px-6 py-4 transition-colors cursor-pointer select-none lg:px-8 lg:py-6 hover:bg-gray-50"
                 onclick="window.location.href='http:\/\/localhost:1313\/guides\/video-transmitter-setup\/'">
-                <div class="flex flex-1 items-start space-x-4">
-                  <svg class="lg:w-4 lg:h-4 max-[450px]:w-3 max-[450px]:h-3 text-[#ba0108] flex-shrink-0 mt-1"
-                    fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
-                  </svg>
+                <div class="flex flex-1 gap-4 items-start space-x-4">
+                  <img src="/img/point.svg" />
                   <div class="flex-1">
-                    <h3
-                      class="lg:text-[20px] max-[450px]:text-[16px] font-medium text-gray-900 font-['Montserrat'] mb-2">
+                    <h3 class="text-[clamp(16px,2vw,24px)] font-medium text-gray-900 font-['Montserrat'] mb-2">
                       Налаштування відеопередавача для FPV</h3>
                     
-                    <p class="lg:text-[20px] max-[450px]:text-[14px] text-gray-600 leading-relaxed font-['Montserrat']">
-                      Покрокова інструкція з налаштування відеопередавача для стабільного FPV зв&#39;язку</p>
+                    <p class="text-[clamp(14px,1.5vw,16px)] text-black leading-relaxed font-['Montserrat']">Покрокова інструкція з налаштування відеопередавача для стабільного FPV зв&#39;язку <span
+                        class="text-[#ba0108] underline cursor-pointer text-[clamp(14px,1.5vw,16px)]">&gt;&gt;</span>
+                    </p>
+
                     
                   </div>
-                </div>
-                <div class="ml-4 text-xs text-right text-gray-500">
-                  <span
-                    class="text-[#ba0108] underline cursor-pointer lg:text-[16px] max-[450px]:text-[14px]">&gt;&gt;</span>
                 </div>
               </div>
             </div>
             
             <div class="border-b border-gray-200 knowledge-item last:border-b-0">
               <div
-                class="flex cursor-pointer select-none items-start lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 hover:bg-gray-50 transition-colors"
+                class="flex items-start px-6 py-4 transition-colors cursor-pointer select-none lg:px-8 lg:py-6 hover:bg-gray-50"
                 onclick="window.location.href='http:\/\/localhost:1313\/guides\/vtx-setup-guide\/'">
-                <div class="flex flex-1 items-start space-x-4">
-                  <svg class="lg:w-4 lg:h-4 max-[450px]:w-3 max-[450px]:h-3 text-[#ba0108] flex-shrink-0 mt-1"
-                    fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
-                  </svg>
+                <div class="flex flex-1 gap-4 items-start space-x-4">
+                  <img src="/img/point.svg" />
                   <div class="flex-1">
-                    <h3
-                      class="lg:text-[20px] max-[450px]:text-[16px] font-medium text-gray-900 font-['Montserrat'] mb-2">
+                    <h3 class="text-[clamp(16px,2vw,24px)] font-medium text-gray-900 font-['Montserrat'] mb-2">
                       Налаштування VTX2</h3>
                     
-                    <p class="lg:text-[20px] max-[450px]:text-[14px] text-gray-600 leading-relaxed font-['Montserrat']">
-                      Повний посібник по налаштуванню відеопередавача для FPV дрона</p>
+                    <p class="text-[clamp(14px,1.5vw,16px)] text-black leading-relaxed font-['Montserrat']">Повний посібник по налаштуванню відеопередавача для FPV дрона <span
+                        class="text-[#ba0108] underline cursor-pointer text-[clamp(14px,1.5vw,16px)]">&gt;&gt;</span>
+                    </p>
+
                     
                   </div>
-                </div>
-                <div class="ml-4 text-xs text-right text-gray-500">
-                  <span
-                    class="text-[#ba0108] underline cursor-pointer lg:text-[16px] max-[450px]:text-[14px]">&gt;&gt;</span>
                 </div>
               </div>
             </div>
@@ -739,52 +706,42 @@
           </div>
           
         </div>
-      </div>
+      </details>
       
       
-      <div class="knowledge-section">
-        
-        <div
-          class="section-header bg-[#4a4a4a] text-white rounded-none">
-          <button
-            class="w-full flex items-center justify-between lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 text-left focus:outline-none"
-            onclick="toggleSection(this)">
-            <h2 class="lg:text-[40px] max-[450px]:text-[24px] font-bold font-['Unbounded'] tracking-wide">ESC</h2>
-            <svg
-              class="lg:w-8 lg:h-8 max-[450px]:w-6 max-[450px]:h-6 transform transition-transform duration-300 section-chevron "
+      <details class="overflow-visible relative z-30 mb-0 border-0 knowledge-section group">
+        <summary
+          class="section-header bg-[#4a4a4a] text-white rounded-none cursor-pointer list-none group-open:bg-[#ba0108]">
+          <div class="flex justify-between items-center px-6 py-4 w-full lg:px-8 lg:py-6">
+            <h2 class="text-[clamp(24px,3vw,40px)] font-bold font-['Unbounded'] tracking-wide">ESC</h2>
+            <svg class="w-6 h-6 transition-transform duration-300 transform lg:w-8 lg:h-8 group-open:rotate-180"
               fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
-          </button>
-        </div>
+          </div>
+        </summary>
 
         
-        <div class="section-content hidden bg-white">
+        <div class="bg-white section-content">
           
           <div class="accordion-items">
             
             <div class="border-b border-gray-200 knowledge-item last:border-b-0">
               <div
-                class="flex cursor-pointer select-none items-start lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 hover:bg-gray-50 transition-colors"
+                class="flex items-start px-6 py-4 transition-colors cursor-pointer select-none lg:px-8 lg:py-6 hover:bg-gray-50"
                 onclick="window.location.href='http:\/\/localhost:1313\/guides\/esc-calibration\/'">
-                <div class="flex flex-1 items-start space-x-4">
-                  <svg class="lg:w-4 lg:h-4 max-[450px]:w-3 max-[450px]:h-3 text-[#ba0108] flex-shrink-0 mt-1"
-                    fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
-                  </svg>
+                <div class="flex flex-1 gap-4 items-start space-x-4">
+                  <img src="/img/point.svg" />
                   <div class="flex-1">
-                    <h3
-                      class="lg:text-[20px] max-[450px]:text-[16px] font-medium text-gray-900 font-['Montserrat'] mb-2">
-                      Калібрування ESC регуляторів швидкості2334343</h3>
+                    <h3 class="text-[clamp(16px,2vw,24px)] font-medium text-gray-900 font-['Montserrat'] mb-2">
+                      Калібрування ESC регуляторів швидкості</h3>
                     
-                    <p class="lg:text-[20px] max-[450px]:text-[14px] text-gray-600 leading-relaxed font-['Montserrat']">
-                      Детальна інструкція з калібрування ESC для оптимальної роботи моторів дрона</p>
+                    <p class="text-[clamp(14px,1.5vw,16px)] text-black leading-relaxed font-['Montserrat']">Детальна інструкція з калібрування ESC для оптимальної роботи моторів дрона <span
+                        class="text-[#ba0108] underline cursor-pointer text-[clamp(14px,1.5vw,16px)]">&gt;&gt;</span>
+                    </p>
+
                     
                   </div>
-                </div>
-                <div class="ml-4 text-xs text-right text-gray-500">
-                  <span
-                    class="text-[#ba0108] underline cursor-pointer lg:text-[16px] max-[450px]:text-[14px]">&gt;&gt;</span>
                 </div>
               </div>
             </div>
@@ -792,78 +749,82 @@
           </div>
           
         </div>
-      </div>
+      </details>
       
       
-      <div class="knowledge-section">
-        
-        <div
-          class="section-header bg-[#4a4a4a] text-white rounded-none">
-          <button
-            class="w-full flex items-center justify-between lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 text-left focus:outline-none"
-            onclick="toggleSection(this)">
-            <h2 class="lg:text-[40px] max-[450px]:text-[24px] font-bold font-['Unbounded'] tracking-wide">Політні стеки</h2>
-            <svg
-              class="lg:w-8 lg:h-8 max-[450px]:w-6 max-[450px]:h-6 transform transition-transform duration-300 section-chevron "
+      <details class="overflow-visible relative z-30 mb-0 border-0 knowledge-section group">
+        <summary
+          class="section-header bg-[#4a4a4a] text-white rounded-none cursor-pointer list-none group-open:bg-[#ba0108]">
+          <div class="flex justify-between items-center px-6 py-4 w-full lg:px-8 lg:py-6">
+            <h2 class="text-[clamp(24px,3vw,40px)] font-bold font-['Unbounded'] tracking-wide">Політні стеки</h2>
+            <svg class="w-6 h-6 transition-transform duration-300 transform lg:w-8 lg:h-8 group-open:rotate-180"
               fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
-          </button>
-        </div>
+          </div>
+        </summary>
 
         
-        <div class="section-content hidden bg-white">
+        <div class="bg-white section-content">
           
           <div class="accordion-items">
             
             <div class="border-b border-gray-200 knowledge-item last:border-b-0">
               <div
-                class="flex cursor-pointer select-none items-start lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 hover:bg-gray-50 transition-colors"
-                onclick="window.location.href='http:\/\/localhost:1313\/guides\/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D1%96-%D1%81%D1%82%D0%B5%D0%BA%D0%B8-2\/'">
-                <div class="flex flex-1 items-start space-x-4">
-                  <svg class="lg:w-4 lg:h-4 max-[450px]:w-3 max-[450px]:h-3 text-[#ba0108] flex-shrink-0 mt-1"
-                    fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
-                  </svg>
+                class="flex items-start px-6 py-4 transition-colors cursor-pointer select-none lg:px-8 lg:py-6 hover:bg-gray-50"
+                onclick="window.location.href='http:\/\/localhost:1313\/guides\/%D1%81%D1%82%D0%B2%D0%BE%D1%80%D0%B5%D0%BD%D0%BD%D1%8F-%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%BE%D0%B3%D0%BE-%D1%81%D1%82%D0%B5%D0%BA%D1%83\/'">
+                <div class="flex flex-1 gap-4 items-start space-x-4">
+                  <img src="/img/point.svg" />
                   <div class="flex-1">
-                    <h3
-                      class="lg:text-[20px] max-[450px]:text-[16px] font-medium text-gray-900 font-['Montserrat'] mb-2">
+                    <h3 class="text-[clamp(16px,2vw,24px)] font-medium text-gray-900 font-['Montserrat'] mb-2">
+                      Створення політного стеку</h3>
+                    
+                    <p class="text-[clamp(14px,1.5vw,16px)] text-black leading-relaxed font-['Montserrat']">Тут буде опис створеного політного стеку і як то все має працювати, а також детальна інструкція, разом з відеооглядом і т.д. <span
+                        class="text-[#ba0108] underline cursor-pointer text-[clamp(14px,1.5vw,16px)]">&gt;&gt;</span>
+                    </p>
+
+                    
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div class="border-b border-gray-200 knowledge-item last:border-b-0">
+              <div
+                class="flex items-start px-6 py-4 transition-colors cursor-pointer select-none lg:px-8 lg:py-6 hover:bg-gray-50"
+                onclick="window.location.href='http:\/\/localhost:1313\/guides\/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D1%96-%D1%81%D1%82%D0%B5%D0%BA%D0%B8-2\/'">
+                <div class="flex flex-1 gap-4 items-start space-x-4">
+                  <img src="/img/point.svg" />
+                  <div class="flex-1">
+                    <h3 class="text-[clamp(16px,2vw,24px)] font-medium text-gray-900 font-['Montserrat'] mb-2">
                       Політні стеки 2</h3>
                     
-                    <p class="lg:text-[20px] max-[450px]:text-[14px] text-gray-600 leading-relaxed font-['Montserrat']">
-                      232332</p>
+                    <p class="text-[clamp(14px,1.5vw,16px)] text-black leading-relaxed font-['Montserrat']">232332 <span
+                        class="text-[#ba0108] underline cursor-pointer text-[clamp(14px,1.5vw,16px)]">&gt;&gt;</span>
+                    </p>
+
                     
                   </div>
-                </div>
-                <div class="ml-4 text-xs text-right text-gray-500">
-                  <span
-                    class="text-[#ba0108] underline cursor-pointer lg:text-[16px] max-[450px]:text-[14px]">&gt;&gt;</span>
                 </div>
               </div>
             </div>
             
             <div class="border-b border-gray-200 knowledge-item last:border-b-0">
               <div
-                class="flex cursor-pointer select-none items-start lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 hover:bg-gray-50 transition-colors"
+                class="flex items-start px-6 py-4 transition-colors cursor-pointer select-none lg:px-8 lg:py-6 hover:bg-gray-50"
                 onclick="window.location.href='http:\/\/localhost:1313\/guides\/soldering-flight-stack\/'">
-                <div class="flex flex-1 items-start space-x-4">
-                  <svg class="lg:w-4 lg:h-4 max-[450px]:w-3 max-[450px]:h-3 text-[#ba0108] flex-shrink-0 mt-1"
-                    fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z" />
-                  </svg>
+                <div class="flex flex-1 gap-4 items-start space-x-4">
+                  <img src="/img/point.svg" />
                   <div class="flex-1">
-                    <h3
-                      class="lg:text-[20px] max-[450px]:text-[16px] font-medium text-gray-900 font-['Montserrat'] mb-2">
+                    <h3 class="text-[clamp(16px,2vw,24px)] font-medium text-gray-900 font-['Montserrat'] mb-2">
                       Як правильно паяти політний стек. Інструкція 1</h3>
                     
-                    <p class="lg:text-[20px] max-[450px]:text-[14px] text-gray-600 leading-relaxed font-['Montserrat']">
-                      Детальна інструкція по правильному паянню політного стека з порадами експертів</p>
+                    <p class="text-[clamp(14px,1.5vw,16px)] text-black leading-relaxed font-['Montserrat']">Детальна інструкція по правильному паянню політного стека з порадами експертів <span
+                        class="text-[#ba0108] underline cursor-pointer text-[clamp(14px,1.5vw,16px)]">&gt;&gt;</span>
+                    </p>
+
                     
                   </div>
-                </div>
-                <div class="ml-4 text-xs text-right text-gray-500">
-                  <span
-                    class="text-[#ba0108] underline cursor-pointer lg:text-[16px] max-[450px]:text-[14px]">&gt;&gt;</span>
                 </div>
               </div>
             </div>
@@ -871,7 +832,7 @@
           </div>
           
         </div>
-      </div>
+      </details>
       
     </div>
   </div>
@@ -879,19 +840,41 @@
 
 <style>
    
+  .knowledge-section {
+    position: relative;
+    z-index: 30;
+  }
+
+   
+  .knowledge-section summary {
+    list-style: none;
+  }
+
+  .knowledge-section summary::-webkit-details-marker {
+    display: none;
+  }
+
+   
+  .knowledge-section[open] summary {
+    background-color: #ba0108 !important;
+  }
+
+   
+  .section-content {
+    position: relative;
+    z-index: 40;
+    border-left: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
   .section-header {
     border: none;
     box-shadow: none;
   }
 
-  .section-header button:hover {
+  .section-header:hover {
     opacity: 0.95;
-  }
-
-  .section-content {
-    border-left: 1px solid #e5e7eb;
-    border-right: 1px solid #e5e7eb;
-    border-bottom: 1px solid #e5e7eb;
   }
 
    
@@ -908,23 +891,9 @@
   }
 
    
-  .knowledge-item.hidden {
-    display: none;
-  }
-
-  .knowledge-item.highlighted {
-    background-color: #fef2f2;
-  }
-
-   
   @media (max-width: 450px) {
-    .section-header {
-      width: 100%;
-    }
-
-    .section-header button {
+    .section-header div {
       padding: 1rem 1.5rem;
-      width: 100%;
     }
 
     .section-header h2 {
@@ -932,7 +901,64 @@
       font-weight: bold;
     }
 
-    .section-chevron {
+    .section-header svg {
+      width: 24px !important;
+      height: 24px !important;
+    }
+  }
+
+  .knowledge-section summary::-webkit-details-marker {
+    display: none;
+  }
+
+   
+  .knowledge-section[open] summary {
+    background-color: #ba0108 !important;
+  }
+
+   
+  .section-content {
+    position: relative;
+    z-index: 40;
+    border-left: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .section-header {
+    border: none;
+    box-shadow: none;
+  }
+
+  .section-header:hover {
+    opacity: 0.95;
+  }
+
+   
+  .knowledge-item:hover {
+    background-color: #f9fafb;
+  }
+
+  .knowledge-item h3 {
+    transition: color 0.2s ease;
+  }
+
+  .knowledge-item:hover h3 {
+    color: #ba0108;
+  }
+
+   
+  @media (max-width: 450px) {
+    .section-header div {
+      padding: 1rem 1.5rem;
+    }
+
+    .section-header h2 {
+      font-size: 24px !important;
+      font-weight: bold;
+    }
+
+    .section-header svg {
       width: 24px !important;
       height: 24px !important;
     }
@@ -947,6 +973,7 @@
       font-weight: 500;
       margin-bottom: 0.5rem;
       line-height: 1.4;
+      padding-left: 0 !important;
     }
 
     .knowledge-item p {
@@ -965,32 +992,20 @@
       align-items: flex-start;
       gap: 0.75rem;
     }
+  }
 
-     
-    .knowledge-item h3 {
-      padding-left: 0 !important;
-    }
+   
+  .knowledge-item.hidden {
+    display: none;
+  }
+
+  .knowledge-item.highlighted {
+    background-color: #fef2f2;
   }
 </style>
 
 <script>
   
-  function toggleSection(button) {
-    const section = button.closest('.knowledge-section');
-    const content = section.querySelector('.section-content');
-    const chevron = button.querySelector('.section-chevron');
-
-    if (content.classList.contains('hidden')) {
-      content.classList.remove('hidden');
-      content.classList.add('block');
-      chevron.style.transform = 'rotate(180deg)';
-    } else {
-      content.classList.remove('block');
-      content.classList.add('hidden');
-      chevron.style.transform = 'rotate(0deg)';
-    }
-  }
-
   document.addEventListener('DOMContentLoaded', function () {
     
     const searchInput = document.getElementById('knowledge-search');
@@ -1014,7 +1029,6 @@
         }
       });
 
-      
       searchInput.addEventListener('input', function () {
         const query = this.value.trim();
         if (query.length > 2) {
@@ -1031,7 +1045,6 @@
     let found = false;
 
     sections.forEach(function (section) {
-      const content = section.querySelector('.section-content');
       const items = section.querySelectorAll('.knowledge-item');
       let sectionHasMatch = false;
 
@@ -1051,25 +1064,13 @@
       });
 
       if (sectionHasMatch) {
-        content.classList.remove('hidden');
-        content.classList.add('block');
-        const chevron = section.querySelector('.section-chevron');
-        if (chevron) {
-          chevron.style.transform = 'rotate(180deg)';
-        }
+        section.open = true;
       } else {
-        
-        content.classList.add('hidden');
-        content.classList.remove('block');
-        const chevron = section.querySelector('.section-chevron');
-        if (chevron) {
-          chevron.style.transform = 'rotate(0deg)';
-        }
+        section.open = false;
       }
     });
 
     if (!found && query.length > 0) {
-      
       showSearchMessage('Нічого не знайдено за запитом: "' + query + '"');
     }
   }
@@ -1082,20 +1083,8 @@
       item.classList.remove('hidden', 'highlighted');
     });
 
-    
-    sections.forEach(function (section, index) {
-      const content = section.querySelector('.section-content');
-      const chevron = section.querySelector('.section-chevron');
-
-      if (index === 0) {
-        content.classList.remove('hidden');
-        content.classList.add('block');
-        if (chevron) chevron.style.transform = 'rotate(180deg)';
-      } else {
-        content.classList.add('hidden');
-        content.classList.remove('block');
-        if (chevron) chevron.style.transform = 'rotate(0deg)';
-      }
+    sections.forEach(function (section) {
+      section.open = false;
     });
 
     hideSearchMessage();
@@ -1108,7 +1097,7 @@
       messageEl.id = 'search-message';
       messageEl.className = 'text-center py-8 text-gray-500 font-[Montserrat]';
 
-      const container = document.querySelector('.max-w-5xl');
+      const container = document.querySelector('.w-full');
       if (container) {
         container.appendChild(messageEl);
       }
@@ -1529,7 +1518,7 @@
 </script>
   
   
-  <script src="/main.80cc8.js"></script>
+  <script src="/main.e0719.js"></script>
   
 
   <script>

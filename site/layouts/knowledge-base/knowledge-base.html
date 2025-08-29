@@ -1,16 +1,15 @@
 {{ define "main" }}
-<section class="bg-white relative z-10">
-  <div class="w-full py-8 pb-40">
+<section class="relative z-10 bg-white">
+  <div class="py-8 pb-40 w-full">
     <!-- Header with Breadcrumbs and Search -->
     <div class="flex flex-col gap-4 mb-8 lg:flex-row lg:items-center lg:justify-between px-8 max-[450px]:px-5">
       <!-- Breadcrumbs -->
       <div class="flex items-center justify-start gap-2 text-[var(--color-karma-red)] font-[Montserrat]">
-        <a class="font-[Montserrat] lg:text-[20px] max-[450px]:text-[16px] font-normal text-[#ba0108]" href="/">
+        <a class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-normal text-[#ba0108]" href="/">
           Головна
         </a>
         <span class="text-[#ba0108]">→</span>
-        <a class="font-[Montserrat] lg:text-[20px] max-[450px]:text-[16px] font-normal text-[#ba0108]"
-          href="/knowledge-base">
+        <a class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-normal text-[#ba0108]" href="/knowledge-base">
           База знань
         </a>
       </div>
@@ -30,37 +29,44 @@
     </div>
 
     <!-- Accordion Sections -->
-    <div class="w-full space-y-0 relative z-20">
+    <div class="relative z-20 space-y-0 w-full">
       {{ $categories := slice "БПЛА" "Відеопередавачі" "ESC" "Політні стеки" }}
       {{ $guides := where .Site.RegularPages "Section" "guides" }}
       {{ range $index, $category := $categories }}
       {{ $categoryGuides := where $guides ".Params.category" $category }}
-      <details class="knowledge-section border-0 overflow-visible mb-0 relative z-30 group">
-        <summary class="section-header bg-[#4a4a4a] text-white rounded-none cursor-pointer list-none group-open:bg-[#ba0108]">
-          <div class="w-full flex items-center justify-between lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4">
-            <h2 class="lg:text-[40px] max-[450px]:text-[24px] font-bold font-['Unbounded'] tracking-wide">{{ $category }}</h2>
-            <svg class="lg:w-8 lg:h-8 max-[450px]:w-6 max-[450px]:h-6 transform transition-transform duration-300 group-open:rotate-180" 
-                 fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <details class="overflow-visible relative z-30 mb-0 border-0 knowledge-section group">
+        <summary
+          class="section-header bg-[#4a4a4a] text-white rounded-none cursor-pointer list-none group-open:bg-[#ba0108]">
+          <div class="flex justify-between items-center px-6 py-4 w-full lg:px-8 lg:py-6">
+            <h2 class="text-[clamp(24px,3vw,40px)] font-bold font-['Unbounded'] tracking-wide">{{ $category
+              }}</h2>
+            <svg class="w-6 h-6 transition-transform duration-300 transform lg:w-8 lg:h-8 group-open:rotate-180"
+              fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
             </svg>
           </div>
         </summary>
 
         <!-- Section Content -->
-        <div class="section-content bg-white">
+        <div class="bg-white section-content">
           {{ if $categoryGuides }}
           <div class="accordion-items">
             {{ range $categoryGuides }}
             <div class="border-b border-gray-200 knowledge-item last:border-b-0">
-              <div class="flex cursor-pointer select-none items-start lg:px-8 lg:py-6 max-[450px]:px-6 max-[450px]:py-4 hover:bg-gray-50 transition-colors"
-                   onclick="window.location.href='{{ .Permalink }}'">
+              <div
+                class="flex items-start px-6 py-4 transition-colors cursor-pointer select-none lg:px-8 lg:py-6 hover:bg-gray-50"
+                onclick="window.location.href='{{ .Permalink }}'">
                 <div class="flex flex-1 gap-4 items-start space-x-4">
                   <img src="/img/point.svg" />
                   <div class="flex-1">
-                    <h3 class="lg:text-[24px] max-[450px]:text-[16px] font-medium text-gray-900 font-['Montserrat'] mb-2">{{ .Title }}</h3>
+                    <h3 class="text-[clamp(16px,2vw,24px)] font-medium text-gray-900 font-['Montserrat'] mb-2">
+                      {{ .Title }}</h3>
                     {{ if .Params.description }}
-                    <p class="lg:text-[16px] max-[450px]:text-[14px] text-black leading-relaxed font-['Montserrat']">{{ .Params.description }}  <span class="text-[#ba0108] underline cursor-pointer lg:text-[16px] max-[450px]:text-[14px]">&gt;&gt;</span></p>
-                    
+                    <p class="text-[clamp(14px,1.5vw,16px)] text-black leading-relaxed font-['Montserrat']">{{
+                      .Params.description }} <span
+                        class="text-[#ba0108] underline cursor-pointer text-[clamp(14px,1.5vw,16px)]">&gt;&gt;</span>
+                    </p>
+
                     {{ end }}
                   </div>
                 </div>
@@ -69,8 +75,8 @@
             {{ end }}
           </div>
           {{ else }}
-          <div class="lg:px-8 lg:py-12 max-[450px]:px-6 max-[450px]:py-8 text-center text-gray-500">
-            <p class="lg:text-[20px] max-[450px]:text-[16px] font-['Montserrat']">Контент скоро буде додано</p>
+          <div class="px-6 py-8 text-center text-gray-500 lg:px-8 lg:py-12">
+            <p class="text-[clamp(16px,2vw,20px)] font-['Montserrat']">Контент скоро буде додано</p>
           </div>
           {{ end }}
         </div>
@@ -81,278 +87,278 @@
 </section>
 
 <style>
-/* Native Details/Summary Styles */
-.knowledge-section {
-  position: relative;
-  z-index: 30;
-}
-
-/* Hide default details marker */
-.knowledge-section summary {
-  list-style: none;
-}
-
-.knowledge-section summary::-webkit-details-marker {
-  display: none;
-}
-
-/* Open state styling */
-.knowledge-section[open] summary {
-  background-color: #ba0108 !important;
-}
-
-/* Ensure content appears above footer */
-.section-content {
-  position: relative;
-  z-index: 40;
-  border-left: 1px solid #e5e7eb;
-  border-right: 1px solid #e5e7eb;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.section-header {
-  border: none;
-  box-shadow: none;
-}
-
-.section-header:hover {
-  opacity: 0.95;
-}
-
-/* Knowledge Item Styles */
-.knowledge-item:hover {
-  background-color: #f9fafb;
-}
-
-.knowledge-item h3 {
-  transition: color 0.2s ease;
-}
-
-.knowledge-item:hover h3 {
-  color: #ba0108;
-}
-
-/* Mobile Responsive Design */
-@media (max-width: 450px) {
-  .section-header div {
-    padding: 1rem 1.5rem;
+  /* Native Details/Summary Styles */
+  .knowledge-section {
+    position: relative;
+    z-index: 30;
   }
-  
-  .section-header h2 {
-    font-size: 24px !important;
-    font-weight: bold;
+
+  /* Hide default details marker */
+  .knowledge-section summary {
+    list-style: none;
   }
-  
-  .section-header svg {
-    width: 24px !important;
-    height: 24px !important;
+
+  .knowledge-section summary::-webkit-details-marker {
+    display: none;
   }
-}
 
-.knowledge-section summary::-webkit-details-marker {
-  display: none;
-}
-
-/* Open state styling */
-.knowledge-section[open] summary {
-  background-color: #ba0108 !important;
-}
-
-/* Ensure content appears above footer */
-.section-content {
-  position: relative;
-  z-index: 40;
-  border-left: 1px solid #e5e7eb;
-  border-right: 1px solid #e5e7eb;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-.section-header {
-  border: none;
-  box-shadow: none;
-}
-
-.section-header:hover {
-  opacity: 0.95;
-}
-
-/* Knowledge Item Styles */
-.knowledge-item:hover {
-  background-color: #f9fafb;
-}
-
-.knowledge-item h3 {
-  transition: color 0.2s ease;
-}
-
-.knowledge-item:hover h3 {
-  color: #ba0108;
-}
-
-/* Mobile Responsive Design */
-@media (max-width: 450px) {
-  .section-header div {
-    padding: 1rem 1.5rem;
+  /* Open state styling */
+  .knowledge-section[open] summary {
+    background-color: #ba0108 !important;
   }
-  
-  .section-header h2 {
-    font-size: 24px !important;
-    font-weight: bold;
-  }
-  
-  .section-header svg {
-    width: 24px !important;
-    height: 24px !important;
-  }
-  
-  .knowledge-item {
-    padding: 1rem 1.5rem;
+
+  /* Ensure content appears above footer */
+  .section-content {
+    position: relative;
+    z-index: 40;
+    border-left: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;
     border-bottom: 1px solid #e5e7eb;
   }
-  
+
+  .section-header {
+    border: none;
+    box-shadow: none;
+  }
+
+  .section-header:hover {
+    opacity: 0.95;
+  }
+
+  /* Knowledge Item Styles */
+  .knowledge-item:hover {
+    background-color: #f9fafb;
+  }
+
   .knowledge-item h3 {
-    font-size: 16px !important;
-    font-weight: 500;
-    margin-bottom: 0.5rem;
-    line-height: 1.4;
-    padding-left: 0 !important;
+    transition: color 0.2s ease;
   }
-  
-  .knowledge-item p {
-    font-size: 14px !important;
-    line-height: 1.5;
-    color: #6b7280;
-  }
-  
-  .knowledge-item svg {
-    width: 12px !important;
-    height: 12px !important;
-    margin-top: 2px;
-  }
-  
-  .knowledge-item .flex {
-    align-items: flex-start;
-    gap: 0.75rem;
-  }
-}
 
-/* Search functionality */
-.knowledge-item.hidden {
-  display: none;
-}
+  .knowledge-item:hover h3 {
+    color: #ba0108;
+  }
 
-.knowledge-item.highlighted {
-  background-color: #fef2f2;
-}
+  /* Mobile Responsive Design */
+  @media (max-width: 450px) {
+    .section-header div {
+      padding: 1rem 1.5rem;
+    }
+
+    .section-header h2 {
+      font-size: 24px !important;
+      font-weight: bold;
+    }
+
+    .section-header svg {
+      width: 24px !important;
+      height: 24px !important;
+    }
+  }
+
+  .knowledge-section summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /* Open state styling */
+  .knowledge-section[open] summary {
+    background-color: #ba0108 !important;
+  }
+
+  /* Ensure content appears above footer */
+  .section-content {
+    position: relative;
+    z-index: 40;
+    border-left: 1px solid #e5e7eb;
+    border-right: 1px solid #e5e7eb;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .section-header {
+    border: none;
+    box-shadow: none;
+  }
+
+  .section-header:hover {
+    opacity: 0.95;
+  }
+
+  /* Knowledge Item Styles */
+  .knowledge-item:hover {
+    background-color: #f9fafb;
+  }
+
+  .knowledge-item h3 {
+    transition: color 0.2s ease;
+  }
+
+  .knowledge-item:hover h3 {
+    color: #ba0108;
+  }
+
+  /* Mobile Responsive Design */
+  @media (max-width: 450px) {
+    .section-header div {
+      padding: 1rem 1.5rem;
+    }
+
+    .section-header h2 {
+      font-size: 24px !important;
+      font-weight: bold;
+    }
+
+    .section-header svg {
+      width: 24px !important;
+      height: 24px !important;
+    }
+
+    .knowledge-item {
+      padding: 1rem 1.5rem;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    .knowledge-item h3 {
+      font-size: 16px !important;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      line-height: 1.4;
+      padding-left: 0 !important;
+    }
+
+    .knowledge-item p {
+      font-size: 14px !important;
+      line-height: 1.5;
+      color: #6b7280;
+    }
+
+    .knowledge-item svg {
+      width: 12px !important;
+      height: 12px !important;
+      margin-top: 2px;
+    }
+
+    .knowledge-item .flex {
+      align-items: flex-start;
+      gap: 0.75rem;
+    }
+  }
+
+  /* Search functionality */
+  .knowledge-item.hidden {
+    display: none;
+  }
+
+  .knowledge-item.highlighted {
+    background-color: #fef2f2;
+  }
 </style>
 
 <script>
-// Simple initialization for native details elements
-document.addEventListener('DOMContentLoaded', function() {
-  // Search functionality
-  const searchInput = document.getElementById('knowledge-search');
-  const searchButton = searchInput?.nextElementSibling;
-  
-  function performSearch() {
-    const query = searchInput.value.trim();
-    if (query) {
-      searchInContent(query);
-    } else {
-      resetSearch();
-    }
-  }
-  
-  if (searchInput && searchButton) {
-    searchButton.addEventListener('click', performSearch);
-    
-    searchInput.addEventListener('keypress', function(e) {
-      if (e.key === 'Enter') {
-        performSearch();
-      }
-    });
-    
-    searchInput.addEventListener('input', function() {
-      const query = this.value.trim();
-      if (query.length > 2) {
+  // Simple initialization for native details elements
+  document.addEventListener('DOMContentLoaded', function () {
+    // Search functionality
+    const searchInput = document.getElementById('knowledge-search');
+    const searchButton = searchInput?.nextElementSibling;
+
+    function performSearch() {
+      const query = searchInput.value.trim();
+      if (query) {
         searchInContent(query);
-      } else if (query.length === 0) {
+      } else {
         resetSearch();
       }
-    });
-  }
-});
+    }
 
-function searchInContent(query) {
-  const sections = document.querySelectorAll('.knowledge-section');
-  let found = false;
-  
-  sections.forEach(function(section) {
-    const items = section.querySelectorAll('.knowledge-item');
-    let sectionHasMatch = false;
-    
-    items.forEach(function(item) {
-      const title = item.querySelector('h3')?.textContent.toLowerCase() || '';
-      const description = item.querySelector('p')?.textContent.toLowerCase() || '';
-      
-      if (title.includes(query.toLowerCase()) || description.includes(query.toLowerCase())) {
-        item.classList.remove('hidden');
-        item.classList.add('highlighted');
-        sectionHasMatch = true;
-        found = true;
+    if (searchInput && searchButton) {
+      searchButton.addEventListener('click', performSearch);
+
+      searchInput.addEventListener('keypress', function (e) {
+        if (e.key === 'Enter') {
+          performSearch();
+        }
+      });
+
+      searchInput.addEventListener('input', function () {
+        const query = this.value.trim();
+        if (query.length > 2) {
+          searchInContent(query);
+        } else if (query.length === 0) {
+          resetSearch();
+        }
+      });
+    }
+  });
+
+  function searchInContent(query) {
+    const sections = document.querySelectorAll('.knowledge-section');
+    let found = false;
+
+    sections.forEach(function (section) {
+      const items = section.querySelectorAll('.knowledge-item');
+      let sectionHasMatch = false;
+
+      items.forEach(function (item) {
+        const title = item.querySelector('h3')?.textContent.toLowerCase() || '';
+        const description = item.querySelector('p')?.textContent.toLowerCase() || '';
+
+        if (title.includes(query.toLowerCase()) || description.includes(query.toLowerCase())) {
+          item.classList.remove('hidden');
+          item.classList.add('highlighted');
+          sectionHasMatch = true;
+          found = true;
+        } else {
+          item.classList.add('hidden');
+          item.classList.remove('highlighted');
+        }
+      });
+
+      if (sectionHasMatch) {
+        section.open = true;
       } else {
-        item.classList.add('hidden');
-        item.classList.remove('highlighted');
+        section.open = false;
       }
     });
-    
-    if (sectionHasMatch) {
-      section.open = true;
-    } else {
+
+    if (!found && query.length > 0) {
+      showSearchMessage('Нічого не знайдено за запитом: "' + query + '"');
+    }
+  }
+
+  function resetSearch() {
+    const items = document.querySelectorAll('.knowledge-item');
+    const sections = document.querySelectorAll('.knowledge-section');
+
+    items.forEach(function (item) {
+      item.classList.remove('hidden', 'highlighted');
+    });
+
+    sections.forEach(function (section) {
       section.open = false;
-    }
-  });
-  
-  if (!found && query.length > 0) {
-    showSearchMessage('Нічого не знайдено за запитом: "' + query + '"');
+    });
+
+    hideSearchMessage();
   }
-}
 
-function resetSearch() {
-  const items = document.querySelectorAll('.knowledge-item');
-  const sections = document.querySelectorAll('.knowledge-section');
-  
-  items.forEach(function(item) {
-    item.classList.remove('hidden', 'highlighted');
-  });
-  
-  sections.forEach(function(section) {
-    section.open = false;
-  });
-  
-  hideSearchMessage();
-}
+  function showSearchMessage(message) {
+    let messageEl = document.getElementById('search-message');
+    if (!messageEl) {
+      messageEl = document.createElement('div');
+      messageEl.id = 'search-message';
+      messageEl.className = 'text-center py-8 text-gray-500 font-[Montserrat]';
 
-function showSearchMessage(message) {
-  let messageEl = document.getElementById('search-message');
-  if (!messageEl) {
-    messageEl = document.createElement('div');
-    messageEl.id = 'search-message';
-    messageEl.className = 'text-center py-8 text-gray-500 font-[Montserrat]';
-    
-    const container = document.querySelector('.w-full');
-    if (container) {
-      container.appendChild(messageEl);
+      const container = document.querySelector('.w-full');
+      if (container) {
+        container.appendChild(messageEl);
+      }
+    }
+    messageEl.textContent = message;
+    messageEl.style.display = 'block';
+  }
+
+  function hideSearchMessage() {
+    const messageEl = document.getElementById('search-message');
+    if (messageEl) {
+      messageEl.style.display = 'none';
     }
   }
-  messageEl.textContent = message;
-  messageEl.style.display = 'block';
-}
-
-function hideSearchMessage() {
-  const messageEl = document.getElementById('search-message');
-  if (messageEl) {
-    messageEl.style.display = 'none';
-  }
-}
 </script>
 {{ end }}
