@@ -30,10 +30,12 @@ class CustomSlider {
       loop: options.loop || true,
       slidesPerView: options.slidesPerView || 1,
       spaceBetween: options.spaceBetween || 0,
+      responsive: options.responsive || {},
       ...options
     };
     
     this.init();
+    this.setupResponsive();
   }
   
   init() {
@@ -61,17 +63,31 @@ class CustomSlider {
     this.wrapper.style.height = 'auto';
     this.wrapper.style.transition = 'none';
     
-    // Set slide styles - use actual card width instead of percentage
+    this.updateSlideStyles();
+  }
+  
+  updateSlideStyles() {
+    const currentSlidesPerView = this.getCurrentSlidesPerView();
+    const currentSpaceBetween = this.getCurrentSpaceBetween();
+    const containerWidth = this.container.offsetWidth;
+    
+    // Calculate slide width to fit exactly slidesPerView with spacing
+    const totalSpacing = currentSpaceBetween * (currentSlidesPerView - 1);
+    const slideWidth = (containerWidth - totalSpacing) / currentSlidesPerView;
+    
     this.slides.forEach((slide, index) => {
       slide.style.flex = '0 0 auto';
-      slide.style.width = 'auto';
+      slide.style.width = `${slideWidth}px`;
       slide.style.display = 'flex';
       slide.style.alignItems = 'center';
       slide.style.justifyContent = 'center';
-      slide.style.padding = `0 ${this.options.spaceBetween / 2}px`;
-      slide.style.margin = '0';
+      slide.style.marginRight = index < this.slides.length - 1 ? `${currentSpaceBetween}px` : '0';
       slide.style.boxSizing = 'border-box';
     });
+    
+    // Ensure wrapper width fits exactly the visible slides
+    const wrapperWidth = (slideWidth * currentSlidesPerView) + totalSpacing;
+    this.wrapper.style.width = `${wrapperWidth}px`;
   }
   
   setupNavigation() {
@@ -124,11 +140,12 @@ class CustomSlider {
     this.isTransitioning = true;
     this.currentIndex = index;
     
-    // Calculate position based on actual slide width (420px card + spacing)
-    const slideWidth = 420 + this.options.spaceBetween;
+    // Calculate position based on responsive slide width
+    const currentSlidesPerView = this.getCurrentSlidesPerView();
+    const currentSpaceBetween = this.getCurrentSpaceBetween();
     const containerWidth = this.container.offsetWidth;
-    const centerOffset = (containerWidth - slideWidth * this.options.slidesPerView) / 2;
-    const translateX = centerOffset - (index * slideWidth);
+    const slideWidth = (containerWidth - (currentSpaceBetween * (currentSlidesPerView - 1))) / currentSlidesPerView;
+    const translateX = -(index * (slideWidth + currentSpaceBetween));
     
     // Apply transition
     if (animate) {
@@ -155,7 +172,8 @@ class CustomSlider {
   nextSlide() {
     if (this.isTransitioning) return;
     
-    const maxIndex = this.slides.length - this.options.slidesPerView;
+    const currentSlidesPerView = this.getCurrentSlidesPerView();
+    const maxIndex = Math.max(0, this.slides.length - Math.floor(currentSlidesPerView));
     const nextIndex = this.options.loop 
       ? (this.currentIndex + 1) % (maxIndex + 1)
       : Math.min(this.currentIndex + 1, maxIndex);
@@ -165,7 +183,8 @@ class CustomSlider {
   prevSlide() {
     if (this.isTransitioning) return;
     
-    const maxIndex = this.slides.length - this.options.slidesPerView;
+    const currentSlidesPerView = this.getCurrentSlidesPerView();
+    const maxIndex = Math.max(0, this.slides.length - Math.floor(currentSlidesPerView));
     const prevIndex = this.options.loop
       ? (this.currentIndex - 1 + (maxIndex + 1)) % (maxIndex + 1)
       : Math.max(this.currentIndex - 1, 0);
@@ -192,6 +211,51 @@ class CustomSlider {
       this.autoplayInterval = null;
     }
   }
+  
+  setupResponsive() {
+    const handleResize = () => {
+      this.updateSlideStyles();
+      this.showSlide(this.currentIndex, false);
+    };
+    
+    window.addEventListener('resize', handleResize);
+  }
+  
+  getCurrentSlidesPerView() {
+    const width = window.innerWidth;
+    const responsive = this.options.responsive;
+    
+    let currentSlidesPerView = this.options.slidesPerView;
+    
+    Object.keys(responsive)
+      .map(Number)
+      .sort((a, b) => a - b)
+      .forEach(breakpoint => {
+        if (width >= breakpoint) {
+          currentSlidesPerView = responsive[breakpoint].slidesPerView || currentSlidesPerView;
+        }
+      });
+    
+    return currentSlidesPerView;
+  }
+  
+  getCurrentSpaceBetween() {
+    const width = window.innerWidth;
+    const responsive = this.options.responsive;
+    
+    let currentSpaceBetween = this.options.spaceBetween;
+    
+    Object.keys(responsive)
+      .map(Number)
+      .sort((a, b) => a - b)
+      .forEach(breakpoint => {
+        if (width >= breakpoint) {
+          currentSpaceBetween = responsive[breakpoint].spaceBetween || currentSpaceBetween;
+        }
+      });
+    
+    return currentSpaceBetween;
+  }
 }
 
 // Initialize sliders when DOM is loaded
@@ -203,12 +267,26 @@ document.addEventListener('DOMContentLoaded', () => {
     slidesPerView: 4
   });
   
-  // Initialize desktop products slider - show 2 slides
+  // Initialize desktop products slider with responsive configuration
   new CustomSlider('.swiper-container-products', {
     autoplay: false,
     loop: true,
-    slidesPerView: 2,
-    spaceBetween: 10
+    slidesPerView: 2, // 2 slides to fit in 1237px container
+    spaceBetween: 30,
+    responsive: {
+      320: {
+        slidesPerView: 1,
+        spaceBetween: 0
+      },
+      768: {
+        slidesPerView: 1.5,
+        spaceBetween: 20
+      },
+      1024: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      }
+    }
   });
   
   // Initialize mobile slider
