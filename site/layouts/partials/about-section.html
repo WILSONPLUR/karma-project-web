@@ -15,30 +15,30 @@
   {{ $aboutDesktopProcessed := $aboutDesktop.Resize "500x400 webp q80" }}
   <img src="{{ $aboutDesktopProcessed.RelPermalink }}"
     alt="Про нас - українська компанія високотехнологічного виробництва" width="500" height="400"
-    class="hidden absolute left-0 lg:block w-[42%] h-full rounded-t-[8px] object-cover shadow-lg" />
+    class="hidden absolute left-0 min-[451px]:block w-[42%] h-full rounded-t-[8px] object-cover shadow-lg" />
   {{ else }}
   <img src="/img/about.png" alt="Про нас - українська компанія високотехнологічного виробництва" width="500"
-    height="400" class="hidden absolute left-0 lg:block w-[42%] h-full rounded-t-[8px] object-cover shadow-lg" />
+    height="400" class="hidden absolute left-0 min-[451px]:block w-[42%] h-full rounded-t-[8px] object-cover shadow-lg" />
   {{ end }}
-  <div class="lg:max-w-[1237px] max-[450px]:max-w-full max-[450px]:mx-5 mx-auto relative z-[2]">
+  <div class="lg:max-w-[1237px] max-[450px]:max-w-full max-[450px]:mx-5 mx-auto relative z-[2] min-[451px]:ml-[42%] min-[451px]:pl-8">
 
     <div class="flex lg:flex-row-reverse max-[450px]:flex-col items-center gap-8">
       <!-- Left Content -->
-      <div class="flex flex-1 flex-col w-full lg:order-1 max-[450px]:order-2">
+      <div class="flex flex-1 flex-col max-[1024px]:w-[52%] lg:w-full lg:order-1 max-[450px]:order-2 max-[450px]:w-full">
         <h2
-          class="lg:text-[40px] max-[450px]:text-[24px] text-left font-['Unbounded'] text-[#020303] font-semibold leading-[1.2] hero-title">
+          class="lg:text-[40px] max-[1024px]:text-[32px] max-[450px]:text-[24px] text-left font-['Unbounded'] text-[#020303] font-semibold leading-[1.2] hero-title">
           <span class="text-[#ba0108]">П</span>РО НАС
         </h2>
         <div class="mb-6">
           <p
-            class="lg:text-xl max-[450px]:text-[16px] font-['Montserrat'] lg:w-[649px] max-[450px]:w-[320px] text-[#333333]">
+            class="max-[1024px]:text-[16px] lg:text-xl max-[450px]:text-[16px] max-[1024px]:w-full font-['Montserrat'] lg:w-[649px] max-[450px]:w-[320px] text-[#333333]">
             Ми — українська компанія, що спеціалізується на розробці та
             виробництві високотехнологічної техніки для сучасного світу. Наше
             виробництво поєднує іновації, точну інженерію та найсучасніше
             обладнання, щоб створювати надійні рішення для промисловості,
             енергетики, агросектору та оборонної сфери.
           </p>
-          <p class="lg:text-xl max-[450px]:text-[16px] font-['Montserrat'] leading-[1.7] text-[#333333]">
+          <p class="max-[1024px]:text-[16px] lg:text-xl max-[450px]:text-[16px] max-[1024px]:w-full font-['Montserrat'] leading-[1.7] text-[#333333]">
             Ми впроваджуємо повний цикл: від ідеї та прототипу — до серійного
             виробництва. Усе — на українських потужностях, з дотриманням
             міжнародних стандартів якості.
@@ -57,10 +57,10 @@
         {{ $aboutMobileProcessed := $aboutMobile.Resize "350x400 webp q80" }}
         <img src="{{ $aboutMobileProcessed.RelPermalink }}"
           alt="Про нас - українська компанія високотехнологічного виробництва" width="350" height="400"
-          class="block object-contain mb-6 w-full h-auto lg:hidden" />
+          class="block object-contain mb-6 w-full h-auto min-[451px]:hidden" />
         {{ else }}
         <img src="/img/about-mobile.png" alt="Про нас - українська компанія високотехнологічного виробництва"
-          width="350" height="400" class="block object-contain mb-6 w-full h-auto lg:hidden" />
+          width="350" height="400" class="block object-contain mb-6 w-full h-auto min-[451px]:hidden" />
         {{ end }}
       </div>
     </div>

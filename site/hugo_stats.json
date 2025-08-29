@@ -52,6 +52,7 @@
       "ul"
     ],
     "classes": [
+      "!font-[Montserrat]",
       "!font-[Unbounded]",
       "!rounded-[20px]",
       "-bottom-3",
@@ -448,6 +449,7 @@
       "max-w-[1200px]",
       "max-w-[1237px]",
       "max-w-[1440px]",
+      "max-w-[1600px]",
       "max-w-[160px]",
       "max-w-[240px]",
       "max-w-[285px]",
