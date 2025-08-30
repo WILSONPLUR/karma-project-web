@@ -83,6 +83,7 @@
 }
 
 .swiper-container-products .swiper-slide {
+  width: calc(50% - 15px) !important;
   min-height: 400px;
 }
 

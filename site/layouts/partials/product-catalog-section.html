@@ -6,61 +6,61 @@
   {{ else }}
   <img src="/img/bg-el-4.png" class="absolute bottom-0 left-0" alt="bg element decoration" />
   {{ end }}
-  <div class="max-w-[1237px] mx-auto px-5">
+  <div class="lg:w-[1237px] xl:w-[1400px] 2xl:w-[1620px] mx-auto px-5">
     <h2
-      class="lg:text-[40px] max-[450px]:text-[24px] font-['Unbounded'] text-center text-[#020303] font-semibold mb-16 hero-title">
+      class="lg:text-[40px] max-[450px]:text-[24px] max-[769px]:text-[32px] font-['Unbounded'] text-center text-[#020303] font-semibold mb-16 hero-title">
       <span class="text-[#ba0108]">К</span>АТОЛОГ ТОВАРІВ
     </h2>
 
-    <div class="flex relative lg:flex-row max-[450px]:flex-col justify-between items-center gap-10">
+    <div class="flex relative lg:flex-row max-[450px]:flex-col justify-between items-center lg:gap-10 max-[1024px]:gap-2">
       <!-- Product Card 1 -->
       <div
-        class="bg-white lg:w-[400px] max-[450px]:w-[350px] lg:h-[362px] max-[450px]:h-[390px] cursor-pointer shadow-lg rounded-[5px] overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:text-[#ba0108]">
-        <div class="h-[300px] overflow-hidden">
+        class="bg-white lg:w-[400px] max-[1024px]:w-[300px] max-[1024px]:h-[322px] max-[450px]:w-[350px] lg:h-[362px] max-[450px]:h-[390px] cursor-pointer shadow-lg rounded-[5px] overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:text-[#ba0108]">
+        <div class="lg:h-[300px] max-[1024px]:h-fit overflow-hidden">
           {{ $product1 := resources.Get "img/catalog_product1.png" }}
           {{ if $product1 }}
           {{ $product1Processed := $product1.Resize "351x301 webp q80" }}
-          <img src="{{ $product1Processed.RelPermalink }}" alt="Продукт 1" class="w-[351px] h-[301px] object-cover" />
+          <img src="{{ $product1Processed.RelPermalink }}" alt="Продукт 1" class="lg:w-[351px] lg:h-[301px] max-[1024px]:w-fit max-[1024px]:h-fit object-cover" />
           {{ else }}
-          <img src="/img/catalog_product1.png" alt="Продукт 1" class="w-[351px] h-[301px] object-cover" />
+          <img src="/img/catalog_product1.png" alt="Продукт 1" class="lg:w-[351px] lg:h-[301px] max-[1024px]:w-fit max-[1024px]:h-fit object-cover" />
           {{ end }}
         </div>
         <div class="p-6">
-          <h3 class="text-2xl text-inherit text-center font-['Unbounded'] font-bold text-black mb-3">Політні стеки</h3>
+          <h3 class="lg:text-2xl max-[1024px]:text-xl text-inherit text-center font-['Unbounded'] font-bold text-black mb-3">Політні стеки</h3>
         </div>
       </div>
 
       <!-- Product Card 2 -->
       <div
-        class="bg-white lg:w-[400px] max-[450px]:w-[350px] lg:h-[362px] max-[450px]:h-[390px] cursor-pointer shadow-lg rounded-[5px] overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:text-[#ba0108]">
+        class="bg-white lg:w-[400px] max-[1024px]:w-[300px] max-[1024px]:h-[322px] max-[450px]:w-[350px] lg:h-[362px] max-[450px]:h-[390px] cursor-pointer shadow-lg rounded-[5px] overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:text-[#ba0108]">
         <div class="overflow-hidden">
           {{ $product2 := resources.Get "img/catalog_product2.png" }}
           {{ if $product2 }}
           {{ $product2Processed := $product2.Resize "351x301 webp q80" }}
-          <img src="{{ $product2Processed.RelPermalink }}" alt="Продукт 2" class="w-[351px] h-[301px] object-cover" />
+          <img src="{{ $product2Processed.RelPermalink }}" alt="Продукт 2" class="lg:w-[351px] lg:h-[301px] max-[1024px]:w-fit max-[1024px]:h-fit object-cover" />
           {{ else }}
-          <img src="/img/catalog_product2.png" alt="Продукт 2" class="w-[351px] h-[301px] object-cover" />
+          <img src="/img/catalog_product2.png" alt="Продукт 2" class="lg:w-[351px] lg:h-[301px] max-[1024px]:w-fit max-[1024px]:h-fit object-cover" />
           {{ end }}
         </div>
         <div class="p-6">
-          <h3 class="text-2xl text-inherit text-center font-bold font-[Unbounded] text-black mb-3">Робототехніка</h3>
+          <h3 class="lg:text-2xl max-[1024px]:text-xl text-inherit text-center font-bold font-[Unbounded] text-black mb-3">Робототехніка</h3>
         </div>
       </div>
 
       <!-- Product Card 3 -->
       <div
-        class="bg-white lg:w-[400px] max-[450px]:w-[350px] lg:h-[362px] max-[450px]:h-[390px] cursor-pointer shadow-lg rounded-[5px] overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:text-[#ba0108]">
-        <div class="h-[300px] overflow-hidden">
+        class="bg-white lg:w-[400px] max-[1024px]:w-[300px] max-[1024px]:h-[322px] max-[450px]:w-[350px] lg:h-[362px] max-[450px]:h-[390px] cursor-pointer shadow-lg rounded-[5px] overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:text-[#ba0108]">
+        <div class="lg:h-[300px] max-[1024px]:h-fit overflow-hidden">
           {{ $product3 := resources.Get "img/catalog_product3.png" }}
           {{ if $product3 }}
           {{ $product3Processed := $product3.Resize "351x301 webp q80" }}
-          <img src="{{ $product3Processed.RelPermalink }}" alt="Продукт 3" class="w-[351px] h-[301px] object-cover" />
+          <img src="{{ $product3Processed.RelPermalink }}" alt="Продукт 3" class="lg:w-[351px] lg:h-[301px] max-[1024px]:w-fit max-[1024px]:h-fit object-cover" />
           {{ else }}
-          <img src="/img/catalog_product3.png" alt="Продукт 3" class="w-[351px] h-[301px] object-cover" />
+          <img src="/img/catalog_product3.png" alt="Продукт 3" class="lg:w-[351px] lg:h-[301px] max-[1024px]:w-fit max-[1024px]:h-fit object-cover" />
           {{ end }}
         </div>
         <div class="p-6">
-          <h3 class="text-2xl text-inherit text-center font-bold font-['Unbounded'] text-black mb-3">ESC</h3>
+          <h3 class="lg:text-2xl max-[1024px]:text-xl text-inherit text-center font-bold font-['Unbounded'] text-black mb-3">ESC</h3>
         </div>
       </div>
     </div>
