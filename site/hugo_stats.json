@@ -263,6 +263,7 @@
       "h-[clamp(180px,25vw,367px)]",
       "h-[clamp(30px,6vw,57px)]",
       "h-[clamp(40px,6vw,47px)]",
+      "h-[clamp(80px,12vw,140px)]",
       "h-[clamp(80px,12vw,298px)]",
       "h-[clamp(90px,9vw,220px)]",
       "h-auto",
