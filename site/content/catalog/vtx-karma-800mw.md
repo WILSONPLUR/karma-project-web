@@ -4,7 +4,7 @@ description: "Високоякісний відеопередавач для FPV
 date: 2024-08-25T00:00:00Z
 category: "videoperedavachi-vtx"
 product_id: "3001"
-image: "/img/vtx-product1.png"
+image: "/img/Stack-product.png"
 price: 1200
 currency: "грн"
 in_stock: true
