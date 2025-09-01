@@ -54,7 +54,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&family=Wallpoet&display=swap"
     rel="stylesheet" /> 
-  <link rel="stylesheet" href="/main.29a51.css" />
+  <link rel="stylesheet" href="/main.e369d.css" />
   
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
@@ -556,7 +556,8 @@
   
 
 
-<section class="flex overflow-hidden relative justify-center items-center px-5 py-16 sm:py-20 lg:py-20">
+<section id="contact-form-section"
+  class="flex overflow-hidden relative justify-center items-center px-5 py-16 sm:py-20 lg:py-20">
   <div class="hidden background-element1 xl:block">
     
     
@@ -577,7 +578,7 @@
     <div class="flex flex-col gap-3 w-full text-center md:text-left">
       <h2 class="text-[clamp(24px,3vw,40px)] font-medium font-['Unbounded']">
         <span class="text-[#BA0108]">З</span>В'ЯЖІТЬСЯ З НАМИ
-        
+
       </h2>
       <p class="mb-4 text-[clamp(16px,2vw,20px)] font-medium text-black font-['Montserrat']">
         Введіть будь-ласка Ваші данні і ми зв'яжемось з Вами
@@ -586,13 +587,13 @@
       <form class="flex flex-col gap-[clamp(20px,3vw,27px)] font-['Montserrat'] w-full">
         <div class="flex flex-col gap-[clamp(15px,2vw,23px)] md:flex-row xl:flex-row">
           <input type="text" placeholder="Ваше ім'я"
-            class="form-input w-full xl:w-[373px] flex-1 px-5 bg-white py-4 placeholder:text-gray-500 border border-gray-600 rounded-md text-base bg-white transition-all duration-300 ease-in-out" />
+            class="form-input w-full xl:w-[373px] flex-1 px-5 bg-white py-4 placeholder:text-[#999] border border-[#404040] rounded-md text-normal bg-white transition-all duration-300 ease-in-out" />
           <input type="tel" placeholder="+380"
-            class="form-input w-full xl:w-[373px] flex-1 px-5 bg-white py-4 placeholder:text-gray-500 border border-gray-600 rounded-md text-base bg-white transition-all duration-300 ease-in-out" />
+            class="form-input w-full xl:w-[373px] flex-1 px-5 bg-white py-4 placeholder:text-[#999] border border-[#404040] rounded-md text-normal bg-white transition-all duration-300 ease-in-out" />
         </div>
 
         <textarea placeholder="Ваше повідомлення" rows="5"
-          class="form-input w-full xl:w-[770px] px-5 py-4 placeholder:text-gray-500 bg-white border border-gray-600 rounded-md text-base bg-white resize-y min-h-[120px] transition-all duration-300 ease-in-out font-['Montserrat']"></textarea>
+          class="form-input w-full xl:w-[770px] px-5 py-4 placeholder:text-[#999] bg-white border border-[#404040] rounded-md text-normal bg-white resize-y min-h-[120px] transition-all duration-300 ease-in-out font-['Montserrat']"></textarea>
 
         <button type="submit"
           class="form-button w-full xl:w-[770px] bg-[#ba0108] hover:bg-[#a00007] transition-colors text-white border-none px-10 h-[70px] mt-[50px] lg:h-auto lg:py-5 lg:mt-0 rounded-2xl cursor-pointer text-[clamp(16px,2vw,24px)] font-medium font-['Montserrat'] duration-300 ease-in-out">
@@ -647,7 +648,16 @@
     }
   }
 
-  .form-input:focus {
+  #contact-form-section .form-input {
+    color: #999;
+    border-color: #404040;
+  }
+
+  #contact-form-section .form-input::placeholder {
+    color: #999;
+  }
+
+  #contact-form-section .form-input:focus {
     outline: none;
     border-color: #ba0108;
     box-shadow: 0 0 0 3px rgba(186, 1, 8, 0.1);
@@ -1403,7 +1413,7 @@
 </script>
   
   
-  <script src="/main.29a51.js"></script>
+  <script src="/main.e369d.js"></script>
   
 
   <script>

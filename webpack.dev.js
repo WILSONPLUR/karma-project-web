@@ -1,6 +1,6 @@
 const {merge} = require("webpack-merge");
 const path = require("path");
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require("clean-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const common = require("./webpack.common");
@@ -19,6 +19,11 @@ module.exports = merge(common, {
       directory: path.join(process.cwd(), "./dist"),
       watch: true
     },
+    watchFiles: [
+      "site/layouts/**/*.html",
+      "site/content/**/*.{html,md}",
+      "site/data/**/*.{json,yml,toml}"
+    ],
     open: true,
     historyApiFallback: {
       rewrites: [{from: /./, to: "404.html"}]

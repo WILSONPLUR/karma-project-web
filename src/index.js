@@ -17,13 +17,13 @@ class CustomSlider {
   constructor(container, options = {}) {
     this.container = document.querySelector(container);
     if (!this.container) return;
-    
-    this.wrapper = this.container.querySelector('.swiper-wrapper');
-    this.slides = this.container.querySelectorAll('.swiper-slide');
+
+    this.wrapper = this.container.querySelector(".swiper-wrapper");
+    this.slides = this.container.querySelectorAll(".swiper-slide");
     this.currentIndex = 0;
     this.autoplayInterval = null;
     this.isTransitioning = false;
-    
+
     this.options = {
       autoplay: options.autoplay || false,
       delay: options.delay || 3000,
@@ -31,171 +31,168 @@ class CustomSlider {
       slidesPerView: options.slidesPerView || 1,
       spaceBetween: options.spaceBetween || 0,
       responsive: options.responsive || {},
-      ...options
+      paginationCount: options.paginationCount || null,
+      ...options,
     };
-    
+
     this.init();
     this.setupResponsive();
   }
-  
+
   init() {
     if (this.slides.length === 0) return;
-    
+
     this.setupSlider();
     this.setupNavigation();
     this.setupPagination();
     this.showSlide(0, false);
-    
+
     if (this.options.autoplay) {
       this.startAutoplay();
     }
   }
-  
+
   setupSlider() {
     // Set container styles
-    this.container.style.position = 'relative';
-    this.container.style.overflow = 'hidden';
-    this.container.style.width = '100%';
-    
+    this.container.style.position = "relative";
+    this.container.style.overflow = "hidden";
+    this.container.style.width = "100%";
+
     // Set wrapper styles
-    this.wrapper.style.display = 'flex';
-    this.wrapper.style.width = 'fit-content';
-    this.wrapper.style.height = 'auto';
-    this.wrapper.style.transition = 'none';
-    
+    this.wrapper.style.display = "flex";
+    this.wrapper.style.width = "fit-content";
+    this.wrapper.style.height = "auto";
+    this.wrapper.style.transition = "none";
+    this.wrapper.style.flexWrap = "nowrap";
+
     this.updateSlideStyles();
   }
-  
+
   updateSlideStyles() {
     const currentSlidesPerView = this.getCurrentSlidesPerView();
     const currentSpaceBetween = this.getCurrentSpaceBetween();
     const containerWidth = this.container.offsetWidth;
-    
+
     // Calculate slide width to fit exactly slidesPerView with spacing
     const totalSpacing = currentSpaceBetween * (currentSlidesPerView - 1);
     const slideWidth = (containerWidth - totalSpacing) / currentSlidesPerView;
-    
+
     this.slides.forEach((slide, index) => {
-      slide.style.flex = '0 0 auto';
+      slide.style.flex = "0 0 auto";
       slide.style.width = `${slideWidth}px`;
-      slide.style.display = 'flex';
-      slide.style.alignItems = 'center';
-      slide.style.justifyContent = 'center';
-      slide.style.marginRight = index < this.slides.length - 1 ? `${currentSpaceBetween}px` : '0';
-      slide.style.boxSizing = 'border-box';
+      slide.style.display = "flex";
+      slide.style.alignItems = "center";
+      slide.style.justifyContent = "center";
+      slide.style.marginRight = index < this.slides.length - 1 ? `${currentSpaceBetween}px` : "0";
+      slide.style.boxSizing = "border-box";
     });
-    
+
     // Ensure wrapper width fits exactly the visible slides
-    const wrapperWidth = (slideWidth * currentSlidesPerView) + totalSpacing;
+    const wrapperWidth = slideWidth * currentSlidesPerView + totalSpacing;
     this.wrapper.style.width = `${wrapperWidth}px`;
   }
-  
+
   setupNavigation() {
-    const nextBtn = this.container.parentElement.querySelector('.swiper-button-next-custom');
-    const prevBtn = this.container.parentElement.querySelector('.swiper-button-prev-custom');
-    
-    console.log('Setting up navigation for:', this.container);
-    console.log('Next button found:', nextBtn);
-    console.log('Prev button found:', prevBtn);
-    
+    const nextBtn = this.container.querySelector(".swiper-button-next-custom") ||
+      this.container.parentElement.querySelector(".swiper-button-next-custom");
+    const prevBtn = this.container.querySelector(".swiper-button-prev-custom") ||
+      this.container.parentElement.querySelector(".swiper-button-prev-custom");
+
     if (nextBtn) {
-      nextBtn.addEventListener('click', (e) => {
+      nextBtn.addEventListener("click", (e) => {
         e.preventDefault();
-        console.log('Next button clicked');
         this.nextSlide();
       });
     }
-    
+
     if (prevBtn) {
-      prevBtn.addEventListener('click', (e) => {
+      prevBtn.addEventListener("click", (e) => {
         e.preventDefault();
-        console.log('Prev button clicked');
         this.prevSlide();
       });
     }
   }
-  
+
   setupPagination() {
-    const pagination = this.container.querySelector('.swiper-pagination-trusted');
+    const pagination = this.container.querySelector(".swiper-pagination-trusted");
     if (!pagination) return;
-    
-    pagination.innerHTML = '';
-    
-    this.slides.forEach((_, index) => {
-      const bullet = document.createElement('span');
-      bullet.className = 'swiper-pagination-bullet-custom';
-      bullet.addEventListener('click', (e) => {
+
+    pagination.innerHTML = "";
+
+    const bulletCount = this.options.paginationCount || this.slides.length;
+    for (let i = 0; i < bulletCount; i += 1) {
+      const bullet = document.createElement("span");
+      bullet.className = "swiper-pagination-bullet-custom";
+      bullet.addEventListener("click", (e) => {
         e.preventDefault();
-        this.goToSlide(index);
+        const targetIndex = this.slides.length > 0 ? i % this.slides.length : 0;
+        this.goToSlide(targetIndex);
       });
       pagination.appendChild(bullet);
-    });
-    
-    this.bullets = pagination.querySelectorAll('.swiper-pagination-bullet-custom');
+    }
+
+    this.bullets = pagination.querySelectorAll(".swiper-pagination-bullet-custom");
   }
-  
+
   showSlide(index, animate = true) {
     if (index < 0 || index >= this.slides.length) return;
-    
+
     this.isTransitioning = true;
     this.currentIndex = index;
-    
+
     // Calculate position based on responsive slide width
     const currentSlidesPerView = this.getCurrentSlidesPerView();
     const currentSpaceBetween = this.getCurrentSpaceBetween();
     const containerWidth = this.container.offsetWidth;
-    const slideWidth = (containerWidth - (currentSpaceBetween * (currentSlidesPerView - 1))) / currentSlidesPerView;
+    const slideWidth = (containerWidth - currentSpaceBetween * (currentSlidesPerView - 1)) / currentSlidesPerView;
     const translateX = -(index * (slideWidth + currentSpaceBetween));
-    
+
     // Apply transition
     if (animate) {
-      this.wrapper.style.transition = 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)';
+      this.wrapper.style.transition = "transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
     } else {
-      this.wrapper.style.transition = 'none';
+      this.wrapper.style.transition = "none";
     }
-    
+
     this.wrapper.style.transform = `translateX(${translateX}px)`;
-    
+
     // Update pagination
     if (this.bullets) {
+      const bulletIndex = this.options.paginationCount ? index % this.options.paginationCount : index;
       this.bullets.forEach((bullet, i) => {
-        bullet.classList.toggle('swiper-pagination-bullet-active-custom', i === index);
+        bullet.classList.toggle("swiper-pagination-bullet-active-custom", i === bulletIndex);
       });
     }
-    
+
     // Reset transition flag
     setTimeout(() => {
       this.isTransitioning = false;
     }, animate ? 500 : 0);
   }
-  
+
   nextSlide() {
     if (this.isTransitioning) return;
-    
+
     const currentSlidesPerView = this.getCurrentSlidesPerView();
     const maxIndex = Math.max(0, this.slides.length - Math.floor(currentSlidesPerView));
-    const nextIndex = this.options.loop 
-      ? (this.currentIndex + 1) % (maxIndex + 1)
-      : Math.min(this.currentIndex + 1, maxIndex);
+    const nextIndex = this.options.loop ? (this.currentIndex + 1) % (maxIndex + 1) : Math.min(this.currentIndex + 1, maxIndex);
     this.showSlide(nextIndex);
   }
-  
+
   prevSlide() {
     if (this.isTransitioning) return;
-    
+
     const currentSlidesPerView = this.getCurrentSlidesPerView();
     const maxIndex = Math.max(0, this.slides.length - Math.floor(currentSlidesPerView));
-    const prevIndex = this.options.loop
-      ? (this.currentIndex - 1 + (maxIndex + 1)) % (maxIndex + 1)
-      : Math.max(this.currentIndex - 1, 0);
+    const prevIndex = this.options.loop ? (this.currentIndex - 1 + (maxIndex + 1)) % (maxIndex + 1) : Math.max(this.currentIndex - 1, 0);
     this.showSlide(prevIndex);
   }
-  
+
   goToSlide(index) {
     if (this.isTransitioning || index === this.currentIndex) return;
     this.showSlide(index);
   }
-  
+
   startAutoplay() {
     this.stopAutoplay();
     this.autoplayInterval = setInterval(() => {
@@ -204,235 +201,170 @@ class CustomSlider {
       }
     }, this.options.delay);
   }
-  
+
   stopAutoplay() {
     if (this.autoplayInterval) {
       clearInterval(this.autoplayInterval);
       this.autoplayInterval = null;
     }
   }
-  
+
   setupResponsive() {
     const handleResize = () => {
       this.updateSlideStyles();
       this.showSlide(this.currentIndex, false);
     };
-    
-    window.addEventListener('resize', handleResize);
+
+    window.addEventListener("resize", handleResize);
   }
-  
+
   getCurrentSlidesPerView() {
     const width = window.innerWidth;
     const responsive = this.options.responsive;
-    
+
     let currentSlidesPerView = this.options.slidesPerView;
-    
+
     Object.keys(responsive)
       .map(Number)
       .sort((a, b) => a - b)
-      .forEach(breakpoint => {
+      .forEach((breakpoint) => {
         if (width >= breakpoint) {
           currentSlidesPerView = responsive[breakpoint].slidesPerView || currentSlidesPerView;
         }
       });
-    
+
     return currentSlidesPerView;
   }
-  
+
   getCurrentSpaceBetween() {
     const width = window.innerWidth;
     const responsive = this.options.responsive;
-    
+
     let currentSpaceBetween = this.options.spaceBetween;
-    
+
     Object.keys(responsive)
       .map(Number)
       .sort((a, b) => a - b)
-      .forEach(breakpoint => {
+      .forEach((breakpoint) => {
         if (width >= breakpoint) {
           currentSpaceBetween = responsive[breakpoint].spaceBetween || currentSpaceBetween;
         }
       });
-    
+
     return currentSpaceBetween;
   }
 }
 
 // Initialize sliders when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  // Initialize trusted companies slider - show 4 slides on desktop
-  new CustomSlider('.swiper-container-trusted', {
+document.addEventListener("DOMContentLoaded", () => {
+  // Desktop/Tablet trusted companies slider (4 visible)
+  new CustomSlider(".swiper-container-trusted-desktop", {
     autoplay: false,
     loop: true,
-    slidesPerView: 4
+    slidesPerView: 4,
+    spaceBetween: 40,
+    paginationCount: 4,
   });
-  
+
+  // Mobile trusted companies slider (1 slide showing 2x2 grid inside)
+  new CustomSlider(".swiper-container-trusted-mobile", {
+    autoplay: false,
+    loop: true,
+    slidesPerView: 1,
+    spaceBetween: 20,
+    paginationCount: 4,
+  });
+
   // Initialize desktop products slider with responsive configuration
-  new CustomSlider('.swiper-container-products', {
+  new CustomSlider(".swiper-container-products", {
     autoplay: false,
     loop: true,
     slidesPerView: 2, // 2 slides to fit in 1237px container
     spaceBetween: 30,
     responsive: {
-      320: {
-        slidesPerView: 1,
-        spaceBetween: 0
-      },
-      768: {
-        slidesPerView: 1.5,
-        spaceBetween: 20
-      },
-      1024: {
-        slidesPerView: 2,
-        spaceBetween: 30
-      }
-    }
+      320: {slidesPerView: 1, spaceBetween: 0},
+      768: {slidesPerView: 1.5, spaceBetween: 20},
+      1024: {slidesPerView: 2, spaceBetween: 30},
+    },
   });
-  
-  // Initialize mobile slider
-  const mobileSlider = document.getElementById('mobile-slider');
-  const mobileWrapper = document.getElementById('mobile-slider-wrapper');
-  const mobilePrev = document.querySelector('.mobile-prev');
-  const mobileNext = document.querySelector('.mobile-next');
-  
+
+  // Initialize simple mobile slider
+  const mobileSlider = document.getElementById("mobile-slider");
+  const mobileWrapper = document.getElementById("mobile-slider-wrapper");
+  const mobilePrev = document.querySelector(".mobile-prev");
+  const mobileNext = document.querySelector(".mobile-next");
+
   if (mobileSlider && mobileWrapper) {
     let currentSlide = 0;
     const totalSlides = mobileWrapper.children.length;
-    
+
     function updateSlider() {
       const translateX = -currentSlide * 100;
       mobileWrapper.style.transform = `translateX(${translateX}%)`;
     }
-    
+
     if (mobilePrev) {
-      mobilePrev.addEventListener('click', () => {
+      mobilePrev.addEventListener("click", () => {
         currentSlide = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1;
         updateSlider();
       });
     }
-    
+
     if (mobileNext) {
-      mobileNext.addEventListener('click', () => {
+      mobileNext.addEventListener("click", () => {
         currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
         updateSlider();
       });
     }
-    
-    // Touch/swipe support
-    let startX = 0;
-    let isDragging = false;
-    
-    mobileSlider.addEventListener('touchstart', (e) => {
-      startX = e.touches[0].clientX;
-      isDragging = true;
-    });
-    
-    mobileSlider.addEventListener('touchmove', (e) => {
-      if (!isDragging) return;
-      e.preventDefault();
-    });
   }
 
-  // Initialize trusted companies mobile slider
-  const trustedMobileSlider = document.getElementById('trusted-mobile-slider');
-  const trustedMobileWrapper = document.getElementById('trusted-mobile-wrapper');
-  const trustedMobilePrev = document.querySelector('.trusted-mobile-prev');
-  const trustedMobileNext = document.querySelector('.trusted-mobile-next');
-  const trustedPaginationDots = document.querySelectorAll('.trusted-pagination-dot');
-  
+  // Initialize trusted companies mobile slider (separate custom controls if needed)
+  const trustedMobileSlider = document.getElementById("trusted-mobile-slider");
+  const trustedMobileWrapper = document.getElementById("trusted-mobile-wrapper");
+  const trustedMobilePrev = document.querySelector(".trusted-mobile-prev");
+  const trustedMobileNext = document.querySelector(".trusted-mobile-next");
+  const trustedPaginationDots = document.querySelectorAll(".trusted-pagination-dot");
+
   if (trustedMobileSlider && trustedMobileWrapper) {
     let currentTrustedSlide = 0;
     const totalTrustedSlides = trustedMobileWrapper.children.length;
-    
+
     function updateTrustedSlider() {
       const translateX = -currentTrustedSlide * 100;
       trustedMobileWrapper.style.transform = `translateX(${translateX}%)`;
-      
+
       // Update pagination dots
       trustedPaginationDots.forEach((dot, index) => {
         if (index === currentTrustedSlide) {
-          dot.classList.remove('bg-gray-400');
-          dot.classList.add('bg-[#ba0108]');
+          dot.classList.remove("bg-gray-400");
+          dot.classList.add("bg-[#ba0108]");
         } else {
-          dot.classList.remove('bg-[#ba0108]');
-          dot.classList.add('bg-gray-400');
+          dot.classList.remove("bg-[#ba0108]");
+          dot.classList.add("bg-gray-400");
         }
       });
     }
-    
+
     if (trustedMobilePrev) {
-      trustedMobilePrev.addEventListener('click', () => {
+      trustedMobilePrev.addEventListener("click", () => {
         currentTrustedSlide = currentTrustedSlide > 0 ? currentTrustedSlide - 1 : totalTrustedSlides - 1;
         updateTrustedSlider();
       });
     }
-    
+
     if (trustedMobileNext) {
-      trustedMobileNext.addEventListener('click', () => {
+      trustedMobileNext.addEventListener("click", () => {
         currentTrustedSlide = currentTrustedSlide < totalTrustedSlides - 1 ? currentTrustedSlide + 1 : 0;
         updateTrustedSlider();
       });
     }
-    
+
     // Add click handlers for pagination dots
     trustedPaginationDots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
+      dot.addEventListener("click", () => {
         currentTrustedSlide = index;
         updateTrustedSlider();
       });
-    });
-    
-    // Touch/swipe support for trusted slider
-    let trustedStartX = 0;
-    let trustedIsDragging = false;
-    
-    trustedMobileSlider.addEventListener('touchstart', (e) => {
-      trustedStartX = e.touches[0].clientX;
-      trustedIsDragging = true;
-    });
-    
-    trustedMobileSlider.addEventListener('touchmove', (e) => {
-      if (!trustedIsDragging) return;
-      e.preventDefault();
-    });
-    
-    trustedMobileSlider.addEventListener('touchend', (e) => {
-      if (!trustedIsDragging) return;
-      
-      const endX = e.changedTouches[0].clientX;
-      const diffX = trustedStartX - endX;
-      
-      if (Math.abs(diffX) > 50) {
-        if (diffX > 0) {
-          // Swipe left - next slide
-          currentTrustedSlide = currentTrustedSlide < totalTrustedSlides - 1 ? currentTrustedSlide + 1 : 0;
-        } else {
-          // Swipe right - previous slide
-          currentTrustedSlide = currentTrustedSlide > 0 ? currentTrustedSlide - 1 : totalTrustedSlides - 1;
-        }
-        updateTrustedSlider();
-      }
-      
-      trustedIsDragging = false;
-    });
-    
-    mobileSlider.addEventListener('touchend', (e) => {
-      if (!isDragging) return;
-      isDragging = false;
-      
-      const endX = e.changedTouches[0].clientX;
-      const diffX = startX - endX;
-      
-      if (Math.abs(diffX) > 50) {
-        if (diffX > 0) {
-          // Swipe left - next slide
-          currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
-        } else {
-          // Swipe right - previous slide
-          currentSlide = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1;
-        }
-        updateSlider();
-      }
     });
   }
 });

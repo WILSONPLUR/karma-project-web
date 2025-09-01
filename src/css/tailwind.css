@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+@source "../../site/layouts/**/*.html";
+@source "../../site/content/**/*.{html,md}";
+@source "../../js/**/*.{js,ts}";
+
 @layer base {
   /* Set default fonts */
   html, body {
