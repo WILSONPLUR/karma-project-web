@@ -70,7 +70,7 @@
   align-items: stretch;
   height: auto;
   transition: none;
-  max-width: 1200px;
+  // max-width: 1200px;
   flex-wrap: nowrap; /* keep single row on all viewports */
 }
 
@@ -95,7 +95,8 @@
 }
 
 .swiper-container-products .swiper-slide {
-  width: calc(50% - 15px) !important;
+  width: auto !important; 
+  
   min-height: 400px;
 }
 
@@ -124,4 +125,73 @@
 .swiper-button-next-custom {
   cursor: pointer;
   transition: all 0.3s ease;
+}
+.products-slider {
+  .swiper-container-products {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
+    overflow: hidden !important; /* Важливо для приховування частини третьої картки */
+  }
+  
+  /* Обмежуємо ширини контейнера щоб поміщалось рівно 2 картки */
+  @media (min-width: 768px) {
+    .swiper-container-products {
+      width: 88% !important;
+      max-width: 1000px !important;
+    }
+  }
+  
+  @media (min-width: 982px) {
+    .swiper-container-products {
+      width: 82% !important;
+      max-width: 900px !important;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .swiper-container-products {
+      width: 84% !important;
+      max-width: 900px !important;
+    }
+  }
+  
+  @media (min-width: 1100px) {
+    .swiper-container-products {
+      width: 78% !important;
+      max-width: 950px !important;
+    }
+  }
+  
+  @media (min-width: 1200px) {
+    .swiper-container-products {
+      width: 70% !important;
+      max-width: 1000px !important;
+    }
+  }
+
+  .swiper-container-products .swiper-wrapper {
+    width: auto !important;
+  }
+
+  .swiper-container-products .swiper-slide > div {
+    margin: 0 !important;
+  }
+
+  .swiper-button-prev-custom {
+    left: 0 !important;
+  }
+
+  .swiper-button-next-custom {
+    right: 0 !important;
+  }
+
+  @media (max-width: 1024px) {
+    .swiper-button-prev-custom {
+      left: -40px !important;
+    }
+    .swiper-button-next-custom {
+      right: -40px !important;
+    }
+  }
 }
