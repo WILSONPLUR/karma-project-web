@@ -6,16 +6,16 @@
   {{ else }}
   <img src="/img/bg-el-4.png" class="absolute bottom-0 left-0" alt="bg element decoration" />
   {{ end }}
-  <div class="lg:w-[1237px] xl:w-[1400px] 2xl:w-[1620px] mx-auto px-5">
+  <div class="min-[1025px]:w-[1237px] max-[1025px]:w-full xl:w-[1400px] 2xl:w-[1620px] mx-auto px-5">
     <h2
       class="lg:text-[40px] max-[450px]:text-[24px] max-[769px]:text-[32px] font-['Unbounded'] text-center text-[#020303] font-semibold mb-16 hero-title">
       <span class="text-[#ba0108]">К</span>АТОЛОГ ТОВАРІВ
     </h2>
 
-    <div class="flex relative lg:flex-row max-[450px]:flex-col justify-between items-center lg:gap-10 max-[1024px]:gap-2">
+    <div class="flex relative lg:flex-row max-[450px]:flex-col justify-between items-center min-[1025px]:gap-10 max-[1025px]:gap-[20px]">
       <!-- Product Card 1 -->
       <div
-        class="bg-white lg:w-[400px] max-[1024px]:w-[300px] max-[1024px]:h-[322px] max-[450px]:w-[350px] lg:h-[362px] max-[450px]:h-[390px] cursor-pointer shadow-lg rounded-[5px] overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:text-[#ba0108]">
+        class="bg-white min-[1025px]:w-[400px] max-[1025px]:w-1/3 max-[1024px]:h-[370px] max-[450px]:w-[350px] min-[1025px]:h-[362px] max-[450px]:h-[390px] cursor-pointer shadow-lg rounded-[5px] overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:text-[#ba0108]">
         <div class="lg:h-[300px] max-[1024px]:h-fit overflow-hidden">
           {{ $product1 := resources.Get "img/catalog_product1.png" }}
           {{ if $product1 }}
@@ -32,7 +32,7 @@
 
       <!-- Product Card 2 -->
       <div
-        class="bg-white lg:w-[400px] max-[1024px]:w-[300px] max-[1024px]:h-[322px] max-[450px]:w-[350px] lg:h-[362px] max-[450px]:h-[390px] cursor-pointer shadow-lg rounded-[5px] overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:text-[#ba0108]">
+        class="bg-white min-[1025px]:w-[400px] max-[1024px]:w-1/3 max-[1024px]:h-[370px] max-[450px]:w-[350px] min-[1025px]:h-[362px] max-[450px]:h-[390px] cursor-pointer shadow-lg rounded-[5px] overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:text-[#ba0108]">
         <div class="overflow-hidden">
           {{ $product2 := resources.Get "img/catalog_product2.png" }}
           {{ if $product2 }}
@@ -49,7 +49,7 @@
 
       <!-- Product Card 3 -->
       <div
-        class="bg-white lg:w-[400px] max-[1024px]:w-[300px] max-[1024px]:h-[322px] max-[450px]:w-[350px] lg:h-[362px] max-[450px]:h-[390px] cursor-pointer shadow-lg rounded-[5px] overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:text-[#ba0108]">
+        class="bg-white lg:w-[400px] max-[1025px]:w-1/3 max-[1024px]:h-[370px] max-[450px]:w-[350px] min-[1025px]:h-[362px] max-[450px]:h-[390px] cursor-pointer shadow-lg rounded-[5px] overflow-hidden transition-all duration-300 ease-in-out hover:shadow-xl hover:text-[#ba0108]">
         <div class="lg:h-[300px] max-[1024px]:h-fit overflow-hidden">
           {{ $product3 := resources.Get "img/catalog_product3.png" }}
           {{ if $product3 }}
