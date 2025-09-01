@@ -15,32 +15,32 @@
 {{ $categoryProducts := where $products ".Params.category" $category }}
 {{ $categoryData := index $context.Site.Data.products.categories $category }}
 <section
-  class="relative flex flex-col justify-center items-center gap-[20px] px-[20px] py-[60px] bg-[#f9f9f9] overflow-hidden">
+  class="relative flex flex-col justify-center items-center gap-[20px]  py-[60px] bg-[#f9f9f9] overflow-hidden">
   <div class="absolute top-0 right-0">
     {{ $bgEl1 := resources.Get "img/bg-el-1.png" }}
     {{ if $bgEl1 }}
     {{ $bgEl1Processed := $bgEl1.Resize "200x400 webp q80" }}
     <img src="{{ $bgEl1Processed.RelPermalink }}" alt=""
-      class="lg:w-[200px] lg:h-[400px] max-[450px]:w-[100px] max-[450px]:h-[100px] object-cover" />
+      class="lg:w-[200px] lg:h-[400px] max-[450px]:w-[100px] max-[450px]:h-[100px] object-contain" />
     {{ else }}
     <img src="/img/bg-el-1.png" alt=""
-      class="lg:w-[200px] lg:h-[400px] max-[450px]:w-[100px] max-[450px]:h-[100px] object-cover" />
+      class="lg:w-[200px] lg:h-[400px] max-[450px]:w-[100px] max-[450px]:h-[100px] object-contain" />
     {{ end }}
   </div>
 
-  <div class="flex flex-col w-full min-[1025px]:max-w-[1200px] max-[1024px]:max-w-full">
-    <h2 class="font-['Unbounded'] lg:text-[40px] max-[769px]:text-[32px] max-[450px]:text-2xl font-medium mb-[40px] text-center hero-title">
+  <div class="flex flex-col w-full max-w-[1200px] products-slider">
+    <h2 class="font-['Unbounded'] text-[clamp(24px,4vw,40px)] font-medium mb-[40px] text-center hero-title">
       <span class="text-[#ba0108]">Н</span>АШІ ТОВАРИ
     </h2>
 
     <!-- Desktop Layout -->
-    <div class="hidden relative min-[1025px]:block">
+    <div class="hidden min-[800px]:block relative">
       <div class="swiper-container-products">
         <div class="swiper-wrapper">
           {{ range $categoryProducts }}
           <div class="swiper-slide">
             <div
-              class="bg-[#fff] rounded-[10px] p-[20px] [box-shadow:0_4px_16px_rgba(0,_0,_0,_0.1)] min-[1025px]:w-[400px] max-[1024px]:w-[320px] text-center mx-2">
+              class="bg-[#fff] rounded-[10px] p-[20px] [box-shadow:0_4px_16px_rgba(0,_0,_0,_0.1)] w-full max-w-[400px] text-center mx-0">
               {{ $productImage := resources.Get .Params.image }}
               {{ if $productImage }}
               {{ $productImageProcessed := $productImage.Resize "400x300 webp q80" }}
@@ -50,19 +50,19 @@
               <img src="{{ .Params.image }}" alt="{{ .Title }}" class="w-full h-[300px] object-contain mb-[15px]" />
               {{ end }}
               <h3
-                class="font-['Montserrat'] text-2xl font-semibold mt-[15px] mx-[0] mb-[20px] text-[#020303] leading-[1.2]">
+                class="font-['Montserrat'] text-[clamp(18px,2.5vw,24px)] font-semibold mt-[15px] mx-[0] mb-[20px] text-[#020303] leading-[1.2]">
                 {{ .Title }}
               </h3>
               <ul class="text-left space-y-[8px]">
                 {{ range .Params.specs }}
-                <li class="flex justify-between text-[16px] font-['Montserrat']">
+                <li class="flex justify-between text-[clamp(14px,1.8vw,16px)] font-['Montserrat']">
                   <span class="font-medium text-[#666]">{{ .label }}</span>
                   <span class="text-[#333]">{{ .value }}</span>
                 </li>
                 {{ end }}
               </ul>
               <a href="{{ .Permalink }}"
-                class="inline-block bg-[#ba0108] text-[#fff] border-[none] px-[30px] py-[15px] mt-5 rounded-[20px] cursor-pointer text-2xl font-['Montserrat'] font-normal [transition:background-color_0.3s_ease] hover:bg-[#9a0106] w-full">
+                class="inline-block bg-[#ba0108] text-[#fff] border-[none] px-[30px] py-[15px] mt-5 rounded-[20px] cursor-pointer text-[clamp(16px,2.2vw,20px)] font-['Montserrat'] font-normal [transition:background-color_0.3s_ease] hover:bg-[#9a0106] w-full">
                 Детальніше
               </a>
             </div>
@@ -83,12 +83,12 @@
     </div>
 
     <!-- Mobile Layout -->
-    <div class="block max-[1024px]:block min-[1025px]:hidden relative overflow-hidden max-[450px]:w-full" id="mobile-slider">
+    <div class="block min-[800px]:hidden relative overflow-hidden max-[450px]:w-full" id="mobile-slider">
       <div class="flex transition-transform duration-300 ease-in-out" id="mobile-slider-wrapper">
         {{ range $index, $product := $categoryProducts }}
-        <div class="flex-shrink-0 px-5 w-full">
+        <div class="flex-shrink-0 w-full">
           <div
-            class="bg-[#fff] rounded-[10px] p-[20px] [box-shadow:0_4px_16px_rgba(0,_0,_0,_0.1)] w-full max-[1024px]:max-w-[400px] max-[450px]:max-w-[320px] text-center mx-auto">
+            class="bg-[#fff] rounded-[10px] p-[20px] [box-shadow:0_4px_16px_rgba(0,_0,_0,_0.1)] w-full max-w-[320px] text-center mx-auto">
             {{ $productImageMobile := resources.Get $product.Params.image }}
             {{ if $productImageMobile }}
             {{ $productImageMobileProcessed := $productImageMobile.Resize "320x300 webp q80" }}
@@ -99,19 +99,19 @@
               class="w-full h-[300px] object-contain mb-[15px]" />
             {{ end }}
             <h3
-              class="font-['Montserrat'] text-xl font-semibold mt-[15px] mx-[0] mb-[20px] text-[#020303] leading-[1.2]">
+              class="font-['Montserrat'] text-[clamp(16px,2.2vw,20px)] font-semibold mt-[15px] mx-[0] mb-[20px] text-[#020303] leading-[1.2]">
               {{ $product.Title }}
             </h3>
             <ul class="text-left space-y-[8px]">
               {{ range $product.Params.specs }}
-              <li class="flex justify-between text-[14px] font-['Montserrat']">
+              <li class="flex justify-between text-[clamp(12px,1.6vw,14px)] font-['Montserrat']">
                 <span class="font-medium text-[#666]">{{ .label }}</span>
                 <span class="text-[#333]">{{ .value }}</span>
               </li>
               {{ end }}
             </ul>
             <a href="{{ $product.Permalink }}"
-              class="inline-block bg-[#ba0108] text-[#fff] border-[none] px-[30px] py-[15px] mt-5 rounded-[20px] cursor-pointer text-lg font-['Montserrat'] font-normal [transition:background-color_0.3s_ease] hover:bg-[#9a0106] w-full">
+              class="inline-block bg-[#ba0108] text-[#fff] border-[none] px-[30px] py-[15px] mt-5 rounded-[20px] cursor-pointer text-[clamp(14px,1.8vw,16px)] font-['Montserrat'] font-normal [transition:background-color_0.3s_ease] hover:bg-[#9a0106] w-full">
               Детальніше
             </a>
           </div>
@@ -121,11 +121,11 @@
 
       <!-- Mobile Navigation arrows -->
       <div
-        class="mobile-prev absolute left-2 top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[40px] h-[40px] flex items-center justify-center">
+        class="mobile-prev absolute left-[-3] top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[40px] h-[40px] flex items-center justify-center">
         <img src="/img/nav_arrow.svg" alt="navigation prev arrow" class="w-[35px] h-[35px] rotate-180" />
       </div>
       <div
-        class="mobile-next absolute right-2 top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[40px] h-[40px] flex items-center justify-center">
+        class="mobile-next absolute right-[-3] top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[40px] h-[40px] flex items-center justify-center">
         <img src="/img/nav_arrow.svg" alt="navigation next arrow" class="w-[35px] h-[35px]" />
       </div>
     </div>
