@@ -93,12 +93,12 @@
 .form-textarea {
   width: 100%;
   padding: 16px 20px;
-  border: 2px solid #ccc;
+  border: 1px solid #404040;
   border-radius: 8px;
   font-family: 'Montserrat', sans-serif;
   font-size: clamp(16px, 2vw, 20px);
   font-weight: 400;
-  color: #7e7e7e;
+  color: black;
   background: transparent;
   box-sizing: border-box;
   transition: border-color 0.2s ease;
@@ -106,7 +106,7 @@
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: #7e7e7e;
+  color: #999;
   font-weight: 400;
 }
 

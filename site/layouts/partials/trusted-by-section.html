@@ -1,22 +1,81 @@
 <section class="flex flex-col items-center px-[20px] py-[60px] bg-[#eaeaea] text-center trusted-section">
   <div class="flex flex-col w-full max-w-[1200px]">
-    <h2 class="lg:text-[40px] max-[769px]:text-[32px] max-[450px]:text-2xl font-['Unbounded'] mb-[40px] hero-title">
+    <h2 class="text-[clamp(24px,3vw,40px)] font-['Unbounded'] mb-[40px] hero-title">
       <span class="text-[#ba0108]">Н</span>АМ ДОВІРЯЮТЬ
     </h2>
 
-    <div class="w-full swiper-container-trusted">
+    <!-- Mobile layout-->
+    <div class="block relative w-full md:hidden swiper-container-trusted swiper-container-trusted-mobile">
+      <div class="swiper-wrapper">
+        {{ $companies := .Site.Data.trusted_companies.companies }}
+        {{ $count := len $companies }}
+        {{ range $i, $c := $companies }}
+        {{ if eq (mod $i 4) 0 }}
+        <div class="swiper-slide">
+          <div class="grid grid-cols-2 place-items-center gap-[34px]">
+            {{ end }}
+
+            <div class="logo-container flex flex-col items-center justify-center h-[125px] px-[10px] gap-[20px]">
+              {{ if eq $c.logo "/img/mriadrone.png" }}
+              <img src="{{ $c.logo }}" alt="{{ $c.alt }}" class="object-contain w-[165px] h-[102px]" />
+              {{ else if eq $c.logo "/img/magura.png" }}
+              <img src="{{ $c.logo }}" alt="{{ $c.alt }}" class="object-contain w-[165px] h-[102px]" />
+              {{ else if eq $c.logo "/img/toro.png" }}
+              <img src="{{ $c.logo }}" alt="{{ $c.alt }}" class="object-contain w-[147px] h-[71px]" />
+              {{ else if eq $c.logo "/img/drone.png" }}
+              <img src="{{ $c.logo }}" alt="{{ $c.alt }}" class="object-contain w-[169px] h-[91px]" />
+              {{ else }}
+              <img src="{{ $c.logo }}" alt="{{ $c.alt }}" class="object-contain max-w-[160px]" />
+              {{ end }}
+              <p class="text-[16px] font-['Montserrat'] font-medium text-[#020303] uppercase ">{{ $c.name }}</p>
+            </div>
+
+            {{ $close := or (eq (mod (add $i 1) 4) 0) (eq (add $i 1) $count) }}
+            {{ if $close }}
+          </div>
+        </div>
+        {{ end }}
+        {{ end }}
+      </div>
+      <!-- Arrows + pagination -->
+      <div class="mt-[30px] flex items-center justify-center gap-[8px]">
+        <button class="grid place-items-center swiper-button-prev-custom" aria-label="Prev">
+          <img src="/img/nav_arrow.svg" alt="prev" class="w-[40px] h-[40px] rotate-180" />
+        </button>
+        <div class="justify-self-center swiper-pagination-trusted"></div>
+        <button class="grid place-items-center swiper-button-next-custom" aria-label="Next">
+          <img src="/img/nav_arrow.svg" alt="next" class="w-[40px] h-[40px]" />
+        </button>
+      </div>
+    </div>
+
+    <!-- Desktop/Tablet layout -->
+    <div class="hidden w-full md:block swiper-container-trusted swiper-container-trusted-desktop">
       <div class="swiper-wrapper">
         {{ range .Site.Data.trusted_companies.companies }}
         <div class="swiper-slide">
-          <div class="logo-container flex flex-col items-center justify-center h-[200px] px-[20px]">
-            <img src="{{ .logo }}" alt="{{ .alt }}" class="max-h-[80px] max-w-[160px] object-contain mb-[20px]" />
-            <p class="text-[16px] font-['Unbounded'] font-medium text-[#333] uppercase">{{ .name }}</p>
+          <div
+            class="logo-container flex flex-col items-center justify-center md:h-[193px] lg:h-[232px] gap-[46px] px-[20px]">
+            {{ if eq .logo "/img/mriadrone.png" }}
+            <img src="{{ .logo }}" alt="{{ .alt }}"
+              class="object-contain md:w-[153px] md:h-[118px] lg:w-[203px] lg:h-[157px]" />
+            {{ else if eq .logo "/img/magura.png" }}
+            <img src="{{ .logo }}" alt="{{ .alt }}"
+              class="object-contain md:w-[242px] md:h-[118px] lg:w-[321px] lg:h-[157px]" />
+            {{ else if eq .logo "/img/toro.png" }}
+            <img src="{{ .logo }}" alt="{{ .alt }}"
+              class="object-contain md:w-[203px] md:h-[118px] lg:w-[271px] lg:h-[157px]" />
+            {{ else if eq .logo "/img/drone.png" }}
+            <img src="{{ .logo }}" alt="{{ .alt }}"
+              class="object-contain md:w-[153px] md:h-[118px] lg:w-[203px] lg:h-[157px]" />
+            {{ else }}
+            <img src="{{ .logo }}" alt="{{ .alt }}" class="object-contain max-w-[160px]" />
+            {{ end }}
+            <p class="text-[24px] font-['Montserrat'] font-medium text-[#020303] uppercase">{{ .name }}</p>
           </div>
         </div>
         {{ end }}
       </div>
-
-      <!-- Pagination -->
       <div class="swiper-pagination-trusted mt-[30px]"></div>
     </div>
   </div>

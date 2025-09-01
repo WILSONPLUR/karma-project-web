@@ -29,6 +29,56 @@
       "name": "MAGURA",
       "logo": "/img/magura.png",
       "alt": "МАГУРА"
+    },
+    {
+      "name": "TORO",
+      "logo": "/img/toro.png",
+      "alt": "TORO"
+    },
+    {
+      "name": "DRONE",
+      "logo": "/img/drone.png",
+      "alt": "DRONE"
+    },
+    {
+      "name": "MRIA DRONE",
+      "logo": "/img/mriadrone.png",
+      "alt": "MRIA DRONE"
+    },
+    {
+      "name": "MAGURA",
+      "logo": "/img/magura.png",
+      "alt": "МАГУРА"
+    },
+    {
+      "name": "TORO",
+      "logo": "/img/toro.png",
+      "alt": "TORO"
+    },
+    {
+      "name": "DRONE",
+      "logo": "/img/drone.png",
+      "alt": "DRONE"
+    },
+    {
+      "name": "MRIA DRONE",
+      "logo": "/img/mriadrone.png",
+      "alt": "MRIA DRONE"
+    },
+    {
+      "name": "MAGURA",
+      "logo": "/img/magura.png",
+      "alt": "МАГУРА"
+    },
+    {
+      "name": "TORO",
+      "logo": "/img/toro.png",
+      "alt": "TORO"
+    },
+    {
+      "name": "DRONE",
+      "logo": "/img/drone.png",
+      "alt": "DRONE"
     }
   ]
 }
