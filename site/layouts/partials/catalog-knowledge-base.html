@@ -47,15 +47,17 @@
                 class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] h-[238px] object-cover" />
             {{ end }}
             {{ end }}
-            <h4 class="text-[clamp(20px,2vw,24px)] font-[Montserrat] font-medium">
-                {{ .Title }}
-            </h4>
-            <p class="text-[clamp(16px,2vw,20px)] font-[Montserrat] font-normal">
-                {{ .Params.description | default .Summary }}
-                <a class="text-[#ba0108] ml-[clamp(4px,1vw,8px)]" href="{{ .Permalink }}">
-                    &gt;&gt;
-                </a>
-            </p>
+            <div class="flex flex-col gap-[clamp(8px,2vw,10px)] h-[clamp(80px,12vw,140px)] justify-between">
+                <h4 class="text-[clamp(20px,2vw,24px)] font-[Montserrat] font-medium">
+                    {{ .Title }}
+                </h4>
+                <p class="text-[clamp(16px,2vw,20px)] font-[Montserrat] font-normal">
+                    {{ .Params.description | default .Summary }}
+                    <a class="text-[#ba0108] ml-[clamp(4px,1vw,8px)]" href="{{ .Permalink }}">
+                        &gt;&gt;
+                    </a>
+                </p>
+            </div>
         </div>
         {{ end }}
 
