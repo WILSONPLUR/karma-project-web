@@ -4,7 +4,7 @@ description: "Електронний регулятор швидкості дл�
 date: 2024-08-25T00:00:00Z
 category: "esc"
 product_id: "4001"
-image: "/img/esc-product1.png"
+image: "/img/Stack-product.png"
 price: 800
 currency: "грн"
 in_stock: true

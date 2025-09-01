@@ -23,35 +23,35 @@
         <span class="text-[#ba0108]">Б</span>АЗА ЗНАНЬ. {{ $categoryData.name | upper }}
     </h3>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-[clamp(16px,3vw,21px)]">
+    <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-[clamp(16px,3vw,21px)] max-[450px]:gap-4">
         {{ range $categoryGuides | first 3 }}
-        <div class="flex flex-col gap-[clamp(8px,2vw,10px)] max-w-[clamp(280px,80vw,400px)]">
+        <div class="flex flex-col gap-[clamp(8px,2vw,10px)] max-w-[clamp(280px,80vw,400px)] max-[450px]:max-w-full">
             {{ if .Params.image }}
             {{ $guideImage := resources.Get .Params.image }}
             {{ if $guideImage }}
             {{ $guideImageProcessed := $guideImage.Resize "400x238 webp q80" }}
             <img src="{{ $guideImageProcessed.RelPermalink }}" alt="{{ .Title }}" width="400"
-                class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] h-[238px] object-cover" />
+                class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] max-[450px]:w-full h-[238px] max-[450px]:h-[180px] object-cover" />
             {{ else }}
             <img src="{{ .Params.image }}" alt="{{ .Title }}" width="400"
-                class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] h-[238px] object-cover" />
+                class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] max-[450px]:w-full h-[238px] max-[450px]:h-[180px] object-cover" />
             {{ end }}
             {{ else }}
             {{ $defaultImage := resources.Get "img/card-img-1.png" }}
             {{ if $defaultImage }}
             {{ $defaultImageProcessed := $defaultImage.Resize "400x238 webp q80" }}
             <img src="{{ $defaultImageProcessed.RelPermalink }}" alt="{{ .Title }}" width="400"
-                class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] h-[238px] object-cover" />
+                class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] max-[450px]:w-full h-[238px] max-[450px]:h-[180px] object-cover" />
             {{ else }}
             <img src="/img/card-img-1.png" alt="{{ .Title }}" width="400"
-                class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] h-[238px] object-cover" />
+                class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] max-[450px]:w-full h-[238px] max-[450px]:h-[180px] object-cover" />
             {{ end }}
             {{ end }}
-            <div class="flex flex-col gap-[clamp(8px,2vw,10px)] h-[clamp(80px,12vw,140px)] justify-between">
-                <h4 class="text-[clamp(20px,2vw,24px)] font-[Montserrat] font-medium">
+            <div class="flex flex-col gap-[clamp(8px,2vw,10px)] h-[clamp(80px,12vw,140px)] max-[450px]:h-auto justify-between">
+                <h4 class="text-[clamp(20px,2vw,24px)] max-[450px]:text-[18px] font-[Montserrat] font-medium max-[450px]:leading-tight">
                     {{ .Title }}
                 </h4>
-                <p class="text-[clamp(16px,2vw,20px)] font-[Montserrat] font-normal">
+                <p class="text-[clamp(16px,2vw,20px)] max-[450px]:text-[14px] font-[Montserrat] font-normal max-[450px]:leading-relaxed">
                     {{ .Params.description | default .Summary }}
                     <a class="text-[#ba0108] ml-[clamp(4px,1vw,8px)]" href="{{ .Permalink }}">
                         &gt;&gt;
