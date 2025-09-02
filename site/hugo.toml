@@ -32,6 +32,9 @@ enableGitInfo = true
   guides = "/guides/:slug/"
   blog = "/blog/:slug/"
 
+[security.funcs]
+  getenv = ['^HUGO_', '^CI$', '^CONTEXT$', '^NETLIFY']
+
 [params]
   description = "Karma - провідний постачальник електронних компонентів для дронів в Україні. ESC, відеопередавачі, політні стеки та інші компоненти."
   keywords = "дрони, ESC, відеопередавачі, політні стеки, електронні компоненти, FPV, безпілотники, Україна"

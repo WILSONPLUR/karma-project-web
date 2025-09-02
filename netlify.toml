@@ -62,6 +62,14 @@
 [context.deploy-preview]
   command = "yarn build:webpack && hugo --gc --minify -s site -d ../dist -D -F"
 
+# Deploy preview headers - prevent indexing of preview URLs
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
+  [headers.condition]
+    context = ["deploy-preview"]
+
 [dev]
   framework = "hugo"
   targetPort = 3000
