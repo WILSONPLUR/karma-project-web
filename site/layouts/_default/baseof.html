@@ -20,7 +20,7 @@
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
   <meta property="og:url" content="{{ .Permalink | absURL }}">
   <meta property="og:title"
-    content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
+    content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }}{{ if and .IsPage (eq .Section "catalog") }}, Karma{{ end }}{{ end }}">
   <meta property="og:description"
     content="{{ with .Params.description }}{{ . }}{{ else }}{{ .Site.Params.defaultDescription }}{{ end }}">
   <meta property="og:image"
@@ -44,13 +44,28 @@
   <meta name="theme-color" content="{{ .Site.Params.themeColor }}">
   <meta name="msapplication-TileColor" content="{{ .Site.Params.themeColor }}">
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/x-icon" href="{{ .Site.Params.favicon | absURL }}">
-  <link rel="apple-touch-icon" sizes="180x180" href="{{ .Site.Params.appleTouchIcon | absURL }}">
-
-  <!-- Preconnect to external domains -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Critical CSS inline for faster rendering -->
+  <style>
+    /* Critical above-the-fold styles */
+    body{margin:0;font-family:'Montserrat',system-ui,-apple-system,sans-serif;line-height:1.6;color:#1f2937}
+    .header{background:#1f2937;position:sticky;top:0;z-index:100}
+    .nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 2rem;max-width:1200px;margin:0 auto}
+    .logo{color:#fff;font-size:1.5rem;font-weight:700;text-decoration:none}
+    .hero{background:linear-gradient(135deg,#1f2937 0%,#374151 100%);color:#fff;padding:4rem 2rem;text-align:center}
+    .hero h1{font-size:3rem;margin:0 0 1rem;font-weight:700}
+    .hero p{font-size:1.25rem;margin:0;opacity:0.9}
+    @media(max-width:768px){.hero h1{font-size:2rem}.nav{padding:1rem}}
+  </style>
+  
+  <!-- Preload critical resources -->
+  <link rel="preload" href="/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="/css/main.css"></noscript>
+  <link rel="preload" href="/js/app.js" as="script">
+  <link rel="preload" href="/fonts/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin>
+  
+  <!-- DNS prefetch for external domains -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com">
+  <link rel="dns-prefetch" href="//www.google-analytics.com">
   <link rel="preconnect" href="https://www.google-analytics.com" />
   <link rel="dns-prefetch" href="https://identity.netlify.com" />
 
@@ -70,7 +85,7 @@
   <!-- Netlify Identity Widget - loaded asynchronously -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" async></script>
   
-  <!-- Structured Data -->
+  <!-- Enhanced Structured Data for SEO -->
   {{ if .IsHome }}
   <script type="application/ld+json">
   {
@@ -78,17 +93,32 @@
     "@type": "Organization",
     "name": "{{ .Site.Title }}",
     "url": "{{ .Site.BaseURL }}",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "{{ .Site.BaseURL }}img/logo.svg",
+      "width": 200,
+      "height": 60
+    },
     "description": "{{ .Site.Params.description }}",
-    "logo": "{{ .Site.Params.ogImage | absURL }}",
+    "address": {
+      "@type": "PostalAddress",
+      "addressCountry": "UA",
+      "addressLocality": "Україна"
+    },
     "contactPoint": {
       "@type": "ContactPoint",
-      "contactType": "customer service",
-      "areaServed": "UA",
-      "availableLanguage": "Ukrainian"
+      "telephone": "+380672982929",
+      "contactType": "Customer Service",
+      "availableLanguage": ["Ukrainian", "English"]
     },
     "sameAs": [
-      "https://t.me/karma_fpv"
-    ]
+      "https://t.me/karma_flights",
+      "https://instagram.com/karma_flights"
+    ],
+    "foundingDate": "2020",
+    "numberOfEmployees": "10-50",
+    "industry": "Electronics Manufacturing",
+    "keywords": "{{ .Site.Params.keywords }}"
   }
   </script>
   {{ end }}
