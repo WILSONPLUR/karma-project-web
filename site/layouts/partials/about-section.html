@@ -1,4 +1,5 @@
-<section class="relative bg-white">
+<section
+  class="relative bg-white min-[451px]:min-h-[180px] md:min-h-[220px] lg:min-h-[250px] xl:min-h-[280px] max-[450px]:pt-0">
   <!-- Background decorative element -->
   {{ $bgEl3 := resources.Get "img/bg-el-3.png" }}
   {{ if $bgEl3 }}
@@ -10,62 +11,116 @@
     height="270" />
   {{ end }}
 
-  {{ $aboutDesktop := resources.Get "img/about.png" }}
-  {{ if $aboutDesktop }}
-  {{ $aboutDesktopProcessed := $aboutDesktop.Resize "500x400 webp q80" }}
-  <img src="{{ $aboutDesktopProcessed.RelPermalink }}"
-    alt="Про нас - українська компанія високотехнологічного виробництва" width="500" height="400"
-    class="hidden absolute left-0 min-[451px]:block w-[42%] h-full rounded-t-[8px] object-cover shadow-lg" />
-  {{ else }}
-  <img src="/img/about.png" alt="Про нас - українська компанія високотехнологічного виробництва" width="500"
-    height="400"
-    class="hidden absolute left-0 min-[451px]:block w-[42%] h-full rounded-t-[8px] object-cover shadow-lg" />
-  {{ end }}
-  <div
-    class="lg:max-w-[1237px] max-[450px]:max-w-full max-[450px]:mx-5 mx-auto relative z-[2] min-[451px]:ml-[42%] min-[451px]:pl-8">
+  <!-- Mobile layout -->
+  <div class="max-[767px]:block min-[768px]:hidden relative z-[2]">
+    <!-- Mobile image -->
+    {{ $aboutMobile := resources.Get "img/about-mob.png" }}
+    {{ if $aboutMobile }}
+    {{ $aboutMobileProcessed := $aboutMobile.Resize "572x400 webp q80" }}
+    <img src="{{ $aboutMobileProcessed.RelPermalink }}"
+      alt="Про нас - українська компанія високотехнологічного виробництва"
+      class="object-contain mb-6 w-full h-auto rounded-lg origin-left" />
+    {{ else }}
+    <img src="/img/about-mob.png" alt="Про нас - українська компанія високотехнологічного виробництва"
+      class="object-contain mb-6 w-full h-auto rounded-lg origin-left" />
+    {{ end }}
 
-    <div class="flex lg:flex-row-reverse max-[450px]:flex-col items-center gap-8">
-      <!-- Left Content -->
-      <div
-        class="flex flex-1 flex-col max-[1024px]:w-[52%] lg:w-full lg:order-1 max-[450px]:order-2 max-[450px]:w-full">
+    <!-- Mobile content -->
+    <div class="px-5">
+      <h2 class="text-[clamp(24px,3vw,40px)] font-['Unbounded'] text-[#020303] font-medium leading-[1.2] mb-4">
+        <span class="text-[#ba0108]">П</span>РО НАС
+      </h2>
+      <div class="space-y-6 mb-[65px]">
+        <p class="text-[clamp(16px,2vw,20px)] font-normal font-['Montserrat'] leading-[1.7] text-[#333333]">
+          Ми — українська компанія, що спеціалізується на розробці та
+          виробництві високотехнологічної техніки для сучасного світу. Наше
+          виробництво поєднує іновації, точну інженерію та найсучасніше
+          обладнання, щоб створювати надійні рішення для промисловості,
+          енергетики, агросектору та оборонної сфери.
+        </p>
+        <p class="text-[clamp(16px,2vw,20px)] font-normal font-['Montserrat'] leading-[1.7] text-[#333333]">
+          Ми впроваджуємо повний цикл: від ідеї та прототипу — до серійного
+          виробництва. Усе — на українських потужностях, з дотриманням
+          міжнародних стандартів якості.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tablet layout (768px+) -->
+  <div class="hidden min-[768px]:block lg:hidden relative z-[2]">
+    <!-- Tablet image on top -->
+    {{ $aboutDesktop := resources.Get "img/about.png" }}
+    {{ if $aboutDesktop }}
+    {{ $aboutDesktopProcessed := $aboutDesktop.Resize "568x400 webp q80" }}
+    <img src="{{ $aboutDesktopProcessed.RelPermalink }}"
+      alt="Про нас - українська компанія високотехнологічного виробництва" width="568" height="400"
+      class="w-full max-w-[568px] h-auto rounded-t-[8px] object-cover shadow-lg mx-auto mb-8" />
+    {{ else }}
+    <img src="/img/about.png" alt="Про нас - українська компанія високотехнологічного виробництва" width="568"
+      height="400" class="w-full max-w-[568px] h-auto rounded-t-[8px] object-cover shadow-lg mx-auto mb-8" />
+    {{ end }}
+
+    <!-- Tablet content below -->
+    <div class="max-w-[649px] mx-auto px-5">
+      <h2
+        class="text-[clamp(24px,3vw,40px)] font-['Unbounded'] text-[#020303] font-medium leading-[1.2] mb-4 text-left">
+        <span class="text-[#ba0108]">П</span>РО НАС
+      </h2>
+      <div class="space-y-6 mb-[65px]">
+        <p class="text-[clamp(16px,2vw,20px)] font-normal font-['Montserrat'] leading-[1.7] text-[#333333] text-left">
+          Ми — українська компанія, що спеціалізується на розробці та
+          виробництві високотехнологічної техніки для сучасного світу. Наше
+          виробництво поєднує іновації, точну інженерію та найсучасніше
+          обладнання, щоб створювати надійні рішення для промисловості,
+          енергетики, агросектору та оборонної сфери.
+        </p>
+        <p class="text-[clamp(16px,2vw,20px)] font-normal font-['Montserrat'] leading-[1.7] text-[#333333] text-left">
+          Ми впроваджуємо повний цикл: від ідеї та прототипу — до серійного
+          виробництва. Усе — на українських потужностях, з дотриманням
+          міжнародних стандартів якості.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Desktop layout (lg+) -->
+  <div class="hidden lg:grid lg:grid-cols-[42%_1fr] lg:h-full relative z-[2]">
+    <!-- Desktop image -->
+    <div class="relative">
+      {{ $aboutDesktop := resources.Get "img/about.png" }}
+      {{ if $aboutDesktop }}
+      {{ $aboutDesktopProcessed := $aboutDesktop.Resize "568x400 webp q80" }}
+      <img src="{{ $aboutDesktopProcessed.RelPermalink }}"
+        alt="Про нас - українська компанія високотехнологічного виробництва" width="568" height="400"
+        class="w-full h-full rounded-t-[8px] object-cover shadow-lg" />
+      {{ else }}
+      <img src="/img/about.png" alt="Про нас - українська компанія високотехнологічного виробництва" width="568"
+        height="400" class="w-full h-full rounded-t-[8px] object-cover shadow-lg" />
+      {{ end }}
+    </div>
+
+    <!-- Desktop content -->
+    <div class="flex items-center px-8">
+      <div class="max-w-[649px]">
         <h2
-          class="lg:text-[40px] max-[1024px]:text-[32px] max-[450px]:text-[24px] text-left font-['Unbounded'] text-[#020303] font-semibold leading-[1.2] hero-title">
+          class="text-[clamp(24px,3vw,40px)] font-['Unbounded'] text-[#020303] font-medium leading-[1.2] mb-4 text-left">
           <span class="text-[#ba0108]">П</span>РО НАС
         </h2>
-        <div class="mb-6">
-          <p
-            class="max-[1024px]:text-[16px] lg:text-xl max-[450px]:text-[16px] max-[1025px]:w-[540px] font-['Montserrat'] min-[1025px]:w-[649px] max-[450px]:w-[320px] text-[#333333]">
+        <div class="space-y-6 mb-[65px]">
+          <p class="text-[clamp(16px,2vw,20px)] font-normal font-['Montserrat'] leading-[1.7] text-[#333333] text-left">
             Ми — українська компанія, що спеціалізується на розробці та
             виробництві високотехнологічної техніки для сучасного світу. Наше
             виробництво поєднує іновації, точну інженерію та найсучасніше
             обладнання, щоб створювати надійні рішення для промисловості,
             енергетики, агросектору та оборонної сфери.
           </p>
-          <p
-            class="max-[1024px]:text-[16px] lg:text-xl max-[450px]:text-[16px] max-[1025px]:w-[540px] font-['Montserrat'] min-[1025px]:w-[649px] leading-[1.7] text-[#333333]">
+          <p class="text-[clamp(16px,2vw,20px)] font-normal font-['Montserrat'] leading-[1.7] text-[#333333] text-left">
             Ми впроваджуємо повний цикл: від ідеї та прототипу — до серійного
             виробництва. Усе — на українських потужностях, з дотриманням
             міжнародних стандартів якості.
           </p>
         </div>
-      </div>
-
-      <!-- Right Image -->
-      <div
-        class="flex xl:w-[unset] max-[1025px]:w-[unset] flex-col lg:w-[500px] lg:h-[400px] max-[450px]:h-full max-420px:relative lg:order-2 max-[450px]:order-1">
-        <!-- Desktop Image -->
-
-        <!-- Mobile Image -->
-        {{ $aboutMobile := resources.Get "img/about-mobile.png" }}
-        {{ if $aboutMobile }}
-        {{ $aboutMobileProcessed := $aboutMobile.Resize "350x400 webp q80" }}
-        <img src="{{ $aboutMobileProcessed.RelPermalink }}"
-          alt="Про нас - українська компанія високотехнологічного виробництва"
-          class="object-contain mb-6 w-full h-auto block min-[451px]:hidden" />
-        {{ else }}
-        <img src="/img/about-mobile.png" alt="Про нас - українська компанія високотехнологічного виробництва"
-          class="object-contain mb-6 w-full h-auto block min-[451px]:hidden" />
-        {{ end }}
       </div>
     </div>
   </div>

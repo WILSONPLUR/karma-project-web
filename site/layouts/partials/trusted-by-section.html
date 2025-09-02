@@ -27,7 +27,8 @@
               {{ else }}
               <img src="{{ $c.logo }}" alt="{{ $c.alt }}" class="object-contain max-w-[160px]" />
               {{ end }}
-              <p class="text-[16px] font-['Montserrat'] font-medium text-[#020303] uppercase ">{{ $c.name }}</p>
+              <p class="text-[16px] font-['Montserrat'] font-medium text-[#020303] uppercase whitespace-nowrap">{{
+                $c.name }}</p>
             </div>
 
             {{ $close := or (eq (mod (add $i 1) 4) 0) (eq (add $i 1) $count) }}
@@ -71,7 +72,8 @@
             {{ else }}
             <img src="{{ .logo }}" alt="{{ .alt }}" class="object-contain max-w-[160px]" />
             {{ end }}
-            <p class="text-[24px] font-['Montserrat'] font-medium text-[#020303] uppercase">{{ .name }}</p>
+            <p class="text-[24px] font-['Montserrat'] font-medium text-[#020303] uppercase whitespace-nowrap">{{ .name
+              }}</p>
           </div>
         </div>
         {{ end }}

@@ -70,8 +70,7 @@
   align-items: stretch;
   height: auto;
   transition: none;
-  // max-width: 1200px;
-  flex-wrap: nowrap; /* keep single row on all viewports */
+  flex-wrap: nowrap; 
 }
 
 .swiper-slide {
@@ -82,8 +81,22 @@
   justify-content: center;
 }
 
-.swiper-container-trusted .swiper-slide {
+.swiper-container-trusted-desktop .swiper-slide {
   min-height: 200px;
+  width: 25% !important;
+  flex-shrink: 0;
+  padding: 0 20px;
+  max-width: 25% !important;
+  min-width: 25% !important;
+}
+
+.swiper-container-trusted-mobile .swiper-slide {
+  min-height: auto;
+  width: 100% !important;
+  flex-shrink: 0;
+  padding: 0;
+  max-width: 100% !important;
+  min-width: 100% !important;
 }
 .swiper-pagination-trusted{
   margin-bottom: 15px;
@@ -96,7 +109,6 @@
 
 .swiper-container-products .swiper-slide {
   width: auto !important; 
-  
   min-height: 400px;
 }
 
@@ -126,15 +138,44 @@
   cursor: pointer;
   transition: all 0.3s ease;
 }
+
+.swiper-container-trusted {
+  @media (min-width: 799px) {
+    .swiper-button-prev-custom {
+      position: absolute !important;
+      left: 100px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+    }
+    
+    .swiper-button-next-custom {
+      position: absolute !important;
+      right: 100px !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+    }
+  }
+
+  @media (max-width: 798px) {
+    .swiper-button-prev-custom {
+      position: relative !important;
+      left: -3px !important;
+    }
+    
+    .swiper-button-next-custom {
+      position: relative !important;
+      right: -3px !important;
+    }
+  }
+}
 .products-slider {
   .swiper-container-products {
     width: 100% !important;
     max-width: 100% !important;
     margin-inline: auto !important;
-    overflow: hidden !important; /* Важливо для приховування частини третьої картки */
+    overflow: hidden !important; 
   }
   
-  /* Обмежуємо ширини контейнера щоб поміщалось рівно 2 картки */
   @media (min-width: 768px) {
     .swiper-container-products {
       width: 88% !important;
@@ -151,15 +192,15 @@
   
   @media (min-width: 1024px) {
     .swiper-container-products {
-      width: 84% !important;
-      max-width: 900px !important;
+      width: 81% !important;
+      max-width: 1200px !important;
     }
   }
   
   @media (min-width: 1100px) {
     .swiper-container-products {
-      width: 78% !important;
-      max-width: 950px !important;
+      width: 70% !important;
+      max-width: 1200x !important;
     }
   }
   
@@ -188,10 +229,29 @@
 
   @media (max-width: 1024px) {
     .swiper-button-prev-custom {
-      left: -40px !important;
+      left: 0 !important;
     }
     .swiper-button-next-custom {
-      right: -40px !important;
+      right: 0 !important;
     }
   }
+}
+
+.swiper-container-trusted-desktop .swiper-wrapper {
+  display: flex;
+  align-items: stretch;
+  height: auto;
+  transition: none;
+  flex-wrap: nowrap;
+  width: 100% !important;
+  justify-content: space-between;
+}
+
+.swiper-container-trusted-mobile .swiper-wrapper {
+  display: flex;
+  align-items: stretch;
+  height: auto;
+  transition: none;
+  flex-wrap: nowrap;
+  width: 100% !important;
 }
