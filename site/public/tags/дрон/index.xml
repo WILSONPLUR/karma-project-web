@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Дрон on Karma - Електронні компоненти для дронів</title><link>http://localhost:1313/tags/%D0%B4%D1%80%D0%BE%D0%BD/</link><description>Recent content in Дрон on Karma - Електронні компоненти для дронів</description><generator>Hugo</generator><language>uk-UA</language><lastBuildDate>Sun, 24 Aug 2025 11:21:29 +0300</lastBuildDate><atom:link href="http://localhost:1313/tags/%D0%B4%D1%80%D0%BE%D0%BD/index.xml" rel="self" type="application/rss+xml"/><item><title>Повна інструкція зі збірки FPV дрона</title><link>http://localhost:1313/guides/%D0%BF%D0%BE%D0%B2%D0%BD%D0%B0-%D1%96%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D1%96%D1%8F-%D0%B7%D1%96-%D0%B7%D0%B1%D1%96%D1%80%D0%BA%D0%B8-fpv-%D0%B4%D1%80%D0%BE%D0%BD%D0%B0/</link><pubDate>Sat, 20 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/guides/%D0%BF%D0%BE%D0%B2%D0%BD%D0%B0-%D1%96%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D1%96%D1%8F-%D0%B7%D1%96-%D0%B7%D0%B1%D1%96%D1%80%D0%BA%D0%B8-fpv-%D0%B4%D1%80%D0%BE%D0%BD%D0%B0/</guid><description>&lt;p&gt;Збірка FPV дрона - це захоплюючий процес, який вимагає уважності до деталей та правильного підходу. Цей посібник допоможе вам створити надійний та ефективний дрон з нуля.&lt;/p&gt;
+&lt;section id="components" class="mt-8 scroll-mt-24"&gt;
+&lt;h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3"&gt;Необхідні компоненти&lt;/h2&gt;
+&lt;p class="text-[16px] font-normal font-[Montserrat]"&gt;
+Для збірки FPV дрона вам знадобиться:
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Рама дрона&lt;/strong&gt; - основа конструкції
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Політний контролер&lt;/strong&gt; - мозок дрона
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;ESC регулятори&lt;/strong&gt; - керують моторами
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Мотори&lt;/strong&gt; - створюють тягу
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Пропелери&lt;/strong&gt; - перетворюють обертання в тягу
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Акумулятор&lt;/strong&gt; - джерело живлення
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;FPV камера&lt;/strong&gt; - передає відео
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Відеопередавач&lt;/strong&gt; - передає сигнал
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Антени&lt;/strong&gt; - для прийому/передачі сигналу
+&lt;/p&gt;</description></item></channel></rss>

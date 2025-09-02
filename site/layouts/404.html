@@ -1,42 +1,41 @@
+{{ define "title" }}Сторінку не знайдено - 404 | {{ .Site.Title }}{{ end }}
+
 {{ define "main" }}
 
 <section class="flex overflow-hidden relative justify-center items-center py-16 min-h-screen bg-white">
     <!-- Background decorative elements -->
-    <img src="/img/bg-el-1.png" alt=""
+    <img src="/img/bg-el-1.png" alt="Декоративний елемент"
         class="absolute z-[1] -top-8 -right-7 sm:top-0 sm:right-0 w-[150px] h-auto sm:w-[200px] md:w-[280px] lg:w-[350px] xl:w-[450px]"
-        width="350" height="360" />
-    <img src="/img/bg-el-2.png" alt=""
+        width="350" height="360" loading="lazy" />
+    <img src="/img/bg-el-2.png" alt="Декоративний елемент"
         class="absolute z-[1] bottom-0 -left-7 sm:left-0 w-[150px] h-auto sm:w-[200px] md:w-[280px] lg:w-[350px] xl:w-[450px]"
-        width="320" height="280" />
+        width="320" height="280" loading="lazy" />
 
     <div class="absolute z-[1] top-8 left-0 sm:top-12 md:top-16 lg:top-20 xl:top-24">
-        <img src="/img/drone-left-404.png" alt=""
+        <img src="/img/drone-left-404.png" alt="Дрон анімація"
             class="w-[120px] h-[72px] sm:w-[150px] sm:h-[90px] md:w-[180px] md:h-[108px] lg:w-[220px] lg:h-[132px] xl:w-[280px] xl:h-[168px] animate-bounce opacity-85"
-            style="animation-duration: 3s; animation-delay: 0s;" />
+            style="animation-duration: 3s; animation-delay: 0s;" loading="lazy" />
     </div>
     <div class="absolute z-[1] bottom-8 right-0 sm:bottom-12 md:bottom-16 lg:bottom-20 xl:bottom-24">
-        <img src="/img/drone-right-404.png" alt=""
+        <img src="/img/drone-right-404.png" alt="Дрон анімація"
             class="w-[120px] h-[72px] sm:w-[150px] sm:h-[90px] md:w-[180px] md:h-[108px] lg:w-[220px] lg:h-[132px] xl:w-[280px] xl:h-[168px] animate-bounce opacity-85"
-            style="animation-duration: 3s; animation-delay: 1.5s;" />
+            style="animation-duration: 3s; animation-delay: 1.5s;" loading="lazy" />
     </div>
 
     <!-- Main Content -->
     <div class="max-w-[1440px] xl:max-w-[1600px] mx-auto relative z-[2] px-8 text-center">
         <div class="flex flex-col gap-8 justify-center items-center">
 
-            <h2 class="font-bold leading-[1.1] text-black mb-4">
+            <h1 class="font-bold leading-[1.1] text-black mb-4">
                 <span
                     class="font-['Unbounded'] text-[#ba0108] block text-[120px] xl:text-[160px] leading-[0.8] mb-4 animate-pulse">
                     404
                 </span>
-                </h2>
-
-                <h3 class="font-bold leading-[1.1] text-black mb-6">
-                    <span
-                        class="font-['Unbounded'] text-black text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] leading-[1.1]">
-                        Сторінку не знайдено
-                    </span>
-                </h3>
+                <span
+                    class="font-['Unbounded'] text-black text-[32px] sm:text-[40px] md:text-[48px] lg:text-[56px] xl:text-[64px] leading-[1.1] block">
+                    Сторінку не знайдено
+                </span>
+            </h1>
 
                 <p
                     class="font-['Montserrat'] text-[16px] sm:text-[18px] md:text-[20px] lg:text-[22px] font-normal text-gray-600 mb-12 max-w-[600px] leading-[1.6]">

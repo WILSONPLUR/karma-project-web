@@ -1,19 +1,20 @@
 ---
-title: "KARMA FLIGHTS"
+title: "KARMA FLIGHTS - Електронні компоненти для дронів"
 subtitle: "НЕ ШУКАЙ КОМПРОМІСІВ"
+description: "Karma - провідний постачальник електронних компонентів для дронів в Україні. ESC, відеопередавачі, політні стеки та інші високотехнологічні компоненти для FPV дронів."
+keywords: "дрони, ESC, відеопередавачі, політні стеки, електронні компоненти, FPV, безпілотники, Україна, Karma"
 blurb:
-    heading: Why Kaldi?
-    text: "Kaldi is the coffee store for everyone who believes that great coffee shouldn't just taste good, it should do good too. We source all of our beans directly from small scale sustainable farmers and make sure part of the profits are reinvested in their communities."
+    heading: Чому Karma?
+    text: "Karma - це магазин електронних компонентів для всіх, хто вірить, що високотехнологічні дрони повинні не тільки добре літати, але й служити добрій справі. Ми постачаємо всі наші компоненти безпосередньо від надійних виробників і гарантуємо якість кожного продукту."
 intro:
-    heading: "What we offer"
-    text: "Kaldi is the ultimate spot for coffee lovers who want to learn about their java’s origin and support the farmers that grew it. We take coffee production, roasting and brewing seriously and we’re glad to pass that knowledge to anyone."
+    heading: "Що ми пропонуємо"
+    text: "Karma - це ідеальне місце для любителів дронів, які хочуть дізнатися про походження своїх компонентів і підтримати якісних виробників. Ми серйозно ставимося до виробництва, тестування та налаштування компонентів і раді передати ці знання будь-кому."
 products:
-    - image: img/illustrations-coffee.svg
-      text: "We sell green and roasted coffee beans that are sourced directly from independent farmers and farm cooperatives. We’re proud to offer a variety of coffee beans grown with great care for the environment and local communities. Check our post or contact us directly for current availability."
-    - image: /img/illustrations-coffee-gear.svg
-      text: "We offer a small, but carefully curated selection of brewing gear and tools for every taste and experience level. No matter if you roast your own beans or just bought your first french press, you’ll find a gadget to fall in love with in our shop."
+    - image: img/illustrations-drone-esc.svg
+      text: "Ми продаємо ESC (електронні регулятори швидкості) та політні стеки, які постачаються безпосередньо від незалежних виробників та кооперативів. Ми пишаємося тим, що пропонуємо різноманітні компоненти, вироблені з великою турботою про навколишнє середовище та місцеві спільноти."
+    - image: /img/illustrations-drone-vtx.svg
+      text: "Ми пропонуємо невеликий, але ретельно підібраний вибір відеопередавачів та інструментів для кожного смаку та рівня досвіду. Незалежно від того, чи збираєте ви свій перший дрон, чи вже є досвідченим пілотом, ви знайдете компонент, в який закохаєтесь в нашому магазині."
 values:
-    heading: Our values
-    text: Coffee is an amazing part of human culture but it has a dark side too – one of colonialism and mindless abuse of natural resources and human lives. We want to turn this around and return the coffee trade to the drink’s exhilarating, empowering and unifying nature.
+    heading: Наші цінності
+    text: Дрони - це дивовижна частина людської культури, але вони також мають темну сторону - колоніалізм і бездумне зловживання природними ресурсами та людськими життями. Ми хочемо це змінити і повернути торгівлю дронами до захоплюючої, надихаючої та об'єднуючої природи цієї технології.
 ---
-

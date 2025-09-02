@@ -1,22 +1,51 @@
-baseurl = "/"
-languageCode = "UA-uk"
+baseurl = "https://karma-project-web.netlify.app/"
+languageCode = "uk-UA"
 languageLang = "uk"
-title = "Karma"
+title = "Karma - Електронні компоненти для дронів"
 
-# RSS, categories and tags disabled for an easy start
-# See configuration options for more details: 
-# https://gohugo.io/getting-started/configuration/#toml-configuration
-disableKinds = ["RSS"]
+# Enable RSS for better SEO
+enableRobotsTXT = true
+enableGitInfo = true
+
+# SEO and performance optimizations
+[minify]
+  disableCSS = false
+  disableHTML = false
+  disableJS = false
+  disableJSON = false
+  disableSVG = false
+  disableXML = false
+  minifyOutput = true
+  
+[minify.tdewolff.html]
+  keepDocumentTags = true
+  keepEndTags = true
+  keepDefaultAttrVals = true
+  keepWhitespace = false
 
 [taxonomies]
   category = "categories"
   tag = "tags"
 
 [permalinks]
-  catalog = "/catalog/:section/:filename/"
+  catalog = "/catalog/:slug/"
+  guides = "/guides/:slug/"
+  blog = "/blog/:slug/"
+
+[security.funcs]
+  getenv = ['^HUGO_', '^CI$', '^CONTEXT$', '^NETLIFY']
 
 [params]
-images = ["img/og-image.jpg"]
+  description = "Karma - провідний постачальник електронних компонентів для дронів в Україні. ESC, відеопередавачі, політні стеки та інші компоненти."
+  keywords = "дрони, ESC, відеопередавачі, політні стеки, електронні компоненти, FPV, безпілотники, Україна"
+  author = "Karma"
+  images = ["img/og-image.jpg"]
+  defaultDescription = "Karma - провідний постачальник електронних компонентів для дронів в Україні"
+  defaultKeywords = "дрони, ESC, відеопередавачі, політні стеки, електронні компоненти"
+  ogImage = "img/og-image.jpg"
+  themeColor = "#1f2937"
+  favicon = "img/favicon.ico"
+  appleTouchIcon = "img/apple-touch-icon.png"
 
 [build]
   writeStats = true
@@ -25,6 +54,17 @@ images = ["img/og-image.jpg"]
   resampleFilter = "lanczos"
   quality = 85
   anchor = "smart"
+  
+[sitemap]
+  changefreq = "weekly"
+  priority = 0.5
+  filename = "sitemap.xml"
+  
+[privacy]
+  [privacy.googleAnalytics]
+    anonymizeIP = true
+    respectDoNotTrack = true
+    useSessionStorage = true
 
 [markup]
   [markup.goldmark]

@@ -1,4 +1,4 @@
-<header class="bg-[#020303] lg:py-[26px] max-[450px]:py-[13px] max-[768px]:h-[65px] flex justify-center mx-auto">
+<header class="bg-[#020303] lg:py-[26px] max-[450px]:py-[13px] max-[768px]:h-[65px] flex justify-center mx-auto" role="banner">
   <style>
     .nav-link {
       position: relative;
@@ -181,7 +181,7 @@
     class="flex w-full max-w-[1237px] xl:max-w-[1237px] lg:max-w-[1024px] px-4 justify-between items-center nav-container"
     style="padding-top: 20px; padding-bottom: 20px;">
     <!-- Logo -->
-    <a href="/" class="relative z-50 text-xl font-normal text-white font-inter">
+    <a href="/" class="relative z-50 text-xl font-normal text-white font-inter" aria-label="Karma - головна сторінка">
       {{ $logo := resources.Get "logo.png" }}
       {{ if $logo }}
       {{ $logoProcessed := $logo.Resize "149x34 webp q80" }}
@@ -192,22 +192,23 @@
     </a>
 
     <!-- Desktop Navigation -->
-    <nav class="nav-container desktop-nav flex items-center gap-[20px]">
+    <nav class="nav-container desktop-nav flex items-center gap-[20px]" role="navigation" aria-label="Головне меню">
       <div class="relative dropdown-parent">
-        <a href="#" onclick="toggleDropdown(event)"
-          class="nav-link lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-xl focus:font-bold text-white hover:text-[#ba0108] transition-colors {{ if or (eq .Page.Section "catalog") (hasPrefix .Page.RelPermalink "/catalog/" ) }}active{{ end }}">
+        <button onclick="toggleDropdown(event)" 
+          class="nav-link lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-xl focus:font-bold text-white hover:text-[#ba0108] transition-colors {{ if or (eq .Page.Section "catalog") (hasPrefix .Page.RelPermalink "/catalog/" ) }}active{{ end }}"
+          aria-expanded="false" aria-haspopup="true" aria-label="Каталог товарів">
           Каталог
-        </a>
-        <div class="dropdown-menu absolute left-0 top-full mt-3 bg-[#020303] rounded-lg border-2 ">
+        </button>
+        <div class="dropdown-menu absolute left-0 top-full mt-3 bg-[#020303] rounded-lg border-2" role="menu" aria-label="Підменю каталогу">
           <div class="flex w-full">
             <a href="/catalog/politni-steky/"
-              class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">Політні
+              class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap" role="menuitem">Політні
               стеки</a>
             <a href="/catalog/videoperedavachi-vtx/"
-              class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">Відеопередавачі
+              class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap" role="menuitem">Відеопередавачі
               VTX</a>
             <a href="/catalog/esc/"
-              class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap">ESC</a>
+              class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap" role="menuitem">ESC</a>
           </div>
         </div>
       </div>
@@ -229,17 +230,18 @@
     <div class="desktop-nav flex gap-[50px] justify-center items-center">
       <nav class="flex items-center gap-[30px]">
         <a href="tel:(067) 298-29-29"
-          class=" font-['Montserrat'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors">
+          class=" font-['Montserrat'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
+          aria-label="Зателефонувати за номером (067) 298-29-29">
           (067) 298-29-29
         </a>
         <div class="flex gap-3 items-center text-xl language-switcher text-white/80">
           <button id="lang-ua"
             class="font-['Inter'] font-bold cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] focus:font-bold transition-colors"
-            onclick="switchLanguage('ua')">UA</button>
-          |
+            onclick="switchLanguage('ua')" aria-label="Перемкнути на українську мову" aria-pressed="true">UA</button>
+          <span aria-hidden="true">|</span>
           <button id="lang-en"
             class="font-['Inter'] font-[300] cursor-pointer text-white/80 hover:text-[#ba0108] focus:text-[#ba0108] transition-colors"
-            onclick="switchLanguage('en')">EN</button>
+            onclick="switchLanguage('en')" aria-label="Switch to English" aria-pressed="false">EN</button>
         </div>
       </nav>
     </div>
@@ -247,8 +249,8 @@
     <!-- Mobile Navigation -->
     <div class="flex gap-4 items-center mobile-nav">
       <!-- Search Icon -->
-      <button class="text-white hover:text-[#ba0108] transition-colors cursor-pointer" onclick="toggleMobileSearch()">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <button class="text-white hover:text-[#ba0108] transition-colors cursor-pointer" onclick="toggleMobileSearch()" aria-label="Відкрити пошук">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
           <path
             d="M21 21L16.514 16.506L21 21ZM19 10.5C19 15.194 15.194 19 10.5 19C5.806 19 2 15.194 2 10.5C2 5.806 5.806 2 10.5 2C15.194 2 19 5.806 19 10.5Z"
             stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
@@ -257,10 +259,10 @@
 
       <!-- Hamburger Menu Button -->
       <button class="flex flex-col justify-center items-center space-y-1 w-8 h-8 cursor-pointer hamburger"
-        onclick="toggleMobileMenu()">
-        <span class="block w-6 h-0.5 bg-white"></span>
-        <span class="block w-6 h-0.5 bg-white"></span>
-        <span class="block w-6 h-0.5 bg-white"></span>
+        onclick="toggleMobileMenu()" aria-label="Відкрити мобільне меню" aria-expanded="false">
+        <span class="block w-6 h-0.5 bg-white" aria-hidden="true"></span>
+        <span class="block w-6 h-0.5 bg-white" aria-hidden="true"></span>
+        <span class="block w-6 h-0.5 bg-white" aria-hidden="true"></span>
       </button>
     </div>
   </div>
@@ -278,8 +280,8 @@
           <img src="/logo.png" alt="logo" width="149" height="34" />
           {{ end }}
         </a>
-        <button class="text-white hover:text-[#ba0108] transition-colors cursor-pointer" onclick="toggleMobileSearch()">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <button class="text-white hover:text-[#ba0108] transition-colors cursor-pointer" onclick="toggleMobileSearch()" aria-label="Закрити пошук">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
             <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
@@ -289,9 +291,10 @@
       <div class="relative">
         <input type="text" placeholder="Пошук по сайту"
           class="w-full h-[60px] rounded-full font-['Montserrat'] border-0 pl-6 pr-[140px] text-lg outline-none bg-white text-black placeholder-gray-500"
-          id="mobile-search-input" />
+          id="mobile-search-input" aria-label="Поле для пошуку" />
         <button
-          class="absolute right-0 top-0 h-[60px] w-[120px] rounded-full bg-[#ba0108] flex items-center justify-center cursor-pointer hover:bg-[#a00007] transition-colors">
+          class="absolute right-0 top-0 h-[60px] w-[120px] rounded-full bg-[#ba0108] flex items-center justify-center cursor-pointer hover:bg-[#a00007] transition-colors"
+          aria-label="Почати пошук">
           <span class="text-white font-['Montserrat'] text-lg font-medium">Пошук</span>
         </button>
       </div>
@@ -299,26 +302,27 @@
   </div>
 
   <!-- Mobile Menu Overlay -->
-  <div id="mobileMenu" class="mobile-menu fixed inset-0 bg-[#020303] z-40 flex flex-col">
+  <div id="mobileMenu" class="mobile-menu fixed inset-0 bg-[#020303] z-40 flex flex-col" role="dialog" aria-modal="true" aria-label="Мобільне меню">
     <div class="flex justify-end items-center p-4 shadow-[0_2px_8px_rgba(255,255,255,0.4)]">
       <button class="flex relative flex-col justify-center items-center w-8 h-8 cursor-pointer hamburger"
-        onclick="toggleMobileMenu()">
-        <span class="block absolute w-6 h-0.5 bg-white rotate-45"></span>
-        <span class="block absolute w-6 h-0.5 bg-white -rotate-45"></span>
+        onclick="toggleMobileMenu()" aria-label="Закрити мобільне меню">
+        <span class="block absolute w-6 h-0.5 bg-white rotate-45" aria-hidden="true"></span>
+        <span class="block absolute w-6 h-0.5 bg-white -rotate-45" aria-hidden="true"></span>
       </button>
     </div>
 
-    <nav class="flex flex-col flex-1 items-center p-6 space-y-6">
+    <nav class="flex flex-col flex-1 items-center p-6 space-y-6" role="navigation" aria-label="Мобільне меню">
       <div class="relative">
         <button onclick="toggleMobileCatalog()"
-          class="w-full flex justify-center items-center text-white font-['Unbounded'] text-xl font-normal py-2 cursor-pointer">
+          class="w-full flex justify-center items-center text-white font-['Unbounded'] text-xl font-normal py-2 cursor-pointer"
+          aria-expanded="false" aria-controls="mobile-catalog-submenu" aria-label="Каталог товарів">
           <span class="font-['Unbounded'] text-xl font-normal text-white">Каталог</span>
           <svg class="w-5 h-5 transition-transform transform mobile-catalog-arrow" fill="none" stroke="currentColor"
-            viewBox="0 0 24 24">
+            viewBox="0 0 24 24" aria-hidden="true">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
           </svg>
         </button>
-        <div class="overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out mobile-catalog-menu">
+        <div class="overflow-hidden max-h-0 opacity-0 transition-all duration-300 ease-in-out mobile-catalog-menu" id="mobile-catalog-submenu">
           <div class="flex flex-col items-center pl-4 mt-2 space-y-2">
             <a href="/catalog/politni-steky/"
               class="block text-white/80 font-['Unbounded'] text-lg py-2 hover:text-[#ba0108] transition-colors">Політні
@@ -345,13 +349,13 @@
         <div class="flex gap-3 items-center text-2xl text-white">
           <button id="mobile-lang-ua"
             class="!font-[Unbounded] font-[300] cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] transition-colors"
-            onclick="switchLanguage('ua')">
+            onclick="switchLanguage('ua')" aria-label="Перемкнути на українську мову" aria-pressed="true">
             UA
           </button>
-          |
+          <span aria-hidden="true">|</span>
           <button id="mobile-lang-en"
             class="!font-[Unbounded] font-[300] cursor-pointer text-white/80 hover:text-[#ba0108] focus:text-[#ba0108] transition-colors"
-            onclick="switchLanguage('en')">
+            onclick="switchLanguage('en')" aria-label="Switch to English" aria-pressed="false">
             EN
           </button>
         </div>
@@ -363,29 +367,54 @@
     function toggleMobileMenu() {
       const mobileMenu = document.getElementById('mobileMenu');
       const hamburger = document.querySelector('.hamburger');
+      const isOpen = mobileMenu.classList.contains('open');
 
       mobileMenu.classList.toggle('open');
       hamburger.classList.toggle('open');
+      
+      // Update ARIA attributes
+      hamburger.setAttribute('aria-expanded', !isOpen);
+      
+      // Manage focus and body scroll
+      if (!isOpen) {
+        document.body.style.overflow = 'hidden';
+        // Focus first focusable element in menu
+        setTimeout(() => {
+          const firstFocusable = mobileMenu.querySelector('button, a');
+          if (firstFocusable) firstFocusable.focus();
+        }, 100);
+      } else {
+        document.body.style.overflow = '';
+        hamburger.focus();
+      }
     }
 
     function toggleDropdown(event) {
       event.preventDefault();
       const dropdownParent = event.target.closest('.dropdown-parent');
+      const button = event.target;
+      const isOpen = dropdownParent.classList.contains('active');
+      
       dropdownParent.classList.toggle('active');
+      button.setAttribute('aria-expanded', !isOpen);
     }
 
     function toggleMobileCatalog() {
       const catalogMenu = document.querySelector('.mobile-catalog-menu');
       const arrow = document.querySelector('.mobile-catalog-arrow');
+      const button = document.querySelector('[aria-controls="mobile-catalog-submenu"]');
+      const isOpen = !catalogMenu.classList.contains('max-h-0');
 
       if (catalogMenu.classList.contains('max-h-0')) {
         catalogMenu.classList.remove('max-h-0', 'opacity-0');
         catalogMenu.classList.add('max-h-96', 'opacity-100');
         arrow.classList.add('rotate-180');
+        button.setAttribute('aria-expanded', 'true');
       } else {
         catalogMenu.classList.add('max-h-0', 'opacity-0');
         catalogMenu.classList.remove('max-h-96', 'opacity-100');
         arrow.classList.remove('rotate-180');
+        button.setAttribute('aria-expanded', 'false');
       }
     }
 
@@ -418,12 +447,24 @@
         enDesktop.className = "font-['Inter'] font-[300] cursor-pointer text-white/80 hover:text-[#ba0108] focus:text-[#ba0108] transition-colors";
         uaMobile.className = "!font-[Unbounded] font-[300] cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] transition-colors";
         enMobile.className = "!font-[Unbounded] font-[300] cursor-pointer text-white/80 hover:text-[#ba0108] focus:text-[#ba0108] transition-colors";
+        
+        // Update ARIA pressed states
+        uaDesktop.setAttribute('aria-pressed', 'true');
+        enDesktop.setAttribute('aria-pressed', 'false');
+        uaMobile.setAttribute('aria-pressed', 'true');
+        enMobile.setAttribute('aria-pressed', 'false');
       } else if (lang === 'en') {
         // Set EN as active (red)
         uaDesktop.className = "font-['Inter'] font-[300] cursor-pointer text-white/80 hover:text-[#ba0108] focus:text-[#ba0108] transition-colors";
         enDesktop.className = "font-['Inter'] font-bold cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] focus:font-bold transition-colors";
         uaMobile.className = "!font-[Unbounded] font-[300] cursor-pointer text-white/80 hover:text-[#ba0108] focus:text-[#ba0108] transition-colors";
         enMobile.className = "!font-[Unbounded] font-[300] cursor-pointer text-[#ba0108] hover:text-[#ba0108] focus:text-[#ba0108] transition-colors";
+        
+        // Update ARIA pressed states
+        uaDesktop.setAttribute('aria-pressed', 'false');
+        enDesktop.setAttribute('aria-pressed', 'true');
+        uaMobile.setAttribute('aria-pressed', 'false');
+        enMobile.setAttribute('aria-pressed', 'true');
       }
 
       // Store the selected language in localStorage
