@@ -181,7 +181,7 @@
     class="flex w-full max-w-[1237px] xl:max-w-[1237px] lg:max-w-[1024px] px-4 justify-between items-center nav-container"
     style="padding-top: 20px; padding-bottom: 20px;">
     <!-- Logo -->
-    <a href="/" class="relative z-50 text-xl font-normal text-white font-inter" aria-label="Karma - головна сторінка">
+    <a href="/" class="relative z-[10] text-xl font-normal text-white font-inter" aria-label="Karma - головна сторінка">
       {{ $logo := resources.Get "logo.png" }}
       {{ if $logo }}
       {{ $logoProcessed := $logo.Resize "149x34 webp q80" }}
@@ -303,15 +303,28 @@
 
   <!-- Mobile Menu Overlay -->
   <div id="mobileMenu" class="mobile-menu fixed inset-0 bg-[#020303] z-40 flex flex-col" role="dialog" aria-modal="true" aria-label="Мобільне меню">
-    <div class="flex justify-end items-center p-4 shadow-[0_2px_8px_rgba(255,255,255,0.4)]">
-      <button class="flex relative flex-col justify-center items-center w-8 h-8 cursor-pointer hamburger"
+    <!-- Fixed Header with Logo and Close Button -->
+    <div class="flex relative z-[12] justify-between items-center p-4 shadow-[0_2px_8px_rgba(255,255,255,0.4)] bg-[#020303] relative z-50">
+      <!-- Logo -->
+      <a href="/" class="text-xl font-normal text-white font-inter" aria-label="Karma - головна сторінка">
+        {{ $logo := resources.Get "logo.png" }}
+        {{ if $logo }}
+        {{ $logoProcessed := $logo.Resize "149x34 webp q80" }}
+        <img src="{{ $logoProcessed.RelPermalink }}" alt="logo" class="w-[120px] h-[34px] object-contain" />
+        {{ else }}
+        <img src="/logo.png" alt="logo" class="w-[120px] h-[34px] object-contain" />
+        {{ end }}
+      </a>
+      
+      <!-- Close Button -->
+      <button class="flex relative flex-col justify-center items-center w-12 h-12 cursor-pointer hamburger"
         onclick="toggleMobileMenu()" aria-label="Закрити мобільне меню">
         <span class="block absolute w-6 h-0.5 bg-white rotate-45" aria-hidden="true"></span>
         <span class="block absolute w-6 h-0.5 bg-white -rotate-45" aria-hidden="true"></span>
       </button>
     </div>
 
-    <nav class="flex flex-col flex-1 items-center p-6 space-y-6" role="navigation" aria-label="Мобільне меню">
+    <nav class="flex flex-col flex-1 items-center px-6 pt-[119px] space-y-6" role="navigation" aria-label="Мобільне меню">
       <div class="relative">
         <button onclick="toggleMobileCatalog()"
           class="w-full flex justify-center items-center text-white font-['Unbounded'] text-xl font-normal py-2 cursor-pointer"
