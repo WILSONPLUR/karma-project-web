@@ -14,11 +14,11 @@
     content="{{ with .Params.keywords }}{{ . }}{{ else }}{{ .Site.Params.defaultKeywords }}{{ end }}">
   <meta name="author" content="{{ .Site.Params.author }}">
   <meta name="robots" content="{{ with .Params.robots }}{{ . }}{{ else }}index, follow{{ end }}"> 
-  <link rel="canonical" href="{{ .Permalink }}">
+  <link rel="canonical" href="{{ .Permalink | absURL }}">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}">
-  <meta property="og:url" content="{{ .Permalink }}">
+  <meta property="og:url" content="{{ .Permalink | absURL }}">
   <meta property="og:title"
     content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
   <meta property="og:description"
@@ -32,7 +32,7 @@
 
   <!-- Twitter -->
   <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:url" content="{{ .Permalink }}">
+  <meta property="twitter:url" content="{{ .Permalink | absURL }}">
   <meta property="twitter:title"
     content="{{ if .IsHome }}{{ .Site.Title }}{{ else }}{{ .Title }} | {{ .Site.Title }}{{ end }}">
   <meta property="twitter:description"
@@ -52,25 +52,83 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://www.google-analytics.com" />
+  <link rel="dns-prefetch" href="https://identity.netlify.com" />
 
-  <!-- Google Fonts -->
+  <!-- Google Fonts with font-display swap for better performance -->
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&family=Wallpoet&display=swap"
-    rel="stylesheet" />
+    rel="stylesheet"
+    media="print" onload="this.media='all'" />
+  <noscript><link
+    href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&family=Wallpoet&display=swap"
+    rel="stylesheet" /></noscript>
 
   {{- with $assets.css }} {{ $css := resources.Get "css/main.css" }}
   <link rel="stylesheet" href="{{ relURL . }}" />
   {{ end -}}
 
-  <!-- Netlify Identity Widget -->
-  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+  <!-- Netlify Identity Widget - loaded asynchronously -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js" async></script>
+  
+  <!-- Structured Data -->
+  {{ if .IsHome }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "{{ .Site.Title }}",
+    "url": "{{ .Site.BaseURL }}",
+    "description": "{{ .Site.Params.description }}",
+    "logo": "{{ .Site.Params.ogImage | absURL }}",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "areaServed": "UA",
+      "availableLanguage": "Ukrainian"
+    },
+    "sameAs": [
+      "https://t.me/karma_fpv"
+    ]
+  }
+  </script>
+  {{ end }}
+  
+  {{ if eq .Type "catalog" }}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "{{ .Title }}",
+    "description": "{{ .Params.description }}",
+    "image": "{{ .Params.image | absURL }}",
+    "sku": "{{ .Params.product_id }}",
+    "category": "{{ .Params.category }}",
+    "offers": {
+      "@type": "Offer",
+      "price": "{{ .Params.price }}",
+      "priceCurrency": "UAH",
+      "availability": "{{ if .Params.in_stock }}https://schema.org/InStock{{ else }}https://schema.org/OutOfStock{{ end }}",
+      "seller": {
+        "@type": "Organization",
+        "name": "{{ .Site.Title }}"
+      }
+    }
+  }
+  </script>
+  {{ end }}
 
 
 </head>
 
-<body class="font-sans">
+<body class="font-sans" itemscope itemtype="https://schema.org/WebPage">
+  <!-- Skip to main content link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:bg-[#ba0108] focus:text-white focus:px-4 focus:py-2 focus:rounded focus:no-underline">
+    Перейти до основного контенту
+  </a>
   {{ block "header" . }}{{ partial "nav" . }}{{end}}
-  {{ block "main" . }}{{ end }}
+  <main id="main-content" role="main" tabindex="-1">
+    {{ block "main" . }}{{ end }}
+  </main>
   {{ block "footer" . }}{{ partial "footer" . }}{{end}}
   {{ partial "contact-modal" . }}
   {{ $script := .Site.Data.webpack.main }}

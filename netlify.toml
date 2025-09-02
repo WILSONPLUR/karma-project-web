@@ -3,6 +3,7 @@
   YARN_VERSION = "1.22.17"
   NODE_VERSION = "20"
   HUGO_VERSION = "0.119.0"
+  HUGO_ENABLEGITINFO = "true"
 
 [build]
   command = "yarn build:webpack && hugo --gc --minify -s site -d ../dist"
@@ -12,12 +13,51 @@
 [build.processing]
   skip_processing = false
 
-# Headers for proper CMS functionality
+# Performance and Security Headers
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Security headers
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    
+    # Performance headers
+    Cache-Control = "public, max-age=3600"
+    
+    # Preload critical resources
+    Link = "</css/main.css>; rel=preload; as=style, </js/app.js>; rel=preload; as=script"
+
+# Static assets caching
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Admin area security
 [[headers]]
   for = "/admin/*"
   [headers.values]
     X-Frame-Options = "DENY"
     X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
 
 [context.deploy-preview]
   command = "yarn build:webpack && hugo --gc --minify -s site -d ../dist -D -F"
@@ -25,6 +65,17 @@
 [dev]
   framework = "hugo"
   targetPort = 3000
+
+# Redirects for SEO
+[[redirects]]
+  from = "/catalog/catalog/*"
+  to = "/catalog/:splat"
+  status = 301
+  
+[[redirects]]
+  from = "/guides/guides/*"
+  to = "/guides/:splat"
+  status = 301
 
 [[plugins]]
   package = "netlify-plugin-cypress"

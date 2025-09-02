@@ -1,10 +1,10 @@
-<footer class="bg-[#020303] py-[clamp(40px,6vw,48px)] relative">
+<footer class="bg-[#020303] py-[clamp(40px,6vw,48px)] relative" role="contentinfo">
 	<!-- Desktop & Tablet Layout -->
 	<div class="hidden md:block max-w-[min(1237px,90vw)] px-[clamp(20px,4vw,40px)] mx-auto">
 		<div class="flex flex-row justify-between pt-[clamp(20px,3vw,26px)] gap-[clamp(30px,5vw,40px)]">
 			<!-- Logo Section -->
 			<div class="flex flex-col items-start">
-				<a href="#" class="inline-block mb-[clamp(20px,3vw,24px)]">
+				<a href="/" class="inline-block mb-[clamp(20px,3vw,24px)]" aria-label="Karma - головна сторінка">
 					{{ $logo := resources.Get "logo.png" }}
 					{{ if $logo }}
 					{{ $logoProcessed := $logo.Resize "149x34 webp q80" }}
@@ -52,15 +52,15 @@
 				<h3
 					class="font-['Montserrat'] text-[clamp(20px,3vw,24px)] font-semibold text-white mb-[clamp(20px,3vw,24px)]">
 					Меню</h3>
-				<nav class="flex flex-col gap-[clamp(12px,2vw,16px)]">
-					<a href="#"
+				<nav class="flex flex-col gap-[clamp(12px,2vw,16px)]" role="navigation" aria-label="Меню футера">
+					<a href="/catalog"
 						class="block font-['Montserrat'] text-[clamp(16px,2.5vw,20px)] text-white hover:text-[#ba0108]">Каталог</a>
 					<a href="/faq"
 						class="block font-['Montserrat'] text-[clamp(16px,2.5vw,20px)] text-white hover:text-[#ba0108]">FAQ</a>
 					<a href="/knowledge-base"
 						class="block font-['Montserrat'] text-[clamp(16px,2.5vw,20px)] text-white hover:text-[#ba0108]">База
 						знань</a>
-					<a href="/contacts"
+					<a href="/contact"
 						class="block font-['Montserrat'] text-[clamp(16px,2.5vw,20px)] text-white hover:text-[#ba0108]">Контакти</a>
 				</nav>
 			</div>
@@ -68,32 +68,32 @@
 			<!-- Social Media Section -->
 			<div class="flex flex-col items-end">
 				<div class="flex flex-col gap-[clamp(12px,2vw,16px)]">
-					<a href="#" aria-label="Facebook"
-						class="flex justify-center items-center w-[clamp(38px,6vw,48px)] h-[clamp(38px,6vw,48px)] rounded-full">
-						<img src="/facebook.svg" alt="facebook" width="36" height="36"
-							class="w-[clamp(24px,4vw,36px)] h-[clamp(24px,4vw,36px)]" />
+					<a href="https://facebook.com/karma" aria-label="Перейти на Facebook сторінку Karma"
+						class="flex justify-center items-center w-[clamp(38px,6vw,48px)] h-[clamp(38px,6vw,48px)] rounded-full hover:bg-[#ba0108] transition-colors">
+						<img src="/facebook.svg" alt="" width="36" height="36"
+							class="w-[clamp(24px,4vw,36px)] h-[clamp(24px,4vw,36px)]" aria-hidden="true" />
 					</a>
-					<a href="#" aria-label="Instagram"
-						class="flex justify-center items-center w-[clamp(38px,6vw,48px)] h-[clamp(38px,6vw,48px)] rounded-full">
-						<img src="/insta.svg" alt="instagram" width="36" height="36"
-							class="w-[clamp(24px,4vw,36px)] h-[clamp(24px,4vw,36px)]" />
+					<a href="https://instagram.com/karma" aria-label="Перейти на Instagram сторінку Karma"
+						class="flex justify-center items-center w-[clamp(38px,6vw,48px)] h-[clamp(38px,6vw,48px)] rounded-full hover:bg-[#ba0108] transition-colors">
+						<img src="/insta.svg" alt="" width="36" height="36"
+							class="w-[clamp(24px,4vw,36px)] h-[clamp(24px,4vw,36px)]" aria-hidden="true" />
 					</a>
-					<a href="#" aria-label="Telegram"
-						class="flex justify-center items-center w-[clamp(38px,6vw,48px)] h-[clamp(38px,6vw,48px)] rounded-full">
+					<a href="https://t.me/karma_fpv" aria-label="Перейти в Telegram канал Karma"
+						class="flex justify-center items-center w-[clamp(38px,6vw,48px)] h-[clamp(38px,6vw,48px)] rounded-full hover:bg-[#ba0108] transition-colors">
 						{{ $signal := resources.Get "signal.png" }}
 						{{ if $signal }}
 						{{ $signalProcessed := $signal.Resize "36x36 webp q80" }}
-						<img src="{{ $signalProcessed.RelPermalink }}" alt="signal" width="36" height="36"
-							class="w-[clamp(24px,4vw,36px)] h-[clamp(24px,4vw,36px)]" />
+						<img src="{{ $signalProcessed.RelPermalink }}" alt="" width="36" height="36"
+							class="w-[clamp(24px,4vw,36px)] h-[clamp(24px,4vw,36px)]" aria-hidden="true" />
 						{{ else }}
-						<img src="/signal.png" alt="signal" width="36" height="36"
-							class="w-[clamp(24px,4vw,36px)] h-[clamp(24px,4vw,36px)]" />
+						<img src="/signal.png" alt="" width="36" height="36"
+							class="w-[clamp(24px,4vw,36px)] h-[clamp(24px,4vw,36px)]" aria-hidden="true" />
 						{{ end }}
 					</a>
-					<a href="#" aria-label="WhatsApp"
-						class="flex justify-center items-center w-[clamp(38px,6vw,48px)] h-[clamp(38px,6vw,48px)] rounded-full">
-						<img src="/whatsapp.svg" alt="whatsapp" width="36" height="36"
-							class="w-[clamp(24px,4vw,36px)] h-[clamp(24px,4vw,36px)]" />
+					<a href="https://wa.me/380956156713" aria-label="Написати в WhatsApp"
+						class="flex justify-center items-center w-[clamp(38px,6vw,48px)] h-[clamp(38px,6vw,48px)] rounded-full hover:bg-[#ba0108] transition-colors">
+						<img src="/whatsapp.svg" alt="" width="36" height="36"
+							class="w-[clamp(24px,4vw,36px)] h-[clamp(24px,4vw,36px)]" aria-hidden="true" />
 					</a>
 				</div>
 			</div>
@@ -101,8 +101,8 @@
 
 		<!-- Privacy Policy -->
 		<div class="pt-[clamp(20px,3vw,32px)] text-center">
-			<a href="#" class="font-inter text-[clamp(14px,2vw,18px)] text-[#929292] hover:text-[#ba0108]">Політика
-				конфеденційності</a>
+			<a href="/privacy-policy" class="font-inter text-[clamp(14px,2vw,18px)] text-[#929292] hover:text-[#ba0108]">Політика
+				конфіденційності</a>
 		</div>
 	</div>
 
