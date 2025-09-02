@@ -15,38 +15,61 @@
 
   {{ $bgEl2 := resources.Get "img/bg-el-2.png" }}
   {{ if $bgEl2 }}
-  {{ $bgEl2Processed := $bgEl2.Resize "171x199 webp q80" }}
+  {{ $bgEl2Processed := $bgEl2.Resize "171x199 webp q40" }}
   <img src="{{ $bgEl2Processed.RelPermalink }}" alt=""
-    class="absolute z-[10] bottom-0 left-0 lg:left-0 md:left-0 sm:left-0 max-[450px]:left-[-30px] lg:w-[320px] md:w-[250px] sm:w-[200px] max-[450px]:w-[171px] max-[450px]:h-[199px] h-auto max-[450px]:rotate-[34deg]"
-    width="171" height="199" />
+    class="absolute z-[10] bottom-0 left-0 lg:left-0 md:left-0 sm:left-0 max-[450px]:left-[-30px] lg:w-[320px] md:w-[250px] sm:w-[200px] max-[450px]:w-[120px] max-[450px]:h-[140px] h-auto max-[450px]:rotate-[34deg]"
+    width="171" height="199" loading="eager" fetchpriority="high" decoding="async"
+    style="display: block; contain: layout style paint; will-change: transform;" />
   {{ else }}
   <img src="/img/bg-el-2.png" alt=""
-    class="absolute z-[10] bottom-0 left-0 lg:left-0 md:left-0 sm:left-0 max-[450px]:left-[-30px] lg:w-[320px] md:w-[250px] sm:w-[200px] max-[450px]:w-[171px] max-[450px]:h-[199px] h-auto max-[450px]:rotate-[34deg]"
-    width="171" height="199" />
+    class="absolute z-[10] bottom-0 left-0 lg:left-0 md:left-0 sm:left-0 max-[450px]:left-[-30px] lg:w-[320px] md:w-[250px] sm:w-[200px] max-[450px]:w-[120px] max-[450px]:h-[140px] h-auto max-[450px]:rotate-[34deg]"
+    width="171" height="199" loading="eager" fetchpriority="high" decoding="async"
+    style="display: block; contain: layout style paint; will-change: transform;" />
   {{ end }}
 
   <!-- Mobile stack elements -->
   <div class="block sm:hidden lg:hidden">
     {{ $stackLeft := resources.Get "img/stack-left.png" }}
     {{ if $stackLeft }}
-    {{ $stackLeftProcessed := $stackLeft.Resize "100x webp q80" }}
+    {{ $stackLeftProcessed := $stackLeft.Resize "100x webp q50" }}
     <img src="{{ $stackLeftProcessed.RelPermalink }}" alt="Елемент стеку зліва" aria-hidden="true"
-      class="absolute top-[-4] left-0 w-[130px] z-[1] " />
+      class="absolute top-[-4] left-0 w-[130px] z-[1]" loading="lazy" decoding="async"
+      style="contain: layout style paint;" />
     {{ else }}
     <img src="/img/stack-rotate-left.png" alt="Елемент стеку зліва" aria-hidden="true"
-      class="absolute top-[-4] left-0 w-[130px] z-[1] " />
+      class="absolute top-[-4] left-0 w-[130px] z-[1]" loading="lazy" decoding="async"
+      style="contain: layout style paint;" />
     {{ end }}
 
     {{ $stackRight := resources.Get "img/stack-right.png" }}
     {{ if $stackRight }}
-    {{ $stackRightProcessed := $stackRight.Resize "100x webp q80" }}
+    {{ $stackRightProcessed := $stackRight.Resize "100x webp q50" }}
     <img src="{{ $stackRightProcessed.RelPermalink }}" alt="Елемент стеку справа" aria-hidden="true"
-      class="absolute bottom-0 right-0 w-[130px] z-[1] " />
+      class="absolute bottom-0 right-0 w-[130px] z-[1]" loading="lazy" decoding="async"
+      style="contain: layout style paint;" />
     {{ else }}
     <img src="/img/stack-rotate-right.png" alt="Елемент стеку справа" aria-hidden="true"
-      class="absolute bottom-0 right-0 w-[130px] z-[1] ]" />
+      class="absolute bottom-0 right-0 w-[130px] z-[1]" loading="lazy" decoding="async"
+      style="contain: layout style paint;" />
     {{ end }}
   </div>
+
+  <style>
+    @media (max-width: 767px) {
+      .absolute.z-\[10\] {
+        transform: translate3d(0, 0, 0) !important;
+        backface-visibility: hidden !important;
+        perspective: 1000px !important;
+        will-change: transform !important;
+      }
+
+      img[fetchpriority="high"] {
+        image-rendering: optimizeSpeed !important;
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: optimize-contrast !important;
+      }
+    }
+  </style>
 
   <!-- Desktop Layout -->
   <div class="hidden lg:block max-w-[1440px] xl:max-w-[1600px] mx-auto pt-[40px] mb-[64px] relative z-[2] px-8">

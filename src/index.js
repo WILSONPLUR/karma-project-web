@@ -1,6 +1,35 @@
 import "./css/main.scss";
 
-// Initialize mobile menu
+// Defer non-critical JavaScript execution
+function deferExecution(callback, priority = "low") {
+  if (priority === "high") {
+    // High priority - execute immediately but non-blocking
+    requestAnimationFrame(callback);
+  } else {
+    // Low priority - execute when browser is idle
+    if ("requestIdleCallback" in window) {
+      requestIdleCallback(callback, {timeout: 1000});
+    } else {
+      // Fallback for older browsers
+      setTimeout(callback, 100);
+    }
+  }
+}
+
+// Debounce function for performance
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+// Initialize mobile menu with defer
 const mobileMenu = document.querySelector("[data-mobile-menu]");
 const nav = document.querySelector("[data-nav]");
 
@@ -38,7 +67,8 @@ class CustomSlider {
       ...options,
     };
 
-    this.init();
+    // Defer initialization to reduce blocking
+    deferExecution(() => this.init(), "high");
     this.setupResponsive();
   }
 
@@ -59,7 +89,6 @@ class CustomSlider {
     // Set container styles
     this.container.style.position = "relative";
     this.container.style.overflow = "hidden";
-    // Do not force width here; allow CSS to control container width
 
     // Set wrapper styles
     this.wrapper.style.display = "flex";
@@ -72,66 +101,48 @@ class CustomSlider {
   }
 
   updateSlideStyles() {
-    const currentSlidesPerView = this.getCurrentSlidesPerView();
-    const currentSpaceBetween = this.getCurrentSpaceBetween();
-    const containerWidth = this.container.offsetWidth;
+    // Defer style updates to reduce blocking
+    deferExecution(() => {
+      const currentSlidesPerView = this.getCurrentSlidesPerView();
+      const currentSpaceBetween = this.getCurrentSpaceBetween();
+      const containerWidth = this.container.offsetWidth;
 
-    console.log("Debug slider:", {
-      containerWidth,
-      currentSlidesPerView,
-      currentSpaceBetween,
-      windowWidth: window.innerWidth,
-    });
+      let slideWidth;
 
-    let slideWidth;
+      if (this.options.fixedSlideWidth) {
+        slideWidth = this.options.fixedSlideWidth;
+      } else {
+        // Розрахунок адаптивної ширини
+        const totalSpacing = currentSpaceBetween * (currentSlidesPerView - 1);
+        const availableWidth = containerWidth - totalSpacing;
+        slideWidth = Math.floor(availableWidth / currentSlidesPerView);
 
-    if (this.options.fixedSlideWidth) {
-      slideWidth = this.options.fixedSlideWidth;
-    } else {
-      // Розрахунок адаптивної ширини
-      const totalSpacing = currentSpaceBetween * (currentSlidesPerView - 1);
-      const availableWidth = containerWidth - totalSpacing;
-      slideWidth = Math.floor(availableWidth / currentSlidesPerView);
+        // Збільшені мінімальні розміри щоб поміщалось рівно 2 картки
+        const minSlideWidth = currentSlidesPerView === 1 ? 280 : 380;
+        slideWidth = Math.max(slideWidth, minSlideWidth);
 
-      // Збільшені мінімальні розміри щоб поміщалось рівно 2 картки
-      const minSlideWidth = currentSlidesPerView === 1 ? 280 : 380;
-      slideWidth = Math.max(slideWidth, minSlideWidth);
-
-      // Максимальні розміри
-      const maxSlideWidth =
-        currentSlidesPerView === 1 ? containerWidth - 20 : 500;
-      slideWidth = Math.min(slideWidth, maxSlideWidth);
-
-      // Якщо 2 картки, переконуємось що вони займають всю ширину
-      if (currentSlidesPerView === 2) {
-        const totalSpacingCheck = currentSpaceBetween;
-        const maxPossibleWidth = (containerWidth - totalSpacingCheck) / 2;
-        slideWidth = Math.min(slideWidth, maxPossibleWidth);
+        // Максимальні розміри
+        const maxSlideWidth = currentSlidesPerView === 1 ? 400 : 500;
+        slideWidth = Math.min(slideWidth, maxSlideWidth);
       }
-    }
 
-    console.log("Calculated slideWidth:", slideWidth);
+      // Apply styles efficiently
+      this.slides.forEach((slide, index) => {
+        slide.style.width = `${slideWidth}px`;
+        slide.style.flexShrink = "0";
+        if (index < this.slides.length - 1) {
+          slide.style.marginRight = `${currentSpaceBetween}px`;
+        }
+      });
 
-    this.slides.forEach((slide, index) => {
-      slide.style.flex = "0 0 auto";
-      slide.style.width = `${slideWidth}px`;
-      slide.style.display = "flex";
-      slide.style.alignItems = "center";
-      slide.style.justifyContent = "center";
-      slide.style.marginRight =
-        index < this.slides.length - 1 ? `${currentSpaceBetween}px` : "0";
-      slide.style.boxSizing = "border-box";
-    });
-
-    // Розрахунок ширини wrapper
-    if (this.options.fixedWrapperWidth) {
-      this.wrapper.style.width = `${this.options.fixedWrapperWidth}px`;
-    } else {
-      const wrapperWidth =
-        slideWidth * this.slides.length +
-        currentSpaceBetween * (this.slides.length - 1);
-      this.wrapper.style.width = `${wrapperWidth}px`;
-    }
+      if (this.options.fixedWrapperWidth) {
+        this.wrapper.style.width = `${this.options.fixedWrapperWidth}px`;
+      } else {
+        const totalWidth = slideWidth * this.slides.length +
+                          currentSpaceBetween * (this.slides.length - 1);
+        this.wrapper.style.width = `${totalWidth}px`;
+      }
+    }, "low");
   }
   setupNavigation() {
     const nextBtn =
@@ -283,211 +294,205 @@ class CustomSlider {
   }
 
   setupResponsive() {
-    const handleResize = () => {
+    const debouncedResize = debounce(() => {
       this.updateSlideStyles();
-      this.showSlide(this.currentIndex, false);
-    };
+    }, 150);
 
-    window.addEventListener("resize", handleResize);
+    window.addEventListener("resize", debouncedResize);
+    this.resizeHandler = debouncedResize;
   }
 
   getCurrentSlidesPerView() {
     const width = window.innerWidth;
-    const responsive = this.options.responsive;
-
-    let currentSlidesPerView = this.options.slidesPerView;
-
-    Object.keys(responsive)
+    const breakpoints = Object.keys(this.options.responsive)
       .map(Number)
-      .sort((a, b) => a - b)
-      .forEach((breakpoint) => {
-        if (width >= breakpoint) {
-          currentSlidesPerView =
-            responsive[breakpoint].slidesPerView || currentSlidesPerView;
-        }
-      });
+      .sort((a, b) => b - a);
 
-    return currentSlidesPerView;
+    for (const breakpoint of breakpoints) {
+      if (width >= breakpoint) {
+        return this.options.responsive[breakpoint].slidesPerView || this.options.slidesPerView;
+      }
+    }
+    return this.options.slidesPerView;
   }
 
   getCurrentSpaceBetween() {
     const width = window.innerWidth;
-    const responsive = this.options.responsive;
-
-    let currentSpaceBetween = this.options.spaceBetween;
-
-    Object.keys(responsive)
+    const breakpoints = Object.keys(this.options.responsive)
       .map(Number)
-      .sort((a, b) => a - b)
-      .forEach((breakpoint) => {
-        if (width >= breakpoint) {
-          currentSpaceBetween =
-            responsive[breakpoint].spaceBetween || currentSpaceBetween;
-        }
-      });
+      .sort((a, b) => b - a);
 
-    return currentSpaceBetween;
+    for (const breakpoint of breakpoints) {
+      if (width >= breakpoint) {
+        return this.options.responsive[breakpoint].spaceBetween || this.options.spaceBetween;
+      }
+    }
+    return this.options.spaceBetween;
   }
 }
 
-// Initialize sliders when DOM is loaded
-document.addEventListener("DOMContentLoaded", () => {
-  // Desktop/Tablet trusted companies slider (4 visible)
-  new CustomSlider(".swiper-container-trusted-desktop", {
-    autoplay: false,
-    loop: true,
-    slidesPerView: 4,
-    spaceBetween: 0,
-    paginationCount: 4,
-    fixedSlideWidth: null,
-    responsive: {
-      768: {
-        slidesPerView: 4,
-        spaceBetween: 0,
+// Initialize sliders with deferred execution
+function initializeSliders() {
+  // Defer slider initialization to reduce blocking
+  deferExecution(() => {
+    // Trusted By Desktop Slider
+    new CustomSlider(".swiper-container-trusted-desktop", {
+      autoplay: false,
+      loop: true,
+      slidesPerView: 4,
+      spaceBetween: 0,
+      paginationCount: 4,
+      fixedSlideWidth: null,
+      responsive: {
+        768: {
+          slidesPerView: 4,
+          spaceBetween: 0,
+        },
+        1024: {
+          slidesPerView: 4,
+          spaceBetween: 0,
+        },
+        1440: {
+          slidesPerView: 4,
+          spaceBetween: 0,
+        },
       },
-      1024: {
-        slidesPerView: 4,
-        spaceBetween: 0,
+    });
+
+    // Products Slider
+    new CustomSlider(".swiper-container-products", {
+      autoplay: false,
+      loop: true,
+      slidesPerView: 2,
+      slidesPerGroup: 2,
+      spaceBetween: 51,
+      fixedSlideWidth: 400,
+      responsive: {
+        768: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          spaceBetween: 51,
+          fixedSlideWidth: 400,
+        },
+        1023: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          spaceBetween: 51,
+          fixedSlideWidth: 400,
+        },
+        1200: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          spaceBetween: 51,
+          fixedSlideWidth: 400,
+        },
+        1440: {
+          slidesPerView: 2,
+          slidesPerGroup: 2,
+          spaceBetween: 51,
+          fixedSlideWidth: 400,
+        },
       },
-      1440: {
-        slidesPerView: 4,
-        spaceBetween: 0,
-      },
-    },
-  });
+    });
+  }, "low");
+}
 
-  // Mobile trusted companies slider (1 slide showing 2x2 grid inside)
-  new CustomSlider(".swiper-container-trusted-mobile", {
-    autoplay: false,
-    loop: true,
-    slidesPerView: 1,
-    spaceBetween: 20,
-    paginationCount: 4,
-  });
+// Initialize when DOM is ready
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initializeSliders);
+} else {
+  initializeSliders();
+}
 
-  // Initialize desktop products slider with responsive configuration (2 cards, 51 gap, move by 2)
-  new CustomSlider(".swiper-container-products", {
-    autoplay: false,
-    loop: true,
-    slidesPerView: 1,
-    slidesPerGroup: 1,
-    spaceBetween: 16,
-    fixedSlideWidth: null,
-    responsive: {
-      // Планшет - показуємо 2 картки
-      768: {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        spaceBetween: 20,
-        fixedSlideWidth: null,
-      },
-      // Десктоп - показуємо 2 картки з трохи більшим відступом
-      1024: {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        spaceBetween: 25,
-        fixedSlideWidth: null,
-      },
-      // Великі екрани - показуємо 2 картки
-      1200: {
-        slidesPerView: 2,
-        slidesPerGroup: 2,
-        spaceBetween: 30,
-        fixedSlideWidth: null,
-      },
-    },
-  });
+// Initialize simple mobile slider
+const mobileSlider = document.getElementById("mobile-slider");
+const mobileWrapper = document.getElementById("mobile-slider-wrapper");
+const mobilePrev = document.querySelector(".mobile-prev");
+const mobileNext = document.querySelector(".mobile-next");
 
-  // Initialize simple mobile slider
-  const mobileSlider = document.getElementById("mobile-slider");
-  const mobileWrapper = document.getElementById("mobile-slider-wrapper");
-  const mobilePrev = document.querySelector(".mobile-prev");
-  const mobileNext = document.querySelector(".mobile-next");
+if (mobileSlider && mobileWrapper) {
+  let currentSlide = 0;
+  const totalSlides = mobileWrapper.children.length;
 
-  if (mobileSlider && mobileWrapper) {
-    let currentSlide = 0;
-    const totalSlides = mobileWrapper.children.length;
-
-    function updateSlider() {
-      const translateX = -currentSlide * 100;
-      mobileWrapper.style.transform = `translateX(${translateX}%)`;
-    }
-
-    if (mobilePrev) {
-      mobilePrev.addEventListener("click", () => {
-        currentSlide = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1;
-        updateSlider();
-      });
-    }
-
-    if (mobileNext) {
-      mobileNext.addEventListener("click", () => {
-        currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
-        updateSlider();
-      });
-    }
+  function updateSlider() {
+    const translateX = -currentSlide * 100;
+    mobileWrapper.style.transform = `translateX(${translateX}%)`;
   }
 
-  // Initialize trusted companies mobile slider (separate custom controls if needed)
-  const trustedMobileSlider = document.getElementById("trusted-mobile-slider");
-  const trustedMobileWrapper = document.getElementById(
-    "trusted-mobile-wrapper"
-  );
-  const trustedMobilePrev = document.querySelector(".trusted-mobile-prev");
-  const trustedMobileNext = document.querySelector(".trusted-mobile-next");
-  const trustedPaginationDots = document.querySelectorAll(
-    ".trusted-pagination-dot"
-  );
-
-  if (trustedMobileSlider && trustedMobileWrapper) {
-    let currentTrustedSlide = 0;
-    const totalTrustedSlides = trustedMobileWrapper.children.length;
-
-    function updateTrustedSlider() {
-      const translateX = -currentTrustedSlide * 100;
-      trustedMobileWrapper.style.transform = `translateX(${translateX}%)`;
-
-      // Update pagination dots
-      trustedPaginationDots.forEach((dot, index) => {
-        if (index === currentTrustedSlide) {
-          dot.classList.remove("bg-gray-400");
-          dot.classList.add("bg-[#ba0108]");
-        } else {
-          dot.classList.remove("bg-[#ba0108]");
-          dot.classList.add("bg-gray-400");
-        }
-      });
-    }
-
-    if (trustedMobilePrev) {
-      trustedMobilePrev.addEventListener("click", () => {
-        currentTrustedSlide =
-          currentTrustedSlide > 0
-            ? currentTrustedSlide - 1
-            : totalTrustedSlides - 1;
-        updateTrustedSlider();
-      });
-    }
-
-    if (trustedMobileNext) {
-      trustedMobileNext.addEventListener("click", () => {
-        currentTrustedSlide =
-          currentTrustedSlide < totalTrustedSlides - 1
-            ? currentTrustedSlide + 1
-            : 0;
-        updateTrustedSlider();
-      });
-    }
-
-    // Add click handlers for pagination dots
-    trustedPaginationDots.forEach((dot, index) => {
-      dot.addEventListener("click", () => {
-        currentTrustedSlide = index;
-        updateTrustedSlider();
-      });
+  if (mobilePrev) {
+    mobilePrev.addEventListener("click", () => {
+      currentSlide = currentSlide > 0 ? currentSlide - 1 : totalSlides - 1;
+      updateSlider();
     });
   }
-});
+
+  if (mobileNext) {
+    mobileNext.addEventListener("click", () => {
+      currentSlide = currentSlide < totalSlides - 1 ? currentSlide + 1 : 0;
+      updateSlider();
+    });
+  }
+}
+
+// Initialize trusted companies mobile slider (separate custom controls if needed)
+const trustedMobileSlider = document.getElementById("trusted-mobile-slider");
+const trustedMobileWrapper = document.getElementById(
+  "trusted-mobile-wrapper"
+);
+const trustedMobilePrev = document.querySelector(".trusted-mobile-prev");
+const trustedMobileNext = document.querySelector(".trusted-mobile-next");
+const trustedPaginationDots = document.querySelectorAll(
+  ".trusted-pagination-dot"
+);
+
+if (trustedMobileSlider && trustedMobileWrapper) {
+  let currentTrustedSlide = 0;
+  const totalTrustedSlides = trustedMobileWrapper.children.length;
+
+  function updateTrustedSlider() {
+    const translateX = -currentTrustedSlide * 100;
+    trustedMobileWrapper.style.transform = `translateX(${translateX}%)`;
+
+    // Update pagination dots
+    trustedPaginationDots.forEach((dot, index) => {
+      if (index === currentTrustedSlide) {
+        dot.classList.remove("bg-gray-400");
+        dot.classList.add("bg-[#ba0108]");
+      } else {
+        dot.classList.remove("bg-[#ba0108]");
+        dot.classList.add("bg-gray-400");
+      }
+    });
+  }
+
+  if (trustedMobilePrev) {
+    trustedMobilePrev.addEventListener("click", () => {
+      currentTrustedSlide =
+        currentTrustedSlide > 0
+          ? currentTrustedSlide - 1
+          : totalTrustedSlides - 1;
+      updateTrustedSlider();
+    });
+  }
+
+  if (trustedMobileNext) {
+    trustedMobileNext.addEventListener("click", () => {
+      currentTrustedSlide =
+        currentTrustedSlide < totalTrustedSlides - 1
+          ? currentTrustedSlide + 1
+          : 0;
+      updateTrustedSlider();
+    });
+  }
+
+  // Add click handlers for pagination dots
+  trustedPaginationDots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      currentTrustedSlide = index;
+      updateTrustedSlider();
+    });
+  });
+}
 
 // Say hello
 console.log("🦊 Custom sliders initialized!");

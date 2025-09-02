@@ -11,7 +11,7 @@
   <meta name="keywords"
     content="">
   <meta name="author" content="">
-  <meta name="robots" content="index, follow"> 
+  <meta name="robots" content="index, follow">
   <link rel="canonical" href="http://localhost:1313/">
 
   
@@ -52,14 +52,123 @@
   <link rel="preconnect" href="https://www.google-analytics.com" />
 
   
+  <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+
+  
+  <link rel="preload" as="image" href="/img/about-mob.png" media="(max-width: 767px)" />
+  <link rel="preload" as="image" href="/img/bg-el-2.png" media="(max-width: 767px)" />
+  <link rel="preload" as="image" href="/img/bg-el-1.png" media="(min-width: 800px)" />
+
+  
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600&display=swap" as="style"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600&display=swap" />
+  </noscript>
+
+  
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&family=Wallpoet&display=swap"
     rel="stylesheet" /> 
-  <link rel="stylesheet" href="/main.f386f.css" />
+  <link rel="stylesheet" href="/main.c2ab3.css" />
+  <style>
+    .absolute.z-\[10\] {
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+
+    .hero-title {
+      will-change: transform;
+      transform: translateZ(0);
+    }
+
+     
+    img[loading="eager"] {
+      contain: layout style paint;
+      will-change: transform;
+    }
+
+     
+    .swiper-container-trusted,
+    .swiper-container-products {
+      contain: layout;
+    }
+
+     
+    @media (max-width: 767px) {
+      .absolute.z-\[10\] {
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+      }
+
+      img[fetchpriority="high"] {
+        image-rendering: optimizeSpeed;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: optimize-contrast;
+      }
+    }
+  </style>
+
   
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
+  
+  <link rel="preload" as="style" href="/%20css/main.css" />
+  <link rel="preload" as="image" href="/img/about-mob.png" media="(max-width: 767px)" />
+  <link rel="preload" as="image" href="/img/bg-el-2.png" media="(max-width: 767px)" />
+  <link rel="preload" as="image" href="/img/bg-el-1.png" media="(min-width: 800px)" />
 
+  
+  <link rel="preload" as="image" href="/img/bg-el-2.png" media="(max-width: 450px)" />
+
+  
+  <link rel="preload" as="image" href="/img/about-mob.png" media="(max-width: 450px)" />
+
+  
+  <link rel="preload" as="image" href="/img/about-mob.png" media="(max-width: 767px)" fetchpriority="high" />
+
+  
+  
+  
+  
+  <link rel="preload" as="image" href="/img/about-mob_hu_8573672fd16fcf85.webp" media="(max-width: 450px)"
+    fetchpriority="high" />
+  
+
+  
+  <link rel="stylesheet" href="/%20css/main.css" />
+
+  
+  <script>
+    
+    function loadModalCSS() {
+      if (!document.querySelector('link[href*="modal.css"]')) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '\/css\/modal.css';
+        document.head.appendChild(link);
+      }
+    }
+
+    
+    document.addEventListener('click', function (e) {
+      if (e.target.matches('[data-contact-form]') || e.target.closest('[data-contact-form]')) {
+        loadModalCSS();
+      }
+    });
+
+    
+    window.openContactModal = function () {
+      const modal = document.getElementById('contactModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    };
+  </script>
 </head>
 
 <body class="font-sans">
@@ -570,9 +679,10 @@
   
   
   
-  <img src="/img/bg-el-2_hu_9bb0cd9e1d41fb4b.webp" alt=""
-    class="absolute z-[10] bottom-0 left-0 lg:left-0 md:left-0 sm:left-0 max-[450px]:left-[-30px] lg:w-[320px] md:w-[250px] sm:w-[200px] max-[450px]:w-[171px] max-[450px]:h-[199px] h-auto max-[450px]:rotate-[34deg]"
-    width="171" height="199" />
+  <img src="/img/bg-el-2_hu_e32a505d2830ec74.webp" alt=""
+    class="absolute z-[10] bottom-0 left-0 lg:left-0 md:left-0 sm:left-0 max-[450px]:left-[-30px] lg:w-[320px] md:w-[250px] sm:w-[200px] max-[450px]:w-[120px] max-[450px]:h-[140px] h-auto max-[450px]:rotate-[34deg]"
+    width="171" height="199" loading="eager" fetchpriority="high" decoding="async"
+    style="display: block; contain: layout style paint; will-change: transform;" />
   
 
   
@@ -580,17 +690,36 @@
     
     
     
-    <img src="/img/stack-left_hu_1ae38cfb2389c807.webp" alt="Елемент стеку зліва" aria-hidden="true"
-      class="absolute top-[-4] left-0 w-[130px] z-[1] " />
+    <img src="/img/stack-left_hu_43ab5c447c021fc8.webp" alt="Елемент стеку зліва" aria-hidden="true"
+      class="absolute top-[-4] left-0 w-[130px] z-[1]" loading="lazy" decoding="async"
+      style="contain: layout style paint;" />
     
 
     
     
     
-    <img src="/img/stack-right_hu_ec2dd33ca673f11c.webp" alt="Елемент стеку справа" aria-hidden="true"
-      class="absolute bottom-0 right-0 w-[130px] z-[1] " />
+    <img src="/img/stack-right_hu_9a38b30e60ccadcb.webp" alt="Елемент стеку справа" aria-hidden="true"
+      class="absolute bottom-0 right-0 w-[130px] z-[1]" loading="lazy" decoding="async"
+      style="contain: layout style paint;" />
     
   </div>
+
+  <style>
+    @media (max-width: 767px) {
+      .absolute.z-\[10\] {
+        transform: translate3d(0, 0, 0) !important;
+        backface-visibility: hidden !important;
+        perspective: 1000px !important;
+        will-change: transform !important;
+      }
+
+      img[fetchpriority="high"] {
+        image-rendering: optimizeSpeed !important;
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: optimize-contrast !important;
+      }
+    }
+  </style>
 
   
   <div class="hidden lg:block max-w-[1440px] xl:max-w-[1600px] mx-auto pt-[40px] mb-[64px] relative z-[2] px-8">
@@ -711,14 +840,14 @@
   
 
   
-  <div class="max-[767px]:block min-[768px]:hidden relative z-[2]">
+  <div class="block max-[450px]:block min-[451px]:hidden">
     
     
     
-    
-    <img src="/img/about-mob_hu_306cc6bf8b108173.webp"
-      alt="Про нас - українська компанія високотехнологічного виробництва"
-      class="object-contain mb-6 w-full h-auto rounded-lg origin-left" />
+    <img src="/img/about-mob_hu_8573672fd16fcf85.webp" alt="Про нас - Karma Flights"
+      class="object-contain mb-6 w-full h-auto rounded-lg origin-left" loading="eager" fetchpriority="high" width="320"
+      height="224" decoding="async"
+      style="display: block; max-width: 100%; height: auto; contain: layout style paint; content-visibility: auto;" />
     
 
     
@@ -749,9 +878,9 @@
     
     
     
-    <img src="/img/about_hu_6c29fa351afde508.webp"
+    <img src="/img/about_hu_3dcbfe04385af400.webp"
       alt="Про нас - українська компанія високотехнологічного виробництва" width="568" height="400"
-      class="w-full max-w-[568px] h-auto rounded-t-[8px] object-cover shadow-lg mx-auto mb-8" />
+      class="w-full max-w-[568px] h-auto rounded-t-[8px] object-cover shadow-lg mx-auto mb-8" loading="lazy" />
     
 
     
@@ -784,9 +913,9 @@
       
       
       
-      <img src="/img/about_hu_6c29fa351afde508.webp"
+      <img src="/img/about_hu_3dcbfe04385af400.webp"
         alt="Про нас - українська компанія високотехнологічного виробництва" width="568" height="400"
-        class="w-full h-full rounded-t-[8px] object-cover shadow-lg" />
+        class="w-full h-full rounded-t-[8px] object-cover shadow-lg" loading="lazy" />
       
     </div>
 
@@ -814,6 +943,30 @@
       </div>
     </div>
   </div>
+
+  <style>
+    @media (max-width: 767px) {
+
+      .object-contain.mb-6.w-full.h-auto.rounded-lg.origin-left {
+        content-visibility: auto !important;
+        contain: layout style paint !important;
+        transform: none !important;
+        will-change: auto !important;
+      }
+
+      img[fetchpriority="high"] {
+        image-rendering: optimizeSpeed !important;
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: optimize-contrast !important;
+        content-visibility: auto !important;
+      }
+
+       
+      .about-section {
+        contain: layout style paint !important;
+      }
+    }
+  </style>
 </section>
 
 <section class="bg-[#1d1d1d] min-h-[241px] py-[39px] flex justify-center">
@@ -964,7 +1117,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   
   <div
-    class="hidden lg:flex justify-center items-center min-[1025px]:w-[1125px] xl:w-[1360px] min-[1200px]:w-[1200px] 2xl:w-[1600px] min-[1920px]:w-[1800px] mx-auto lg:gap-20 xl:gap-24 2xl:gap-32 min-[1920px]:gap-40 lg:mt-36">
+    class="hidden lg:flex justify-center items-center min-[1025px]:w-[1125px] xl:w-[1260px] min-[1200px]:w-[1200px] 2xl:w-[1600px] min-[1920px]:w-[1800px] mx-auto lg:gap-20 xl:gap-24 2xl:gap-32 min-[1920px]:gap-40 lg:mt-36">
     
     <div class="flex flex-col flex-1 gap-4 items-center text-center">
       <h4 class="text-[clamp(20px,1.95vw,24px)] font-['Montserrat'] font-semibold text-[#fefefe]">
@@ -1082,14 +1235,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-<section
-  class="relative flex flex-col justify-center items-center gap-[20px]  py-[60px] bg-[#f9f9f9] overflow-hidden">
+<section class="relative flex flex-col justify-center items-center gap-[20px]  py-[60px] bg-[#f9f9f9] overflow-hidden">
   <div class="absolute top-0 right-0">
     
     
     
-    <img src="/img/bg-el-1_hu_8c81fda9792ffa2.webp" alt=""
-      class="lg:w-[200px] lg:h-[400px] max-[450px]:w-[100px] max-[450px]:h-[100px] object-contain" />
+    <img src="/img/bg-el-1_hu_f04d97e4419211d3.webp" alt=""
+      class="lg:w-[200px] lg:h-[400px] max-[450px]:w-[100px] max-[450px]:h-[100px] object-contain" loading="lazy"
+      decoding="async" style="contain: layout style paint;" />
     
   </div>
 
@@ -1108,7 +1261,8 @@ document.addEventListener('DOMContentLoaded', () => {
               class="bg-[#fff] rounded-[10px] p-[20px] [box-shadow:0_4px_16px_rgba(0,_0,_0,_0.1)] w-full max-w-[400px] text-center mx-0">
               
               
-              <img src="/img/Stack-product.png" alt="Політний стек KARMA F405 V1" class="w-full h-[300px] object-contain mb-[15px]" />
+              <img src="/img/Stack-product.png" alt="Політний стек KARMA F405 V1" class="w-full h-[300px] object-contain mb-[15px]"
+                loading="lazy" decoding="async" style="contain: layout style paint;" />
               
               <h3
                 class="font-['Montserrat'] text-[clamp(18px,2.5vw,24px)] font-semibold mt-[15px] mx-[0] mb-[20px] text-[#020303] leading-[1.2]">
@@ -1160,8 +1314,9 @@ document.addEventListener('DOMContentLoaded', () => {
               
               
               
-              <img src="/img/our-product1_hu_472edad6ab223227.webp" alt="ПОЛІТНИЙ СТЕК KARMA F405 V1 (Dynamic)"
-                class="w-full h-[300px] object-contain mb-[15px]" />
+              <img src="/img/our-product1_hu_da3d903ffcbe4f8b.webp" alt="ПОЛІТНИЙ СТЕК KARMA F405 V1 (Dynamic)"
+                class="w-full h-[300px] object-contain mb-[15px]" loading="lazy" decoding="async"
+                style="contain: layout style paint;" />
               
               <h3
                 class="font-['Montserrat'] text-[clamp(18px,2.5vw,24px)] font-semibold mt-[15px] mx-[0] mb-[20px] text-[#020303] leading-[1.2]">
@@ -1213,8 +1368,9 @@ document.addEventListener('DOMContentLoaded', () => {
               
               
               
-              <img src="/img/our-product2_hu_472edad6ab223227.webp" alt="ПОЛІТНИЙ СТЕК KARMA F405 V2 (Dynamic)"
-                class="w-full h-[300px] object-contain mb-[15px]" />
+              <img src="/img/our-product2_hu_da3d903ffcbe4f8b.webp" alt="ПОЛІТНИЙ СТЕК KARMA F405 V2 (Dynamic)"
+                class="w-full h-[300px] object-contain mb-[15px]" loading="lazy" decoding="async"
+                style="contain: layout style paint;" />
               
               <h3
                 class="font-['Montserrat'] text-[clamp(18px,2.5vw,24px)] font-semibold mt-[15px] mx-[0] mb-[20px] text-[#020303] leading-[1.2]">
@@ -1266,8 +1422,9 @@ document.addEventListener('DOMContentLoaded', () => {
               
               
               
-              <img src="/img/our-product2_hu_472edad6ab223227.webp" alt="ПОЛІТНИЙ СТЕК KARMA F405 V2 (Dynamic)"
-                class="w-full h-[300px] object-contain mb-[15px]" />
+              <img src="/img/our-product2_hu_da3d903ffcbe4f8b.webp" alt="ПОЛІТНИЙ СТЕК KARMA F405 V2 (Dynamic)"
+                class="w-full h-[300px] object-contain mb-[15px]" loading="lazy" decoding="async"
+                style="contain: layout style paint;" />
               
               <h3
                 class="font-['Montserrat'] text-[clamp(18px,2.5vw,24px)] font-semibold mt-[15px] mx-[0] mb-[20px] text-[#020303] leading-[1.2]">
@@ -1337,7 +1494,8 @@ document.addEventListener('DOMContentLoaded', () => {
             
             
             <img src="/img/Stack-product.png" alt="Політний стек KARMA F405 V1"
-              class="w-full h-[300px] object-contain mb-[15px]" />
+              class="w-full h-[300px] object-contain mb-[15px]" loading="lazy" decoding="async"
+              style="contain: layout style paint;" />
             
             <h3
               class="font-['Montserrat'] text-[clamp(16px,2.2vw,20px)] font-semibold mt-[15px] mx-[0] mb-[20px] text-[#020303] leading-[1.2]">
@@ -1389,8 +1547,9 @@ document.addEventListener('DOMContentLoaded', () => {
             
             
             
-            <img src="/img/our-product1_hu_cd72b9e772c954f9.webp" alt="ПОЛІТНИЙ СТЕК KARMA F405 V1 (Dynamic)"
-              class="w-full h-[300px] object-contain mb-[15px]" />
+            <img src="/img/our-product1_hu_a7c8650c1f580abf.webp" alt="ПОЛІТНИЙ СТЕК KARMA F405 V1 (Dynamic)"
+              class="w-full h-[300px] object-contain mb-[15px]" loading="lazy" decoding="async"
+              style="contain: layout style paint;" />
             
             <h3
               class="font-['Montserrat'] text-[clamp(16px,2.2vw,20px)] font-semibold mt-[15px] mx-[0] mb-[20px] text-[#020303] leading-[1.2]">
@@ -1442,8 +1601,9 @@ document.addEventListener('DOMContentLoaded', () => {
             
             
             
-            <img src="/img/our-product2_hu_cd72b9e772c954f9.webp" alt="ПОЛІТНИЙ СТЕК KARMA F405 V2 (Dynamic)"
-              class="w-full h-[300px] object-contain mb-[15px]" />
+            <img src="/img/our-product2_hu_a7c8650c1f580abf.webp" alt="ПОЛІТНИЙ СТЕК KARMA F405 V2 (Dynamic)"
+              class="w-full h-[300px] object-contain mb-[15px]" loading="lazy" decoding="async"
+              style="contain: layout style paint;" />
             
             <h3
               class="font-['Montserrat'] text-[clamp(16px,2.2vw,20px)] font-semibold mt-[15px] mx-[0] mb-[20px] text-[#020303] leading-[1.2]">
@@ -1495,8 +1655,9 @@ document.addEventListener('DOMContentLoaded', () => {
             
             
             
-            <img src="/img/our-product2_hu_cd72b9e772c954f9.webp" alt="ПОЛІТНИЙ СТЕК KARMA F405 V2 (Dynamic)"
-              class="w-full h-[300px] object-contain mb-[15px]" />
+            <img src="/img/our-product2_hu_a7c8650c1f580abf.webp" alt="ПОЛІТНИЙ СТЕК KARMA F405 V2 (Dynamic)"
+              class="w-full h-[300px] object-contain mb-[15px]" loading="lazy" decoding="async"
+              style="contain: layout style paint;" />
             
             <h3
               class="font-['Montserrat'] text-[clamp(16px,2.2vw,20px)] font-semibold mt-[15px] mx-[0] mb-[20px] text-[#020303] leading-[1.2]">
@@ -2576,19 +2737,10 @@ document.addEventListener('DOMContentLoaded', () => {
 </script>
   
   
-  <script src="/main.f386f.js"></script>
+  <script src="/main.c2ab3.js"></script>
   
 
   <script>
-    
-    window.openContactModal = function () {
-      const modal = document.getElementById('contactModal');
-      if (modal) {
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-      }
-    };
-
     
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {

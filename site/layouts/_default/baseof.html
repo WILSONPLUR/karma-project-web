@@ -13,7 +13,7 @@
   <meta name="keywords"
     content="{{ with .Params.keywords }}{{ . }}{{ else }}{{ .Site.Params.defaultKeywords }}{{ end }}">
   <meta name="author" content="{{ .Site.Params.author }}">
-  <meta name="robots" content="{{ with .Params.robots }}{{ . }}{{ else }}index, follow{{ end }}"> 
+  <meta name="robots" content="{{ with .Params.robots }}{{ . }}{{ else }}index, follow{{ end }}">
   <link rel="canonical" href="{{ .Permalink }}">
 
   <!-- Open Graph / Facebook -->
@@ -53,6 +53,22 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link rel="preconnect" href="https://www.google-analytics.com" />
 
+  <!-- DNS prefetch for better performance -->
+  <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+
+  <!-- Preload critical images for mobile -->
+  <link rel="preload" as="image" href="/img/about-mob.png" media="(max-width: 767px)" />
+  <link rel="preload" as="image" href="/img/bg-el-2.png" media="(max-width: 767px)" />
+  <link rel="preload" as="image" href="/img/bg-el-1.png" media="(min-width: 800px)" />
+
+  <!-- Preload critical fonts -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600&display=swap" as="style"
+    onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600&display=swap" />
+  </noscript>
+
   <!-- Google Fonts -->
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Unbounded:wght@200..900&family=Wallpoet&display=swap"
@@ -62,10 +78,103 @@
   <link rel="stylesheet" href="{{ relURL . }}" />
   {{ end -}}
 
+  <style>
+    .absolute.z-\[10\] {
+      will-change: transform;
+      transform: translateZ(0);
+      backface-visibility: hidden;
+    }
+
+    .hero-title {
+      will-change: transform;
+      transform: translateZ(0);
+    }
+
+    /* Optimize image rendering */
+    img[loading="eager"] {
+      contain: layout style paint;
+      will-change: transform;
+    }
+
+    /* Reduce layout shifts */
+    .swiper-container-trusted,
+    .swiper-container-products {
+      contain: layout;
+    }
+
+    /* Mobile-specific LCP optimizations */
+    @media (max-width: 767px) {
+      .absolute.z-\[10\] {
+        transform: translate3d(0, 0, 0);
+        backface-visibility: hidden;
+        perspective: 1000px;
+      }
+
+      img[fetchpriority="high"] {
+        image-rendering: optimizeSpeed;
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: optimize-contrast;
+      }
+    }
+  </style>
+
   <!-- Netlify Identity Widget -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 
+  <!-- Preload critical resources -->
+  <link rel="preload" as="style" href="{{ " css/main.css" | relURL }}" />
+  <link rel="preload" as="image" href="/img/about-mob.png" media="(max-width: 767px)" />
+  <link rel="preload" as="image" href="/img/bg-el-2.png" media="(max-width: 767px)" />
+  <link rel="preload" as="image" href="/img/bg-el-1.png" media="(min-width: 800px)" />
 
+  <!-- Preload mobile-optimized bg-el-2 for better LCP -->
+  <link rel="preload" as="image" href="/img/bg-el-2.png" media="(max-width: 450px)" />
+
+  <!-- Preload About Us mobile image for LCP optimization -->
+  <link rel="preload" as="image" href="/img/about-mob.png" media="(max-width: 450px)" />
+
+  <!-- Critical preload for LCP image with fetchpriority -->
+  <link rel="preload" as="image" href="/img/about-mob.png" media="(max-width: 767px)" fetchpriority="high" />
+
+  <!-- Additional preload for mobile LCP optimization -->
+  {{ $aboutMobile := resources.Get "img/about-mob.png" }}
+  {{ if $aboutMobile }}
+  {{ $aboutMobileProcessed := $aboutMobile.Resize "320x224 webp q50" }}
+  <link rel="preload" as="image" href="{{ $aboutMobileProcessed.RelPermalink }}" media="(max-width: 450px)"
+    fetchpriority="high" />
+  {{ end }}
+
+  <!-- Load main CSS immediately -->
+  <link rel="stylesheet" href="{{ " css/main.css" | relURL }}" />
+
+  <!-- Load modal CSS only when needed (lazy loading) -->
+  <script>
+    // Lazy load modal CSS when modal is opened
+    function loadModalCSS() {
+      if (!document.querySelector('link[href*="modal.css"]')) {
+        const link = document.createElement('link');
+        link.rel = 'stylesheet';
+        link.href = '{{ "css/modal.css" | relURL }}';
+        document.head.appendChild(link);
+      }
+    }
+
+    // Load modal CSS when contact form is clicked
+    document.addEventListener('click', function (e) {
+      if (e.target.matches('[data-contact-form]') || e.target.closest('[data-contact-form]')) {
+        loadModalCSS();
+      }
+    });
+
+    // Global function for opening contact modal
+    window.openContactModal = function () {
+      const modal = document.getElementById('contactModal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    };
+  </script>
 </head>
 
 <body class="font-sans">
@@ -79,15 +188,6 @@
   {{ end }}
 
   <script>
-    // Global function for opening contact modal
-    window.openContactModal = function () {
-      const modal = document.getElementById('contactModal');
-      if (modal) {
-        modal.classList.remove('hidden');
-        document.body.style.overflow = 'hidden';
-      }
-    };
-
     // Netlify Identity Widget initialization
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {

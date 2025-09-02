@@ -27,31 +27,31 @@
 
 
 /* External Library Includes */
-@use './imports/_reset';
+@use "./imports/_reset";
 /* Tailwind CSS */
 @use "tailwindcss";
 
 
 
 /* Importing here will allow you to override any variables in the modules */
-@use './imports/_colors';
-@use './imports/_media-queries';
-@use './imports/_variables';
+@use "./imports/_colors";
+@use "./imports/_media-queries";
+@use "./imports/_variables";
 
 /* Debugging */
-@use './imports/_debug-children';
-@use './imports/_debug-grid';
+@use "./imports/_debug-children";
+@use "./imports/_debug-grid";
 
-/* Modal Styles */
-@use './imports/_modal';
+/* Modal Styles - Only import when needed */
+/* @use "./imports/_modal"; */
 
 /* Uncomment out the line below to help debug layout issues */
-/*@use './imports/_debug';*/
+/*@use "./imports/_debug";*/
 
 @layer base {
   /* Set default fonts */
   html, body {
-    font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+    font-family: "Montserrat", ui-sans-serif, system-ui, sans-serif;
     box-sizing: border-box;
     overflow-x: hidden;
   }
@@ -254,4 +254,41 @@
   transition: none;
   flex-wrap: nowrap;
   width: 100% !important;
+}
+
+.swiper-container-trusted,
+.swiper-container-products {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+.swiper-wrapper {
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
+
+.swiper-slide {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 30px, 0);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+.hero-title,
+.about-content,
+.advantages-content {
+  will-change: transform;
+  transform: translateZ(0);
 }

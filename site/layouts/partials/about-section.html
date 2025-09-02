@@ -11,18 +11,20 @@
     height="270" />
   {{ end }}
 
-  <!-- Mobile layout -->
-  <div class="max-[767px]:block min-[768px]:hidden relative z-[2]">
-    <!-- Mobile image -->
+  <!-- Mobile Layout -->
+  <div class="block max-[450px]:block min-[451px]:hidden">
     {{ $aboutMobile := resources.Get "img/about-mob.png" }}
     {{ if $aboutMobile }}
-    {{ $aboutMobileProcessed := $aboutMobile.Resize "572x400 webp q80" }}
-    <img src="{{ $aboutMobileProcessed.RelPermalink }}"
-      alt="Про нас - українська компанія високотехнологічного виробництва"
-      class="object-contain mb-6 w-full h-auto rounded-lg origin-left" />
+    {{ $aboutMobileProcessed := $aboutMobile.Resize "320x224 webp q50" }}
+    <img src="{{ $aboutMobileProcessed.RelPermalink }}" alt="Про нас - Karma Flights"
+      class="object-contain mb-6 w-full h-auto rounded-lg origin-left" loading="eager" fetchpriority="high" width="320"
+      height="224" decoding="async"
+      style="display: block; max-width: 100%; height: auto; contain: layout style paint; content-visibility: auto;" />
     {{ else }}
-    <img src="/img/about-mob.png" alt="Про нас - українська компанія високотехнологічного виробництва"
-      class="object-contain mb-6 w-full h-auto rounded-lg origin-left" />
+    <img src="/img/about-mob.png" alt="Про нас - Karma Flights"
+      class="object-contain mb-6 w-full h-auto rounded-lg origin-left" loading="eager" fetchpriority="high" width="320"
+      height="224" decoding="async"
+      style="display: block; max-width: 100%; height: auto; contain: layout style paint; content-visibility: auto;" />
     {{ end }}
 
     <!-- Mobile content -->
@@ -52,13 +54,14 @@
     <!-- Tablet image on top -->
     {{ $aboutDesktop := resources.Get "img/about.png" }}
     {{ if $aboutDesktop }}
-    {{ $aboutDesktopProcessed := $aboutDesktop.Resize "568x400 webp q80" }}
+    {{ $aboutDesktopProcessed := $aboutDesktop.Resize "568x400 webp q75" }}
     <img src="{{ $aboutDesktopProcessed.RelPermalink }}"
       alt="Про нас - українська компанія високотехнологічного виробництва" width="568" height="400"
-      class="w-full max-w-[568px] h-auto rounded-t-[8px] object-cover shadow-lg mx-auto mb-8" />
+      class="w-full max-w-[568px] h-auto rounded-t-[8px] object-cover shadow-lg mx-auto mb-8" loading="lazy" />
     {{ else }}
     <img src="/img/about.png" alt="Про нас - українська компанія високотехнологічного виробництва" width="568"
-      height="400" class="w-full max-w-[568px] h-auto rounded-t-[8px] object-cover shadow-lg mx-auto mb-8" />
+      height="400" class="w-full max-w-[568px] h-auto rounded-t-[8px] object-cover shadow-lg mx-auto mb-8"
+      loading="lazy" />
     {{ end }}
 
     <!-- Tablet content below -->
@@ -90,13 +93,13 @@
     <div class="relative">
       {{ $aboutDesktop := resources.Get "img/about.png" }}
       {{ if $aboutDesktop }}
-      {{ $aboutDesktopProcessed := $aboutDesktop.Resize "568x400 webp q80" }}
+      {{ $aboutDesktopProcessed := $aboutDesktop.Resize "568x400 webp q75" }}
       <img src="{{ $aboutDesktopProcessed.RelPermalink }}"
         alt="Про нас - українська компанія високотехнологічного виробництва" width="568" height="400"
-        class="w-full h-full rounded-t-[8px] object-cover shadow-lg" />
+        class="w-full h-full rounded-t-[8px] object-cover shadow-lg" loading="lazy" />
       {{ else }}
       <img src="/img/about.png" alt="Про нас - українська компанія високотехнологічного виробництва" width="568"
-        height="400" class="w-full h-full rounded-t-[8px] object-cover shadow-lg" />
+        height="400" class="w-full h-full rounded-t-[8px] object-cover shadow-lg" loading="lazy" />
       {{ end }}
     </div>
 
@@ -124,4 +127,28 @@
       </div>
     </div>
   </div>
+
+  <style>
+    @media (max-width: 767px) {
+
+      .object-contain.mb-6.w-full.h-auto.rounded-lg.origin-left {
+        content-visibility: auto !important;
+        contain: layout style paint !important;
+        transform: none !important;
+        will-change: auto !important;
+      }
+
+      img[fetchpriority="high"] {
+        image-rendering: optimizeSpeed !important;
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: optimize-contrast !important;
+        content-visibility: auto !important;
+      }
+
+      /* Reduce paint operations for LCP */
+      .about-section {
+        contain: layout style paint !important;
+      }
+    }
+  </style>
 </section>
