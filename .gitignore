@@ -7,4 +7,5 @@ yarn-error.log
 .hugo_build.lock
 
 cypress/videos
-cypress/screenshots
+cypress/screenshotssite/public/
+public/
