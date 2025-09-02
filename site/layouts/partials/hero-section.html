@@ -1,28 +1,52 @@
-<section class="bg-white min-h-[600px] relative overflow-hidden py-16 flex justify-center items-center">
+<section
+  class="bg-white min-h-[600px] relative overflow-hidden py-16 max-[450px]:py-0 flex justify-center items-center">
   <!-- Background decorative elements -->
   {{ $bgEl1 := resources.Get "img/bg-el-1.png" }}
   {{ if $bgEl1 }}
-  {{ $bgEl1Processed := $bgEl1.Resize "350x360 webp q80" }}
+  {{ $bgEl1Processed := $bgEl1.Resize "201x185 webp q80" }}
   <img src="{{ $bgEl1Processed.RelPermalink }}" alt=""
-    class="absolute z-[1] top-0 right-0 lg:w-[350px] md:w-[250px] sm:w-[150px] max-[450px]:w-[100px] h-auto" width="350"
-    height="360" />
+    class="absolute z-[1] top-0 right-0 lg:top-0 lg:right-0 md:top-0 md:right-0 sm:top-0 sm:right-0 max-[450px]:top-[-30px] max-[450px]:right-[-44px] lg:w-[350px] md:w-[250px] sm:w-[150px] max-[450px]:w-[201px] max-[450px]:h-[185px] h-auto"
+    width="201" height="185" />
   {{ else }}
   <img src="/img/bg-el-1.png" alt=""
-    class="absolute z-[1] top-0 right-0 lg:w-[350px] md:w-[250px] sm:w-[150px] max-[450px]:w-[100px] h-auto" width="350"
-    height="360" />
+    class="absolute z-[1] top-0 right-0 lg:top-0 lg:right-0 md:top-0 md:right-0 sm:top-0 sm:right-0 max-[450px]:top-[-30px] max-[450px]:right-[-44px] lg:w-[350px] md:w-[250px] sm:w-[150px] max-[450px]:w-[201px] max-[450px]:h-[185px] h-auto"
+    width="201" height="185" />
   {{ end }}
 
   {{ $bgEl2 := resources.Get "img/bg-el-2.png" }}
   {{ if $bgEl2 }}
-  {{ $bgEl2Processed := $bgEl2.Resize "320x280 webp q80" }}
+  {{ $bgEl2Processed := $bgEl2.Resize "171x199 webp q80" }}
   <img src="{{ $bgEl2Processed.RelPermalink }}" alt=""
-    class="absolute z-[1] bottom-0 left-0 lg:w-[320px] md:w-[250px] sm:w-[200px] max-[450px]:w-[150px] h-auto"
-    width="320" height="280" />
+    class="absolute z-[10] bottom-0 left-0 lg:left-0 md:left-0 sm:left-0 max-[450px]:left-[-30px] lg:w-[320px] md:w-[250px] sm:w-[200px] max-[450px]:w-[171px] max-[450px]:h-[199px] h-auto max-[450px]:rotate-[34deg]"
+    width="171" height="199" />
   {{ else }}
   <img src="/img/bg-el-2.png" alt=""
-    class="absolute z-[1] bottom-0 left-0 lg:w-[320px] md:w-[250px] sm:w-[200px] max-[450px]:w-[150px] h-auto"
-    width="320" height="280" />
+    class="absolute z-[10] bottom-0 left-0 lg:left-0 md:left-0 sm:left-0 max-[450px]:left-[-30px] lg:w-[320px] md:w-[250px] sm:w-[200px] max-[450px]:w-[171px] max-[450px]:h-[199px] h-auto max-[450px]:rotate-[34deg]"
+    width="171" height="199" />
   {{ end }}
+
+  <!-- Mobile stack elements -->
+  <div class="block sm:hidden lg:hidden">
+    {{ $stackLeft := resources.Get "img/stack-left.png" }}
+    {{ if $stackLeft }}
+    {{ $stackLeftProcessed := $stackLeft.Resize "100x webp q80" }}
+    <img src="{{ $stackLeftProcessed.RelPermalink }}" alt="Елемент стеку зліва" aria-hidden="true"
+      class="absolute top-[-4] left-0 w-[130px] z-[1] " />
+    {{ else }}
+    <img src="/img/stack-rotate-left.png" alt="Елемент стеку зліва" aria-hidden="true"
+      class="absolute top-[-4] left-0 w-[130px] z-[1] " />
+    {{ end }}
+
+    {{ $stackRight := resources.Get "img/stack-right.png" }}
+    {{ if $stackRight }}
+    {{ $stackRightProcessed := $stackRight.Resize "100x webp q80" }}
+    <img src="{{ $stackRightProcessed.RelPermalink }}" alt="Елемент стеку справа" aria-hidden="true"
+      class="absolute bottom-0 right-0 w-[130px] z-[1] " />
+    {{ else }}
+    <img src="/img/stack-rotate-right.png" alt="Елемент стеку справа" aria-hidden="true"
+      class="absolute bottom-0 right-0 w-[130px] z-[1] ]" />
+    {{ end }}
+  </div>
 
   <!-- Desktop Layout -->
   <div class="hidden lg:block max-w-[1440px] xl:max-w-[1600px] mx-auto pt-[40px] mb-[64px] relative z-[2] px-8">
@@ -43,7 +67,7 @@
       </div>
 
       <!-- Right Image -->
-      <div class="flex relative flex-shrink-0 justify-center items-center">
+      <div class="hidden relative flex-shrink-0 justify-center items-center lg:flex">
         {{ $stackDesktop := resources.Get "img/stack.png" }}
         {{ if $stackDesktop }}
         {{ $stackDesktopProcessed := $stackDesktop.Resize "500x500 webp q80" }}
@@ -77,19 +101,6 @@
         Високотехнологічне українське виробництво
       </p>
 
-      <!-- Product Image -->
-      <div class="flex relative justify-center items-center">
-        {{ $stackMobile := resources.Get "img/stack.png" }}
-        {{ if $stackMobile }}
-        {{ $stackMobileProcessed := $stackMobile.Resize "450x450 webp q80" }}
-        <img src="{{ $stackMobileProcessed.RelPermalink }}"
-          alt="Karma Flights - високотехнологічне українське виробництво"
-          class="w-full max-w-[320px] sm:max-w-[380px] md:max-w-[450px] h-auto" />
-        {{ else }}
-        <img src="/img/stack.png" alt="Karma Flights - високотехнологічне українське виробництво"
-          class="w-full max-w-[320px] sm:max-w-[380px] md:max-w-[450px] h-auto" />
-        {{ end }}
-      </div>
     </div>
   </div>
 </section>

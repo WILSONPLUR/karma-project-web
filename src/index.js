@@ -337,8 +337,23 @@ document.addEventListener("DOMContentLoaded", () => {
     autoplay: false,
     loop: true,
     slidesPerView: 4,
-    spaceBetween: 40,
+    spaceBetween: 0,
     paginationCount: 4,
+    fixedSlideWidth: null,
+    responsive: {
+      768: {
+        slidesPerView: 4,
+        spaceBetween: 0,
+      },
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 0,
+      },
+      1440: {
+        slidesPerView: 4,
+        spaceBetween: 0,
+      },
+    },
   });
 
   // Mobile trusted companies slider (1 slide showing 2x2 grid inside)
