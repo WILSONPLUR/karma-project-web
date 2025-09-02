@@ -28,18 +28,20 @@
     Cache-Control = "public, max-age=3600"
     
     # Preload critical resources
-    Link = "</css/main.css>; rel=preload; as=style, </js/app.js>; rel=preload; as=script"
+    Link = "</main.*.css>; rel=preload; as=style, </main.*.js>; rel=preload; as=script"
 
 # Static assets caching
 [[headers]]
-  for = "/css/*"
+  for = "*.css"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+    Content-Type = "text/css"
     
 [[headers]]
-  for = "/js/*"
+  for = "*.js"
   [headers.values]
     Cache-Control = "public, max-age=31536000, immutable"
+    Content-Type = "application/javascript"
     
 [[headers]]
   for = "/img/*"
@@ -49,6 +51,24 @@
 [[headers]]
   for = "/fonts/*"
   [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    
+[[headers]]
+  for = "*.ttf"
+  [headers.values]
+    Content-Type = "font/ttf"
+    Cache-Control = "public, max-age=31536000, immutable"
+    
+[[headers]]
+  for = "*.woff"
+  [headers.values]
+    Content-Type = "font/woff"
+    Cache-Control = "public, max-age=31536000, immutable"
+    
+[[headers]]
+  for = "*.woff2"
+  [headers.values]
+    Content-Type = "font/woff2"
     Cache-Control = "public, max-age=31536000, immutable"
 
 # Admin area security
@@ -63,16 +83,25 @@
   command = "yarn build:webpack && hugo --gc --minify -s site -d ../dist -D -F"
 
 # Deploy preview headers - prevent indexing of preview URLs
-[[headers]]
+[context.deploy-preview.headers]
   for = "/*"
-  [headers.values]
+  [context.deploy-preview.headers.values]
     X-Robots-Tag = "noindex, nofollow"
-  [headers.condition]
-    context = ["deploy-preview"]
 
 [dev]
   framework = "hugo"
   targetPort = 3000
+
+# Asset redirects to fix 404s
+[[redirects]]
+  from = "/css/*"
+  to = "/:splat"
+  status = 200
+  
+[[redirects]]
+  from = "/js/*"
+  to = "/:splat"
+  status = 200
 
 # Redirects for SEO
 [[redirects]]

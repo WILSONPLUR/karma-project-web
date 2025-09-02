@@ -58,9 +58,13 @@
   </style>
   
   <!-- Preload critical resources -->
-  <link rel="preload" href="/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-  <noscript><link rel="stylesheet" href="/css/main.css"></noscript>
-  <link rel="preload" href="/js/app.js" as="script">
+  {{- with $assets.css }}
+  <link rel="preload" href="{{ relURL . }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="{{ relURL . }}"></noscript>
+  {{ end -}}
+  {{- with $assets.js }}
+  <link rel="preload" href="{{ relURL . }}" as="script">
+  {{ end -}}
   <link rel="preload" href="/fonts/Inter-VariableFont_opsz,wght.ttf" as="font" type="font/ttf" crossorigin>
   
   <!-- DNS prefetch for external domains -->
