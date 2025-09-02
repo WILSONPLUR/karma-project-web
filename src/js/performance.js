@@ -97,7 +97,6 @@ function trackWebVitals() {
     new PerformanceObserver((entryList) => {
       const entries = entryList.getEntries();
       const lastEntry = entries[entries.length - 1];
-      console.log('LCP:', lastEntry.startTime);
     }).observe({ entryTypes: ['largest-contentful-paint'] });
 
     // First Input Delay
@@ -117,7 +116,6 @@ function trackWebVitals() {
           clsValue += entry.value;
         }
       });
-      console.log('CLS:', clsValue);
     }).observe({ entryTypes: ['layout-shift'] });
   }
 }
