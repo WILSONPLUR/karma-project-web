@@ -5,7 +5,6 @@ const html = htm.bind(h);
 // Preview component for knowledge base posts
 const KnowledgeBasePreview = ({ entry, widgetFor, widgetsFor }) => {
   const data = entry.getIn(["data"]).toJS();
-  console.log(data);
   return html`
     <div className="min-h-screen bg-white">
       <div className="px-4 py-8 mx-auto max-w-4xl">

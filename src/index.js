@@ -76,13 +76,6 @@ class CustomSlider {
     const currentSpaceBetween = this.getCurrentSpaceBetween();
     const containerWidth = this.container.offsetWidth;
 
-    console.log("Debug slider:", {
-      containerWidth,
-      currentSlidesPerView,
-      currentSpaceBetween,
-      windowWidth: window.innerWidth,
-    });
-
     let slideWidth;
 
     if (this.options.fixedSlideWidth) {
@@ -109,8 +102,6 @@ class CustomSlider {
         slideWidth = Math.min(slideWidth, maxPossibleWidth);
       }
     }
-
-    console.log("Calculated slideWidth:", slideWidth);
 
     this.slides.forEach((slide, index) => {
       slide.style.flex = "0 0 auto";
@@ -488,6 +479,3 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 });
-
-// Say hello
-console.log("🦊 Custom sliders initialized!");
