@@ -25,7 +25,7 @@
             class="flex flex-col sm:flex-row sm:items-center sm:justify-between font-[Montserrat] gap-[clamp(8px,2vw,16px)] mb-[clamp(20px,4vw,40px)]">
             <ol class="flex flex-wrap gap-[clamp(4px,1vw,8px)] items-center">
                 <li>
-                    <a class="font-[Montserrat] text-[clamp(12px,2vw,20px)] font-normal text-[#ba0108] hover:underline"
+                    <a class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-normal text-[#ba0108] hover:underline"
                         href="/">
                         Головна
                     </a>
@@ -53,10 +53,10 @@
                 {{ if $productImageResource }}
                 {{ $productImageProcessed := $productImageResource.Resize "550x367 webp q80" }}
                 <img src="{{ $productImageProcessed.RelPermalink }}" alt="{{ $productName }}" class="object-contain max-w-none relative z-10
-                              w-[clamp(280px,40vw,550px)] h-[clamp(180px,25vw,367px)]" />
+                              w-[349px] md:w-[clamp(280px,40vw,550px)] h-[clamp(180px,25vw,367px)]" />
                 {{ else }}
                 <img src="{{ $productImage }}" alt="{{ $productName }}" class="object-contain max-w-none relative z-10
-                              w-[clamp(280px,40vw,550px)] h-[clamp(180px,25vw,367px)]" />
+                              w-[349px] md:w-[clamp(280px,40vw,550px)] h-[clamp(180px,25vw,367px)]" />
                 {{ end }}
 
                 <div
