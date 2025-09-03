@@ -298,8 +298,8 @@ body.modal-open {
   }
   
   .modal-content {
-    padding: 98px 20px 20px 20px;
-    padding-bottom: 40px;
+    padding: 60px 20px 20px 20px;
+    padding-bottom: 30px;
     border-radius: 0;
   }
   
@@ -313,7 +313,7 @@ body.modal-open {
   }
   
   .modal-close {
-    top: 28px;
+    top: 20px;
     right: 20px;
   }
   
@@ -347,6 +347,13 @@ body.modal-open {
   
   .modal-content {
     border-radius: 0;
+    padding: 50px 20px 20px 20px;
+    padding-bottom: 25px;
+  }
+  
+  .modal-close {
+    top: 15px;
+    right: 15px;
   }
 }
 
