@@ -221,6 +221,101 @@
       }
     };
 
+    // Copy button functionality - reliable approach
+    function addCopyButtons() {
+      const preElements = document.querySelectorAll('pre');
+      
+      preElements.forEach(function(pre) {
+        const code = pre.querySelector('code');
+        if (!code) return;
+        
+        // Skip if button already exists
+        if (pre.querySelector('.copy-btn')) return;
+        
+        // Create copy button
+        const button = document.createElement('button');
+        button.className = 'copy-btn';
+        button.innerHTML = '<img src="/img/copy.svg" alt="Copy" style="width: 32px; height: 32px; pointer-events: none;" />';
+        button.title = 'Copy code';
+        button.style.cssText = `
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          width: 44px;
+          height: 44px;
+          border-radius: 4px;
+          cursor: pointer;
+          font-size: 16px;
+          z-index: 1000;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          opacity: 1;
+          transition: opacity 0.2s;
+          padding: 6px;
+          box-sizing: border-box;
+        `;
+        
+        // No additional styling needed for img
+        
+        // Ensure pre has relative positioning
+        pre.style.position = 'relative';
+        
+        // Add hover effect
+        button.onmouseenter = () => button.style.opacity = '1';
+        button.onmouseleave = () => button.style.opacity = '0.7';
+        
+        // Copy functionality
+        button.onclick = async function(e) {
+          e.preventDefault();
+          try {
+            const text = code.textContent;
+            await navigator.clipboard.writeText(text);
+            
+            // Success feedback
+            this.innerHTML = '<img src="/img/copy-success.svg" alt="Copied" style="width: 32px; height: 32px; pointer-events: none;" />';
+            
+            setTimeout(() => {
+              this.innerHTML = '<img src="/img/copy.svg" alt="Copy" style="width: 32px; height: 32px; pointer-events: none;" />';
+              this.style.background = '';
+              this.style.color = 'initial';
+              this.style.fontSize = '16px';
+            }, 1000);
+          } catch (err) {
+            // Fallback for older browsers
+            const textArea = document.createElement('textarea');
+            textArea.value = text;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            // Success feedback
+            this.innerHTML = '<img src="/img/copy-success.svg" alt="Copied" style="width: 32px; height: 32px; pointer-events: none;" />';
+            
+            setTimeout(() => {
+              this.innerHTML = '<img src="/img/copy.svg" alt="Copy" style="width: 32px; height: 32px; pointer-events: none;" />';
+              this.style.background = '';
+              this.style.color = 'initial';
+              this.style.fontSize = '16px';
+            }, 1000);
+          }
+        };
+        
+        pre.appendChild(button);
+      });
+    }
+    
+    // Run when DOM is ready
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', addCopyButtons);
+    } else {
+      addCopyButtons();
+    }
+    
+    // Also run after a short delay to catch dynamically loaded content
+    setTimeout(addCopyButtons, 500);
+
     // Netlify Identity Widget initialization
     if (window.netlifyIdentity) {
       window.netlifyIdentity.on("init", user => {

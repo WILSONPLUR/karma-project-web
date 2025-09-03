@@ -1,7 +1,117 @@
 pre {
+  position: relative;
   overflow-x: auto;
   overflow-y: hidden;
-  overflow: scroll;
-  background-color: var(--grey-1);
-  padding: var(--spacing-small);
+  background-color: #ffffff !important;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  &:hover .copy-button {
+    opacity: 1;
+  }
+
+  code {
+    display: block;
+    position: relative;
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #24292f !important;
+    padding-right: 3rem;
+    background: none !important;
+    border: none;
+  }
+}
+
+// Override any existing dark theme styles
+pre code,
+pre code *,
+code {
+  background: transparent !important;
+  color: #24292f !important;
+}
+
+// Simple syntax highlighting for light theme
+pre code {
+  // Comments
+  .hljs-comment,
+  .hljs-quote {
+    color: #6a737d !important;
+    font-style: italic;
+  }
+  
+  // Keywords
+  .hljs-keyword,
+  .hljs-selector-tag,
+  .hljs-type {
+    color: #d73a49 !important;
+  }
+  
+  // Strings
+  .hljs-string,
+  .hljs-attr {
+    color: #032f62 !important;
+  }
+  
+  // Numbers
+  .hljs-number,
+  .hljs-literal {
+    color: #005cc5 !important;
+  }
+  
+  // Functions
+  .hljs-function,
+  .hljs-title {
+    color: #6f42c1 !important;
+  }
+  
+  // Variables
+  .hljs-variable,
+  .hljs-name {
+    color: #e36209 !important;
+  }
+}
+
+.copy-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  background: #fff url('/img/copy.svg') no-repeat center center;
+  background-size: 16px 16px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease;
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  
+  &:hover {
+    background-color: #f6f8fa;
+    border-color: #8c959f;
+    transform: scale(1.05);
+  }
+  
+  &:active {
+    background-color: #e1e4e8;
+    transform: scale(0.98);
+  }
+}
+
+// Language label - removed to avoid conflicts with copy button
+
+// For inline code blocks
+code:not(pre code) {
+  background-color: #f6f8fa;
+  border: 1px solid #d0d7de;
+  border-radius: 4px;
+  padding: 0.2em 0.4em;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
+  font-size: 85%;
+  color: #24292f;
 }

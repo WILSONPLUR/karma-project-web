@@ -31,3 +31,35 @@
     font-family: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
   }
 }
+
+/* Code block styles */
+code {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 16px;
+  position: relative;
+  padding-right: 24px;
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    background: url('../img/copy.svg') no-repeat center center;
+    background-size: contain;
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    cursor: pointer;
+  }
+
+  &:hover::after {
+    opacity: 1;
+    height: 16px;
+    margin-left: 8px;
+    cursor: pointer;
+  }
+}
+/* Code block styles */
