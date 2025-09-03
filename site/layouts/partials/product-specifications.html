@@ -1,307 +1,438 @@
-<section class="bg-white py-[clamp(40px,6vw,80px)] relative overflow-hidden" aria-labelledby="specifications-heading">
-    <!-- Background Element -->
-    <div class="absolute bottom-0 right-0 z-[1] hidden md:block">
-        {{ $bgEl7 := resources.Get "img/bg-el-7.png" }}
-        {{ if $bgEl7 }}
-        {{ $bgEl7Processed := $bgEl7.Resize "250x298 webp q80" }}
-        <img src="{{ $bgEl7Processed.RelPermalink }}" alt="" aria-hidden="true"
-            class="w-[clamp(200px,25vw,250px)] h-[clamp(80px,12vw,298px)] opacity-60" />
+<section
+  class="bg-white py-[clamp(40px,6vw,80px)] relative overflow-hidden"
+  aria-labelledby="specifications-heading"
+>
+  <!-- Background Element -->
+  <div class="absolute bottom-0 right-0 z-[1] hidden md:block">
+    {{ $bgEl7 := resources.Get "img/bg-el-7.png" }} {{ if $bgEl7 }} {{
+    $bgEl7Processed := $bgEl7.Resize "250x298 webp q80" }}
+    <img
+      src="{{ $bgEl7Processed.RelPermalink }}"
+      alt=""
+      aria-hidden="true"
+      class="w-[clamp(200px,25vw,250px)] h-[clamp(80px,12vw,298px)] opacity-60"
+    />
+    {{ else }}
+    <img
+      src="/img/bg-el-7.png"
+      alt=""
+      aria-hidden="true"
+      class="w-[clamp(200px,25vw,250px)] h-[clamp(80px,12vw,298px)] opacity-60"
+    />
+    {{ end }}
+  </div>
+
+  <div
+    class="w-full max-w-[1280px] mx-auto relative z-[2] px-[clamp(20px,4vw,40px)]"
+  >
+    <h2
+      id="specifications-heading"
+      class="font-unbounded text-[clamp(20px,4vw,48px)] font-medium text-black text-center mb-[clamp(30px,5vw,60px)] uppercase"
+    >
+      ХАРАКТЕРИСТИКА
+    </h2>
+
+    <!-- Mobile Layout -->
+    <div class="block md:hidden">
+      <!-- Mobile Left Table -->
+      <div class="flex justify-center mb-[clamp(20px,4vw,32px)] w-full">
+        <table
+          class="max-w-[500px] md:max-w-[410px] w-full border-separate border-spacing-0 border border-black rounded-[5px] overflow-hidden"
+          role="table"
+          aria-label="Технічні характеристики KARMA F405 V1 - основні параметри"
+        >
+          <caption class="sr-only">
+            Основні технічні характеристики політного стеку KARMA F405 V1
+          </caption>
+          <tbody>
+            <tr>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black text-center"
+              >
+                MCU<br /><span class="font-normal">STM32F405</span>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black text-center"
+              >
+                MCU<br /><span class="font-normal">STM32F405</span>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black text-center"
+              >
+                MCU<br /><span class="font-normal">STM32F405</span>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black text-center"
+              >
+                MCU<br /><span class="font-normal">STM32F405</span>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black text-center"
+              >
+                MCU<br /><span class="font-normal">STM32F405</span>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black text-center"
+              >
+                MCU<br /><span class="font-normal">STM32F405</span>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black text-center"
+              >
+                MCU<br /><span class="font-normal">STM32F405</span>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black text-center"
+              >
+                MCU<br /><span class="font-normal">STM32F405</span>
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] text-center"
+              >
+                Дозволений струм від батареї<br /><span class="font-normal"
+                  >2.4 A</span
+                >
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mobile Right Table -->
+      <div class="flex justify-center mb-[clamp(20px,4vw,32px)] w-full">
+        <table
+          class="max-w-[500px] md:max-w-[410px] w-full border-separate border-spacing-0 border border-black rounded-[5px] overflow-hidden"
+          role="table"
+          aria-label="Технічні характеристики KARMA F405 V1 - живлення та кріплення"
+        >
+          <caption class="sr-only">
+            Параметри живлення та кріплення політного стеку KARMA F405 V1
+          </caption>
+          <tbody>
+            <tr>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-r border-black border-b border-black w-[clamp(120px,35vw,175px)] text-center"
+              >
+                Живлення
+              </td>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black w-[clamp(120px,35vw,175px)] text-center"
+              >
+                4s-6s
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-r border-black border-b border-black w-[clamp(120px,35vw,175px)] text-center"
+              >
+                Струм
+              </td>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black w-[clamp(120px,35vw,175px)] text-center"
+              >
+                4x50A
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-r border-black border-b border-black w-[clamp(120px,35vw,175px)] text-center"
+              >
+                MCU
+              </td>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black w-[clamp(120px,35vw,175px)] text-center"
+              >
+                72Mhz 32Bit
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-r border-black border-b border-black w-[clamp(120px,35vw,175px)] text-center"
+              >
+                Прошивка
+              </td>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black w-[clamp(120px,35vw,175px)] text-center"
+              >
+                AM32
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-r border-black w-[clamp(120px,35vw,175px)] text-center"
+              >
+                Кріплення
+              </td>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] w-[clamp(120px,35vw,175px)] text-center"
+              >
+                30.5 x 30.5
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mobile Product Image -->
+      <div class="flex justify-center">
+        {{ $productDetailsMobile := resources.Get "img/product-details-v2.png"
+        }} {{ if $productDetailsMobile }} {{ $productDetailsMobileProcessed :=
+        $productDetailsMobile.Resize "500x webp q80" }}
+        <img
+          src="{{ $productDetailsMobileProcessed.RelPermalink }}"
+          alt="Детальний вигляд політного стеку KARMA F405 V1 з технічними характеристиками"
+          loading="lazy"
+          class="object-contain"
+        />
         {{ else }}
-        <img src="/img/bg-el-7.png" alt="" aria-hidden="true"
-            class="w-[clamp(200px,25vw,250px)] h-[clamp(80px,12vw,298px)] opacity-60" />
+        <img
+          src="/img/product-details-v2.png"
+          alt="Детальний вигляд політного стеку KARMA F405 V1 з технічними характеристиками"
+          loading="lazy"
+          class="object-contain"
+        />
         {{ end }}
+      </div>
     </div>
 
-    <div class="w-full max-w-[min(1237px,90vw)] mx-auto relative z-[2] px-[clamp(20px,4vw,40px)]">
-        <h2 id="specifications-heading"
-            class="font-[Unbounded] text-[clamp(20px,4vw,48px)] font-medium text-black text-center mb-[clamp(30px,5vw,60px)] uppercase">
-            ХАРАКТЕРИСТИКА
-        </h2>
+    <!-- Desktop Layout -->
+    <div
+      class="hidden md:flex flex-row justify-between items-start gap-[clamp(40px,6vw,80px)]"
+    >
+      <!-- Left Table -->
+      <div class="flex-1 w-full">
+        <table
+          class="w-full h-[588px] border-separate border-spacing-0 border border-black rounded-[5px] overflow-hidden"
+          role="table"
+          aria-label="Технічні характеристики KARMA F405 V1 - основні параметри"
+        >
+          <caption class="sr-only">
+            Основні технічні характеристики політного стеку KARMA F405 V1
+          </caption>
+          <tbody>
+            <tr>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black"
+              >
+                MCU
+              </td>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] border-b border-black"
+              >
+                STM32F405
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]"
+              >
+                MCU
+              </td>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black"
+              >
+                STM32F405
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]"
+              >
+                MCU
+              </td>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black"
+              >
+                STM32F405
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]"
+              >
+                MCU
+              </td>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black"
+              >
+                STM32F405
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]"
+              >
+                MCU
+              </td>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black"
+              >
+                STM32F405
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]"
+              >
+                MCU
+              </td>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black"
+              >
+                STM32F405
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]"
+              >
+                MCU
+              </td>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black"
+              >
+                STM32F405
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]"
+              >
+                MCU
+              </td>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black"
+              >
+                STM32F405
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black w-[clamp(200px,20vw,255px)]"
+              >
+                Дозволений струм від батареї
+              </td>
+              <td
+                class="font-montserrat text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)]"
+              >
+                2.4 A
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-        <!-- Mobile Layout -->
-        <div class="block md:hidden">
-            <!-- Mobile Left Table -->
-            <div class="flex justify-center mb-[clamp(20px,4vw,32px)] w-full">
-                <table
-                    class="w-[clamp(300px,80vw,500px)] border-separate border-spacing-0 border border-black rounded-[5px] overflow-hidden"
-                    role="table" aria-label="Технічні характеристики KARMA F405 V1 - основні параметри">
-                    <caption class="sr-only">Основні технічні характеристики політного стеку KARMA F405 V1</caption>
-                    <tbody>
-                        <tr>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black text-center">
-                                MCU<br><span class="font-normal">STM32F405</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black text-center">
-                                MCU<br><span class="font-normal">STM32F405</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black text-center">
-                                MCU<br><span class="font-normal">STM32F405</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black text-center">
-                                MCU<br><span class="font-normal">STM32F405</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black text-center">
-                                MCU<br><span class="font-normal">STM32F405</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black text-center">
-                                MCU<br><span class="font-normal">STM32F405</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black text-center">
-                                MCU<br><span class="font-normal">STM32F405</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black text-center">
-                                MCU<br><span class="font-normal">STM32F405</span>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] text-center">
-                                Дозволений струм від батареї<br><span class="font-normal">2.4 A</span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+      <!-- Right Table -->
+      <div class="flex-1 w-full">
+        <table
+          class="w-full border-separate border-spacing-0 border border-black mb-[clamp(20px,4vw,32px)] rounded-[5px] overflow-hidden"
+          role="table"
+          aria-label="Технічні характеристики KARMA F405 V1 - живлення та кріплення"
+        >
+          <caption class="sr-only">
+            Параметри живлення та кріплення політного стеку KARMA F405 V1
+          </caption>
+          <tbody>
+            <tr>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]"
+              >
+                Живлення
+              </td>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black"
+              >
+                4s-6s
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]"
+              >
+                Струм
+              </td>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black"
+              >
+                4x50A
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]"
+              >
+                MCU
+              </td>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black"
+              >
+                72Mhz 32Bit
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]"
+              >
+                Прошивка
+              </td>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black"
+              >
+                AM32
+              </td>
+            </tr>
+            <tr>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black w-[clamp(200px,20vw,255px)]"
+              >
+                Кріплення
+              </td>
+              <td
+                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)]"
+              >
+                30.5 x 30.5
+              </td>
+            </tr>
+          </tbody>
+        </table>
 
-            <!-- Mobile Right Table -->
-            <div class="flex justify-center mb-[clamp(20px,4vw,32px)] w-full">
-                <table
-                    class="w-[clamp(300px,80vw,500px)] border-separate border-spacing-0 border border-black rounded-[5px] overflow-hidden"
-                    role="table" aria-label="Технічні характеристики KARMA F405 V1 - живлення та кріплення">
-                    <caption class="sr-only">Параметри живлення та кріплення політного стеку KARMA F405 V1</caption>
-                    <tbody>
-                        <tr>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-r border-black border-b border-black w-[clamp(120px,35vw,175px)] text-center">
-                                Живлення</td>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black w-[clamp(120px,35vw,175px)] text-center">
-                                4s-6s</td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-r border-black border-b border-black w-[clamp(120px,35vw,175px)] text-center">
-                                Струм</td>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black w-[clamp(120px,35vw,175px)] text-center">
-                                4x50A</td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-r border-black border-b border-black w-[clamp(120px,35vw,175px)] text-center">
-                                MCU</td>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black w-[clamp(120px,35vw,175px)] text-center">
-                                72Mhz 32Bit</td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-r border-black border-b border-black w-[clamp(120px,35vw,175px)] text-center">
-                                Прошивка</td>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-b border-black w-[clamp(120px,35vw,175px)] text-center">
-                                AM32</td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] font-medium text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] border-r border-black w-[clamp(120px,35vw,175px)] text-center">
-                                Кріплення</td>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,16px)] text-[#333333] py-[clamp(12px,2vw,16px)] px-[clamp(16px,3vw,20px)] w-[clamp(120px,35vw,175px)] text-center">
-                                30.5 x 30.5</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Mobile Product Image -->
-            <div class="flex justify-center">
-                {{ $productDetailsMobile := resources.Get "img/product-details-v2.png" }}
-                {{ if $productDetailsMobile }}
-                {{ $productDetailsMobileProcessed := $productDetailsMobile.Resize "500x webp q80" }}
-                <img src="{{ $productDetailsMobileProcessed.RelPermalink }}"
-                    alt="Детальний вигляд політного стеку KARMA F405 V1 з технічними характеристиками" loading="lazy"
-                    class="object-contain" />
-                {{ else }}
-                <img src="/img/product-details-v2.png"
-                    alt="Детальний вигляд політного стеку KARMA F405 V1 з технічними характеристиками" loading="lazy"
-                    class="object-contain" />
-                {{ end }}
-            </div>
+        <!-- Product Image -->
+        <div class="flex justify-center">
+          {{ $productDetailsDesktop := resources.Get
+          "img/product-details-v2.png" }} {{ if $productDetailsDesktop }} {{
+          $productDetailsDesktopProcessed := $productDetailsDesktop.Resize "576x webp q80" }}
+          <img
+            src="{{ $productDetailsDesktopProcessed.RelPermalink }}"
+            alt="Детальний вигляд політного стеку KARMA F405 V1 з технічними характеристиками"
+            loading="lazy"
+            class="object-contain w-full h-auto"
+          />
+          {{ else }}
+          <img
+            src="/img/product-details-v2.png"
+            alt="Детальний вигляд політного стеку KARMA F405 V1 з технічними характеристиками"
+            loading="lazy"
+            class="object-contain w-full h-auto"
+          />
+          {{ end }}
         </div>
-
-        <!-- Desktop Layout -->
-        <div class="hidden md:flex flex-row justify-between items-start gap-[clamp(40px,6vw,80px)]">
-            <!-- Left Table -->
-            <div class="flex-1 w-full">
-                <table
-                    class="w-full h-[588px] border-separate border-spacing-0 border border-black rounded-[5px] overflow-hidden"
-                    role="table" aria-label="Технічні характеристики KARMA F405 V1 - основні параметри">
-                    <caption class="sr-only">Основні технічні характеристики політного стеку KARMA F405 V1</caption>
-                    <tbody>
-                        <tr>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black">
-                                MCU</td>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] border-b border-black">
-                                STM32F405</td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]">
-                                MCU</td>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black">
-                                STM32F405</td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]">
-                                MCU</td>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black">
-                                STM32F405</td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]">
-                                MCU</td>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black">
-                                STM32F405</td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]">
-                                MCU</td>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black">
-                                STM32F405</td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]">
-                                MCU</td>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black">
-                                STM32F405</td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]">
-                                MCU</td>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black">
-                                STM32F405</td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]">
-                                MCU</td>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black">
-                                STM32F405</td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black w-[clamp(200px,20vw,255px)]">
-                                Дозволений струм від батареї</td>
-                            <td
-                                class="font-montserrat text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)]">
-                                2.4 A</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-
-            <!-- Right Table -->
-            <div class="flex-1 w-full">
-                <table
-                    class="w-full border-separate border-spacing-0 border border-black mb-[clamp(20px,4vw,32px)] rounded-[5px] overflow-hidden"
-                    role="table" aria-label="Технічні характеристики KARMA F405 V1 - живлення та кріплення">
-                    <caption class="sr-only">Параметри живлення та кріплення політного стеку KARMA F405 V1</caption>
-                    <tbody>
-                        <tr>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]">
-                                Живлення</td>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black">
-                                4s-6s</td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]">
-                                Струм</td>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black">
-                                4x50A</td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]">
-                                MCU</td>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black">
-                                72Mhz 32Bit</td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black border-b border-black w-[clamp(200px,20vw,255px)]">
-                                Прошивка</td>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)] border-b border-black">
-                                AM32</td>
-                        </tr>
-                        <tr>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-medium text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(20px,3vw,32px)] border-r border-black w-[clamp(200px,20vw,255px)]">
-                                Кріплення</td>
-                            <td
-                                class="font-[Montserrat] text-[clamp(16px,2vw,20px)] text-[#333333] py-[clamp(16px,2vw,24px)] px-[clamp(40px,6vw,48px)] w-[clamp(200px,20vw,255px)]">
-                                30.5 x 30.5</td>
-                        </tr>
-                    </tbody>
-                </table>
-
-                <!-- Product Image -->
-                <div class="flex justify-center">
-                    {{ $productDetailsDesktop := resources.Get "img/product-details-v2.png" }}
-                    {{ if $productDetailsDesktop }}
-                    {{ $productDetailsDesktopProcessed := $productDetailsDesktop.Resize "576x webp q80" }}
-                    <img src="{{ $productDetailsDesktopProcessed.RelPermalink }}"
-                        alt="Детальний вигляд політного стеку KARMA F405 V1 з технічними характеристиками"
-                        loading="lazy" class="object-contain w-full h-auto" />
-                    {{ else }}
-                    <img src="/img/product-details-v2.png"
-                        alt="Детальний вигляд політного стеку KARMA F405 V1 з технічними характеристиками"
-                        loading="lazy" class="object-contain w-full h-auto" />
-                    {{ end }}
-                </div>
-            </div>
-        </div>
+      </div>
     </div>
+  </div>
 </section>
