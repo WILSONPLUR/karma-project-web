@@ -29,26 +29,22 @@
   <div class="block sm:hidden lg:hidden">
     {{ $stackLeft := resources.Get "img/stack-left.png" }}
     {{ if $stackLeft }}
-    {{ $stackLeftProcessed := $stackLeft.Resize "130x100 webp q75" }}
-    <img src="{{ $stackLeftProcessed.RelPermalink }}" alt="Елемент стеку зліва" aria-hidden="true"
-      width="130" height="100"
-      class="absolute top-[-4] left-0 w-[130px] z-[1]" loading="lazy" />
+    {{ $stackLeftProcessed := $stackLeft.Resize "247x257 webp q75" }}
+    <img src="{{ $stackLeftProcessed.RelPermalink }}" alt="Елемент стеку зліва" aria-hidden="true" width="247"
+      height="257" class="absolute top-[-15px] -left-[80px] w-[247px] h-[257px] z-[1]" loading="lazy" />
     {{ else }}
-    <img src="/img/stack-left.png" alt="Елемент стеку зліва" aria-hidden="true"
-      width="130" height="100"
-      class="absolute top-[-4] left-0 w-[130px] z-[1]" loading="lazy" />
+    <img src="/img/stack-left.png" alt="Елемент стеку зліва" aria-hidden="true" width="247" height="257"
+      class="absolute top-[-15px] -left-[80px] w-[247px] h-[257px] z-[1]" loading="lazy" />
     {{ end }}
 
     {{ $stackRight := resources.Get "img/stack-right.png" }}
     {{ if $stackRight }}
-    {{ $stackRightProcessed := $stackRight.Resize "130x100 webp q75" }}
-    <img src="{{ $stackRightProcessed.RelPermalink }}" alt="Елемент стеку справа" aria-hidden="true"
-      width="130" height="100"
-      class="absolute bottom-0 right-0 w-[130px] z-[1]" loading="lazy" />
+    {{ $stackRightProcessed := $stackRight.Resize "244x244 webp q75" }}
+    <img src="{{ $stackRightProcessed.RelPermalink }}" alt="Елемент стеку справа" aria-hidden="true" width="244"
+      height="244" class="absolute bottom-[76px] right-[-16px] w-[244px] h-[244px] z-[1]" loading="lazy" />
     {{ else }}
-    <img src="/img/stack-right.png" alt="Елемент стеку справа" aria-hidden="true"
-      width="130" height="100"
-      class="absolute bottom-0 right-0 w-[130px] z-[1]" loading="lazy" />
+    <img src="/img/stack-right.png" alt="Елемент стеку справа" aria-hidden="true" width="244" height="244"
+      class="absolute bottom-[76px] right-[-16px] w-[244px] h-[244px] z-[1]" loading="lazy" />
     {{ end }}
   </div>
 
@@ -70,19 +66,17 @@
         </p>
       </div>
 
-      <!-- Right Image - Optimized for LCP -->
       <div class="hidden relative flex-shrink-0 justify-center items-center lg:flex">
         {{ $stackDesktop := resources.Get "img/stack.png" }}
         {{ if $stackDesktop }}
         {{ $stackDesktopProcessed := $stackDesktop.Resize "400x400 webp q85" }}
         <img src="{{ $stackDesktopProcessed.RelPermalink }}"
-          alt="Karma Flights - високотехнологічне українське виробництво"
-          width="400" height="400"
+          alt="Karma Flights - високотехнологічне українське виробництво" width="400" height="400"
           class="w-auto h-auto max-w-[400px] xl:max-w-[500px] max-h-[400px] xl:max-h-[500px] object-contain"
           fetchpriority="high" />
         {{ else }}
-        <img src="/img/stack.png" alt="Karma Flights - високотехнологічне українське виробництво"
-          width="400" height="400"
+        <img src="/img/stack.png" alt="Karma Flights - високотехнологічне українське виробництво" width="400"
+          height="400"
           class="w-auto h-auto max-w-[400px] xl:max-w-[500px] max-h-[400px] xl:max-h-[500px] object-contain"
           fetchpriority="high" />
         {{ end }}
@@ -91,7 +85,7 @@
   </div>
 
   <!-- Mobile & Tablet Layout -->
-  <div class="block lg:hidden px-5 mx-auto w-full relative z-[2] py-8">
+  <div class="block lg:hidden mx-auto w-full relative z-[2] py-8">
     <div class="flex flex-col items-center text-center">
       <!-- Main Title -->
       <div class="font-bold leading-[1.1] text-black mb-6 hero-title">
