@@ -31,20 +31,20 @@
             {{ if $guideImage }}
             {{ $guideImageProcessed := $guideImage.Resize "400x238 webp q80" }}
             <img src="{{ $guideImageProcessed.RelPermalink }}" alt="{{ .Title }}" width="400"
-                class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] max-[450px]:w-full h-[238px] max-[450px]:h-[180px] object-cover" />
+                class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] max-[450px]:w-full h-[238px]  object-cover" />
             {{ else }}
             <img src="{{ .Params.image }}" alt="{{ .Title }}" width="400"
-                class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] max-[450px]:w-full h-[238px] max-[450px]:h-[180px] object-cover" />
+                class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] max-[450px]:w-full h-[238px]  object-cover" />
             {{ end }}
             {{ else }}
             {{ $defaultImage := resources.Get "img/card-img-1.png" }}
             {{ if $defaultImage }}
             {{ $defaultImageProcessed := $defaultImage.Resize "400x238 webp q80" }}
             <img src="{{ $defaultImageProcessed.RelPermalink }}" alt="{{ .Title }}" width="400"
-                class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] max-[450px]:w-full h-[238px] max-[450px]:h-[180px] object-cover" />
+                class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] max-[450px]:w-full h-[238px]  object-cover" />
             {{ else }}
             <img src="/img/card-img-1.png" alt="{{ .Title }}" width="400"
-                class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] max-[450px]:w-full h-[238px] max-[450px]:h-[180px] object-cover" />
+                class="rounded-lg w-[350px] md:w-[300px] lg:w-[400px] max-[450px]:w-full h-[238px]  object-cover" />
             {{ end }}
             {{ end }}
             <div
