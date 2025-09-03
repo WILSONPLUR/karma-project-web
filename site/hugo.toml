@@ -71,7 +71,12 @@ enableGitInfo = true
     [markup.goldmark.renderer]
       unsafe = true
   [markup.highlight]
-    style = "github"
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
     lineNos = false
-    lineNumbersInTable = false
-    noClasses = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "github"
+    tabWidth = 4
