@@ -4,128 +4,119 @@
 <div class="bg-[#020303] text-white py-[clamp(40px,6vw,69px)] px-[clamp(20px,4vw,40px)]">
     <div class="flex flex-col justify-center items-center max-w-[1237px] w-full mx-auto">
         <h3
-            class="hero-title max-w-[clamp(280px,80vw,909px)] font-medium text-[clamp(24px,3vw,48px)] font-[Unbounded] uppercase text-center mb-[clamp(8px,2vw,9px)]">
+            class=" color-[#fefefe] max-w-[clamp(352px,80vw,909px)] font-medium text-[clamp(24px,3vw,48px)] font-[Unbounded] uppercase text-center mb-[clamp(8px,2vw,9px)]">
             Чому варто обрати {{ $categoryData.name | lower }} від karma?
         </h3>
         <div>
             <ol class="flex flex-col gap-[clamp(16px,3vw,25px)] list-none">
                 {{ if eq $category "politni-steky" }}
                 <li
-                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center">
+                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center max-[450px]:font-normal">
                     {{ $listOne := resources.Get "img/list-one.png" }}
                     {{ if $listOne }}
                     {{ $listOneProcessed := $listOne.Resize "57x57 webp q80" }}
                     <img src="{{ $listOneProcessed.RelPermalink }}" alt="List One" width="57" height="57"
-                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
+                        class="w-[57px] h-[57px]" />
                     {{ else }}
-                    <img src="/img/list-one.png" alt="List One" width="57" height="57"
-                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
+                    <img src="/img/list-one.png" alt="List One" width="57" height="57" class="w-[57px] h-[57px]" />
                     {{ end }}
                     Компактність та інтеграція
                 </li>
                 <li
-                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center">
+                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center max-[450px]:font-normal">
                     {{ $listTwo := resources.Get "img/list-two.png" }}
                     {{ if $listTwo }}
                     {{ $listTwoProcessed := $listTwo.Resize "57x57 webp q80" }}
                     <img src="{{ $listTwoProcessed.RelPermalink }}" alt="List Two" width="57" height="57"
-                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
+                        class="w-[57px] h-[57px]" />
                     {{ else }}
-                    <img src="/img/list-two.png" alt="List Two" width="57" height="57"
-                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
+                    <img src="/img/list-two.png" alt="List Two" width="57" height="57" class="w-[57px] h-[57px]" />
                     {{ end }}
                     Висока продуктивність та універсальність
                 </li>
                 <li
-                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center">
+                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center max-[450px]:font-normal">
                     {{ $listThree := resources.Get "img/list-three.png" }}
                     {{ if $listThree }}
                     {{ $listThreeProcessed := $listThree.Resize "57x57 webp q80" }}
                     <img src="{{ $listThreeProcessed.RelPermalink }}" alt="List Three" width="57" height="57"
-                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
+                        class="w-[57px] h-[57px]" />
                     {{ else }}
-                    <img src="/img/list-three.png" alt="List Three" width="57" height="57"
-                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
+                    <img src="/img/list-three.png" alt="List Three" width="57" height="57" class="w-[57px] h-[57px]" />
                     {{ end }}
                     Багатий функціонал та зручність використання
                 </li>
                 {{ else if eq $category "videoperedavachi-vtx" }}
                 <li
-                    class=" font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center">
+                    class=" font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center max-[450px]:font-normal">
                     {{ $listOne := resources.Get "img/list-one.png" }}
                     {{ if $listOne }}
                     {{ $listOneProcessed := $listOne.Resize "57x57 webp q80" }}
                     <img src="{{ $listOneProcessed.RelPermalink }}" alt="List One" width="57" height="57"
-                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
+                        class="w-[57px] h-[57px]" />
                     {{ else }}
-                    <img src="/img/list-one.png" alt="List One" width="57" height="57"
-                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
+                    <img src="/img/list-one.png" alt="List One" width="57" height="57" class="w-[57px] h-[57px]" />
                     {{ end }}
                     Стабільний сигнал та висока якість
                 </li>
                 <li
-                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center">
+                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center max-[450px]:font-normal">
                     {{ $listTwo := resources.Get "img/list-two.png" }}
                     {{ if $listTwo }}
                     {{ $listTwoProcessed := $listTwo.Resize "57x57 webp q80" }}
                     <img src="{{ $listTwoProcessed.RelPermalink }}" alt="List Two" width="57" height="57"
-                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
+                        class="w-[57px] h-[57px]" />
                     {{ else }}
-                    <img src="/img/list-two.png" alt="List Two" width="57" height="57"
-                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
+                    <img src="/img/list-two.png" alt="List Two" width="57" height="57" class="w-[57px] h-[57px]" />
                     {{ end }}
                     Велика дальність передачі
                 </li>
                 <li
-                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center">
+                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center max-[450px]:font-normal">
                     {{ $listThree := resources.Get "img/list-three.png" }}
                     {{ if $listThree }}
                     {{ $listThreeProcessed := $listThree.Resize "57x57 webp q80" }}
                     <img src="{{ $listThreeProcessed.RelPermalink }}" alt="List Three" width="57" height="57"
-                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
+                        class="w-[57px] h-[57px]" />
                     {{ else }}
-                    <img src="/img/list-three.png" alt="List Three" width="57" height="57"
-                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
+                    <img src="/img/list-three.png" alt="List Three" width="57" height="57" class="w-[57px] h-[57px]" />
                     {{ end }}
                     Професійна якість та надійність
                 </li>
                 {{ else if eq $category "esc" }}
                 <li
-                    class=" font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center">
+                    class=" font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center max-[450px]:font-normal">
                     {{ $listOne := resources.Get "img/list-one.png" }}
                     {{ if $listOne }}
                     {{ $listOneProcessed := $listOne.Resize "57x57 webp q80" }}
                     <img src="{{ $listOneProcessed.RelPermalink }}" alt="List One" width="57" height="57"
-                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
+                        class="w-[57px] h-[57px]" />
                     {{ else }}
-                    <img src="/img/list-one.png" alt="List One" width="57" height="57"
-                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
+                    <img src="/img/list-one.png" alt="List One" width="57" height="57" class="w-[57px] h-[57px]" />
                     {{ end }}
                     Плавне керування швидкістю
                 </li>
                 <li
-                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center">
+                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center max-[450px]:font-normal">
                     {{ $listTwo := resources.Get "img/list-two.png" }}
                     {{ if $listTwo }}
                     {{ $listTwoProcessed := $listTwo.Resize "57x57 webp q80" }}
                     <img src="{{ $listTwoProcessed.RelPermalink }}" alt="List Two" width="57" height="57"
-                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
+                        class="w-[57px] h-[57px]" />
                     {{ else }}
-                    <img src="/img/list-two.png" alt="List Two" width="57" height="57"
-                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
+                    <img src="/img/list-two.png" alt="List Two" width="57" height="57" class="w-[57px] h-[57px]" />
                     {{ end }}
                     Висока точність та надійність
                 </li>
                 <li
-                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center">
+                    class="font-[Montserrat] font-medium text-[clamp(16px,2vw,24px)] flex gap-[clamp(16px,3vw,20px)] items-center max-[450px]:font-normal">
                     {{ $listThree := resources.Get "img/list-three.png" }}
                     {{ if $listThree }}
                     {{ $listThreeProcessed := $listThree.Resize "57x57 webp q80" }}
                     <img src="{{ $listThreeProcessed.RelPermalink }}" alt="List Three" width="57" height="57"
-                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
+                        class="w-[57px] h-[57px]" />
                     {{ else }}
-                    <img src="/img/list-three.png" alt="List Three" width="57" height="57"
-                        class="w-[clamp(30px,6vw,57px)] h-[clamp(30px,6vw,57px)]" />
+                    <img src="/img/list-three.png" alt="List Three" width="57" height="57" class="w-[57px] h-[57px]" />
                     {{ end }}
                     Підтримка різних прошивок
                 </li>
