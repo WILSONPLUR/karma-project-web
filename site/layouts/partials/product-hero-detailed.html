@@ -65,7 +65,7 @@
             <div
                 class="flex flex-col gap-[clamp(16px,3vw,32px)] items-center w-full md:items-start lg:items-start mt-[clamp(20px,4vw,43px)] sm:mt-[20px] md:mt-0">
                 <h2
-                    class="font-[Unbounded] text-[#ba0108] uppercase leading-[1.1]  mb-[clamp(8px,2vw,16px)] text-[32px] md:text-[48px] w-full max-w-[min(768px,85vw)] font-medium text-center md:text-left">
+                    class="hero-title font-[Unbounded] text-[#ba0108] uppercase leading-[1.1]  mb-[clamp(8px,2vw,16px)] text-[32px] md:text-[48px] w-full max-w-[min(768px,85vw)] font-medium text-center md:text-left">
                     ПОЛІТНИЙ СТЕК<br><span class="text-black">KARMA F405 V1</span>
                 </h2>
                 <p
@@ -78,10 +78,65 @@
                 </p>
                 <button onclick="window.openContactModal()"
                     aria-label="Отримати комерційну пропозицію для {{ $productName }}"
-                    class="product-hero-button cursor-pointer !font-[Montserrat] text-[clamp(16px,2vw,24px)] font-light md:font-normal lg:font-medium text-white bg-[#ba0108] hover:bg-[#a00007] transition-colors w-full max-w-[min(768px,85vw)] py-[clamp(25px,3vw,20px)] px-[clamp(24px,4vw,40px)] rounded-[20px]">
+                    class="product-hero-button cursor-pointer !font-[Montserrat] text-[clamp(16px,2vw,24px)] font-light md:font-normal lg:font-medium text-white bg-[#ba0108] hover:bg-[#DD8084] transition-colors w-full max-w-[min(768px,85vw)] py-[clamp(25px,3vw,20px)] px-[clamp(24px,4vw,40px)] rounded-[20px]">
                     Отримати пропозицію
                 </button>
             </div>
         </div>
     </div>
 </section>
+
+
+<style>
+    @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .hero-title {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+  }
+
+  .hero-title.animate {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
+</style>
+
+
+<script>
+  // Hero title animation
+  function animateHeroTitle() {
+    const heroTitles = document.querySelectorAll('.hero-title');
+
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+        } else {
+          entry.target.classList.remove('animate');
+        }
+      });
+    }, observerOptions);
+
+    heroTitles.forEach(title => {
+      observer.observe(title);
+    });
+  }
+
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', animateHeroTitle);
+</script>
