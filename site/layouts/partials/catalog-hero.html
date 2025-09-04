@@ -46,9 +46,9 @@
     </div>
 
     <div
-        class="w-full min-[1025px]:w-[1237px] max-[1025px]:w-full flex flex-col items-center sm:items-start lg:items-start mx-auto justify-center px-5 md:px-[40px] lg:px-[40px] xl:px-0 pt-[40px] max-[450px]:pt-[20px] mb-[64px] max-[450px]:mb-[100px] relative z-[2]">
+        class="w-full max-w-[1280px]  flex flex-col  mx-auto  px-[20px] pt-[40px] max-[450px]:pt-[20px] lg:mb-[113px] md:mb-[60px] mb-[161px] relative z-[2]">
         <nav aria-label="Breadcrumb navigation"
-            class="flex items-center gap-2 text-[#ba0108] font-family-montserrat mb-[75px] md:mb-[35px] lg:mb-[35px]  max-[450px]:justify-start max-[450px]:w-full">
+            class="flex items-center gap-6 text-[#ba0108] mb-[35px] w-full">
             <ol class="flex gap-2 items-center max-[450px]:justify-start">
                 <li>
                     <a class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-normal text-[#ba0108] hover:underline"
@@ -67,15 +67,15 @@
         </nav>
 
         <div
-            class="flex flex-col gap-0 justify-center items-center mx-0 sm:flex-row md:gap-[clamp(60px,8vw,100px)] lg:gap-[clamp(60px,8vw,100px)] md:items-center">
+            class="flex flex-col gap-0 mx-0 sm:flex-row md:gap-[clamp(60px,8vw,100px)] lg:gap-[clamp(60px,8vw,100px)]">
             <div
-                class="flex flex-col gap-5 items-center w-full md:w-1/2 md:items-start lg:items-start max-[450px]:items-start">
+                class="flex flex-col gap-[10px] items-center w-full md:w-1/2 md:items-start lg:items-start">
                 <h2 id="catalog-hero-heading"
-                    class="font-[Unbounded] uppercase leading-[1.1] mb-2 text-[clamp(32px,4vw,64px)] w-[330px] md:w-[548px] lg:w-[749px] max-[450px]:w-full text-[#ba0108] font-medium hero-title">
+                    class="font-[Unbounded] uppercase leading-[1.1] text-[clamp(32px,4vw,64px)]  md:w-[548px] lg:w-[749px] w-full text-[#ba0108] font-medium hero-title whitespace-normal break-words">
                     {{ $categoryData.name }}
                 </h2>
                 <p
-                    class="font-[Montserrat] max-[1025px]:w-[450px] max-[768px]:w-[400px] max-[450px]:w-full text-[16px] md:text-[16px] lg:text-[20px] max-[450px]:text-[14px] leading-[1.7] max-[450px]:leading-[1.5] text-[#333333] mb-8 max-[450px]:mb-6 w-[330px] md:w-[450px] min-[1025px]:w-[600px]">
+                    class="font-[Montserrat] max-w-full md:max-w-[580px] lg:max-w-[750px]  text-[16px] lg:text-[20px] text-[#333333]">
                     {{ if eq $category "politni-steky" }} Компактна та продуктивна
                     інтегрована система для дронів, що об'єднує польотний контролер (FC)
                     на базі потужного мікроконтролера STM32F405 та регулятор швидкості
@@ -97,7 +97,7 @@
                 </p>
                 <button onclick="window.openContactModal()"
                     aria-label="Get commercial offer for {{ $categoryData.name }}"
-                    class="!font-[Montserrat] cursor-pointer text-[16px] md:text-[24px] lg:text-[24px] max-[450px]:text-[16px] font-medium text-white bg-[#ba0108] hover:bg-[#a00007] transition-colors w-[354px] md:w-[458px] lg:w-[clamp(500px,40vw,607px)] max-[450px]:w-full py-[15px]  max-[450px]:h-[58px] max-[450px]:font-light max-[450px]:shadow-[0_4px_16px_0_rgba(0,0,0,0.4)] rounded-[10px]">
+                    class="!font-[Montserrat] cursor-pointer text-[16px] md:text-[24px] font-medium text-white bg-[#ba0108] hover:bg-[#a00007] transition-colors w-full md:w-[458px] py-[15px]  h-[58px] md:h-[70px] font-light md:font-normal shadow-[0_4px_16px_0_rgba(0,0,0,0.4)] rounded-[20px]">
                     Отримати пропозицію
                 </button>
             </div>
@@ -112,7 +112,7 @@
                 {{ else }}
                 <img src="/img/stack-rotate.png" alt="Karma Flights - високотехнологічне українське виробництво"
                     loading="lazy"
-                    class="hidden sm:block object-contain max-w-none 
+                    class="hidden md:block object-contain max-w-none 
                     w-[250px] h-[167px] sm:w-[400px] sm:h-[400px] max-[1025px]:w-[450px] max-[1025px]:h-[400px] min-[1025px]:w-[clamp(350px,30vw,450px)] min-[1025px]:h-[clamp(200px,20vw,300px)]" />
                 {{ end }}
 
