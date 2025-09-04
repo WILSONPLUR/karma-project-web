@@ -1,18 +1,18 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ESC on Karma - Електронні компоненти для дронів</title><link>http://localhost:1313/tags/esc/</link><description>Recent content in ESC on Karma - Електронні компоненти для дронів</description><generator>Hugo</generator><language>uk-UA</language><lastBuildDate>Thu, 28 Aug 2025 19:21:47 +0300</lastBuildDate><atom:link href="http://localhost:1313/tags/esc/index.xml" rel="self" type="application/rss+xml"/><item><title>Калібрування ESC регуляторів швидкості</title><link>http://localhost:1313/guides/%D0%BA%D0%B0%D0%BB%D1%96%D0%B1%D1%80%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-esc-%D1%80%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%D1%96%D0%B2-%D1%88%D0%B2%D0%B8%D0%B4%D0%BA%D0%BE%D1%81%D1%82%D1%96/</link><pubDate>Sat, 20 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/guides/%D0%BA%D0%B0%D0%BB%D1%96%D0%B1%D1%80%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-esc-%D1%80%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%D1%96%D0%B2-%D1%88%D0%B2%D0%B8%D0%B4%D0%BA%D0%BE%D1%81%D1%82%D1%96/</guid><description>&lt;p>Калібрування ESC (Electronic Speed Controller) є важливим кроком для забезпечення синхронної роботи всіх моторів дрона. Неправильно відкалібровані регулятори можуть призвести до вібрацій, нестабільного польоту та зниження ефективності.&lt;/p>
-&lt;section id="when" class="mt-8 scroll-mt-24">
-&lt;h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Коли потрібно калібрувати ESC&lt;/h2>
-&lt;p class="text-[16px] font-normal font-[Montserrat]">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ESC on Karma - Електронні компоненти для дронів</title><link>http://localhost:1313/tags/esc/</link><description>Recent content in ESC on Karma - Електронні компоненти для дронів</description><generator>Hugo</generator><language>uk-UA</language><lastBuildDate>Thu, 28 Aug 2025 19:21:47 +0300</lastBuildDate><atom:link href="http://localhost:1313/tags/esc/index.xml" rel="self" type="application/rss+xml"/><item><title>Калібрування ESC регуляторів швидкості</title><link>http://localhost:1313/guides/%D0%BA%D0%B0%D0%BB%D1%96%D0%B1%D1%80%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-esc-%D1%80%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%D1%96%D0%B2-%D1%88%D0%B2%D0%B8%D0%B4%D0%BA%D0%BE%D1%81%D1%82%D1%96/</link><pubDate>Sat, 20 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/guides/%D0%BA%D0%B0%D0%BB%D1%96%D0%B1%D1%80%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-esc-%D1%80%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%D1%96%D0%B2-%D1%88%D0%B2%D0%B8%D0%B4%D0%BA%D0%BE%D1%81%D1%82%D1%96/</guid><description>&lt;p&gt;Калібрування ESC (Electronic Speed Controller) є важливим кроком для забезпечення синхронної роботи всіх моторів дрона. Неправильно відкалібровані регулятори можуть призвести до вібрацій, нестабільного польоту та зниження ефективності.&lt;/p&gt;
+&lt;section id="when" class="mt-8 scroll-mt-24"&gt;
+&lt;h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3"&gt;Коли потрібно калібрувати ESC&lt;/h2&gt;
+&lt;p class="text-[16px] font-normal font-[Montserrat]"&gt;
 Калібрування необхідне в наступних випадках:
-&lt;br />
-&lt;br />
-&lt;strong>Перша збірка дрона&lt;/strong> з новими ESC
-&lt;br />
-&lt;br />
-&lt;strong>Заміна одного або кількох ESC&lt;/strong>
-&lt;br />
-&lt;br />
-&lt;strong>Проблеми з синхронізацією моторів&lt;/strong>
-&lt;br />
-&lt;br />
-&lt;strong>Після оновлення прошивки ESC&lt;/strong>
-&lt;/p></description></item></channel></rss>
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Перша збірка дрона&lt;/strong&gt; з новими ESC
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Заміна одного або кількох ESC&lt;/strong&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Проблеми з синхронізацією моторів&lt;/strong&gt;
+&lt;br /&gt;
+&lt;br /&gt;
+&lt;strong&gt;Після оновлення прошивки ESC&lt;/strong&gt;
+&lt;/p&gt;</description></item></channel></rss>

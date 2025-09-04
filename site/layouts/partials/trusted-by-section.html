@@ -1,5 +1,5 @@
-<section class="flex flex-col items-center px-[20px] py-[60px] bg-[#eaeaea] text-center trusted-section">
-  <div class="flex flex-col w-full max-w-[1200px]">
+<section class="flex flex-col items-center  py-[60px] bg-[#eaeaea] text-center">
+  <div class="flex flex-col w-full max-w-[1280px] px-[20px]">
     <h2 class="text-[clamp(24px,3vw,40px)] font-['Unbounded'] mb-[40px] hero-title">
       <span class="text-[#ba0108]">Н</span>АМ ДОВІРЯЮТЬ
     </h2>
@@ -15,7 +15,7 @@
           <div class="grid grid-cols-2 place-items-center gap-[34px]">
             {{ end }}
 
-            <div class="logo-container flex flex-col items-center justify-center h-[125px] px-[10px] gap-[20px]">
+            <div class="logo-container flex flex-col items-center justify-center h-[140px] gap-[34px]">
               {{ if eq $c.logo "/img/mriadrone.png" }}
               <img src="{{ $c.logo }}" alt="{{ $c.alt }}" class="object-contain w-[165px] h-[102px]" />
               {{ else if eq $c.logo "/img/magura.png" }}
@@ -82,21 +82,3 @@
     </div>
   </div>
 </section>
-
-<style>
-  .trusted-section {
-    margin-top: 10px !important;
-  }
-
-  @media (min-width: 768px) {
-    .trusted-section {
-      margin-top: 60px !important;
-    }
-  }
-
-  @media (min-width: 1024px) {
-    .trusted-section {
-      margin-top: 134px !important;
-    }
-  }
-</style>

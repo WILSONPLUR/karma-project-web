@@ -9,36 +9,36 @@
 {{ $droneRightWebp := $droneRight.Resize "680x webp q80" }}
 {{ $faqBgWebp := $faqBg.Resize "2110x webp q80" }}
 
-<section class="faq-hero" style="--faq-bg: url('{{ $faqBgWebp.RelPermalink }}')" aria-labelledby="faq-hero-heading">
+<section class="faq-hero h-[363px] md:h-[350px]" style="--faq-bg: url('{{ $faqBgWebp.RelPermalink }}')" aria-labelledby="faq-hero-heading">
   <div class="absolute bottom-0 left-0 z-[2]">
     <img src="{{ $droneLeftWebp.RelPermalink }}" alt="Декоративний дрон зліва" aria-hidden="true"
-      class="w-[clamp(150px,15vw,340px)] h-[clamp(90px,9vw,220px)]" loading="lazy" />
+      class="w-[162px] h-[104px] md:w-[260px] md:h-[167px] lg:w-[306px] lg:h-[197px]" loading="lazy" />
   </div>
   <div class="absolute top-0 right-0 md:bottom-0 md:top-auto z-[2]">
     <img src="{{ $droneRightWebp.RelPermalink }}" alt="Декоративний дрон справа" aria-hidden="true"
-      class="w-[clamp(150px,15vw,340px)] h-[clamp(90px,9vw,220px)]" loading="lazy" />
+      class="w-[92px] h-[64px] md:w-[238px] md:h-[167px] lg:w-[282px] lg:h-[197px]" loading="lazy" />
   </div>
   {{ else }}
-  <section class="faq-hero" style="--faq-bg: url('/img/faq-hero-bg.png')" aria-labelledby="faq-hero-heading">
+  <section class="faq-hero h-[363px] md:h-[350px]" style="--faq-bg: url('/img/faq-hero-bg.png')" aria-labelledby="faq-hero-heading">
     <div class="absolute bottom-0 left-0 z-[2]">
       <img src="/img/drone-left.png" alt="Декоративний дрон зліва" aria-hidden="true"
-        class="w-[clamp(150px,15vw,340px)] h-[clamp(90px,9vw,220px)]" loading="lazy" />
+        class="w-[162px] h-[104px] md:w-[260px] md:h-[167px] lg:w-[306px] lg:h-[197px]" loading="lazy" />
     </div>
     <div class="absolute top-0 right-0 md:bottom-0 md:top-auto z-[2]">
       <img src="/img/drone-right.png" alt="Декоративний дрон справа" aria-hidden="true"
-        class="w-[clamp(150px,15vw,340px)] h-[clamp(90px,9vw,220px)]" loading="lazy" />
+        class="w-[92px] h-[64px] md:w-[238px] md:h-[167px] lg:w-[282px] lg:h-[197px]" loading="lazy" />
     </div>
     {{ end }}
     <div
-      class="max-w-[min(1055px,90vw)] mx-auto pt-[clamp(60px,8vw,101px)] pb-[clamp(80px,10vw,142px)] px-[clamp(20px,4vw,40px)]">
+      class="max-w-[1055px] w-full mx-auto pt-[100px] md:pt-[80px] px-[20px]">
       <h1 id="faq-hero-heading"
-        class="title hero-title text-[clamp(20px,4vw,48px)] font-medium font-[Unbounded] text-[#fefefe] mb-[clamp(10px,2vw,20px)]">
+        class="title hero-title text-[clamp(24px,4vw,48px)] font-medium font-[Unbounded] text-[#fefefe] !mb-[30px] !md:mb-[35px] !lg:mb-[15px]">
         <span>П</span>{{ $title }}
       </h1>
-      <p
-        class="max-w-[min(1155px,85vw)] mx-auto text-[#fefefe] text-[clamp(14px,2vw,20px)] font-[Montserrat] font-normal leading-[1.7]">
+      <h3
+        class="max-w-[min(1155px,85vw)] mx-auto text-[#fefefe] text-[clamp(16px,2vw,20px)] font-[Montserrat] font-normal">
         {{ $subtitle }}
-      </p>
+      </h3>
     </div>
   </section>
 
@@ -51,12 +51,12 @@
       background-size: cover;
       background-position: center;
       margin-bottom: 20px;
+      margin-top: -1px !important;
     }
 
     .title {
       font-family: 'Unbounded', sans-serif;
       font-weight: 600;
-      margin-bottom: 40px;
     }
 
     .title span {

@@ -1,15 +1,15 @@
 {{ $title := .title }} {{ $items := .items }} {{ $isFirst := .isFirst }}
 
 <section class="flex relative flex-col items-center bg-white" aria-labelledby="faq-accordion-heading">
-    <div class="faq-accordion-container w-full max-w-[min(1237px,90vw)] px-[clamp(20px,4vw,40px)]" {{ if not $isFirst
-        }}style="margin-top: clamp(40px,6vw,80px) !important; margin-bottom: 0!important;" {{ else
-        }}style="margin-top: clamp(60px,8vw,122px) !important; margin-bottom: clamp(60px,10vw,134px) !important;" {{ end
+    <div class="faq-accordion-container w-full max-w-[1280px] px-[20px]" {{ if not $isFirst
+        }}style="margin-top: clamp(60px,6vw,122px) !important; margin-bottom: 0!important;" {{ else
+        }}style="margin-top: clamp(60px,8vw,80px) !important; margin-bottom: clamp(60px,10vw,134px) !important;" {{ end
         }}>
         <h2 id="faq-accordion-heading"
             class="faq-title font-[Unbounded] font-medium text-[clamp(20px,4vw,40px)] text-center text-[#020303] mb-[clamp(20px,3vw,30px)]">
             {{ $title }}
         </h2>
-        <div class="w-full flex flex-col gap-[clamp(20px,3vw,30px)] max-w-[min(1237px,85vw)]" data-accordion-list
+        <div class="w-full flex flex-col gap-[30px]" data-accordion-list
             role="list" aria-label="Список питань та відповідей">
             {{ range $index, $item := $items }}
             <div class="faq-acc-wrapper" role="listitem">
@@ -17,7 +17,7 @@
                     <summary class="flex cursor-pointer select-none faq-acc-summary"
                         aria-label="Розгорнути відповідь на питання: {{ .question }}">
                         <h3
-                            class="font-[Unbounded] md:font-[Montserrat] lg:font-[Montserrat] text-[clamp(14px,2vw,24px)] font-medium w-full">
+                            class="font-[Unbounded] md:font-[Montserrat] lg:font-[Montserrat] text-[clamp(16px,2vw,24px)] font-normal md:font-medium  w-full">
                             {{ .question }}
                         </h3>
                         <img src="/img/arrow.svg" alt="Іконка розгортання" width="20" height="20"
