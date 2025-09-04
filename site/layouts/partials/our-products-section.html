@@ -15,7 +15,7 @@
 {{ $categoryProducts := where $products ".Params.category" $category }}
 {{ $categoryData := index $context.Site.Data.products.categories $category }}
 <section class="relative flex flex-col justify-center items-center gap-[20px]  py-[60px] bg-[#f9f9f9] overflow-hidden">
-  <div class="absolute top-0 right-0">
+  <div class="absolute top-0 right-[-22px]">
     {{ $bgEl1 := resources.Get "img/bg-el-1.png" }}
     {{ if $bgEl1 }}
     {{ $bgEl1Processed := $bgEl1.Resize "455x417 webp q75" }}

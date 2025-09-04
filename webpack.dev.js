@@ -20,10 +20,20 @@ module.exports = merge(common, {
       watch: true
     },
     watchFiles: [
+      "src/**/*",
       "site/layouts/**/*.html",
       "site/content/**/*.{html,md}",
       "site/data/**/*.{json,yml,toml}"
     ],
+    proxy: {
+      "/": {
+        target: "http://localhost:1313",
+        changeOrigin: true,
+        logLevel: "debug"
+      }
+    },
+    hot: true,
+    liveReload: true,
     open: true,
     historyApiFallback: {
       rewrites: [{from: /./, to: "404.html"}]
