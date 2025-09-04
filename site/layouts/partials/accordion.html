@@ -3,7 +3,7 @@
 {{ $className := .className | default "" }}
 {{ $titleClassName := .titleClassName | default "" }}
 
-<section class="relative flex flex-col items-center bg-white mt-[clamp(40px,6vw,112px)] mb-[clamp(40px,6vw,80px)]"
+<section class="relative flex flex-col items-center {{ $className }}"
     aria-labelledby="accordion-heading">
     <div class="w-full max-w-[min(1237px,90vw)] px-[clamp(20px,4vw,40px)]">
         {{ if $title }}
