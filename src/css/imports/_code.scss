@@ -1,7 +1,215 @@
 pre {
+  background: #f8f9fa;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 8px;
+  padding: 1rem;
   overflow-x: auto;
-  overflow-y: hidden;
-  overflow: scroll;
-  background-color: var(--grey-1);
-  padding: var(--spacing-small);
+  margin: 1.5rem 0;
+
+  code {
+    display: block;
+    position: relative;
+    font-family: 'Courier New', monospace;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.6;
+    padding-right: 3rem;
+    background: transparent;
+    border: none;
+    padding: 0;
+    color: #24292f; // Default dark text color
+  }
+}
+
+// Enhanced syntax highlighting for better code appearance
+pre code {
+  // Override all inline styles with our custom colors
+  span[style] {
+    // Keywords (void, int, if, etc.)
+    &[style*="color:#d73a49"],
+    &[style*="color:#cf222e"] {
+      color: #d73a49 !important; // Red for keywords
+      font-weight: bold !important;
+    }
+    
+    // Strings and text literals
+    &[style*="color:#032f62"],
+    &[style*="color:#0a3069"] {
+      color: #032f62 !important; // Dark blue for strings
+    }
+    
+    // Function names and identifiers
+    &[style*="color:#6f42c1"],
+    &[style*="color:#8250df"] {
+      color: #6f42c1 !important; // Purple for functions
+    }
+    
+    // Built-ins and library functions
+    &[style*="color:#005cc5"],
+    &[style*="color:#0969da"] {
+      color: #005cc5 !important; // Blue for built-ins
+    }
+    
+    // Comments
+    &[style*="color:#6a737d"],
+    &[style*="color:#656d76"] {
+      color: #6a737d !important; // Gray for comments
+      font-style: italic !important;
+    }
+    
+    // Numbers and literals
+    &[style*="color:#0550ae"] {
+      color: #005cc5 !important; // Blue for numbers
+    }
+    
+    // Preprocessor directives (#include, #define)
+    &[style*="color:#953800"] {
+      color: #d73a49 !important; // Red for preprocessors
+      font-weight: bold !important;
+    }
+    
+    // Types and data types (int16_t, void, etc.)
+    &[style*="color:#116329"] {
+      color: #d73a49 !important; // Red for types
+      font-weight: bold !important;
+    }
+    
+    // Light grey text - make darker
+    &[style*="color:#8b949e"],
+    &[style*="color:#656d76"],
+    &[style*="color:#7d8590"] {
+      color: #24292f !important; // Dark text instead of light grey
+    }
+  }
+  
+  // Fallback class-based selectors
+  .k, .kd, .kn, .kp, .kr, .kt, .kc {
+    color: #d73a49 !important; // Keywords
+    font-weight: bold !important;
+  }
+  
+  .s, .s1, .s2, .se, .sh, .si, .sx, .sb {
+    color: #032f62 !important; // Strings
+  }
+  
+  .nf, .fm {
+    color: #6f42c1 !important; // Functions
+  }
+  
+  .nb, .bp {
+    color: #005cc5 !important; // Built-ins
+  }
+  
+  .c, .c1, .cm, .cp {
+    color: #6a737d !important; // Comments
+    font-style: italic !important;
+  }
+  
+  .m, .mi, .mf, .mh, .mo, .il {
+    color: #005cc5 !important; // Numbers
+  }
+  
+  .kt, .nc, .nt {
+    color: #d73a49 !important; // Types
+    font-weight: bold !important;
+  }
+}
+
+// Add language label
+.highlight {
+  position: relative;
+  
+  &[data-lang]::before {
+    content: attr(data-lang);
+    position: absolute;
+    top: 0.5rem;
+    left: 1rem;
+    font-size: 0.75rem;
+    color: #d73a49;
+    font-weight: bold;
+    text-transform: lowercase;
+    z-index: 1;
+  }
+}
+
+// Hugo syntax highlighting overrides
+pre code {
+  // Keywords (def, function, import, let, const, etc.)
+  .hljs-keyword,
+  .hljs-built_in,
+  .hljs-type {
+    color: #d73a49 !important;
+    font-weight: bold;
+  }
+  
+  // Strings
+  .hljs-string,
+  .hljs-attr {
+    color: #032f62 !important;
+  }
+  
+  // Function names
+  .hljs-function .hljs-title,
+  .hljs-title.function_ {
+    color: #6f42c1 !important;
+  }
+  
+  // Built-in functions
+  .hljs-built_in {
+    color: #005cc5 !important;
+  }
+  
+  // Comments
+  .hljs-comment,
+  .hljs-quote {
+    color: #6a737d !important;
+    font-style: italic;
+  }
+  
+  // Numbers
+  .hljs-number,
+  .hljs-literal {
+    color: #005cc5 !important;
+  }
+}
+
+.copy-button {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  width: 32px;
+  height: 32px;
+  background: #fff url('/img/copy.svg') no-repeat center center;
+  background-size: 16px 16px;
+  border: 1px solid #d0d7de;
+  border-radius: 6px;
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease;
+  z-index: 10;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  
+  &:hover {
+    background-color: #f6f8fa;
+    border-color: #8c959f;
+    transform: scale(1.05);
+  }
+  
+  &:active {
+    background-color: #e1e4e8;
+    transform: scale(0.98);
+  }
+}
+
+// Language label - removed to avoid conflicts with copy button
+
+// For inline code blocks
+code:not(pre code) {
+  background-color: #f6f8fa;
+  border: 1px solid #d0d7de;
+  border-radius: 4px;
+  padding: 0.2em 0.4em;
+  font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', 'Courier New', monospace;
+  font-size: 85%;
+  color: #24292f;
 }
