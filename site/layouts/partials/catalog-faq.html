@@ -1,7 +1,7 @@
 {{ $catalogQuestions := slice (dict "question" "Для яких типів дронів найкраще підходить польотний стек KARMA F405 V1?"
 "answer" "Ідеально підходить для мікро- та невеликих FPV-дронів, а також для легких 3-дюймових або для деяких 4-дюймовихквадрокоптерів.")
-(dict "question" "Для яких типів дронів найкраще підходить польотний стек KARMA F405 V1?" "answer" "Ідеально підходить для мікро- та невеликих FPV-дронів, а також для легких 3-дюймових або деяки 4-дюймових квадрокоптерів.")
-(dict "question" "Для яких типів дронів найкраще підходить польотний стек KARMA F405 V1?" "answer" "Ідеально підходить для мікро- та невеликих FPV-дронів, а також для легких 3-дюймових або деяки 4-дюймових квадрокоптерів.")
+(dict "question" "Для яких типів дронів найкраще підходить польотний стек KARMA F405 V1?" "answer" "Ідеально підходитьдля мікро- та невеликих FPV-дронів, а також для легких 3-дюймових або деяки 4-дюймових квадрокоптерів.")
+(dict "question" "Для яких типів дронів найкраще підходить польотний стек KARMA F405 V1?" "answer" "Ідеально підходитьдля мікро- та невеликих FPV-дронів, а також для легких 3-дюймових або деяки 4-дюймових квадрокоптерів.")
 (dict "question" "Для яких типів дронів найкраще підходить польотний стек KARMA F405 V1?" "answer" "Ідеально підходить для мікро- та невеликих FPV-дронів, а також для легких 3-дюймових або деяки 4-дюймових квадрокоптерів.") }}
 
 <section class="relative flex flex-col items-center bg-white pb-[60px] lg:pb-[128px]">
@@ -48,7 +48,7 @@
     display: flex !important;
     align-items: center !important;
     padding: clamp(12px, 2vw, 19px) clamp(20px, 4vw, 45px) !important;
-    transition: background-color 400ms ease, color 400ms ease !important;
+    transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s ease-in-out !important;
     background: #fff !important;
     color: #020303 !important;
     cursor: pointer;
@@ -96,11 +96,22 @@
   }
 
   .accordion-content {
-    overflow: visible !important;
-    max-height: none !important;
-    opacity: 1 !important;
-    transition: none !important;
+    overflow: hidden !important;
+    max-height: 0 !important;
+    opacity: 0 !important;
+    transform: translateY(-10px) !important;
+    transition: max-height 0.4s ease-in-out,
+      opacity 0.3s ease-in-out,
+      padding 0.4s ease-in-out,
+      transform 0.3s ease-in-out !important;
     width: 100% !important;
+    padding: 0 clamp(20px, 4vw, 46px) !important;
+  }
+
+  .accordion-root[open] .accordion-content {
+    max-height: 500px !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
     padding: clamp(8px, 2vw, 12px) clamp(20px, 4vw, 46px) !important;
   }
 

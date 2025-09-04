@@ -1,15 +1,29 @@
 <section
   class="relative bg-white min-[451px]:min-h-[180px] md:min-h-[220px] lg:min-h-[250px] xl:min-h-[280px] max-[450px]:pt-0">
-  <!-- Background decorative element -->
-  {{ $bgEl3 := resources.Get "img/bg-el-3.png" }}
-  {{ if $bgEl3 }}
-  {{ $bgEl3Processed := $bgEl3.Resize "200x270 webp q80" }}
-  <img src="{{ $bgEl3Processed.RelPermalink }}" alt="" class="absolute z-[1] bottom-0 right-0 w-[200px] h-auto"
-    width="200" height="270" />
-  {{ else }}
-  <img src="/img/bg-el-3.png" alt="" class="absolute z-[1] bottom-0 right-0 w-[200px] h-auto" width="200"
-    height="270" />
-  {{ end }}
+  <!-- Background decorative elements -->
+{{ $bgEl3 := resources.Get "img/bg-el-3.png" }}
+{{ if $bgEl3 }}
+{{ $bgEl3Processed := $bgEl3.Resize "200x270 webp q80" }}
+<img src="{{ $bgEl3Processed.RelPermalink }}" alt="" class="absolute z-[1] bottom-0 right-0 w-[200px] h-auto"
+  width="200" height="270" />
+{{ else }}
+<img src="/img/bg-el-3.png" alt="" class="absolute z-[1] bottom-0 right-0 w-[200px] h-auto" width="200" height="270" />
+{{ end }}
+
+<!-- bg-el-2: тільки mobile -->
+{{ $bgEl2 := resources.Get "img/bg-el-2.png" }}
+{{ if $bgEl2 }}
+{{ $bgEl2Processed := $bgEl2.Resize "171x199 webp q75" }}
+<img src="{{ $bgEl2Processed.RelPermalink }}" alt="" aria-hidden="true"
+  class="about-bg-el-2 absolute z-[10] top-[calc(var(--spacing)*-21)] left-[-48px] hidden max-[640px]:block w-[171px] h-[199px] rotate-[34deg]"
+  width="171" height="199" loading="lazy" />
+{{ else }}
+<img src="/img/bg-el-2.png" alt="" aria-hidden="true"
+  class="about-bg-el-2 absolute z-[10] top-[calc(var(--spacing)*-21)] left-[-48px] hidden max-[640px]:block w-[171px] h-[199px] rotate-[34deg]"
+  width="171" height="199" loading="lazy" />
+{{ end }}
+
+
 
   <!-- Mobile layout -->
   <div class="max-[767px]:block min-[768px]:hidden relative z-[2]">
@@ -125,3 +139,15 @@
     </div>
   </div>
 </section>
+
+<style>
+  .about-bg-el-2 {
+    display: none;
+  }
+
+  @media (min-width: 450px) and (max-width: 639px) {
+    .about-bg-el-2 {
+      display: block !important;
+    }
+  }
+</style>

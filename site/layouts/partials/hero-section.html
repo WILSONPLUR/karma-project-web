@@ -5,23 +5,24 @@
   {{ if $bgEl1 }}
   {{ $bgEl1Processed := $bgEl1.Resize "201x185 webp q75" }}
   <img src="{{ $bgEl1Processed.RelPermalink }}" alt="" aria-hidden="true"
-    class="absolute z-[1] top-0 right-0 lg:top-0 lg:right-0 md:top-0 md:right-0 sm:top-0 sm:right-0 max-[450px]:top-[-30px] max-[450px]:right-[-44px] lg:w-[350px] md:w-[250px] sm:w-[150px] max-[450px]:w-[201px] max-[450px]:h-[185px] h-auto"
+    class="absolute z-[1] top-0 right-0 max-[450px]:top-[-30px] max-[450px]:right-[-44px] lg:w-[350px] md:w-[250px] sm:w-[150px] max-[450px]:w-[201px] max-[450px]:h-[185px] h-auto"
     width="201" height="185" loading="lazy" />
   {{ else }}
   <img src="/img/bg-el-1.png" alt="" aria-hidden="true"
-    class="absolute z-[1] top-0 right-0 lg:top-0 lg:right-0 md:top-0 md:right-0 sm:top-0 sm:right-0 max-[450px]:top-[-30px] max-[450px]:right-[-44px] lg:w-[350px] md:w-[250px] sm:w-[150px] max-[450px]:w-[201px] max-[450px]:h-[185px] h-auto"
+    class="absolute z-[1] top-0 right-0 max-[450px]:top-[-30px] max-[450px]:right-[-44px] lg:w-[350px] md:w-[250px] sm:w-[200px] max-[450px]:w-[201px] max-[450px]:h-[185px] h-auto"
     width="201" height="185" loading="lazy" />
   {{ end }}
 
+  <!-- bg-el-2: тільки tablet+desktop -->
   {{ $bgEl2 := resources.Get "img/bg-el-2.png" }}
   {{ if $bgEl2 }}
   {{ $bgEl2Processed := $bgEl2.Resize "171x199 webp q75" }}
   <img src="{{ $bgEl2Processed.RelPermalink }}" alt="" aria-hidden="true"
-    class="absolute z-[10] bottom-0 left-0 lg:left-0 md:left-0 sm:left-0 max-[450px]:left-[-30px] lg:w-[320px] md:w-[250px] sm:w-[200px] max-[450px]:w-[171px] max-[450px]:h-[199px] h-auto max-[450px]:rotate-[34deg]"
+    class="hero-bg-el-2 absolute z-[10] bottom-0 left-0 hidden sm:block lg:w-[320px] md:w-[250px] sm:w-[200px] h-auto"
     width="171" height="199" loading="lazy" />
   {{ else }}
   <img src="/img/bg-el-2.png" alt="" aria-hidden="true"
-    class="absolute z-[10] bottom-0 left-0 lg:left-0 md:left-0 sm:left-0 max-[450px]:left-[-30px] lg:w-[320px] md:w-[250px] sm:w-[200px] max-[450px]:w-[171px] max-[450px]:h-[199px] h-auto max-[450px]:rotate-[34deg]"
+    class="hero-bg-el-2 absolute z-[10] bottom-0 left-0 hidden sm:block lg:w-[320px] md:w-[250px] sm:w-[200px] h-auto"
     width="171" height="199" loading="lazy" />
   {{ end }}
 
@@ -39,19 +40,18 @@
 
     {{ $stackRight := resources.Get "img/stack-right.png" }}
     {{ if $stackRight }}
-    {{ $stackRightProcessed := $stackRight.Resize "244x244 webp q75" }}
-    <img src="{{ $stackRightProcessed.RelPermalink }}" alt="Елемент стеку справа" aria-hidden="true" width="244"
-      height="244" class="absolute bottom-[76px] right-[-16px] w-[244px] h-[244px] z-[1]" loading="lazy" />
+    {{ $stackRightProcessed := $stackRight.Resize "300x344 webp q75" }}
+    <img src="{{ $stackRightProcessed.RelPermalink }}" alt="Елемент стеку справа" aria-hidden="true" width="300"
+      height="344" class="absolute bottom-[-15px] right-[-16px] w-[300px] h-[344px] z-[1]" loading="lazy" />
     {{ else }}
-    <img src="/img/stack-right.png" alt="Елемент стеку справа" aria-hidden="true" width="244" height="244"
-      class="absolute bottom-[76px] right-[-16px] w-[244px] h-[244px] z-[1]" loading="lazy" />
+    <img src="/img/stack-right.png" alt="Елемент стеку справа" aria-hidden="true" width="300" height="344"
+      class="absolute bottom-[-15px] right-[-16px] w-[300px] h-[344px] z-[1]" loading="lazy" />
     {{ end }}
   </div>
 
-  <!-- Desktop Layout -->
+  <!-- Content (desktop + mobile як було) -->
   <div class="hidden lg:block max-w-[1440px] xl:max-w-[1600px] mx-auto pt-[40px] mb-[64px] relative z-[2] px-8">
     <div class="flex gap-12 justify-between items-center xl:gap-16">
-      <!-- Left Content -->
       <div class="flex flex-col gap-5 flex-1 max-w-[600px] xl:max-w-[700px]">
         <div class="font-bold leading-[1.1] text-black mb-2 hero-title">
           <span class="font-['Unbounded'] text-[#ba0108] block text-[56px] xl:text-[64px] leading-[1.1] mb-2">
@@ -87,7 +87,6 @@
   <!-- Mobile & Tablet Layout -->
   <div class="block lg:hidden mx-auto w-full relative z-[2] py-8">
     <div class="flex flex-col items-center text-center">
-      <!-- Main Title -->
       <div class="font-bold leading-[1.1] text-black mb-6 hero-title">
         <span
           class="font-['Unbounded'] text-[#ba0108] block text-[32px] sm:text-[40px] md:text-[48px] leading-[1.1] mb-2">
@@ -97,16 +96,12 @@
           НЕ ШУКАЙ КОМПРОМІСІВ
         </span>
       </div>
-
-      <!-- Subtitle -->
       <p class="font-['Unbounded'] text-[16px] sm:text-[18px] md:text-[20px] font-[300] text-black mb-8">
         Високотехнологічне українське виробництво
       </p>
-
     </div>
   </div>
 </section>
-
 <style>
   @keyframes fadeInUp {
     0% {
@@ -129,6 +124,12 @@
   .hero-title.animate {
     animation: fadeInUp 0.8s ease-out forwards;
   }
+
+  @media (max-width: 639px) {
+    .hero-bg-el-2 {
+      display: none !important;
+    }
+  }
 </style>
 
 <script>
@@ -146,7 +147,6 @@
         if (entry.isIntersecting) {
           entry.target.classList.add('animate');
         } else {
-          // Remove animation class when out of view for repeatable effect
           entry.target.classList.remove('animate');
         }
       });
@@ -157,6 +157,5 @@
     });
   }
 
-  // Initialize when DOM is loaded
   document.addEventListener('DOMContentLoaded', animateHeroTitle);
 </script>

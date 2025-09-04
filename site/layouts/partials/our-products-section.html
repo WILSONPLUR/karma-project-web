@@ -14,16 +14,20 @@
 {{ $products := where $context.Site.RegularPages "Section" "catalog" }}
 {{ $categoryProducts := where $products ".Params.category" $category }}
 {{ $categoryData := index $context.Site.Data.products.categories $category }}
-<section class="relative flex flex-col justify-center items-center gap-[20px]  py-[60px] bg-[#f9f9f9] overflow-hidden">
-  <div class="absolute top-0 right-0">
-    {{ $bgEl1 := resources.Get "img/bg-el-1.png" }}
+<section
+  class="relative flex flex-col justify-center items-center gap-[20px] py-[60px] max-[450px]:pt-[90px] bg-[#f9f9f9] overflow-hidden">
+  <div
+    class="absolute top-0 right-[-22px] max-[767px]:right-[-41px] max-[767px]:top-[calc(var(--spacing)*-32)] max-[450px]:right-[-15px] max-[450px]:top-[calc(var(--spacing)*-19)]">
+    {{ $bgEl1 := resources.Get "img/bg-el-slider.png" }}
     {{ if $bgEl1 }}
     {{ $bgEl1Processed := $bgEl1.Resize "455x417 webp q75" }}
     <img src="{{ $bgEl1Processed.RelPermalink }}" alt="" aria-hidden="true" width="455" height="417"
-      class="w-[455px] h-[417px] object-contain" loading="lazy" />
+      class="w-[455px] h-[417px] max-[1199px]:w-[313px] max-[1199px]:h-[287px] max-[1100px]:w-[350px] max-[1100px]:h-[330px] max-[900px]:w-[300px] max-[900px]:h-[280px] max-[768px]:w-[313px] max-[768px]:h-[387px] max-[450px]:w-[200px] max-[450px]:h-[200px] object-contain"
+      loading="lazy" />
     {{ else }}
-    <img src="/img/bg-el-1.png" alt="" aria-hidden="true" width="455" height="417"
-      class="w-[455px] h-[417px] object-contain" loading="lazy" />
+    <img src="/img/bg-el-slider.png" alt="" aria-hidden="true" width="455" height="417"
+      class="w-[455px] h-[417px] max-[1199px]:w-[313px] max-[1199px]:h-[287px] max-[1100px]:w-[350px] max-[1100px]:h-[330px] max-[900px]:w-[300px] max-[900px]:h-[280px] max-[768px]:w-[313px] max-[768px]:h-[387px] max-[450px]:w-[200px] max-[450px]:h-[200px] object-contain"
+      loading="lazy" />
     {{ end }}
   </div>
 
@@ -32,8 +36,8 @@
       <span class="text-[#ba0108]">Н</span>АШІ ТОВАРИ
     </h2>
 
-    <!-- Desktop Layout -->
-    <div class="hidden min-[800px]:block relative">
+    <!-- Desktop & Tablet Layout (768px+) -->
+    <div class="hidden min-[768px]:block relative">
       <div class="swiper-container-products">
         <div class="swiper-wrapper">
           {{ range $categoryProducts }}
@@ -62,7 +66,7 @@
                 {{ end }}
               </ul>
               <a href="{{ .Permalink }}"
-                class="inline-block bg-[#ba0108] text-[#fff] border-[none] px-[30px] py-[15px] mt-5 rounded-[20px] cursor-pointer text-[clamp(16px,2.2vw,20px)] font-['Montserrat'] font-normal [transition:background-color_0.3s_ease] hover:bg-[#9a0106] w-full">
+                class="inline-block bg-[#ba0108]  text-[#fff] border-[none] px-[30px] py-[15px] mt-5 rounded-[20px] cursor-pointer text-[clamp(16px,2.2vw,20px)] font-['Montserrat'] font-normal [transition:background-color_0.3s_ease] hover:bg-[#DD8084] w-full">
                 Детальніше
               </a>
             </div>
@@ -71,21 +75,21 @@
         </div>
       </div>
 
-      <!-- Desktop Navigation arrows -->
-      <div
-        class="swiper-button-prev-custom absolute left-[-60px] top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[70px] h-[70px] flex items-center justify-center transition-shadow">
+      <!-- Desktop & Tablet Navigation arrows -->
+      <div class="swiper-button-prev-custom absolute top-[50%] transform -translate-y-1/2 z-10 cursor-pointer 
+                  w-[70px] h-[70px] flex items-center justify-center transition-shadow">
         <img src="/img/nav_arrow.svg" alt="navigation prev arrow" width="40" height="40"
           class="w-[40px] h-[40px] rotate-180" loading="lazy" />
       </div>
-      <div
-        class="swiper-button-next-custom absolute right-[-60px] top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[70px] h-[70px] flex items-center justify-center transition-shadow">
+      <div class="swiper-button-next-custom absolute top-[50%] transform -translate-y-1/2 z-10 cursor-pointer 
+                  w-[70px] h-[70px] flex items-center justify-center transition-shadow">
         <img src="/img/nav_arrow.svg" alt="navigation next arrow" width="40" height="40" class="w-[40px] h-[40px]"
           loading="lazy" />
       </div>
     </div>
 
-    <!-- Mobile Layout -->
-    <div class="block min-[800px]:hidden relative overflow-hidden max-[450px]:w-full" id="mobile-slider">
+    <!-- Mobile Layout (767px and below) -->
+    <div class="block min-[768px]:hidden relative max-[450px]:w-full" id="mobile-slider">
       <div class="flex transition-transform duration-300 ease-in-out" id="mobile-slider-wrapper">
         {{ range $index, $product := $categoryProducts }}
         <div class="flex-shrink-0 w-full">
@@ -113,7 +117,7 @@
               {{ end }}
             </ul>
             <a href="{{ $product.Permalink }}"
-              class="inline-block bg-[#ba0108] text-[#fff] border-[none] px-[30px] py-[15px] mt-5 rounded-[20px] cursor-pointer text-[clamp(14px,1.8vw,16px)] font-['Montserrat'] font-normal [transition:background-color_0.3s_ease] hover:bg-[#9a0106] w-full">
+              class="inline-block bg-[#ba0108] text-[#fff] border-[none] px-[30px] py-[15px] mt-5 rounded-[20px] cursor-pointer text-[clamp(14px,1.8vw,16px)] font-['Montserrat'] font-normal [transition:background-color_0.3s_ease] hover:bg-[#DD8084] w-full">
               Детальніше
             </a>
           </div>
@@ -123,12 +127,12 @@
 
       <!-- Mobile Navigation arrows -->
       <div
-        class="mobile-prev absolute left-[-3] top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[40px] h-[40px] flex items-center justify-center">
+        class="mobile-prev absolute top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[40px] h-[40px] flex items-center justify-center">
         <img src="/img/nav_arrow.svg" alt="navigation prev arrow" width="35" height="35"
           class="w-[35px] h-[35px] rotate-180" loading="lazy" />
       </div>
       <div
-        class="mobile-next absolute right-[-3] top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[40px] h-[40px] flex items-center justify-center">
+        class="mobile-next absolute top-[50%] transform -translate-y-1/2 z-10 cursor-pointer w-[40px] h-[40px] flex items-center justify-center">
         <img src="/img/nav_arrow.svg" alt="navigation next arrow" width="40" height="40" class="w-[40px] h-[40px]"
           loading="lazy" />
       </div>
