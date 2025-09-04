@@ -1,268 +1,268 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>KARMA FLIGHTS - Електронні компоненти для дронів on Karma - Електронні компоненти для дронів</title><link>http://localhost:1313/</link><description>Recent content in KARMA FLIGHTS - Електронні компоненти для дронів on Karma - Електронні компоненти для дронів</description><generator>Hugo</generator><language>uk-UA</language><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml"/><item><title>Політний стек KARMA F405 V1</title><link>http://localhost:1313/catalog/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA-karma-f405-v1/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/catalog/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA-karma-f405-v1/</guid><description>&lt;p&gt;Компактний та потужний політний стек для FPV дронів з інтегрованим ESC та передовими функціями стабілізації.&lt;/p&gt;
-&lt;h2 id="основні-характеристики"&gt;Основні характеристики&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Мікроконтролер&lt;/strong&gt;: STM32F405RGT6 (168MHz, 1MB Flash)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Гіроскоп/Акселерометр&lt;/strong&gt;: ICM-42688-P&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ESC&lt;/strong&gt;: 4-в-1, 50А робочий / 60А піковий&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Розмір&lt;/strong&gt;: 48.5 x 40 мм&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Монтажні отвори&lt;/strong&gt;: 30.5 x 30.5 мм&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Живлення&lt;/strong&gt;: 2-6S LiPo через роз&amp;rsquo;єм XT-60&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="переваги"&gt;Переваги&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Компактність&lt;/strong&gt; - все в одному корпусі&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Висока продуктивність&lt;/strong&gt; - потужний процесор&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Надійність&lt;/strong&gt; - якісні компоненти&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Простота встановлення&lt;/strong&gt; - стандартні монтажні отвори&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="застосування"&gt;Застосування&lt;/h2&gt;
-&lt;p&gt;Ідеально підходить для:&lt;/p&gt;</description></item><item><title>Створення політного стеку</title><link>http://localhost:1313/guides/%D1%81%D1%82%D0%B2%D0%BE%D1%80%D0%B5%D0%BD%D0%BD%D1%8F-%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%BE%D0%B3%D0%BE-%D1%81%D1%82%D0%B5%D0%BA%D1%83/</link><pubDate>Thu, 28 Aug 2025 15:21:00 +0300</pubDate><guid>http://localhost:1313/guides/%D1%81%D1%82%D0%B2%D0%BE%D1%80%D0%B5%D0%BD%D0%BD%D1%8F-%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%BE%D0%B3%D0%BE-%D1%81%D1%82%D0%B5%D0%BA%D1%83/</guid><description>&lt;h1 id="політні-стеки-та-мікросхеми-огляд-і-приклади"&gt;Політні стеки та мікросхеми: огляд і приклади&lt;/h1&gt;
-&lt;p&gt;Політні стеки (&lt;em&gt;Flight Stacks&lt;/em&gt;) та мікросхеми є ключовими компонентами сучасних безпілотних літальних апаратів (БПЛА), робототехніки та інших автономних систем. Вони забезпечують управління, обробку даних і взаємодію з апаратним забезпеченням. У цій статті ми розглянемо основи політних стеків, їх зв’язок із мікросхемами, а також надамо приклади коду для роботи з такими системами.&lt;/p&gt;
-&lt;hr&gt;
-&lt;h2 id="що-таке-політні-стеки"&gt;Що таке політні стеки?&lt;/h2&gt;
-&lt;p&gt;Політний стек — це комбінація апаратного та програмного забезпечення, яка відповідає за керування польотом БПЛА. Він включає:&lt;/p&gt;</description></item><item><title>Політні стеки</title><link>http://localhost:1313/guides/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D1%96-%D1%81%D1%82%D0%B5%D0%BA%D0%B8/</link><pubDate>Mon, 25 Aug 2025 17:06:00 +0300</pubDate><guid>http://localhost:1313/guides/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D1%96-%D1%81%D1%82%D0%B5%D0%BA%D0%B8/</guid><description>&lt;p&gt;23232323232323&lt;/p&gt;</description></item><item><title>New post</title><link>http://localhost:1313/post/new-post/</link><pubDate>Wed, 20 Aug 2025 11:27:56 +0000</pubDate><guid>http://localhost:1313/post/new-post/</guid><description>&lt;p&gt;232332&lt;/p&gt;</description></item><item><title>ESC KARMA 45A BLHeli_S</title><link>http://localhost:1313/catalog/esc-karma-45a-blheli_s/</link><pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/catalog/esc-karma-45a-blheli_s/</guid><description>&lt;h1 id="esc-karma-45a-blheli_s"&gt;ESC KARMA 45A BLHeli_S&lt;/h1&gt;
-&lt;p&gt;Високоякісний електронний регулятор швидкості з прошивкою BLHeli_S для максимальної продуктивності безколекторних двигунів.&lt;/p&gt;
-&lt;h2 id="основні-характеристики"&gt;Основні характеристики&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Струм&lt;/strong&gt;: 45A безперервний&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Прошивка&lt;/strong&gt;: BLHeli_S 16.7&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Живлення&lt;/strong&gt;: 2-6S LiPo (7.4-25.2V)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Розмір&lt;/strong&gt;: 30x30mm&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Монтажні отвори&lt;/strong&gt;: M3&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Частота ШІМ&lt;/strong&gt;: 48kHz&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="переваги"&gt;Переваги&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;BLHeli_S прошивка&lt;/strong&gt; - оптимальна продуктивність&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Висока частота ШІМ&lt;/strong&gt; - плавне керування&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Компактний розмір&lt;/strong&gt; - легко встановити&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Надійність&lt;/strong&gt; - якісні компоненти&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="функції"&gt;Функції&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Dshot протокол&lt;/strong&gt; - цифрове керування&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Телеметрія&lt;/strong&gt; - моніторинг параметрів&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Захист від перегріву&lt;/strong&gt; - автоматичне відключення&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Реверс&lt;/strong&gt; - зміна напрямку обертання&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="застосування"&gt;Застосування&lt;/h2&gt;
-&lt;p&gt;Рекомендується для:&lt;/p&gt;</description></item><item><title>VTX KARMA 5.8GHz 800mW</title><link>http://localhost:1313/catalog/vtx-karma-5.8ghz-800mw/</link><pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/catalog/vtx-karma-5.8ghz-800mw/</guid><description>&lt;h1 id="vtx-karma-58ghz-800mw"&gt;VTX KARMA 5.8GHz 800mW&lt;/h1&gt;
-&lt;p&gt;Професійний відеопередавач для FPV дронів з високою потужністю та надійністю передачі сигналу.&lt;/p&gt;
-&lt;h2 id="основні-характеристики"&gt;Основні характеристики&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Частота&lt;/strong&gt;: 5.8GHz&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Потужність&lt;/strong&gt;: 25mW / 200mW / 500mW / 800mW&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Канали&lt;/strong&gt;: 48 каналів (A, B, E, F, R, L)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Живлення&lt;/strong&gt;: 7-26V (2-6S LiPo)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Розмір&lt;/strong&gt;: 36 x 36 мм&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Монтажні отвори&lt;/strong&gt;: 30.5 x 30.5 мм&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="переваги"&gt;Переваги&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Висока потужність&lt;/strong&gt; - до 800mW&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;SmartAudio&lt;/strong&gt; - дистанційне керування&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Широкий діапазон живлення&lt;/strong&gt; - 2-6S&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Компактний розмір&lt;/strong&gt; - легко встановити&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="застосування"&gt;Застосування&lt;/h2&gt;
-&lt;p&gt;Ідеально для:&lt;/p&gt;</description></item><item><title>ПОЛІТНИЙ СТЕК KARMA F405 V1 (Dynamic)</title><link>http://localhost:1313/catalog/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA-karma-f405-v1-dynamic/</link><pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/catalog/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA-karma-f405-v1-dynamic/</guid><description>&lt;h1 id="політний-стек-karma-f405-v1"&gt;ПОЛІТНИЙ СТЕК KARMA F405 V1&lt;/h1&gt;
-&lt;p&gt;Компактна та продуктивна інтегрована система для дронів, що об&amp;rsquo;єднує польотний контролер (FC) на базі потужного мікроконтролера STM32F405 та регулятор швидкості (ESC) 4-в-1 з підтримкою до 50А робочого струму.&lt;/p&gt;
-&lt;h2 id="основні-характеристики"&gt;Основні характеристики&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Мікроконтролер&lt;/strong&gt;: STM32F405RGT6 (168MHz, 1MB Flash)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Гіроскоп/Акселерометр&lt;/strong&gt;: ICM-42688-P&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ESC&lt;/strong&gt;: 4-в-1, 50А робочий / 60А піковий&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Розмір&lt;/strong&gt;: 48.5 x 40 мм&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Монтажні отвори&lt;/strong&gt;: 30.5 x 30.5 мм&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Живлення&lt;/strong&gt;: 2-6S LiPo через роз&amp;rsquo;єм XT-60&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="переваги"&gt;Переваги&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Компактність&lt;/strong&gt; - все в одному корпусі&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Висока продуктивність&lt;/strong&gt; - потужний процесор&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Надійність&lt;/strong&gt; - якісні компоненти&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Простота встановлення&lt;/strong&gt; - стандартні монтажні отвори&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="застосування"&gt;Застосування&lt;/h2&gt;
-&lt;p&gt;Ідеально підходить для:&lt;/p&gt;</description></item><item><title>ПОЛІТНИЙ СТЕК KARMA F405 V2 (Dynamic)</title><link>http://localhost:1313/catalog/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA-karma-f405-v2-dynamic/</link><pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/catalog/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA-karma-f405-v2-dynamic/</guid><description>&lt;h1 id="політний-стек-karma-f405-v2"&gt;ПОЛІТНИЙ СТЕК KARMA F405 V2&lt;/h1&gt;
-&lt;p&gt;Удосконалена версія популярного політного стеку з покращеними характеристиками та додатковими функціями для професійних пілотів.&lt;/p&gt;
-&lt;h2 id="основні-характеристики"&gt;Основні характеристики&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Мікроконтролер&lt;/strong&gt;: STM32F405RGT6 (168MHz, 1MB Flash)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Гіроскоп/Акселерометр&lt;/strong&gt;: ICM-42688-P&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ESC&lt;/strong&gt;: 4-в-1, 55А робочий / 65А піковий&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Розмір&lt;/strong&gt;: 48.5 x 40 мм&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Монтажні отвори&lt;/strong&gt;: 30.5 x 30.5 мм&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Живлення&lt;/strong&gt;: 2-6S LiPo через роз&amp;rsquo;єм XT-60&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="нові-функції-v2"&gt;Нові функції V2&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Збільшений струм&lt;/strong&gt; - до 55А робочий&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Покращене охолодження&lt;/strong&gt; - оптимізована теплопередача&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Додаткові роз&amp;rsquo;єми&lt;/strong&gt; - більше можливостей підключення&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Оновлене ПЗ&lt;/strong&gt; - нові алгоритми стабілізації&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="застосування"&gt;Застосування&lt;/h2&gt;
-&lt;p&gt;Рекомендується для:&lt;/p&gt;</description></item><item><title>ПОЛІТНИЙ СТЕК KARMA F405 V2 (Dynamic)</title><link>http://localhost:1313/catalog/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA-karma-f405-v2-dynamic/</link><pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/catalog/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA-karma-f405-v2-dynamic/</guid><description>&lt;h1 id="політний-стек-karma-f405-v2"&gt;ПОЛІТНИЙ СТЕК KARMA F405 V2&lt;/h1&gt;
-&lt;p&gt;Удосконалена версія популярного політного стеку з покращеними характеристиками та додатковими функціями для професійних пілотів.&lt;/p&gt;
-&lt;h2 id="основні-характеристики"&gt;Основні характеристики&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;strong&gt;Мікроконтролер&lt;/strong&gt;: STM32F405RGT6 (168MHz, 1MB Flash)&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Гіроскоп/Акселерометр&lt;/strong&gt;: ICM-42688-P&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;ESC&lt;/strong&gt;: 4-в-1, 55А робочий / 65А піковий&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Розмір&lt;/strong&gt;: 48.5 x 40 мм&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Монтажні отвори&lt;/strong&gt;: 30.5 x 30.5 мм&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Живлення&lt;/strong&gt;: 2-6S LiPo через роз&amp;rsquo;єм XT-60&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h2 id="нові-функції-v2"&gt;Нові функції V2&lt;/h2&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;strong&gt;Збільшений струм&lt;/strong&gt; - до 55А робочий&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Покращене охолодження&lt;/strong&gt; - оптимізована теплопередача&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Додаткові роз&amp;rsquo;єми&lt;/strong&gt; - більше можливостей підключення&lt;/li&gt;
-&lt;li&gt;&lt;strong&gt;Оновлене ПЗ&lt;/strong&gt; - нові алгоритми стабілізації&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h2 id="застосування"&gt;Застосування&lt;/h2&gt;
-&lt;p&gt;Рекомендується для:&lt;/p&gt;</description></item><item><title>Основи FPV польоту для початківців: частина 1</title><link>http://localhost:1313/guides/%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B8-fpv-%D0%BF%D0%BE%D0%BB%D1%8C%D0%BE%D1%82%D1%83-%D0%B4%D0%BB%D1%8F-%D0%BF%D0%BE%D1%87%D0%B0%D1%82%D0%BA%D1%96%D0%B2%D1%86%D1%96%D0%B2-%D1%87%D0%B0%D1%81%D1%82%D0%B8%D0%BD%D0%B0-1/</link><pubDate>Sun, 21 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/guides/%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B8-fpv-%D0%BF%D0%BE%D0%BB%D1%8C%D0%BE%D1%82%D1%83-%D0%B4%D0%BB%D1%8F-%D0%BF%D0%BE%D1%87%D0%B0%D1%82%D0%BA%D1%96%D0%B2%D1%86%D1%96%D0%B2-%D1%87%D0%B0%D1%81%D1%82%D0%B8%D0%BD%D0%B0-1/</guid><description>&lt;p&gt;FPV (First Person View) політ - це захоплюючий досвід, який дозволяє побачити світ з перспективи дрона. Цей посібник допоможе початківцям освоїти основи FPV польоту.&lt;/p&gt;
-&lt;section id="basics" class="mt-8 scroll-mt-24"&gt;
-&lt;h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3"&gt;Основні принципи FPV польоту&lt;/h2&gt;
-&lt;p class="text-[16px] font-normal font-[Montserrat]"&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>KARMA FLIGHTS - Електронні компоненти для дронів on Karma - Електронні компоненти для дронів</title><link>http://localhost:1313/</link><description>Recent content in KARMA FLIGHTS - Електронні компоненти для дронів on Karma - Електронні компоненти для дронів</description><generator>Hugo</generator><language>uk-UA</language><atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml"/><item><title>Політний стек KARMA F405 V1</title><link>http://localhost:1313/catalog/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA-karma-f405-v1/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/catalog/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA-karma-f405-v1/</guid><description>&lt;p>Компактний та потужний політний стек для FPV дронів з інтегрованим ESC та передовими функціями стабілізації.&lt;/p>
+&lt;h2 id="основні-характеристики">Основні характеристики&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Мікроконтролер&lt;/strong>: STM32F405RGT6 (168MHz, 1MB Flash)&lt;/li>
+&lt;li>&lt;strong>Гіроскоп/Акселерометр&lt;/strong>: ICM-42688-P&lt;/li>
+&lt;li>&lt;strong>ESC&lt;/strong>: 4-в-1, 50А робочий / 60А піковий&lt;/li>
+&lt;li>&lt;strong>Розмір&lt;/strong>: 48.5 x 40 мм&lt;/li>
+&lt;li>&lt;strong>Монтажні отвори&lt;/strong>: 30.5 x 30.5 мм&lt;/li>
+&lt;li>&lt;strong>Живлення&lt;/strong>: 2-6S LiPo через роз&amp;rsquo;єм XT-60&lt;/li>
+&lt;/ul>
+&lt;h2 id="переваги">Переваги&lt;/h2>
+&lt;ol>
+&lt;li>&lt;strong>Компактність&lt;/strong> - все в одному корпусі&lt;/li>
+&lt;li>&lt;strong>Висока продуктивність&lt;/strong> - потужний процесор&lt;/li>
+&lt;li>&lt;strong>Надійність&lt;/strong> - якісні компоненти&lt;/li>
+&lt;li>&lt;strong>Простота встановлення&lt;/strong> - стандартні монтажні отвори&lt;/li>
+&lt;/ol>
+&lt;h2 id="застосування">Застосування&lt;/h2>
+&lt;p>Ідеально підходить для:&lt;/p></description></item><item><title>Створення політного стеку</title><link>http://localhost:1313/guides/%D1%81%D1%82%D0%B2%D0%BE%D1%80%D0%B5%D0%BD%D0%BD%D1%8F-%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%BE%D0%B3%D0%BE-%D1%81%D1%82%D0%B5%D0%BA%D1%83/</link><pubDate>Thu, 28 Aug 2025 15:21:00 +0300</pubDate><guid>http://localhost:1313/guides/%D1%81%D1%82%D0%B2%D0%BE%D1%80%D0%B5%D0%BD%D0%BD%D1%8F-%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%BE%D0%B3%D0%BE-%D1%81%D1%82%D0%B5%D0%BA%D1%83/</guid><description>&lt;h1 id="політні-стеки-та-мікросхеми-огляд-і-приклади">Політні стеки та мікросхеми: огляд і приклади&lt;/h1>
+&lt;p>Політні стеки (&lt;em>Flight Stacks&lt;/em>) та мікросхеми є ключовими компонентами сучасних безпілотних літальних апаратів (БПЛА), робототехніки та інших автономних систем. Вони забезпечують управління, обробку даних і взаємодію з апаратним забезпеченням. У цій статті ми розглянемо основи політних стеків, їх зв’язок із мікросхемами, а також надамо приклади коду для роботи з такими системами.&lt;/p>
+&lt;hr>
+&lt;h2 id="що-таке-політні-стеки">Що таке політні стеки?&lt;/h2>
+&lt;p>Політний стек — це комбінація апаратного та програмного забезпечення, яка відповідає за керування польотом БПЛА. Він включає:&lt;/p></description></item><item><title>Політні стеки</title><link>http://localhost:1313/guides/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D1%96-%D1%81%D1%82%D0%B5%D0%BA%D0%B8/</link><pubDate>Mon, 25 Aug 2025 17:06:00 +0300</pubDate><guid>http://localhost:1313/guides/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D1%96-%D1%81%D1%82%D0%B5%D0%BA%D0%B8/</guid><description>&lt;p>23232323232323&lt;/p></description></item><item><title>New post</title><link>http://localhost:1313/post/new-post/</link><pubDate>Wed, 20 Aug 2025 11:27:56 +0000</pubDate><guid>http://localhost:1313/post/new-post/</guid><description>&lt;p>232332&lt;/p></description></item><item><title>ESC KARMA 45A BLHeli_S</title><link>http://localhost:1313/catalog/esc-karma-45a-blheli_s/</link><pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/catalog/esc-karma-45a-blheli_s/</guid><description>&lt;h1 id="esc-karma-45a-blheli_s">ESC KARMA 45A BLHeli_S&lt;/h1>
+&lt;p>Високоякісний електронний регулятор швидкості з прошивкою BLHeli_S для максимальної продуктивності безколекторних двигунів.&lt;/p>
+&lt;h2 id="основні-характеристики">Основні характеристики&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Струм&lt;/strong>: 45A безперервний&lt;/li>
+&lt;li>&lt;strong>Прошивка&lt;/strong>: BLHeli_S 16.7&lt;/li>
+&lt;li>&lt;strong>Живлення&lt;/strong>: 2-6S LiPo (7.4-25.2V)&lt;/li>
+&lt;li>&lt;strong>Розмір&lt;/strong>: 30x30mm&lt;/li>
+&lt;li>&lt;strong>Монтажні отвори&lt;/strong>: M3&lt;/li>
+&lt;li>&lt;strong>Частота ШІМ&lt;/strong>: 48kHz&lt;/li>
+&lt;/ul>
+&lt;h2 id="переваги">Переваги&lt;/h2>
+&lt;ol>
+&lt;li>&lt;strong>BLHeli_S прошивка&lt;/strong> - оптимальна продуктивність&lt;/li>
+&lt;li>&lt;strong>Висока частота ШІМ&lt;/strong> - плавне керування&lt;/li>
+&lt;li>&lt;strong>Компактний розмір&lt;/strong> - легко встановити&lt;/li>
+&lt;li>&lt;strong>Надійність&lt;/strong> - якісні компоненти&lt;/li>
+&lt;/ol>
+&lt;h2 id="функції">Функції&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Dshot протокол&lt;/strong> - цифрове керування&lt;/li>
+&lt;li>&lt;strong>Телеметрія&lt;/strong> - моніторинг параметрів&lt;/li>
+&lt;li>&lt;strong>Захист від перегріву&lt;/strong> - автоматичне відключення&lt;/li>
+&lt;li>&lt;strong>Реверс&lt;/strong> - зміна напрямку обертання&lt;/li>
+&lt;/ul>
+&lt;h2 id="застосування">Застосування&lt;/h2>
+&lt;p>Рекомендується для:&lt;/p></description></item><item><title>VTX KARMA 5.8GHz 800mW</title><link>http://localhost:1313/catalog/vtx-karma-5.8ghz-800mw/</link><pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/catalog/vtx-karma-5.8ghz-800mw/</guid><description>&lt;h1 id="vtx-karma-58ghz-800mw">VTX KARMA 5.8GHz 800mW&lt;/h1>
+&lt;p>Професійний відеопередавач для FPV дронів з високою потужністю та надійністю передачі сигналу.&lt;/p>
+&lt;h2 id="основні-характеристики">Основні характеристики&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Частота&lt;/strong>: 5.8GHz&lt;/li>
+&lt;li>&lt;strong>Потужність&lt;/strong>: 25mW / 200mW / 500mW / 800mW&lt;/li>
+&lt;li>&lt;strong>Канали&lt;/strong>: 48 каналів (A, B, E, F, R, L)&lt;/li>
+&lt;li>&lt;strong>Живлення&lt;/strong>: 7-26V (2-6S LiPo)&lt;/li>
+&lt;li>&lt;strong>Розмір&lt;/strong>: 36 x 36 мм&lt;/li>
+&lt;li>&lt;strong>Монтажні отвори&lt;/strong>: 30.5 x 30.5 мм&lt;/li>
+&lt;/ul>
+&lt;h2 id="переваги">Переваги&lt;/h2>
+&lt;ol>
+&lt;li>&lt;strong>Висока потужність&lt;/strong> - до 800mW&lt;/li>
+&lt;li>&lt;strong>SmartAudio&lt;/strong> - дистанційне керування&lt;/li>
+&lt;li>&lt;strong>Широкий діапазон живлення&lt;/strong> - 2-6S&lt;/li>
+&lt;li>&lt;strong>Компактний розмір&lt;/strong> - легко встановити&lt;/li>
+&lt;/ol>
+&lt;h2 id="застосування">Застосування&lt;/h2>
+&lt;p>Ідеально для:&lt;/p></description></item><item><title>ПОЛІТНИЙ СТЕК KARMA F405 V1 (Dynamic)</title><link>http://localhost:1313/catalog/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA-karma-f405-v1-dynamic/</link><pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/catalog/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA-karma-f405-v1-dynamic/</guid><description>&lt;h1 id="політний-стек-karma-f405-v1">ПОЛІТНИЙ СТЕК KARMA F405 V1&lt;/h1>
+&lt;p>Компактна та продуктивна інтегрована система для дронів, що об&amp;rsquo;єднує польотний контролер (FC) на базі потужного мікроконтролера STM32F405 та регулятор швидкості (ESC) 4-в-1 з підтримкою до 50А робочого струму.&lt;/p>
+&lt;h2 id="основні-характеристики">Основні характеристики&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Мікроконтролер&lt;/strong>: STM32F405RGT6 (168MHz, 1MB Flash)&lt;/li>
+&lt;li>&lt;strong>Гіроскоп/Акселерометр&lt;/strong>: ICM-42688-P&lt;/li>
+&lt;li>&lt;strong>ESC&lt;/strong>: 4-в-1, 50А робочий / 60А піковий&lt;/li>
+&lt;li>&lt;strong>Розмір&lt;/strong>: 48.5 x 40 мм&lt;/li>
+&lt;li>&lt;strong>Монтажні отвори&lt;/strong>: 30.5 x 30.5 мм&lt;/li>
+&lt;li>&lt;strong>Живлення&lt;/strong>: 2-6S LiPo через роз&amp;rsquo;єм XT-60&lt;/li>
+&lt;/ul>
+&lt;h2 id="переваги">Переваги&lt;/h2>
+&lt;ol>
+&lt;li>&lt;strong>Компактність&lt;/strong> - все в одному корпусі&lt;/li>
+&lt;li>&lt;strong>Висока продуктивність&lt;/strong> - потужний процесор&lt;/li>
+&lt;li>&lt;strong>Надійність&lt;/strong> - якісні компоненти&lt;/li>
+&lt;li>&lt;strong>Простота встановлення&lt;/strong> - стандартні монтажні отвори&lt;/li>
+&lt;/ol>
+&lt;h2 id="застосування">Застосування&lt;/h2>
+&lt;p>Ідеально підходить для:&lt;/p></description></item><item><title>ПОЛІТНИЙ СТЕК KARMA F405 V2 (Dynamic)</title><link>http://localhost:1313/catalog/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA-karma-f405-v2-dynamic/</link><pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/catalog/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA-karma-f405-v2-dynamic/</guid><description>&lt;h1 id="політний-стек-karma-f405-v2">ПОЛІТНИЙ СТЕК KARMA F405 V2&lt;/h1>
+&lt;p>Удосконалена версія популярного політного стеку з покращеними характеристиками та додатковими функціями для професійних пілотів.&lt;/p>
+&lt;h2 id="основні-характеристики">Основні характеристики&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Мікроконтролер&lt;/strong>: STM32F405RGT6 (168MHz, 1MB Flash)&lt;/li>
+&lt;li>&lt;strong>Гіроскоп/Акселерометр&lt;/strong>: ICM-42688-P&lt;/li>
+&lt;li>&lt;strong>ESC&lt;/strong>: 4-в-1, 55А робочий / 65А піковий&lt;/li>
+&lt;li>&lt;strong>Розмір&lt;/strong>: 48.5 x 40 мм&lt;/li>
+&lt;li>&lt;strong>Монтажні отвори&lt;/strong>: 30.5 x 30.5 мм&lt;/li>
+&lt;li>&lt;strong>Живлення&lt;/strong>: 2-6S LiPo через роз&amp;rsquo;єм XT-60&lt;/li>
+&lt;/ul>
+&lt;h2 id="нові-функції-v2">Нові функції V2&lt;/h2>
+&lt;ol>
+&lt;li>&lt;strong>Збільшений струм&lt;/strong> - до 55А робочий&lt;/li>
+&lt;li>&lt;strong>Покращене охолодження&lt;/strong> - оптимізована теплопередача&lt;/li>
+&lt;li>&lt;strong>Додаткові роз&amp;rsquo;єми&lt;/strong> - більше можливостей підключення&lt;/li>
+&lt;li>&lt;strong>Оновлене ПЗ&lt;/strong> - нові алгоритми стабілізації&lt;/li>
+&lt;/ol>
+&lt;h2 id="застосування">Застосування&lt;/h2>
+&lt;p>Рекомендується для:&lt;/p></description></item><item><title>ПОЛІТНИЙ СТЕК KARMA F405 V2 (Dynamic)</title><link>http://localhost:1313/catalog/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA-karma-f405-v2-dynamic/</link><pubDate>Sun, 25 Aug 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/catalog/%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA-karma-f405-v2-dynamic/</guid><description>&lt;h1 id="політний-стек-karma-f405-v2">ПОЛІТНИЙ СТЕК KARMA F405 V2&lt;/h1>
+&lt;p>Удосконалена версія популярного політного стеку з покращеними характеристиками та додатковими функціями для професійних пілотів.&lt;/p>
+&lt;h2 id="основні-характеристики">Основні характеристики&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Мікроконтролер&lt;/strong>: STM32F405RGT6 (168MHz, 1MB Flash)&lt;/li>
+&lt;li>&lt;strong>Гіроскоп/Акселерометр&lt;/strong>: ICM-42688-P&lt;/li>
+&lt;li>&lt;strong>ESC&lt;/strong>: 4-в-1, 55А робочий / 65А піковий&lt;/li>
+&lt;li>&lt;strong>Розмір&lt;/strong>: 48.5 x 40 мм&lt;/li>
+&lt;li>&lt;strong>Монтажні отвори&lt;/strong>: 30.5 x 30.5 мм&lt;/li>
+&lt;li>&lt;strong>Живлення&lt;/strong>: 2-6S LiPo через роз&amp;rsquo;єм XT-60&lt;/li>
+&lt;/ul>
+&lt;h2 id="нові-функції-v2">Нові функції V2&lt;/h2>
+&lt;ol>
+&lt;li>&lt;strong>Збільшений струм&lt;/strong> - до 55А робочий&lt;/li>
+&lt;li>&lt;strong>Покращене охолодження&lt;/strong> - оптимізована теплопередача&lt;/li>
+&lt;li>&lt;strong>Додаткові роз&amp;rsquo;єми&lt;/strong> - більше можливостей підключення&lt;/li>
+&lt;li>&lt;strong>Оновлене ПЗ&lt;/strong> - нові алгоритми стабілізації&lt;/li>
+&lt;/ol>
+&lt;h2 id="застосування">Застосування&lt;/h2>
+&lt;p>Рекомендується для:&lt;/p></description></item><item><title>Основи FPV польоту для початківців: частина 1</title><link>http://localhost:1313/guides/%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B8-fpv-%D0%BF%D0%BE%D0%BB%D1%8C%D0%BE%D1%82%D1%83-%D0%B4%D0%BB%D1%8F-%D0%BF%D0%BE%D1%87%D0%B0%D1%82%D0%BA%D1%96%D0%B2%D1%86%D1%96%D0%B2-%D1%87%D0%B0%D1%81%D1%82%D0%B8%D0%BD%D0%B0-1/</link><pubDate>Sun, 21 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/guides/%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D0%B8-fpv-%D0%BF%D0%BE%D0%BB%D1%8C%D0%BE%D1%82%D1%83-%D0%B4%D0%BB%D1%8F-%D0%BF%D0%BE%D1%87%D0%B0%D1%82%D0%BA%D1%96%D0%B2%D1%86%D1%96%D0%B2-%D1%87%D0%B0%D1%81%D1%82%D0%B8%D0%BD%D0%B0-1/</guid><description>&lt;p>FPV (First Person View) політ - це захоплюючий досвід, який дозволяє побачити світ з перспективи дрона. Цей посібник допоможе початківцям освоїти основи FPV польоту.&lt;/p>
+&lt;section id="basics" class="mt-8 scroll-mt-24">
+&lt;h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Основні принципи FPV польоту&lt;/h2>
+&lt;p class="text-[16px] font-normal font-[Montserrat]">
 FPV політ базується на кількох ключових принципах:
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Орієнтація в просторі&lt;/strong&gt; - розуміння позиції дрона
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Контроль швидкості&lt;/strong&gt; - плавне керування
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Передбачення траєкторії&lt;/strong&gt; - планування руху
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Реакція на зміни&lt;/strong&gt; - швидке реагування
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Безпека польоту&lt;/strong&gt; - уникнення небезпечних ситуацій
-&lt;/p&gt;</description></item><item><title>Калібрування ESC регуляторів швидкості</title><link>http://localhost:1313/guides/%D0%BA%D0%B0%D0%BB%D1%96%D0%B1%D1%80%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-esc-%D1%80%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%D1%96%D0%B2-%D1%88%D0%B2%D0%B8%D0%B4%D0%BA%D0%BE%D1%81%D1%82%D1%96/</link><pubDate>Sat, 20 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/guides/%D0%BA%D0%B0%D0%BB%D1%96%D0%B1%D1%80%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-esc-%D1%80%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%D1%96%D0%B2-%D1%88%D0%B2%D0%B8%D0%B4%D0%BA%D0%BE%D1%81%D1%82%D1%96/</guid><description>&lt;p&gt;Калібрування ESC (Electronic Speed Controller) є важливим кроком для забезпечення синхронної роботи всіх моторів дрона. Неправильно відкалібровані регулятори можуть призвести до вібрацій, нестабільного польоту та зниження ефективності.&lt;/p&gt;
-&lt;section id="when" class="mt-8 scroll-mt-24"&gt;
-&lt;h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3"&gt;Коли потрібно калібрувати ESC&lt;/h2&gt;
-&lt;p class="text-[16px] font-normal font-[Montserrat]"&gt;
+&lt;br />
+&lt;br />
+&lt;strong>Орієнтація в просторі&lt;/strong> - розуміння позиції дрона
+&lt;br />
+&lt;br />
+&lt;strong>Контроль швидкості&lt;/strong> - плавне керування
+&lt;br />
+&lt;br />
+&lt;strong>Передбачення траєкторії&lt;/strong> - планування руху
+&lt;br />
+&lt;br />
+&lt;strong>Реакція на зміни&lt;/strong> - швидке реагування
+&lt;br />
+&lt;br />
+&lt;strong>Безпека польоту&lt;/strong> - уникнення небезпечних ситуацій
+&lt;/p></description></item><item><title>Калібрування ESC регуляторів швидкості</title><link>http://localhost:1313/guides/%D0%BA%D0%B0%D0%BB%D1%96%D0%B1%D1%80%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-esc-%D1%80%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%D1%96%D0%B2-%D1%88%D0%B2%D0%B8%D0%B4%D0%BA%D0%BE%D1%81%D1%82%D1%96/</link><pubDate>Sat, 20 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/guides/%D0%BA%D0%B0%D0%BB%D1%96%D0%B1%D1%80%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-esc-%D1%80%D0%B5%D0%B3%D1%83%D0%BB%D1%8F%D1%82%D0%BE%D1%80%D1%96%D0%B2-%D1%88%D0%B2%D0%B8%D0%B4%D0%BA%D0%BE%D1%81%D1%82%D1%96/</guid><description>&lt;p>Калібрування ESC (Electronic Speed Controller) є важливим кроком для забезпечення синхронної роботи всіх моторів дрона. Неправильно відкалібровані регулятори можуть призвести до вібрацій, нестабільного польоту та зниження ефективності.&lt;/p>
+&lt;section id="when" class="mt-8 scroll-mt-24">
+&lt;h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Коли потрібно калібрувати ESC&lt;/h2>
+&lt;p class="text-[16px] font-normal font-[Montserrat]">
 Калібрування необхідне в наступних випадках:
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Перша збірка дрона&lt;/strong&gt; з новими ESC
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Заміна одного або кількох ESC&lt;/strong&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Проблеми з синхронізацією моторів&lt;/strong&gt;
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Після оновлення прошивки ESC&lt;/strong&gt;
-&lt;/p&gt;</description></item><item><title>Повна інструкція зі збірки FPV дрона</title><link>http://localhost:1313/guides/%D0%BF%D0%BE%D0%B2%D0%BD%D0%B0-%D1%96%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D1%96%D1%8F-%D0%B7%D1%96-%D0%B7%D0%B1%D1%96%D1%80%D0%BA%D0%B8-fpv-%D0%B4%D1%80%D0%BE%D0%BD%D0%B0/</link><pubDate>Sat, 20 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/guides/%D0%BF%D0%BE%D0%B2%D0%BD%D0%B0-%D1%96%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D1%96%D1%8F-%D0%B7%D1%96-%D0%B7%D0%B1%D1%96%D1%80%D0%BA%D0%B8-fpv-%D0%B4%D1%80%D0%BE%D0%BD%D0%B0/</guid><description>&lt;p&gt;Збірка FPV дрона - це захоплюючий процес, який вимагає уважності до деталей та правильного підходу. Цей посібник допоможе вам створити надійний та ефективний дрон з нуля.&lt;/p&gt;
-&lt;section id="components" class="mt-8 scroll-mt-24"&gt;
-&lt;h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3"&gt;Необхідні компоненти&lt;/h2&gt;
-&lt;p class="text-[16px] font-normal font-[Montserrat]"&gt;
+&lt;br />
+&lt;br />
+&lt;strong>Перша збірка дрона&lt;/strong> з новими ESC
+&lt;br />
+&lt;br />
+&lt;strong>Заміна одного або кількох ESC&lt;/strong>
+&lt;br />
+&lt;br />
+&lt;strong>Проблеми з синхронізацією моторів&lt;/strong>
+&lt;br />
+&lt;br />
+&lt;strong>Після оновлення прошивки ESC&lt;/strong>
+&lt;/p></description></item><item><title>Повна інструкція зі збірки FPV дрона</title><link>http://localhost:1313/guides/%D0%BF%D0%BE%D0%B2%D0%BD%D0%B0-%D1%96%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D1%96%D1%8F-%D0%B7%D1%96-%D0%B7%D0%B1%D1%96%D1%80%D0%BA%D0%B8-fpv-%D0%B4%D1%80%D0%BE%D0%BD%D0%B0/</link><pubDate>Sat, 20 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/guides/%D0%BF%D0%BE%D0%B2%D0%BD%D0%B0-%D1%96%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D1%96%D1%8F-%D0%B7%D1%96-%D0%B7%D0%B1%D1%96%D1%80%D0%BA%D0%B8-fpv-%D0%B4%D1%80%D0%BE%D0%BD%D0%B0/</guid><description>&lt;p>Збірка FPV дрона - це захоплюючий процес, який вимагає уважності до деталей та правильного підходу. Цей посібник допоможе вам створити надійний та ефективний дрон з нуля.&lt;/p>
+&lt;section id="components" class="mt-8 scroll-mt-24">
+&lt;h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Необхідні компоненти&lt;/h2>
+&lt;p class="text-[16px] font-normal font-[Montserrat]">
 Для збірки FPV дрона вам знадобиться:
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Рама дрона&lt;/strong&gt; - основа конструкції
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Політний контролер&lt;/strong&gt; - мозок дрона
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;ESC регулятори&lt;/strong&gt; - керують моторами
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Мотори&lt;/strong&gt; - створюють тягу
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Пропелери&lt;/strong&gt; - перетворюють обертання в тягу
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Акумулятор&lt;/strong&gt; - джерело живлення
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;FPV камера&lt;/strong&gt; - передає відео
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Відеопередавач&lt;/strong&gt; - передає сигнал
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Антени&lt;/strong&gt; - для прийому/передачі сигналу
-&lt;/p&gt;</description></item><item><title>Налаштування відеопередавача для FPV</title><link>http://localhost:1313/guides/%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B2%D1%96%D0%B4%D0%B5%D0%BE%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D0%B2%D0%B0%D1%87%D0%B0-%D0%B4%D0%BB%D1%8F-fpv/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/guides/%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B2%D1%96%D0%B4%D0%B5%D0%BE%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D0%B2%D0%B0%D1%87%D0%B0-%D0%B4%D0%BB%D1%8F-fpv/</guid><description>&lt;p&gt;Правильне налаштування відеопередавача є критично важливим для якісного FPV польоту. Від цього залежить стабільність сигналу, якість зображення та дальність передачі.&lt;/p&gt;
-&lt;section id="frequency" class="mt-8 scroll-mt-24"&gt;
-&lt;h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3"&gt;Вибір частоти&lt;/h2&gt;
-&lt;p class="text-[16px] font-normal font-[Montserrat]"&gt;
+&lt;br />
+&lt;br />
+&lt;strong>Рама дрона&lt;/strong> - основа конструкції
+&lt;br />
+&lt;br />
+&lt;strong>Політний контролер&lt;/strong> - мозок дрона
+&lt;br />
+&lt;br />
+&lt;strong>ESC регулятори&lt;/strong> - керують моторами
+&lt;br />
+&lt;br />
+&lt;strong>Мотори&lt;/strong> - створюють тягу
+&lt;br />
+&lt;br />
+&lt;strong>Пропелери&lt;/strong> - перетворюють обертання в тягу
+&lt;br />
+&lt;br />
+&lt;strong>Акумулятор&lt;/strong> - джерело живлення
+&lt;br />
+&lt;br />
+&lt;strong>FPV камера&lt;/strong> - передає відео
+&lt;br />
+&lt;br />
+&lt;strong>Відеопередавач&lt;/strong> - передає сигнал
+&lt;br />
+&lt;br />
+&lt;strong>Антени&lt;/strong> - для прийому/передачі сигналу
+&lt;/p></description></item><item><title>Налаштування відеопередавача для FPV</title><link>http://localhost:1313/guides/%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B2%D1%96%D0%B4%D0%B5%D0%BE%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D0%B2%D0%B0%D1%87%D0%B0-%D0%B4%D0%BB%D1%8F-fpv/</link><pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/guides/%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-%D0%B2%D1%96%D0%B4%D0%B5%D0%BE%D0%BF%D0%B5%D1%80%D0%B5%D0%B4%D0%B0%D0%B2%D0%B0%D1%87%D0%B0-%D0%B4%D0%BB%D1%8F-fpv/</guid><description>&lt;p>Правильне налаштування відеопередавача є критично важливим для якісного FPV польоту. Від цього залежить стабільність сигналу, якість зображення та дальність передачі.&lt;/p>
+&lt;section id="frequency" class="mt-8 scroll-mt-24">
+&lt;h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Вибір частоти&lt;/h2>
+&lt;p class="text-[16px] font-normal font-[Montserrat]">
 Перш ніж розпочати налаштування, важливо обрати правильну частоту передачі:
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;5.8 GHz діапазон&lt;/strong&gt; - найпопулярніший для FPV
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Перевірте локальні регуляції&lt;/strong&gt; щодо дозволених частот
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;Уникайте перетину з іншими пілотами&lt;/strong&gt; на тому ж майданчику
-&lt;/p&gt;
-&lt;/section&gt;
-&lt;section id="power" class="mt-10 scroll-mt-24"&gt;
-&lt;h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3"&gt;Налаштування потужності&lt;/h2&gt;
-&lt;p class="text-[16px] font-normal font-[Montserrat]"&gt;
+&lt;br />
+&lt;br />
+&lt;strong>5.8 GHz діапазон&lt;/strong> - найпопулярніший для FPV
+&lt;br />
+&lt;br />
+&lt;strong>Перевірте локальні регуляції&lt;/strong> щодо дозволених частот
+&lt;br />
+&lt;br />
+&lt;strong>Уникайте перетину з іншими пілотами&lt;/strong> на тому ж майданчику
+&lt;/p>
+&lt;/section>
+&lt;section id="power" class="mt-10 scroll-mt-24">
+&lt;h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Налаштування потужності&lt;/h2>
+&lt;p class="text-[16px] font-normal font-[Montserrat]">
 Потужність передавача впливає на дальність та якість сигналу:
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;25mW&lt;/strong&gt; - для польотів в приміщенні
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;200mW&lt;/strong&gt; - стандартна потужність для більшості польотів
-&lt;br /&gt;
-&lt;br /&gt;
-&lt;strong&gt;600mW+&lt;/strong&gt; - для дальніх польотів (перевірте регуляції)
-&lt;/p&gt;</description></item><item><title>Налаштування VTX2</title><link>http://localhost:1313/guides/%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-vtx2/</link><pubDate>Wed, 03 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/guides/%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-vtx2/</guid><description>&lt;p&gt;Правильне налаштування відеопередавача (VTX) критично важливо для якісного FPV польоту.&lt;/p&gt;
-&lt;section id="channels" class="mt-8 scroll-mt-24"&gt;
-&lt;h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3"&gt;Вибір каналу&lt;/h2&gt;
-&lt;ul class="list-disc pl-5 space-y-2 text-[#333]"&gt;
-&lt;li class="flex gap-3 items-center"&gt;
-&lt;img width="35" height="35" class="cursor-pointer" src="http://localhost:1313/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;"/&gt;
-&lt;p class="text-[16px] font-normal font-[Montserrat]"&gt;
+&lt;br />
+&lt;br />
+&lt;strong>25mW&lt;/strong> - для польотів в приміщенні
+&lt;br />
+&lt;br />
+&lt;strong>200mW&lt;/strong> - стандартна потужність для більшості польотів
+&lt;br />
+&lt;br />
+&lt;strong>600mW+&lt;/strong> - для дальніх польотів (перевірте регуляції)
+&lt;/p></description></item><item><title>Налаштування VTX2</title><link>http://localhost:1313/guides/%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-vtx2/</link><pubDate>Wed, 03 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/guides/%D0%BD%D0%B0%D0%BB%D0%B0%D1%88%D1%82%D1%83%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F-vtx2/</guid><description>&lt;p>Правильне налаштування відеопередавача (VTX) критично важливо для якісного FPV польоту.&lt;/p>
+&lt;section id="channels" class="mt-8 scroll-mt-24">
+&lt;h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Вибір каналу&lt;/h2>
+&lt;ul class="list-disc pl-5 space-y-2 text-[#333]">
+&lt;li class="flex gap-3 items-center">
+&lt;img width="35" height="35" class="cursor-pointer" src="http://localhost:1313/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;"/>
+&lt;p class="text-[16px] font-normal font-[Montserrat]">
 Перевірте доступні канали у вашому регіоні
-&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class="flex gap-3 items-center"&gt;
-&lt;img width="35" height="35" class="cursor-pointer" src="http://localhost:1313/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;"/&gt;
-&lt;p class="text-[16px] font-normal font-[Montserrat]"&gt;
-Уникніть &lt;span class="text-[#ba0108] underline"&gt;завантажених&lt;/span&gt; каналів
-&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class="flex gap-3 items-center"&gt;
-&lt;img width="35" height="35" src="http://localhost:1313/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" /&gt;
-&lt;p class="text-[16px] font-normal font-[Montserrat]"&gt;
+&lt;/p>
+&lt;/li>
+&lt;li class="flex gap-3 items-center">
+&lt;img width="35" height="35" class="cursor-pointer" src="http://localhost:1313/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;"/>
+&lt;p class="text-[16px] font-normal font-[Montserrat]">
+Уникніть &lt;span class="text-[#ba0108] underline">завантажених&lt;/span> каналів
+&lt;/p>
+&lt;/li>
+&lt;li class="flex gap-3 items-center">
+&lt;img width="35" height="35" src="http://localhost:1313/img/list-guide-three.png" alt="" style="filter: none; box-shadow: none;" />
+&lt;p class="text-[16px] font-normal font-[Montserrat]">
 Використовуйте Race Band для змагань
-&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class="flex gap-3 items-center"&gt;
-&lt;img width="35" height="35" src="http://localhost:1313/img/list-guide-four.png" alt="" style="filter: none; box-shadow: none;" /&gt;
-&lt;p class="text-[16px] font-normal font-[Montserrat]"&gt;
+&lt;/p>
+&lt;/li>
+&lt;li class="flex gap-3 items-center">
+&lt;img width="35" height="35" src="http://localhost:1313/img/list-guide-four.png" alt="" style="filter: none; box-shadow: none;" />
+&lt;p class="text-[16px] font-normal font-[Montserrat]">
 Перевірте локальні регуляції щодо частот
-&lt;/p&gt;</description></item><item><title>Як правильно паяти політний стек. Інструкція 1</title><link>http://localhost:1313/guides/%D1%8F%D0%BA-%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE-%D0%BF%D0%B0%D1%8F%D1%82%D0%B8-%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA.-%D1%96%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D1%96%D1%8F-1/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/guides/%D1%8F%D0%BA-%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE-%D0%BF%D0%B0%D1%8F%D1%82%D0%B8-%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA.-%D1%96%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D1%96%D1%8F-1/</guid><description>&lt;p&gt;Для успішного паяння політного стека, важливо знати правильну техніку, уникати
+&lt;/p></description></item><item><title>Як правильно паяти політний стек. Інструкція 1</title><link>http://localhost:1313/guides/%D1%8F%D0%BA-%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE-%D0%BF%D0%B0%D1%8F%D1%82%D0%B8-%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA.-%D1%96%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D1%96%D1%8F-1/</link><pubDate>Mon, 01 Jan 2024 00:00:00 +0000</pubDate><guid>http://localhost:1313/guides/%D1%8F%D0%BA-%D0%BF%D1%80%D0%B0%D0%B2%D0%B8%D0%BB%D1%8C%D0%BD%D0%BE-%D0%BF%D0%B0%D1%8F%D1%82%D0%B8-%D0%BF%D0%BE%D0%BB%D1%96%D1%82%D0%BD%D0%B8%D0%B9-%D1%81%D1%82%D0%B5%D0%BA.-%D1%96%D0%BD%D1%81%D1%82%D1%80%D1%83%D0%BA%D1%86%D1%96%D1%8F-1/</guid><description>&lt;p>Для успішного паяння політного стека, важливо знати правильну техніку, уникати
 поширених помилок та дотримуватися певних рекомендацій. Цей процес вимагає
-точності та терпіння, щоб не пошкодити чутливі компоненти.&lt;/p&gt;
-&lt;section id="errors" class="mt-8 scroll-mt-24"&gt;
-&lt;h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3"&gt;Опис помилок&lt;/h2&gt;
-&lt;ul class="list-disc pl-5 space-y-2 text-[#333]"&gt;
-&lt;li class="flex gap-3 items-center"&gt;
-&lt;img width="35" height="35" class="cursor-pointer" src="http://localhost:1313/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;"/&gt;
-&lt;p class="text-[16px] font-normal font-[Montserrat]"&gt;
+точності та терпіння, щоб не пошкодити чутливі компоненти.&lt;/p>
+&lt;section id="errors" class="mt-8 scroll-mt-24">
+&lt;h2 class="font-[Montserrat] text-[20px] lg:text-[24px] border-b border-[#ba0108] pb-3 font-normal mb-3">Опис помилок&lt;/h2>
+&lt;ul class="list-disc pl-5 space-y-2 text-[#333]">
+&lt;li class="flex gap-3 items-center">
+&lt;img width="35" height="35" class="cursor-pointer" src="http://localhost:1313/img/list-guide-one.png" alt="" style="filter: none; box-shadow: none;"/>
+&lt;p class="text-[16px] font-normal font-[Montserrat]">
 Перегрівання компонентів. Занадто висока температура паяльника або тривалий контакт може пошкодити мікросхеми та контакти на платі. Це найчастіша помилка.
-&lt;/p&gt;
-&lt;/li&gt;
-&lt;li class="flex gap-3 items-center"&gt;
-&lt;img width="35" height="35" src="http://localhost:1313/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;" /&gt;
-&lt;p class="text-[16px] font-normal font-[Montserrat]"&gt;
-Перегрівання компонентів. Занадто &lt;span class="text-[#ba0108] underline"&gt;висока температура&lt;/span&gt; паяльника або тривалий контакт може пошкодити мікросхеми та контакти на платі. Це найчастіша помилка.
-&lt;/p&gt;</description></item><item><title>A beginners’ guide to brewing with Chemex</title><link>http://localhost:1313/post/brewing-chemex/</link><pubDate>Wed, 04 Jan 2017 15:04:10 +0000</pubDate><guid>http://localhost:1313/post/brewing-chemex/</guid><description>&lt;p&gt;This &lt;a href="http://localhost:1313/wdwdw"&gt;week&lt;/a&gt; we’ll &lt;strong&gt;take&lt;/strong&gt; a look at all the steps required to make astonishing coffee with a Chemex at home. The Chemex Coffeemaker is a manual, pour-over style glass-container coffeemaker that Peter Schlumbohm invented in 1941, and which continues to be manufactured by the Chemex Corporation in Chicopee, Massachusetts*.&lt;/p&gt;
-&lt;p&gt;In 1958, designers at the &lt;a href="https://www.spacefarm.digital"&gt;Illinois Institute of Technology&lt;/a&gt; said that the Chemex Coffeemaker is &lt;em&gt;&amp;ldquo;one of the best-designed products of modern times&amp;rdquo;&lt;/em&gt;, and so is included in the collection of the Museum of Modern Art in New York City.&lt;/p&gt;</description></item><item><title>Just in: small batch of Jamaican Blue Mountain in store next week</title><link>http://localhost:1313/post/jamaica-blue/</link><pubDate>Wed, 04 Jan 2017 15:04:10 +0000</pubDate><guid>http://localhost:1313/post/jamaica-blue/</guid><description>&lt;p&gt;We expect the shipment of a limited quantity of green beans next Monday. We’ll be offering the roasted beans from Tuesday, but quantities are limited, so be quick.&lt;/p&gt;
-&lt;p&gt;Blue Mountain Peak is the highest mountain in Jamaica and one of the highest peaks in the Caribbean at 7,402 ft. It is the home of Blue Mountain coffee and their famous tours. It is located on the border of the Portland and Saint Thomas parishes of Jamaica.&lt;/p&gt;</description></item><item><title>Making sense of the SCAA’s new Flavor Wheel</title><link>http://localhost:1313/post/making-sense/</link><pubDate>Sat, 17 Dec 2016 15:04:10 +0000</pubDate><guid>http://localhost:1313/post/making-sense/</guid><description>&lt;p&gt;The SCAA updated the wheel to reflect the finer nuances needed to describe flavors more precisely. The new descriptions are more detailed and hence allow cuppers to distinguish between more flavors.&lt;/p&gt;
-&lt;p&gt;While this is going to be a big change for professional coffee tasters, it means a lot to you as a consumer as well. We’ll explain how the wheel came to be, how pros use it and what the flavors actually mean.&lt;/p&gt;</description></item></channel></rss>
+&lt;/p>
+&lt;/li>
+&lt;li class="flex gap-3 items-center">
+&lt;img width="35" height="35" src="http://localhost:1313/img/list-guide-two.png" alt="" style="filter: none; box-shadow: none;" />
+&lt;p class="text-[16px] font-normal font-[Montserrat]">
+Перегрівання компонентів. Занадто &lt;span class="text-[#ba0108] underline">висока температура&lt;/span> паяльника або тривалий контакт може пошкодити мікросхеми та контакти на платі. Це найчастіша помилка.
+&lt;/p></description></item><item><title>A beginners’ guide to brewing with Chemex</title><link>http://localhost:1313/post/brewing-chemex/</link><pubDate>Wed, 04 Jan 2017 15:04:10 +0000</pubDate><guid>http://localhost:1313/post/brewing-chemex/</guid><description>&lt;p>This &lt;a href="http://localhost:1313/wdwdw">week&lt;/a> we’ll &lt;strong>take&lt;/strong> a look at all the steps required to make astonishing coffee with a Chemex at home. The Chemex Coffeemaker is a manual, pour-over style glass-container coffeemaker that Peter Schlumbohm invented in 1941, and which continues to be manufactured by the Chemex Corporation in Chicopee, Massachusetts*.&lt;/p>
+&lt;p>In 1958, designers at the &lt;a href="https://www.spacefarm.digital">Illinois Institute of Technology&lt;/a> said that the Chemex Coffeemaker is &lt;em>&amp;ldquo;one of the best-designed products of modern times&amp;rdquo;&lt;/em>, and so is included in the collection of the Museum of Modern Art in New York City.&lt;/p></description></item><item><title>Just in: small batch of Jamaican Blue Mountain in store next week</title><link>http://localhost:1313/post/jamaica-blue/</link><pubDate>Wed, 04 Jan 2017 15:04:10 +0000</pubDate><guid>http://localhost:1313/post/jamaica-blue/</guid><description>&lt;p>We expect the shipment of a limited quantity of green beans next Monday. We’ll be offering the roasted beans from Tuesday, but quantities are limited, so be quick.&lt;/p>
+&lt;p>Blue Mountain Peak is the highest mountain in Jamaica and one of the highest peaks in the Caribbean at 7,402 ft. It is the home of Blue Mountain coffee and their famous tours. It is located on the border of the Portland and Saint Thomas parishes of Jamaica.&lt;/p></description></item><item><title>Making sense of the SCAA’s new Flavor Wheel</title><link>http://localhost:1313/post/making-sense/</link><pubDate>Sat, 17 Dec 2016 15:04:10 +0000</pubDate><guid>http://localhost:1313/post/making-sense/</guid><description>&lt;p>The SCAA updated the wheel to reflect the finer nuances needed to describe flavors more precisely. The new descriptions are more detailed and hence allow cuppers to distinguish between more flavors.&lt;/p>
+&lt;p>While this is going to be a big change for professional coffee tasters, it means a lot to you as a consumer as well. We’ll explain how the wheel came to be, how pros use it and what the flavors actually mean.&lt;/p></description></item></channel></rss>

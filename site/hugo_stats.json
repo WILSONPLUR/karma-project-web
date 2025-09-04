@@ -63,7 +63,6 @@
       "!rounded-[20px]",
       "!text-[clamp(24px,3vw,48px)]",
       "!text-[clamp(24px,4vw,40px)]",
-      "*",
       "-bottom-3",
       "-left-7",
       "-left-[60px]",
@@ -151,7 +150,6 @@
       "brightness-0",
       "catalog-accordion-question-text",
       "center",
-      "cm-positive",
       "cms",
       "color-[#fefefe]",
       "contact-details",
@@ -240,7 +238,6 @@
       "gap-8",
       "gap-[10px]",
       "gap-[20px]",
-      "gap-[20px]bg-white",
       "gap-[30px]",
       "gap-[34px]",
       "gap-[35px]",
@@ -336,7 +333,6 @@
       "hero-title",
       "hidden",
       "highlight",
-      "hover:bg-[#9a0106]",
       "hover:bg-[#DD8084]",
       "hover:bg-[#a00007]",
       "hover:bg-[#ba0107d5]",
@@ -359,7 +355,6 @@
       "items-center",
       "items-end",
       "items-start",
-      "j",
       "justify-around",
       "justify-between",
       "justify-center",
@@ -394,12 +389,8 @@
       "lg:font-[Montserrat]",
       "lg:font-medium",
       "lg:gap-20",
-<<<<<<< HEAD
       "lg:gap-[120px]",
-=======
-      "lg:gap-[150px]",
       "lg:gap-[21px]",
->>>>>>> origin/main
       "lg:gap-[67px]",
       "lg:gap-[clamp(20px,4vw,32px)]",
       "lg:gap-[clamp(60px,8vw,100px)]",
@@ -413,19 +404,13 @@
       "lg:h-[157px]",
       "lg:h-[197px]",
       "lg:h-[232px]",
-      "lg:h-[300px]",
-      "lg:h-[301px]",
       "lg:h-[360px]",
       "lg:h-[362px]",
       "lg:h-[380px]",
       "lg:h-[50px]",
-<<<<<<< HEAD
       "lg:h-[522px]",
       "lg:h-[52px]",
-=======
-      "lg:h-[52px]",
       "lg:h-[55px]",
->>>>>>> origin/main
       "lg:h-auto",
       "lg:h-full",
       "lg:hidden",
@@ -440,10 +425,6 @@
       "lg:max-w-[1024px]",
       "lg:max-w-[750px]",
       "lg:max-w-[min(949px,90vw)]",
-<<<<<<< HEAD
-      "lg:max-w-xl",
-=======
->>>>>>> origin/main
       "lg:mb-0",
       "lg:mb-20",
       "lg:mb-6",
@@ -456,30 +437,16 @@
       "lg:mx-auto",
       "lg:my-[80px]",
       "lg:p-6",
-<<<<<<< HEAD
-      "lg:pt-[80px]",
-      "lg:px-10",
-      "lg:px-4",
-      "lg:px-8",
-      "lg:px-[40px]",
-=======
       "lg:pb-[128px]",
       "lg:pt-[80px]",
       "lg:px-4",
       "lg:px-8",
->>>>>>> origin/main
       "lg:py-3",
       "lg:py-5",
       "lg:py-6",
       "lg:py-[26px]",
       "lg:py-[80px]",
-<<<<<<< HEAD
       "lg:right-[calc(35%-224px-40px)]",
-=======
-      "lg:right-0",
-      "lg:right-[calc(35%-224px-40px)]",
-      "lg:text-2xl",
->>>>>>> origin/main
       "lg:text-5xl",
       "lg:text-[18px]",
       "lg:text-[20px]",
@@ -492,10 +459,6 @@
       "lg:top-20",
       "lg:w-16",
       "lg:w-8",
-<<<<<<< HEAD
-=======
-      "lg:w-[1237px]",
->>>>>>> origin/main
       "lg:w-[183px]",
       "lg:w-[203px]",
       "lg:w-[220px]",
@@ -505,17 +468,11 @@
       "lg:w-[306px]",
       "lg:w-[320px]",
       "lg:w-[321px]",
-      "lg:w-[330px]",
       "lg:w-[350px]",
-      "lg:w-[351px]",
-      "lg:w-[362px]",
       "lg:w-[400px]",
       "lg:w-[420px]",
-<<<<<<< HEAD
       "lg:w-[570px]",
-=======
       "lg:w-[586px]",
->>>>>>> origin/main
       "lg:w-[749px]",
       "lh-title",
       "line-clamp-3",
@@ -524,44 +481,25 @@
       "list-none",
       "logo-container",
       "markdown-content",
-      "max-[1024px]:h-fit",
       "max-[1024px]:pb-[48px]",
       "max-[1024px]:pt-[29px]",
-      "max-[1024px]:w-fit",
       "max-[1025px]:gap-5",
       "max-[1025px]:h-[400px]",
       "max-[1025px]:w-[450px]",
-      "max-[1025px]:w-full",
       "max-[1100px]:h-[330px]",
       "max-[1100px]:w-[350px]",
       "max-[1199px]:h-[287px]",
       "max-[1199px]:text-[20px]",
-      "max-[1199px]:text-[24px]",
       "max-[1199px]:w-[313px]",
       "max-[450px]:font-['Unbounded']",
       "max-[450px]:font-normal",
       "max-[450px]:gap-1",
-<<<<<<< HEAD
-      "max-[450px]:gap-4",
       "max-[450px]:h-[185px]",
       "max-[450px]:h-[200px]",
-      "max-[450px]:h-[58px]",
-=======
-      "max-[450px]:gap-[50px]",
-      "max-[450px]:h-[185px]",
-      "max-[450px]:h-[199px]",
-      "max-[450px]:h-[390px]",
->>>>>>> origin/main
       "max-[450px]:h-auto",
       "max-[450px]:justify-start",
       "max-[450px]:leading-relaxed",
       "max-[450px]:leading-tight",
-<<<<<<< HEAD
-      "max-[450px]:max-w-full",
-      "max-[450px]:mb-6",
-=======
-      "max-[450px]:left-[-30px]",
->>>>>>> origin/main
       "max-[450px]:mb-8",
       "max-[450px]:order-first",
       "max-[450px]:pb-[40px]",
@@ -577,14 +515,8 @@
       "max-[450px]:relative",
       "max-[450px]:right-[-15px]",
       "max-[450px]:right-[-44px]",
-<<<<<<< HEAD
-      "max-[450px]:shadow-[0_4px_16px_0_rgba(0,0,0,0.4)]",
-=======
-      "max-[450px]:rotate-[34deg]",
->>>>>>> origin/main
       "max-[450px]:text-[14px]",
       "max-[450px]:text-[18px]",
-      "max-[450px]:text-[20px]",
       "max-[450px]:top-0",
       "max-[450px]:top-[-30px]",
       "max-[450px]:top-[calc(var(--spacing)*-19)]",
@@ -600,17 +532,9 @@
       "max-[767px]:top-[calc(var(--spacing)*-32)]",
       "max-[768px]:h-[387px]",
       "max-[768px]:h-[65px]",
-<<<<<<< HEAD
       "max-[768px]:w-[313px]",
-      "max-[768px]:w-[400px]",
       "max-[900px]:h-[280px]",
       "max-[900px]:w-[300px]",
-      "max-[912px]:pb-0",
-      "max-[920px]:pb-0",
-=======
-      "max-[768px]:h-full",
-      "max-[769px]:text-[32px]",
->>>>>>> origin/main
       "max-h-0",
       "max-h-[400px]",
       "max-w-2xl",
@@ -658,10 +582,7 @@
       "mb-[161px]",
       "mb-[20px]",
       "mb-[25px]",
-<<<<<<< HEAD
-=======
       "mb-[35px]",
->>>>>>> origin/main
       "mb-[40px]",
       "mb-[52px]",
       "mb-[60px]",
@@ -674,11 +595,7 @@
       "mb-[clamp(20px,4vw,40px)]",
       "mb-[clamp(24px,4vw,48px)]",
       "mb-[clamp(30px,5vw,60px)]",
-<<<<<<< HEAD
       "mb-[clamp(32px,6vw,80px)]",
-      "mb-[clamp(40px,6vw,80px)]",
-=======
->>>>>>> origin/main
       "mb-[clamp(8px,2vw,16px)]",
       "mb-[clamp(8px,2vw,9px)]",
       "mb0",
@@ -693,13 +610,9 @@
       "md:flex-col",
       "md:flex-row",
       "md:font-[Montserrat]",
-<<<<<<< HEAD
-      "md:font-normal",
-=======
       "md:font-medium",
       "md:font-normal",
       "md:gap-[24px]",
->>>>>>> origin/main
       "md:gap-[28px]",
       "md:gap-[5px]",
       "md:gap-[clamp(60px,8vw,100px)]",
@@ -714,63 +627,38 @@
       "md:h-[193px]",
       "md:h-[250px]",
       "md:h-[300px]",
-<<<<<<< HEAD
       "md:h-[312px]",
-      "md:h-[40px]",
-      "md:h-[490px]",
-      "md:h-[52px]",
-=======
       "md:h-[350px]",
       "md:h-[40px]",
       "md:h-[490px]",
       "md:h-[52px]",
       "md:h-[70px]",
->>>>>>> origin/main
       "md:hidden",
       "md:items-start",
-      "md:justify-around",
       "md:left-0",
       "md:left-[8%]",
       "md:max-w-[410px]",
-<<<<<<< HEAD
-=======
       "md:max-w-[580px]",
->>>>>>> origin/main
       "md:max-w-[min(949px,90vw)]",
       "md:max-w-xl",
       "md:mb-0",
       "md:mb-16",
-<<<<<<< HEAD
-      "md:mb-[35px]",
-      "md:mb-[54px]",
-=======
       "md:mb-[30px]",
       "md:mb-[54px]",
       "md:mb-[60px]",
->>>>>>> origin/main
       "md:min-h-[220px]",
       "md:mt-0",
       "md:mt-20",
       "md:order-1",
       "md:order-2",
       "md:order-last",
-<<<<<<< HEAD
-      "md:pt-[70px]",
-      "md:pt-[75px]",
-      "md:px-10",
-      "md:px-[40px]",
-=======
       "md:pt-[75px]",
       "md:pt-[80px]",
       "md:px-10",
->>>>>>> origin/main
       "md:py-6",
       "md:py-[70px]",
       "md:right-0",
-<<<<<<< HEAD
-=======
       "md:rounded-[20px]",
->>>>>>> origin/main
       "md:space-y-[21px]",
       "md:text-3xl",
       "md:text-4xl",
@@ -788,7 +676,6 @@
       "md:top-4",
       "md:top-auto",
       "md:w-1/2",
-      "md:w-1/3",
       "md:w-12",
       "md:w-[130px]",
       "md:w-[140px]",
@@ -801,40 +688,22 @@
       "md:w-[260px]",
       "md:w-[280px]",
       "md:w-[300px]",
-<<<<<<< HEAD
-      "md:w-[330px]",
-      "md:w-[450px]",
-      "md:w-[458px]",
-      "md:w-[548px]",
-=======
       "md:w-[458px]",
       "md:w-[548px]",
       "md:w-[549px]",
->>>>>>> origin/main
       "mhn1-ns",
       "mid-gray",
       "min-[1025px]:h-[clamp(200px,20vw,300px)]",
-      "min-[1025px]:text-[24px]",
       "min-[1025px]:w-[1125px]",
-      "min-[1025px]:w-[1237px]",
-<<<<<<< HEAD
-      "min-[1025px]:w-[600px]",
-=======
-      "min-[1025px]:w-[400px]",
->>>>>>> origin/main
       "min-[1025px]:w-[clamp(350px,30vw,450px)]",
-      "min-[1200px]:text-[20px]",
       "min-[1200px]:text-[24px]",
       "min-[1200px]:w-[1200px]",
       "min-[1920px]:gap-40",
       "min-[1920px]:w-[1800px]",
-      "min-[350px]:pb-6",
       "min-[451px]:min-h-[180px]",
       "min-[768px]:block",
       "min-[768px]:hidden",
       "min-[768px]:py-[39px]",
-      "min-[769px]:max-[1024px]:text-[18px]",
-      "min-[769px]:max-[1024px]:text-[20px]",
       "min-h-0",
       "min-h-[120px]",
       "min-h-[241px]",
@@ -898,13 +767,8 @@
       "pa3",
       "pb-3",
       "pb-40",
-<<<<<<< HEAD
       "pb-6",
-      "pb-6bg-white",
-      "pb-[clamp(80px,10vw,142px)]",
-=======
       "pb-[60px]",
->>>>>>> origin/main
       "pb4",
       "ph1-ns",
       "ph3",
@@ -917,7 +781,6 @@
       "placeholder-gray-500",
       "placeholder:text-[#999]",
       "pointer-events-none",
-      "pos",
       "position-relative",
       "pr-0",
       "pr-[10px]",
@@ -929,10 +792,7 @@
       "product-hero-button",
       "products-slider",
       "pt-0",
-<<<<<<< HEAD
-=======
       "pt-[100px]",
->>>>>>> origin/main
       "pt-[119px]",
       "pt-[40px]",
       "pt-[43px]",
@@ -941,14 +801,8 @@
       "pt-[clamp(20px,3vw,26px)]",
       "pt-[clamp(20px,3vw,32px)]",
       "pt-[clamp(40px,6vw,80px)]",
-<<<<<<< HEAD
-      "pt-[clamp(60px,6vw,80px)]",
-      "pt-[clamp(60px,8vw,101px)]",
-=======
->>>>>>> origin/main
       "pt4",
       "pv4",
-      "px",
       "px-10",
       "px-2",
       "px-3",
@@ -957,9 +811,7 @@
       "px-6",
       "px-8",
       "px-[20px]",
-      "px-[24]",
       "px-[24px]",
-      "px-[24px]w-[clamp(350px,25vw,400px)]",
       "px-[25px]",
       "px-[29px]",
       "px-[30px]",
@@ -1040,10 +892,6 @@
       "sm:mb-0",
       "sm:mb-12",
       "sm:mb-6",
-<<<<<<< HEAD
-      "sm:md:w-[300px]",
-=======
->>>>>>> origin/main
       "sm:min-w-[clamp(200px,25vw,477px)]",
       "sm:mt-[20px]",
       "sm:px-6",
@@ -1062,12 +910,8 @@
       "sm:top-12",
       "sm:w-[150px]",
       "sm:w-[200px]",
-      "sm:w-[300px]",
-      "sm:w-[305px]",
-      "sm:w-[30px]",
       "sm:w-[400px]",
       "sm:w-auto",
-      "smmd:w-[300px]",
       "space-x-4",
       "space-y-0",
       "space-y-1",
@@ -1130,19 +974,13 @@
       "text-[clamp(20px,3vw,32px)]",
       "text-[clamp(20px,4vw,40px)]",
       "text-[clamp(20px,4vw,48px)]",
-<<<<<<< HEAD
       "text-[clamp(20px,4vw,60px)]",
-=======
->>>>>>> origin/main
       "text-[clamp(24px,3vw,36px)]",
       "text-[clamp(24px,3vw,40px)]",
       "text-[clamp(24px,3vw,48px)]",
       "text-[clamp(24px,4vw,40px)]",
       "text-[clamp(24px,4vw,48px)]",
-<<<<<<< HEAD
-=======
       "text-[clamp(24px,4vw,60px)]",
->>>>>>> origin/main
       "text-[clamp(28px,4vw,40px)]",
       "text-[clamp(32px,4vw,64px)]",
       "text-[var(--color-karma-red)]",
@@ -1204,13 +1042,7 @@
       "w-[247px]",
       "w-[250px]",
       "w-[299px]",
-<<<<<<< HEAD
       "w-[300px]",
-      "w-[330px]",
-      "w-[350px]",
-      "w-[354px]",
-=======
->>>>>>> origin/main
       "w-[35px]",
       "w-[377px]",
       "w-[38px]",
@@ -1228,13 +1060,7 @@
       "w-[clamp(200px,25vw,250px)]",
       "w-[clamp(24px,4vw,36px)]",
       "w-[clamp(280px,40vw,502px)]",
-<<<<<<< HEAD
-      "w-[clamp(300px,25vw,400px)]",
-      "w-[clamp(350px,25vw,400px)]",
-      "w-[clamp(350px,30vw,400px)]",
       "w-[clamp(350px,45vw,400px)]",
-=======
->>>>>>> origin/main
       "w-[clamp(38px,6vw,48px)]",
       "w-[clamp(80px,12vw,99px)]",
       "w-auto",
