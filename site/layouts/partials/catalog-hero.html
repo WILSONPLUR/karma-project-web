@@ -16,10 +16,10 @@
     {{ if $bgEl2 }}
     {{ $bgEl2Processed := $bgEl2.Resize "420x webp q80" }}
     <img src="{{ $bgEl2Processed.RelPermalink }}" alt="Декоративний фоновий елемент" aria-hidden="true"
-        class="absolute z-[1] -left-[60px] bottom-0 md:left-0 w-[199px] h-[171px] md:w-[217px] md:h-[253px] lg:w-[266px] lg:h-[310px]" />
+        class="absolute z-[1]  bottom-0 left-0 w-[171px] h-[199px] md:w-[217px] md:h-[253px] lg:w-[266px] lg:h-[310px]" />
     {{ else }}
     <img src="/img/bg-el-2.png" alt="Декоративний фоновий елемент" aria-hidden="true"
-        class="absolute z-[1] -left-[60px] bottom-0 md:left-0 w-[199px] h-[171px] md:w-[217px] md:h-[253px] lg:w-[266px] lg:h-[310px]" />
+        class="absolute z-[1] x] bottom-0 left-0 w-[171px] h-[199px] md:w-[217px] md:h-[253px] lg:w-[266px] lg:h-[310px]" />
     {{ end }}
 
     <!-- Stack elements for mobile -->
@@ -38,15 +38,15 @@
         {{ if $stackRight }}
         {{ $stackRightProcessed := $stackRight.Resize "100x webp q80" }}
         <img src="{{ $stackRightProcessed.RelPermalink }}" alt="Елемент стеку справа" aria-hidden="true"
-            class="absolute bottom-0 right-0 w-[100px] z-[1]" />
+            class="absolute bottom-3 right-0 w-[100px] z-[1]" />
         {{ else }}
         <img src="/img/stack-right.png" alt="Елемент стеку справа" aria-hidden="true"
-            class="absolute bottom-0 right-0 w-[100px] z-[1]" />
+            class="absolute bottom-3 right-0 w-[100px] z-[1]" />
         {{ end }}
     </div>
 
     <div
-        class="w-full max-w-[1280px]  flex flex-col  mx-auto  px-[20px] pt-[40px] max-[450px]:pt-[20px] lg:mb-[113px] md:mb-[60px] mb-[161px] relative z-[2]">
+        class="w-full max-w-[1280px]  flex flex-col  mx-auto  px-[30px] pt-[40px] max-[450px]:pt-[20px] lg:mb-[113px] md:mb-[60px] mb-[101px] relative z-[2]">
         <nav aria-label="Breadcrumb navigation"
             class="flex items-center gap-6 text-[#ba0108] mb-[75px] md:mb-[35px] w-full">
             <ol class="flex gap-2 items-center max-[450px]:justify-start">
@@ -69,13 +69,13 @@
         <div
             class="flex flex-col gap-0 mx-0 md:flex-row justify-between">
             <div
-                class="flex flex-col gap-[10px] items-center max-w-full md:items-start lg:items-start">
+                class="flex flex-col gap-[10px]  items-center max-w-full md:items-start lg:items-start">
                 <h2 id="catalog-hero-heading"
                     class="font-[Unbounded] uppercase leading-[1.1] text-[32px] md:text-[48px] lg:text-[64px] md:w-[548px] lg:w-[749px] w-full text-[#ba0108] font-medium hero-title whitespace-normal break-words max-sm:text-center">
                     {{ $categoryData.name }}
                 </h2>
                 <p
-                    class="font-[Montserrat]   text-[16px] lg:text-[20px] text-[#333333]">
+                    class="font-[Montserrat]   text-[16px] lg:text-[20px] text-[#020303] max-sm:mb-[20px] ">
                     {{ if eq $category "politni-steky" }} Компактна та продуктивна
                     інтегрована система для дронів, що об'єднує польотний контролер (FC)
                     на базі потужного мікроконтролера STM32F405 та регулятор швидкості

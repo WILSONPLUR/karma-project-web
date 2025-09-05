@@ -102,20 +102,12 @@
         content-visibility: visible !important;
     }
 
-    /* animated content: start collapsed */
     .accordion-content {
-        overflow: hidden !important;
-        max-height: 0;
-        opacity: 0;
-        /* slower, same duration for open and close */
-        transition: max-height 600ms cubic-bezier(.2,.8,.2,1), opacity 600ms ease;
+        overflow: visible !important;
+        max-height: none !important;
+        opacity: 1 !important;
+        transition: none !important;
         width: 100% !important;
-        padding: 0 clamp(20px, 4vw, 46px) !important;
-    }
-
-    /* when details is open we will set inline max-height from JS and set opacity via this rule as fallback */
-    .accordion-root[open] .accordion-content {
-        opacity: 1;
         padding: clamp(8px, 2vw, 12px) clamp(20px, 4vw, 46px) !important;
     }
 
@@ -207,8 +199,6 @@
 
         .accordion-question-text {
             display: -webkit-box !important;
-            /* standard property for newer browsers */
-            line-clamp: 3 !important;
             -webkit-line-clamp: 3 !important;
             -webkit-box-orient: vertical !important;
             overflow: hidden !important;
@@ -221,103 +211,36 @@
 <script>
 (function () {
     var lists = document.querySelectorAll('[data-accordion-list]');
-
-    function animateDetails(details) {
-        var content = details.querySelector('.accordion-content');
-        if (!content) return;
-
-        if (details.open) {
-            // Открытие - анимируем от 0 до полной высоты
-            content.style.display = 'block';
-            content.style.maxHeight = '0px';
-            content.style.opacity = '0';
-            
-            // Измеряем высоту контента
-            var height = content.scrollHeight;
-            
-            // Запускаем анимацию в следующем кадре
-            requestAnimationFrame(function () {
-                content.style.maxHeight = height + 'px';
-                content.style.opacity = '1';
-            });
-
-            // После завершения анимации убираем фиксированную высоту
-            var onOpenEnd = function (e) {
-                if (e.propertyName === 'max-height' && details.open) {
-                    content.style.maxHeight = 'none';
-                    content.removeEventListener('transitionend', onOpenEnd);
-                }
-            };
-            content.addEventListener('transitionend', onOpenEnd);
-            
-        } else {
-            // Закрытие - анимируем от текущей высоты к 0
-            var currentHeight = content.scrollHeight;
-            content.style.maxHeight = currentHeight + 'px';
-            content.style.opacity = '1';
-            
-            // Принудительно применяем стили, затем анимируем к 0
-            requestAnimationFrame(function () {
-                requestAnimationFrame(function () {
-                    content.style.maxHeight = '0px';
-                    content.style.opacity = '0';
-                });
-            });
-
-            // После завершения анимации скрываем элемент
-            var onCloseEnd = function (e) {
-                if (e.propertyName === 'max-height' && !details.open) {
-                    content.style.display = 'none';
-                    content.removeEventListener('transitionend', onCloseEnd);
-                }
-            };
-            content.addEventListener('transitionend', onCloseEnd);
-        }
-    }
-
     lists.forEach(function (list) {
-        var items = Array.prototype.slice.call(list.querySelectorAll('.accordion-root'));
-
+        var items = Array.prototype.slice.call(
+            list.querySelectorAll('.faq-acc-root')
+        );
         items.forEach(function (item) {
-            // Устанавливаем начальное состояние
-            var content = item.querySelector('.accordion-content');
-            if (content) {
+            var contentWrapper = item.querySelector('.accordion-content');
+            contentWrapper.style.maxHeight = "0px";
+            contentWrapper.style.overflow = "hidden";
+            contentWrapper.style.transition = "max-height 0.5s ease, opacity 0.4s ease";
+            contentWrapper.style.opacity = "0";
+
+            item.addEventListener('toggle', function () {
                 if (item.open) {
-                    content.style.display = 'block';
-                    content.style.maxHeight = 'none';
-                    content.style.opacity = '1';
+                    items.forEach(function (other) {
+                        if (other !== item) {
+                            other.open = false;
+                            var otherContent = other.querySelector('.accordion-content');
+                            otherContent.style.maxHeight = "0px";
+                            otherContent.style.opacity = "0";
+                        }
+                    });
+
+                    contentWrapper.style.maxHeight = contentWrapper.scrollHeight + "px";
+                    contentWrapper.style.opacity = "1";
                 } else {
-                    content.style.display = 'none';
-                    content.style.maxHeight = '0px';
-                    content.style.opacity = '0';
+
+                    contentWrapper.style.maxHeight = "0px";
+                    contentWrapper.style.opacity = "0";
                 }
-            }
-
-            // Обработчик клика по summary
-            var summaryEl = item.querySelector('summary');
-            if (summaryEl) {
-                summaryEl.addEventListener('click', function (ev) {
-                    ev.preventDefault();
-
-                    var willOpen = !item.open;
-
-                    if (willOpen) {
-                        // Закрываем другие открытые элементы
-                        items.forEach(function (other) {
-                            if (other !== item && other.open) {
-                                other.open = false;
-                                animateDetails(other);
-                            }
-                        });
-                        item.open = true;
-                    } else {
-                        item.open = false;
-                    }
-
-                    // Анимируем текущий элемент
-                    animateDetails(item);
-                });
-            }
+            });
         });
     });
 })();

@@ -215,23 +215,15 @@
         list.querySelectorAll('.accordion-root')
       );
       items.forEach(function (item) {
-        var summaryEl = item.querySelector('summary');
-        if (summaryEl) {
-          summaryEl.addEventListener('click', function (ev) {
-            ev.preventDefault();
-            var willOpen = !item.open;
-            if (willOpen) {
-              items.forEach(function (other) {
-                if (other !== item && other.open) {
-                  other.open = false;
-                }
-              });
-              item.open = true;
-            } else {
-              item.open = false;
-            }
-          });
-        }
+        item.addEventListener('toggle', function () {
+          if (item.open) {
+            items.forEach(function (other) {
+              if (other !== item) {
+                other.open = false;
+              }
+            });
+          }
+        });
       });
     });
   })();
