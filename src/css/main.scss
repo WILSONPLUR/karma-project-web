@@ -69,7 +69,7 @@
   display: flex;
   align-items: stretch;
   height: auto;
-  transition: none;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
   flex-wrap: nowrap; 
 }
 
@@ -81,6 +81,267 @@
   justify-content: center;
 }
 
+/* Products Slider Specific Styles */
+.swiper-container-products .swiper-slide {
+  width: auto !important; 
+  min-height: 400px;
+}
+
+/* Products slider responsive layout */
+.products-slider {
+  .swiper-container-products {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin-inline: auto !important;
+    overflow: hidden !important; 
+  }
+  
+  @media (min-width: 768px) and (max-width: 860px) {
+    .swiper-container-products {
+      width: 85% !important;
+      max-width: 800px !important;
+    }
+    
+    .swiper-container-products .swiper-slide {
+      width: 48% !important;
+      min-width: 320px !important;
+      max-width: 350px !important;
+    }
+  }
+
+  @media (min-width: 861px) and (max-width: 968px) {
+    .swiper-container-products {
+      width: 83% !important;
+      max-width: 950px !important;
+    }
+    
+    .swiper-container-products .swiper-slide {
+      width: 48% !important;
+      min-width: 350px !important;
+      max-width: 380px !important;
+    }
+  }
+
+  @media (min-width: 969px) and (max-width: 1023px) {
+    .swiper-container-products {
+      width: 77% !important;
+      max-width: 900px !important;
+    }
+    
+    .swiper-container-products .swiper-slide {
+      width: 48% !important;
+      min-width: 350px !important;
+      max-width: 380px !important;
+    }
+  }
+
+  @media (min-width: 1024px) and (max-width: 1099px) {
+    .swiper-container-products {
+      width: 76% !important;
+      max-width: 950px !important;
+    }
+    
+    .swiper-container-products .swiper-slide {
+      width: 48% !important;
+      min-width: 380px !important;
+      max-width: 400px !important;
+    }
+  }
+  
+  /* Desktop styles - 2-3 slides visible depending on screen size */
+  @media (min-width: 1100px) and (max-width: 1199px) {
+    .swiper-container-products {
+      width: 72% !important;
+      max-width: 1000px !important;
+    }
+    
+    .swiper-container-products .swiper-slide {
+      width: 48% !important;
+      min-width: 400px !important;
+      max-width: 400px !important;
+    }
+  }
+  
+  @media (min-width: 1200px) and (max-width: 1399px) {
+    .swiper-container-products {
+      width: 71% !important;
+      max-width: 1100px !important;
+    }
+    
+    .swiper-container-products .swiper-slide {
+      width: 47% !important;
+      min-width: 400px !important;
+      max-width: 400px !important;
+    }
+  }
+  
+  @media (min-width: 1400px) {
+    .swiper-container-products {
+      width: 70% !important;
+      max-width: 1200px !important;
+    }
+    
+    .swiper-container-products .swiper-slide {
+      width: 45% !important;
+      min-width: 400px !important;
+      max-width: 400px !important;
+    }
+  }
+
+  .swiper-container-products .swiper-wrapper {
+    width: auto !important;
+    transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  }
+
+ 
+
+  /* Navigation arrows positioning */
+  .swiper-button-prev-custom,
+  .swiper-button-next-custom {
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .swiper-button-prev-custom {
+    left: 0 !important;
+  }
+
+  .swiper-button-next-custom {
+    right: 0 !important;
+  }
+
+
+
+  @media (max-width: 1300px) {
+    .swiper-button-prev-custom {
+      left: 15px !important;
+    }
+    .swiper-button-next-custom {
+      right: 15px !important;
+    }
+  }
+
+  @media (max-width: 1100px) {
+    .swiper-button-prev-custom {
+      left: 15px !important;
+    }
+    .swiper-button-next-custom {
+      right: 15px !important;
+    }
+  }
+
+  @media (max-width: 900px) {
+    .swiper-button-prev-custom {
+      left: -15px !important;
+    }
+    .swiper-button-next-custom {
+      right: -15px !important;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .swiper-button-prev-custom {
+      left: -5px !important;
+    }
+    .swiper-button-next-custom {
+      right: -5px !important;
+    }
+  }
+
+  /* Closer arrows for tablets */
+  @media (min-width: 768px) and (max-width: 1023px) {
+    .swiper-button-prev-custom {
+      left: 7px !important;
+    }
+    .swiper-button-next-custom {
+      right: 7px !important;
+    }
+  }
+
+  @media (max-width: 1023px) {
+   
+   
+  }
+}
+
+/* Mobile Slider Styles */
+#mobile-slider {
+  position: relative;
+  overflow: visible;
+}
+
+#mobile-slider-wrapper {
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+  width: 100%;
+}
+
+#mobile-slider-wrapper > div {
+  flex-shrink: 0;
+  width: 100%;
+  padding: 0 10px;
+}
+
+.mobile-prev,
+.mobile-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.mobile-prev {
+  left: -3px;
+}
+
+.mobile-next {
+  right: -3px;
+}
+
+/* Responsive mobile arrow positioning */
+@media (min-width: 600px) and (max-width: 767px) {
+  .mobile-prev {
+    left: 80px !important;
+  }
+  
+  .mobile-next {
+    right: 80px !important;
+  }
+}
+
+@media (min-width: 476px) and (max-width: 599px) {
+  .mobile-prev {
+    left: 15px !important;
+  }
+  
+  .mobile-next {
+    right: 15px !important;
+  }
+}
+
+  @media (max-width: 475px) {
+    .mobile-prev {
+      left: -3px !important;
+    }
+    
+    .mobile-next {
+      right: -3px !important;
+    }
+  }
+
+.mobile-prev:hover,
+.mobile-next:hover {
+  transform: translateY(-50%) scale(1.05);
+}
+
+/* Trusted Slider Styles (existing) */
 .swiper-container-trusted-desktop .swiper-slide {
   min-height: 200px;
   width: 25% !important;
@@ -88,6 +349,16 @@
   padding: 0 20px;
   max-width: 25% !important;
   min-width: 25% !important;
+}
+
+.swiper-container-trusted-desktop .swiper-wrapper {
+  display: flex !important;
+  align-items: stretch !important;
+  height: auto !important;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+  flex-wrap: nowrap !important;
+  width: 100% !important;
+  justify-content: space-between !important;
 }
 
 .swiper-container-trusted-mobile .swiper-slide {

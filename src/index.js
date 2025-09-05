@@ -56,16 +56,12 @@ class CustomSlider {
   }
 
   setupSlider() {
-    // Set container styles
     this.container.style.position = "relative";
     this.container.style.overflow = "hidden";
-    // Do not force width here; allow CSS to control container width
-
-    // Set wrapper styles
     this.wrapper.style.display = "flex";
     this.wrapper.style.width = "fit-content";
     this.wrapper.style.height = "auto";
-    this.wrapper.style.transition = "none";
+    this.wrapper.style.transition = "transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
     this.wrapper.style.flexWrap = "nowrap";
 
     this.updateSlideStyles();
@@ -81,21 +77,17 @@ class CustomSlider {
     if (this.options.fixedSlideWidth) {
       slideWidth = this.options.fixedSlideWidth;
     } else {
-      // Розрахунок адаптивної ширини
       const totalSpacing = currentSpaceBetween * (currentSlidesPerView - 1);
       const availableWidth = containerWidth - totalSpacing;
       slideWidth = Math.floor(availableWidth / currentSlidesPerView);
 
-      // Збільшені мінімальні розміри щоб поміщалось рівно 2 картки
       const minSlideWidth = currentSlidesPerView === 1 ? 280 : 380;
       slideWidth = Math.max(slideWidth, minSlideWidth);
 
-      // Максимальні розміри
       const maxSlideWidth =
         currentSlidesPerView === 1 ? containerWidth - 20 : 500;
       slideWidth = Math.min(slideWidth, maxSlideWidth);
 
-      // Якщо 2 картки, переконуємось що вони займають всю ширину
       if (currentSlidesPerView === 2) {
         const totalSpacingCheck = currentSpaceBetween;
         const maxPossibleWidth = (containerWidth - totalSpacingCheck) / 2;
@@ -114,7 +106,6 @@ class CustomSlider {
       slide.style.boxSizing = "border-box";
     });
 
-    // Розрахунок ширини wrapper
     if (this.options.fixedWrapperWidth) {
       this.wrapper.style.width = `${this.options.fixedWrapperWidth}px`;
     } else {
@@ -178,7 +169,6 @@ class CustomSlider {
     this.isTransitioning = true;
     this.currentIndex = index;
 
-    // Calculate position based on slide width
     const currentSlidesPerView = this.getCurrentSlidesPerView();
     const currentSpaceBetween = this.getCurrentSpaceBetween();
     const containerWidth = this.container.offsetWidth;
@@ -190,7 +180,6 @@ class CustomSlider {
       : computedWidth;
     const translateX = -(index * (slideWidth + currentSpaceBetween));
 
-    // Apply transition
     if (animate) {
       this.wrapper.style.transition =
         "transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)";
@@ -200,7 +189,6 @@ class CustomSlider {
 
     this.wrapper.style.transform = `translateX(${translateX}px)`;
 
-    // Update pagination
     if (this.bullets) {
       const bulletIndex = this.options.paginationCount
         ? index % this.options.paginationCount
@@ -213,7 +201,6 @@ class CustomSlider {
       });
     }
 
-    // Reset transition flag
     setTimeout(
       () => {
         this.isTransitioning = false;
@@ -230,7 +217,7 @@ class CustomSlider {
       0,
       this.slides.length - this.getCurrentSlidesPerView()
     );
-    const groups = Math.ceil((maxStartIndex + 1) / step) || 1; // number of start positions in groups
+    const groups = Math.ceil((maxStartIndex + 1) / step) || 1;
     const currentGroup = Math.floor(this.currentIndex / step);
     const nextGroup = (currentGroup + 1) % groups;
     const targetIndex = Math.min(nextGroup * step, maxStartIndex);
@@ -276,6 +263,7 @@ class CustomSlider {
   setupResponsive() {
     const handleResize = () => {
       this.updateSlideStyles();
+      // Use animate=false to prevent transition during resize
       this.showSlide(this.currentIndex, false);
     };
 

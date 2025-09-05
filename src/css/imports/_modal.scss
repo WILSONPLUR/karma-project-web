@@ -124,7 +124,7 @@ body.modal-open {
   font-size: clamp(16px, 2vw, 20px);
   font-weight: 400;
   color: black;
-  background: transparent;
+  background: white;
   box-sizing: border-box;
   transition: border-color 0.2s ease;
 }
@@ -322,9 +322,6 @@ body.modal-open {
     padding: 14px 16px;
     font-size: 14px;
     border-radius: 5px;
-  }
-  
-  .form-input {
     height: 65px;
   }
   
