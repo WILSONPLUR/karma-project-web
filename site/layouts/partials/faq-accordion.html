@@ -1,15 +1,15 @@
 {{ $title := .title }} {{ $items := .items }} {{ $isFirst := .isFirst }}
 
 <section class="flex relative flex-col items-center bg-white" aria-labelledby="faq-accordion-heading">
-    <div class="faq-accordion-container w-full max-w-[1280px] px-[20px]" {{ if not $isFirst
-        }}style="margin-top: clamp(60px,6vw,122px) !important; margin-bottom: 0!important;" {{ else
-        }}style="margin-top: clamp(60px,8vw,80px) !important; margin-bottom: clamp(60px,10vw,134px) !important;" {{ end
+    <div class="faq-accordion-container w-full max-w-[min(1237px,90vw)] px-[clamp(20px,4vw,40px)]" {{ if not $isFirst
+        }}style="margin-top: clamp(40px,6vw,80px) !important; margin-bottom: 0!important;" {{ else
+        }}style="margin-top: clamp(60px,8vw,122px) !important; margin-bottom: clamp(60px,10vw,134px) !important;" {{ end
         }}>
         <h2 id="faq-accordion-heading"
             class="faq-title font-[Unbounded] font-medium text-[clamp(20px,4vw,40px)] text-center text-[#020303] mb-[clamp(20px,3vw,30px)]">
             {{ $title }}
         </h2>
-        <div class="w-full flex flex-col gap-[30px]" data-accordion-list
+        <div class="w-full flex flex-col gap-[20px] max-w-[1280px]" data-accordion-list
             role="list" aria-label="Список питань та відповідей">
             {{ range $index, $item := $items }}
             <div class="faq-acc-wrapper" role="listitem">
@@ -17,14 +17,14 @@
                     <summary class="flex cursor-pointer select-none faq-acc-summary"
                         aria-label="Розгорнути відповідь на питання: {{ .question }}">
                         <h3
-                            class="font-[Unbounded] md:font-[Montserrat] lg:font-[Montserrat] text-[clamp(16px,2vw,24px)] font-normal md:font-medium  w-full">
+                            class="font-[Unbounded] md:font-[Montserrat] lg:font-[Montserrat] text-[clamp(14px,2vw,24px)] font-medium w-full">
                             {{ .question }}
                         </h3>
                         <img src="/img/arrow.svg" alt="Іконка розгортання" width="20" height="20"
                             class="faq-acc-icon" />
                     </summary>
-                    <div class="faq-acc-content">
-                        <p class="font-[Montserrat] text-[clamp(14px,2vw,20px)] font-normal text-[#1f2937]">
+                    <div class="faq-acc-content-wrapper js-accordion-content">
+                        <p class="font-[Montserrat] text-[clamp(14px,2vw,20px)] font-normal text-[#1f2937] faq-acc-content">
                             {{ .answer }}
                         </p>
                     </div>
@@ -66,7 +66,8 @@
         content: '';
     }
 
-    .faq-acc-root[open] .faq-acc-summary {
+    /* Теперь этот стиль будет применяться при наличии класса 'is-open' на faq-acc-root */
+    .faq-acc-root.is-open .faq-acc-summary {
         background: #ba0108 !important;
         color: #fff !important;
     }
@@ -85,32 +86,33 @@
         align-self: flex-start !important;
     }
 
-    .faq-acc-root[open] .faq-acc-icon {
+    /* Теперь этот стиль будет применяться при наличии класса 'is-open' на faq-acc-root */
+    .faq-acc-root.is-open .faq-acc-icon {
         transform: rotate(-180deg) !important;
         filter: brightness(0) invert(1) !important;
     }
 
-    .faq-acc-root::details-content {
-        transition: block-size 600ms, content-visibility 600ms allow-discrete !important;
-        overflow: hidden !important;
-        block-size: 0 !important;
-        inline-size: 100% !important;
-        content-visibility: hidden !important;
+    /* Скрываем контент по умолчанию и добавляем переход */
+    .js-accordion-content {
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.3s ease-out, padding 0.3s ease-out; /* Анимируем padding тоже */
+        width: 100% !important;
+        padding: 0 clamp(10px, 2vw, 46px); /* Начальный padding по бокам, верхний и нижний 0 */
     }
 
-    .faq-acc-root[open]::details-content {
-        block-size: auto !important;
-        content-visibility: visible !important;
+    /* Когда аккордеон открыт, устанавливаем padding */
+    .js-accordion-content.is-expanded { /* Изменил класс, чтобы избежать конфликтов */
+        padding-top: clamp(10px, 2vw, 46px);
+        padding-bottom: clamp(10px, 2vw, 46px);
     }
 
     .faq-acc-content {
-        overflow: visible !important;
-        max-height: none !important;
-        opacity: 1 !important;
-        transition: none !important;
-        width: 100% !important;
-        padding: clamp(10px, 2vw, 46px) !important;
+        /* Убираем весь padding из faq-acc-content, он теперь в wrapper */
+        padding: 0 !important;
+        opacity: 1;
     }
+
 
     /* Responsive breakpoints for better control */
     @media (min-width: 640px) {
@@ -159,8 +161,13 @@
             padding-right: 0 !important;
         }
 
-        .faq-acc-content {
-            padding: clamp(8px, 2vw, 12px) !important;
+        .js-accordion-content {
+            padding: 0 clamp(8px, 2vw, 12px) !important;
+        }
+
+        .js-accordion-content.is-expanded {
+            padding-top: clamp(8px, 2vw, 12px) !important;
+            padding-bottom: clamp(8px, 2vw, 12px) !important;
         }
 
         .faq-acc-summary {
@@ -181,14 +188,59 @@
             var items = Array.prototype.slice.call(
                 list.querySelectorAll('.faq-acc-root')
             );
+
             items.forEach(function (item) {
-                item.addEventListener('toggle', function () {
-                    if (item.open) {
+                var summary = item.querySelector('.faq-acc-summary');
+                var contentWrapper = item.querySelector('.js-accordion-content');
+                var content = item.querySelector('.faq-acc-content'); // Сама p внутри wrapper
+
+                // Функция для открытия аккордеона
+                function openAccordion(targetItem) {
+                    var targetContentWrapper = targetItem.querySelector('.js-accordion-content');
+                    var targetContent = targetItem.querySelector('.faq-acc-content');
+
+                    targetItem.classList.add('is-open'); // Добавляем класс для summary и иконки
+                    targetContentWrapper.classList.add('is-expanded'); // Добавляем класс для padding
+                    targetContentWrapper.style.maxHeight = targetContent.scrollHeight + targetContentWrapper.offsetHeight + 'px';
+                }
+
+                // Функция для закрытия аккордеона
+                function closeAccordion(targetItem) {
+                    var targetContentWrapper = targetItem.querySelector('.js-accordion-content');
+
+                    targetContentWrapper.style.maxHeight = '0';
+                    targetContentWrapper.classList.remove('is-expanded');
+
+                    targetContentWrapper.addEventListener('transitionend', function handler() {
+                        targetItem.classList.remove('is-open'); // Удаляем класс после завершения анимации
+                        targetContentWrapper.removeEventListener('transitionend', handler);
+                    }, { once: true });
+                }
+
+                // Инициализация: если аккордеон уже открыт (например, с сервера), плавно открыть его
+                if (item.hasAttribute('open')) { // Проверяем атрибут 'open'
+                    // Временно убираем transition, чтобы сразу установить maxHeight, потом возвращаем
+                    contentWrapper.style.transition = 'none';
+                    openAccordion(item); // Используем функцию openAccordion для инициализации
+                    void contentWrapper.offsetHeight; // Force reflow
+                    contentWrapper.style.transition = ''; // Восстанавливаем transition
+                }
+
+                summary.addEventListener('click', function (e) {
+                    e.preventDefault(); // Предотвращаем стандартное поведение details/summary
+
+                    // Проверяем, открыт ли аккордеон по наличию класса 'is-open'
+                    if (item.classList.contains('is-open')) {
+                        // Если аккордеон открыт, закрываем его
+                        closeAccordion(item);
+                    } else {
+                        // Если аккордеон закрыт, открываем его и закрываем остальные
                         items.forEach(function (other) {
-                            if (other !== item) {
-                                other.open = false;
+                            if (other !== item && other.classList.contains('is-open')) {
+                                closeAccordion(other);
                             }
                         });
+                        openAccordion(item);
                     }
                 });
             });

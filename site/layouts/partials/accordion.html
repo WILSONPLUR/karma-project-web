@@ -5,14 +5,14 @@
 
 <section class="relative flex flex-col items-center {{ $className }}"
     aria-labelledby="accordion-heading">
-    <div class="w-full max-w-[min(1237px,90vw)] px-[clamp(20px,4vw,40px)]">
+    <div class="w-full max-w-[1280px] px-[20px]">
         {{ if $title }}
         <h2 id="accordion-heading"
             class="font-[Unbounded] font-medium text-[clamp(24px,4vw,40px)] text-center lg:!text-left text-[#020303] mb-[clamp(20px,3vw,24px)] {{ $titleClassName }}">
             {{ $title }}
         </h2>
         {{ end }}
-        <div class="w-full mx-auto flex flex-col gap-[clamp(20px,3vw,30px)] max-w-[min(600px,90vw)] md:max-w-[min(949px,90vw)] lg:max-w-[min(949px,90vw)] xl:max-w-[min(1237px,90vw)]"
+        <div class="w-full mx-auto flex flex-col gap-[clamp(20px,3vw,30px)]"
             data-accordion-list role="list" aria-label="Список питань та відповідей">
             {{ range $index, $item := $items }}
             <div class="accordion-wrapper" role="listitem">
@@ -102,12 +102,20 @@
         content-visibility: visible !important;
     }
 
+    /* animated content: start collapsed */
     .accordion-content {
-        overflow: visible !important;
-        max-height: none !important;
-        opacity: 1 !important;
-        transition: none !important;
+        overflow: hidden !important;
+        max-height: 0;
+        opacity: 0;
+        /* slower, same duration for open and close */
+        transition: max-height 600ms cubic-bezier(.2,.8,.2,1), opacity 600ms ease;
         width: 100% !important;
+        padding: 0 clamp(20px, 4vw, 46px) !important;
+    }
+
+    /* when details is open we will set inline max-height from JS and set opacity via this rule as fallback */
+    .accordion-root[open] .accordion-content {
+        opacity: 1;
         padding: clamp(8px, 2vw, 12px) clamp(20px, 4vw, 46px) !important;
     }
 
@@ -199,6 +207,8 @@
 
         .accordion-question-text {
             display: -webkit-box !important;
+            /* standard property for newer browsers */
+            line-clamp: 3 !important;
             -webkit-line-clamp: 3 !important;
             -webkit-box-orient: vertical !important;
             overflow: hidden !important;
@@ -209,23 +219,106 @@
 </style>
 
 <script>
-    (function () {
-        var lists = document.querySelectorAll('[data-accordion-list]');
-        lists.forEach(function (list) {
-            var items = Array.prototype.slice.call(
-                list.querySelectorAll('.accordion-root')
-            );
-            items.forEach(function (item) {
-                item.addEventListener('toggle', function () {
-                    if (item.open) {
-                        items.forEach(function (other) {
-                            if (other !== item) {
-                                other.open = false;
-                            }
-                        });
-                    }
+(function () {
+    var lists = document.querySelectorAll('[data-accordion-list]');
+
+    function animateDetails(details) {
+        var content = details.querySelector('.accordion-content');
+        if (!content) return;
+
+        if (details.open) {
+            // Открытие - анимируем от 0 до полной высоты
+            content.style.display = 'block';
+            content.style.maxHeight = '0px';
+            content.style.opacity = '0';
+            
+            // Измеряем высоту контента
+            var height = content.scrollHeight;
+            
+            // Запускаем анимацию в следующем кадре
+            requestAnimationFrame(function () {
+                content.style.maxHeight = height + 'px';
+                content.style.opacity = '1';
+            });
+
+            // После завершения анимации убираем фиксированную высоту
+            var onOpenEnd = function (e) {
+                if (e.propertyName === 'max-height' && details.open) {
+                    content.style.maxHeight = 'none';
+                    content.removeEventListener('transitionend', onOpenEnd);
+                }
+            };
+            content.addEventListener('transitionend', onOpenEnd);
+            
+        } else {
+            // Закрытие - анимируем от текущей высоты к 0
+            var currentHeight = content.scrollHeight;
+            content.style.maxHeight = currentHeight + 'px';
+            content.style.opacity = '1';
+            
+            // Принудительно применяем стили, затем анимируем к 0
+            requestAnimationFrame(function () {
+                requestAnimationFrame(function () {
+                    content.style.maxHeight = '0px';
+                    content.style.opacity = '0';
                 });
             });
+
+            // После завершения анимации скрываем элемент
+            var onCloseEnd = function (e) {
+                if (e.propertyName === 'max-height' && !details.open) {
+                    content.style.display = 'none';
+                    content.removeEventListener('transitionend', onCloseEnd);
+                }
+            };
+            content.addEventListener('transitionend', onCloseEnd);
+        }
+    }
+
+    lists.forEach(function (list) {
+        var items = Array.prototype.slice.call(list.querySelectorAll('.accordion-root'));
+
+        items.forEach(function (item) {
+            // Устанавливаем начальное состояние
+            var content = item.querySelector('.accordion-content');
+            if (content) {
+                if (item.open) {
+                    content.style.display = 'block';
+                    content.style.maxHeight = 'none';
+                    content.style.opacity = '1';
+                } else {
+                    content.style.display = 'none';
+                    content.style.maxHeight = '0px';
+                    content.style.opacity = '0';
+                }
+            }
+
+            // Обработчик клика по summary
+            var summaryEl = item.querySelector('summary');
+            if (summaryEl) {
+                summaryEl.addEventListener('click', function (ev) {
+                    ev.preventDefault();
+
+                    var willOpen = !item.open;
+
+                    if (willOpen) {
+                        // Закрываем другие открытые элементы
+                        items.forEach(function (other) {
+                            if (other !== item && other.open) {
+                                other.open = false;
+                                animateDetails(other);
+                            }
+                        });
+                        item.open = true;
+                    } else {
+                        item.open = false;
+                    }
+
+                    // Анимируем текущий элемент
+                    animateDetails(item);
+                });
+            }
         });
-    })();
+    });
+})();
 </script>
