@@ -176,17 +176,6 @@
                 if (item._animating) return;
                 item._animating = true;
                 
-                // Close all other accordions first
-                items.forEach(function(otherItem) {
-                    if (otherItem !== item && otherItem.classList.contains('is-open')) {
-                        var otherWrapper = otherItem.querySelector('.faq-acc-content-wrapper');
-                        otherItem.classList.remove('is-open');
-                        otherWrapper.style.maxHeight = '0px';
-                        otherWrapper.style.opacity = '0';
-                        otherItem.open = false;
-                    }
-                });
-                
                 var startHeight = contentWrapper.scrollHeight;
                 contentWrapper.style.maxHeight = startHeight + 'px';
                 contentWrapper.offsetHeight; // force reflow
@@ -207,14 +196,25 @@
                 if (item._animating) return;
                 item._animating = true;
                 
-                // Close all other accordions first
+                // Close all other accordions with animation
                 items.forEach(function(otherItem) {
-                    if (otherItem !== item && otherItem.classList.contains('is-open')) {
+                    if (otherItem !== item && otherItem.classList.contains('is-open') && !otherItem._animating) {
+                        otherItem._animating = true;
                         var otherWrapper = otherItem.querySelector('.faq-acc-content-wrapper');
+                        var otherHeight = otherWrapper.scrollHeight;
+                        otherWrapper.style.maxHeight = otherHeight + 'px';
+                        otherWrapper.offsetHeight; // force reflow
+                        
                         otherItem.classList.remove('is-open');
-                        otherWrapper.style.maxHeight = '0px';
-                        otherWrapper.style.opacity = '0';
-                        otherItem.open = false;
+                        requestAnimationFrame(function() {
+                            otherWrapper.style.maxHeight = '0px';
+                            otherWrapper.style.opacity = '0';
+                        });
+                        
+                        setTimeout(function() {
+                            otherItem.open = false;
+                            otherItem._animating = false;
+                        }, 400);
                     }
                 });
                 
