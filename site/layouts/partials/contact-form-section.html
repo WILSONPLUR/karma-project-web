@@ -22,7 +22,7 @@
   <div
     class="w-full max-w-[1237px] mx-auto relative z-10 flex flex-col md:flex-col xl:flex-row xl:justify-between xl:items-center lg:gap-[clamp(20px,4vw,32px)]">
     <div class="flex flex-col gap-3 w-full text-center md:text-left">
-      <h2 class="text-[clamp(24px,3vw,40px)] font-medium font-['Unbounded']">
+      <h2 class="!text-[clamp(24px,3vw,40px)] font-medium font-['Unbounded'] hero-title">
         <span class="text-[#BA0108]">З</span>В'ЯЖІТЬСЯ З НАМИ
 
       </h2>
@@ -33,33 +33,33 @@
       <form class="flex flex-col gap-[clamp(20px,3vw,27px)] font-['Montserrat'] w-full">
         <div class="flex flex-col gap-[clamp(15px,2vw,23px)] md:flex-row xl:flex-row">
           <input type="text" placeholder="Ваше ім'я"
-            class="form-input w-full xl:w-[373px] flex-1 px-5 bg-white py-4 placeholder:text-[#999] border border-[#404040] rounded-md text-normal bg-white transition-all duration-300 ease-in-out" />
+            class="contact-input w-full max-[389px]:w-[350px] xl:w-[373px] xl:flex-none px-5 py-4 h-[65px] placeholder:text-[#999] border border-[#404040] rounded-md text-normal bg-white transition-all duration-300 ease-in-out" />
           <input type="tel" placeholder="+380"
-            class="form-input w-full xl:w-[373px] flex-1 px-5 bg-white py-4 placeholder:text-[#999] border border-[#404040] rounded-md text-normal bg-white transition-all duration-300 ease-in-out" />
+            class="contact-input w-full max-[389px]:w-[350px] xl:w-[373px] xl:flex-none px-5 py-4 h-[65px] placeholder:text-[#999] border border-[#404040] rounded-md text-normal bg-white transition-all duration-300 ease-in-out" />
         </div>
 
         <textarea placeholder="Ваше повідомлення" rows="5"
-          class="form-input  w-full xl:w-[770px] px-5 py-4 placeholder:text-[#999] bg-white border border-[#404040] rounded-md text-normal bg-white resize-y min-h-[120px] transition-all duration-300 ease-in-out font-['Montserrat']"></textarea>
+          class="contact-textarea w-full max-[389px]:w-[350px] xl:w-[770px] px-5 py-4 placeholder:text-[#999] border border-[#404040] rounded-md text-normal bg-white resize-y min-h-[120px] transition-all duration-300 ease-in-out font-['Montserrat']"></textarea>
 
         <button type="submit"
-          class="form-button  w-full xl:w-[770px] bg-[#ba0108] hover:bg-[#e39599] transition-colors text-white border-none px-10 h-[70px] lg:h-auto lg:py-5 rounded-2xl cursor-pointer text-[clamp(16px,2vw,24px)] font-medium font-['Montserrat'] duration-300 ease-in-out">
+          class="contact-button w-full max-[389px]:w-[350px] xl:w-[770px] bg-[#ba0108] hover:bg-[#e39599] transition-colors text-white border-none px-10 h-[70px] lg:h-auto lg:py-5 rounded-2xl cursor-pointer text-[clamp(16px,2vw,24px)] font-light lg:font-medium font-['Montserrat'] duration-300 ease-in-out">
           Відправити
         </button>
       </form>
     </div>
     <div
-      class="flex flex-col max-[640px]:gap-0 sm:gap-5 max-[1025px]:gap-5 justify-center items-center mt-8 text-center sm:flex-row sm:items-center sm:text-left md:flex-row lg:flex-row lg:items-center lg:justify-center lg:text-center xl:flex-col xl:items-start xl:text-left xl:mt-0 xl:gap-3">
+      class="flex flex-col max-[640px]:gap-0 max-[1025px]:gap-5 justify-center items-center mt-8 text-center sm:flex-row sm:items-center sm:text-left md:flex-row lg:flex-row lg:items-center lg:justify-center lg:text-center xl:flex-col xl:items-start xl:text-left xl:mt-0">
       <h3
-        class="text-[clamp(16px,2vw,20px)] font-light sm:font-medium text-black font-['Montserrat'] mb-3 sm:mb-0 lg:mb-0 xl:mb-3">
+        class="text-[clamp(16px,2vw,20px)] font-light sm:font-normal text-[#000] font-['Montserrat'] mb-3 sm:mb-0 lg:mb-0 xl:mb-3">
         Контактний відділ
       </h3>
-      <div class="flex flex-col gap-3 max-[450px]:gap-1">
-        <a href="tel:+380956156713" class="block text-[clamp(24px,3vw,36px)] font-normal sm:font-medium text-[#ba0108] 
+      <div class="flex flex-col gap-3 max-[450px]:gap-1 lg:gap-0 xl:gap-0">
+        <a href="tel:+380956156713" class="block text-[clamp(24px,3vw,36px)] font-normal text-[#ba0108] 
              no-underline transition-colors duration-300 ease-in-out font-['Unbounded'] 
              hover:text-red-800">
           +380 95 61 56713
         </a>
-        <a href="mailto:Info@karma.flights" class="block text-[clamp(24px,3vw,36px)] font-normal sm:font-medium text-gray-900 
+        <a href="mailto:Info@karma.flights" class="block text-[clamp(24px,3vw,36px)] font-normal text-gray-900 
              no-underline transition-colors duration-300 ease-in-out font-['Unbounded'] 
              hover:text-gray-700">
           Info@karma.flights
@@ -95,37 +95,40 @@
     }
   }
 
-  #contact-form-section .form-input {
+  #contact-form-section .contact-input,
+  #contact-form-section .contact-textarea {
     color: #999;
     border-color: #404040;
   }
 
-  #contact-form-section .form-input::placeholder {
+  #contact-form-section .contact-input::placeholder,
+  #contact-form-section .contact-textarea::placeholder {
     color: #999;
   }
 
-  #contact-form-section .form-input:focus {
+  #contact-form-section .contact-input:focus,
+  #contact-form-section .contact-textarea:focus {
     outline: none;
     border-color: #ba0108;
     box-shadow: 0 0 0 3px rgba(186, 1, 8, 0.1);
   }
 
-  .form-button:hover {
+  .contact-button:hover {
     background-color: #e39599;
   }
 
-  #contact-form-section .form-button {
+  #contact-form-section .contact-button {
     margin-top: 50px !important;
   }
 
   @media (min-width: 640px) {
-    #contact-form-section .form-button {
+    #contact-form-section .contact-button {
       margin-top: 1.5rem !important;
     }
   }
 
   @media (min-width: 1024px) {
-    #contact-form-section .form-button {
+    #contact-form-section .contact-button {
       margin-top: 0 !important;
     }
   }
