@@ -5,7 +5,7 @@
 (dict "question" "Для яких типів дронів найкраще підходить польотний стек KARMA F405 V1?" "answer" "Ідеально підходить для мікро- та невеликих FPV-дронів, а також для легких 3-дюймових або деяки 4-дюймових квадрокоптерів.") }}
 
 <section class="relative flex flex-col items-center bg-white pb-[60px] lg:pb-[128px]">
-  <div class="w-full max-w-[1280px] px-[20px]">
+  <div class="w-full max-w-[1280px] min-[1025px]:px-[20px] max-[450px]:px-[10px]">
     <h3
       class="hero-title font-[Unbounded] font-medium !text-[clamp(24px,3vw,48px)] text-center text-[#020303] mb-[clamp(20px,3vw,24px)] uppercase">
       Найпоширеніші запитання про політні стеки
@@ -15,13 +15,13 @@
       <div class="accordion-wrapper">
         <details class="accordion-root group border-b border-[#303030]">
           <summary class="flex cursor-pointer select-none accordion-summary">
-            <h4 class="font-[Montserrat] text-[clamp(16px,2vw,24px)] font-medium catalog-accordion-question-text">
+            <h4 class="min-[1025px]:font-['Montserrat'] max-[450px]:font-['Unbounded'] text-[clamp(16px,2vw,24px)] font-medium catalog-accordion-question-text">
               {{ .question }}
             </h4>
             <img src="/img/arrow.svg" alt="Arrow" width="20" height="20" class="accordion-icon" />
           </summary>
           <div class="accordion-content">
-            <p class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-normal text-[#1f2937]">
+            <p class="min-[1025px]:font-['Montserrat'] max-[450px]:font-['Unbounded'] text-[clamp(16px,2vw,20px)] font-normal text-[#1f2937]">
               {{ .answer }}
             </p>
           </div>
@@ -164,8 +164,8 @@
       padding-right: 0 !important;
     }
 
-    .accordion-content {
-      padding: clamp(8px, 2vw, 10px) !important;
+    .accordion-root[open] .accordion-content {
+      padding: 10px !important;
     }
 
     .accordion-summary {
