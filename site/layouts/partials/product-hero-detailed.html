@@ -8,79 +8,82 @@
 {{ $categoryName := $category.name | default "Політні стеки" }}
 
 <section class="overflow-hidden relative bg-white">
-  <!-- Background decorative elements -->
-  {{ $bgEl1 := resources.Get "img/bg-el-1.png" }}
-  {{ if $bgEl1 }}
-  {{ $bgEl1Processed := $bgEl1.Resize "350x360 webp q80" }}
-  <img src="{{ $bgEl1Processed.RelPermalink }}" alt="" aria-hidden="true"
-    class="absolute z-[1] top-[-33px] right-[-53px] md:top-0 md:right-0 w-[clamp(150px,15vw,350px)] h-[clamp(150px,15vw,360px)]" />
-  {{ else }}
-  <img src="/img/bg-el-1.png" alt="" aria-hidden="true"
-    class="absolute z-[1] top-[-33px] right-[-53px] md:top-0 md:right-0 w-[clamp(150px,15vw,350px)] h-[clamp(150px,15vw,360px)]" />
-  {{ end }}
+    <!-- Background decorative elements -->
+    {{ $bgEl1 := resources.Get "img/bg-el-1.png" }}
+    {{ if $bgEl1 }}
+    {{ $bgEl1Processed := $bgEl1.Resize "350x360 webp q80" }}
+    <img src="{{ $bgEl1Processed.RelPermalink }}" alt="" aria-hidden="true"
+        class="absolute z-[1] top-[-33px] right-[-53px] md:top-0 md:right-0 w-[clamp(150px,15vw,350px)] h-[clamp(150px,15vw,360px)]" />
+    {{ else }}
+    <img src="/img/bg-el-1.png" alt="" aria-hidden="true"
+        class="absolute z-[1] top-[-33px] right-[-53px] md:top-0 md:right-0 w-[clamp(150px,15vw,350px)] h-[clamp(150px,15vw,360px)]" />
+    {{ end }}
 
-  <div
-    class="w-full max-w-[1280px] flex flex-col mx-auto px-[clamp(20px,4vw,40px)] pt-[clamp(40px,6vw,80px)] relative z-[2]">
-    <nav aria-label="Breadcrumb navigation"
-      class="flex flex-row items-start font-[Montserrat] gap-[clamp(8px,2vw,16px)] mb-[clamp(20px,4vw,40px)]">
-      <ol class="flex flex-wrap items-center gap-[clamp(4px,1vw,8px)]">
-        <li>
-          <a class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-normal text-[#ba0108] hover:underline" href="/">
-            Головна
-          </a>
-        </li>
-        <li class="text-[#ba0108] sm:inline" aria-hidden="true">&rarr;</li>
-        <li>
-          <a class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-normal text-[#ba0108] hover:underline"
-            href="/catalog/{{ $context.Params.category | default " politni-steky" }}/">
-            {{ $categoryName }}
-          </a>
-        </li>
-        <li class="text-[#ba0108] sm:inline" aria-hidden="true">&rarr;</li>
-        <li>
-          <span class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-normal text-[#ba0108]">
-            {{ $productName }}
-          </span>
-        </li>
-      </ol>
-    </nav>
-
-    <div class="flex flex-col gap-[clamp(24px,4vw,48px)] justify-start items-center mx-0 sm:flex-row md:items-start">
-      <div class="flex relative flex-col justify-start items-center w-full md:flex-row">
-        {{ $productImageResource := resources.Get $productImage }}
-        {{ if $productImageResource }}
-        {{ $productImageProcessed := $productImageResource.Resize "502x367 webp q80" }}
-        <img src="{{ $productImageProcessed.RelPermalink }}" alt="{{ $productName }}" class="object-contain max-w-none relative z-10
-                             w-[clamp(280px,40vw,502px)] h-[clamp(230px,25vw,367px)]" />
-        {{ else }}
-        <img src="{{ $productImage }}" alt="{{ $productName }}" class="object-contain max-w-none relative z-10
-                              w-[clamp(280px,40vw,502px)] h-[clamp(230px,25vw,367px)]" />
-        {{ end }}
+    <div
+        class="w-full max-w-[1280px] flex flex-col mx-auto px-[clamp(20px,4vw,40px)] pt-[clamp(40px,6vw,80px)] relative z-[2]">
+        <nav aria-label="Breadcrumb navigation"
+            class="flex flex-row items-start font-[Montserrat] gap-[clamp(8px,2vw,16px)] mb-[clamp(20px,4vw,40px)]">
+            <ol class="flex flex-wrap items-center gap-[clamp(4px,1vw,8px)]">
+                <li>
+                    <a class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-normal text-[#ba0108] hover:underline"
+                        href="/">
+                        Головна
+                    </a>
+                </li>
+                <li class="text-[#ba0108] sm:inline" aria-hidden="true">&rarr;</li>
+                <li>
+                    <a class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-normal text-[#ba0108] hover:underline"
+                        href="/catalog/{{ $context.Params.category | default " politni-steky" }}/">
+                        {{ $categoryName }}
+                    </a>
+                </li>
+                <li class="text-[#ba0108] sm:inline" aria-hidden="true">&rarr;</li>
+                <li>
+                    <span class="font-[Montserrat] text-[clamp(16px,2vw,20px)] font-normal text-[#ba0108]">
+                        {{ $productName }}
+                    </span>
+                </li>
+            </ol>
+        </nav>
 
         <div
-          class="pointer-events-none absolute bottom-19 left-[20%] sm:left-[22%] md:left-[8%] lg:left-[4%] xl:left-[4%] w-[clamp(120px,15vw,410px)] h-[clamp(15px,2vw,80px)] rounded-full bg-[#020303] opacity-15 blur-[33.65px] z-0 hidden sm:block" />
-      </div>
-      <div
-        class="flex flex-col gap-[clamp(16px,3vw,32px)] items-center w-full md:items-start lg:items-start mt-[clamp(20px,4vw,43px)] sm:mt-[20px] md:mt-0">
-        <h2
-          class="hero-title font-[Unbounded] text-[#ba0108] uppercase leading-[1.1]  mb-[clamp(8px,2vw,16px)] text-[32px] md:text-[48px] w-full max-w-[min(768px,85vw)] font-medium text-center md:text-left">
-          ПОЛІТНИЙ СТЕК<br><span class="text-black">KARMA F405 V1</span>
-        </h2>
-        <p
-          class="font-[Montserrat] text-[clamp(16px,2vw,24px)] leading-[1.7] text-[#333333] w-full max-w-[min(768px,85vw)] text-left">
-          {{ $context.Params.description | default "Політний стек спрощує монтаж та підключення електроніки в дроні,роблячи його ідеальним рішенням як для досвідчених пілотів, так і для початківців." }}
-        </p>
-        <p
-          class="font-[Montserrat] text-[clamp(16px,2vw,24px)] leading-[1.7] text-[#333333] w-full max-w-[min(768px,85vw)] text-left">
-          Він забезпечує стабільний політ, точне керування та ефективне розподілення потужності до моторів.
-        </p>
-        <button onclick="window.openContactModal()" aria-label="Отримати комерційну пропозицію для {{ $productName }}"
-          class="product-hero-button cursor-pointer !font-[Montserrat] text-[clamp(16px,2vw,24px)] font-light md:font-normal lg:font-medium text-white bg-[#ba0108] hover:bg-[#e39599] transition-colors w-full max-w-[min(768px,85vw)] py-[clamp(25px,3vw,20px)] px-[clamp(24px,4vw,40px)] rounded-[20px]">
-          Отримати пропозицію
-        </button>
-      </div>
+            class="flex flex-col gap-[clamp(24px,4vw,48px)] justify-start items-center mx-0 sm:flex-row md:items-start">
+            <div class="flex relative flex-col justify-start items-center w-full md:flex-row">
+                {{ $productImageResource := resources.Get $productImage }}
+                {{ if $productImageResource }}
+                {{ $productImageProcessed := $productImageResource.Resize "502x367 webp q80" }}
+                <img src="{{ $productImageProcessed.RelPermalink }}" alt="{{ $productName }}" class="object-contain max-w-none relative z-10
+                             w-[clamp(280px,40vw,502px)] h-[clamp(230px,25vw,367px)]" />
+                {{ else }}
+                <img src="{{ $productImage }}" alt="{{ $productName }}" class="object-contain max-w-none relative z-10
+                              w-[clamp(280px,40vw,502px)] h-[clamp(230px,25vw,367px)]" />
+                {{ end }}
+
+                <div
+                    class="pointer-events-none absolute bottom-19 left-[20%] sm:left-[22%] md:left-[8%] lg:left-[4%] xl:left-[4%] w-[clamp(120px,15vw,410px)] h-[clamp(15px,2vw,80px)] rounded-full bg-[#020303] opacity-15 blur-[33.65px] z-0 hidden sm:block" />
+            </div>
+            <div
+                class="flex flex-col gap-[clamp(16px,3vw,32px)] items-center w-full md:items-start lg:items-start mt-[clamp(20px,4vw,43px)] sm:mt-[20px] md:mt-0">
+                <h2
+                    class="hero-title font-[Unbounded] text-[#ba0108] uppercase leading-[1.1]  mb-[clamp(8px,2vw,16px)] text-[32px] md:text-[48px] w-full max-w-[min(768px,85vw)] font-medium text-center md:text-left">
+                    ПОЛІТНИЙ СТЕК<br><span class="text-black">KARMA F405 V1</span>
+                </h2>
+                <p
+                    class="font-[Montserrat] text-[clamp(16px,2vw,24px)] leading-[1.7] text-[#333333] w-full max-w-[min(768px,85vw)] text-left">
+                    {{ $context.Params.description | default "Політний стек спрощує монтаж та підключення електроніки в дроні, роблячи його ідеальним рішенням як для досвідчених пілотів, так і для початківців." }}
+                </p>
+                <p
+                    class="font-[Montserrat] text-[clamp(16px,2vw,24px)] leading-[1.7] text-[#333333] w-full max-w-[min(768px,85vw)] text-left">
+                    Він забезпечує стабільний політ, точне керування та ефективне розподілення потужності до моторів.
+                </p>
+                <button onclick="window.openContactModal()"
+                    aria-label="Отримати комерційну пропозицію для {{ $productName }}"
+                    class="product-hero-button cursor-pointer !font-[Montserrat] text-[clamp(16px,2vw,24px)] font-light md:font-normal lg:font-medium text-white bg-[#ba0108] hover:bg-[#e39599] transition-colors w-full max-w-[min(768px,85vw)] py-[clamp(25px,3vw,20px)] px-[clamp(24px,4vw,40px)] rounded-[20px]">
+                    Отримати пропозицію
+                </button>
+            </div>
+        </div>
     </div>
-  </div>
 </section>
 
 

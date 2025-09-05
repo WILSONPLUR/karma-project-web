@@ -2,8 +2,7 @@
 {{ $categoryData := index .Site.Data.products.categories $category }}
 
 <div class="bg-[#020303] text-white ">
-    <div
-        class="flex flex-col justify-center items-center max-w-[1280px] w-full mx-auto px-[clamp(20px,4vw,40px)] py-[clamp(40px,6vw,69px)]">
+    <div class="flex flex-col justify-center items-center max-w-[1280px] w-full mx-auto px-[clamp(20px,4vw,40px)] py-[clamp(40px,6vw,69px)]">
         <h3
             class="color-[#fefefe] max-w-[clamp(352px,80vw,909px)] font-medium text-[clamp(24px,3vw,48px)] font-[Unbounded] text-center mb-[clamp(20px,4vw,40px)] leading-tight uppercase">
             Чому варто обрати {{ $categoryData.name }} від karma?
@@ -128,54 +127,59 @@
 </div>
 
 <style>
-    @keyframes fadeInUp {
-        0% {
-            opacity: 0;
-            transform: translateY(30px);
-        }
-
-        100% {
-            opacity: 1;
-            transform: translateY(0);
-        }
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(30px);
     }
 
-    .hero-title {
-        opacity: 0;
-        transform: translateY(30px);
-        transition: all 0.6s ease-out;
+    100% {
+      opacity: 1;
+      transform: translateY(0);
     }
+  }
 
-    .hero-title.animate {
-        animation: fadeInUp 0.8s ease-out forwards;
-    }
+  .hero-title {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease-out;
+  }
+
+  .hero-title.animate {
+    animation: fadeInUp 0.8s ease-out forwards;
+  }
 </style>
 
 <script>
-    // Hero title animation
-    function animateHeroTitle() {
-        const heroTitles = document.querySelectorAll('.hero-title');
+  // Hero title animation
+  function animateHeroTitle() {
+    const heroTitles = document.querySelectorAll('.hero-title');
 
-        const observerOptions = {
-            threshold: 0.3,
-            rootMargin: '0px 0px -50px 0px'
-        };
+    const observerOptions = {
+      threshold: 0.3,
+      rootMargin: '0px 0px -50px 0px'
+    };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('animate');
-                } else {
-                    entry.target.classList.remove('animate');
-                }
-            });
-        }, observerOptions);
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          // animate only once and stop observing this target
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
 
-        heroTitles.forEach(title => {
-            observer.observe(title);
-        });
+    heroTitles.forEach(title => {
+      observer.observe(title);
+    });
+  }
+
+    // Initialize when DOM is loaded (also handle case script runs after DOMContentLoaded)
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', animateHeroTitle);
+    } else {
+      // DOM already ready — run immediately
+      animateHeroTitle();
     }
-
-    // Initialize when DOM is loaded
-    document.addEventListener('DOMContentLoaded', animateHeroTitle);
 </script>

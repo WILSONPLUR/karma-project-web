@@ -217,7 +217,7 @@ class CustomSlider {
       0,
       this.slides.length - this.getCurrentSlidesPerView()
     );
-    const groups = Math.ceil((maxStartIndex + 1) / step) || 1; 
+    const groups = Math.ceil((maxStartIndex + 1) / step) || 1;
     const currentGroup = Math.floor(this.currentIndex / step);
     const nextGroup = (currentGroup + 1) % groups;
     const targetIndex = Math.min(nextGroup * step, maxStartIndex);
