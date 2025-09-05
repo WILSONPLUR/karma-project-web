@@ -1,65 +1,72 @@
-<section class="bg-[#1d1d1d] min-h-[241px] py-[39px] flex justify-center">
-  <div class="lg:w-[1237px] xl:w-[1400px] 2xl:w-[1620px] mx-auto px-5">
-    <div class="flex max-[450px]:flex-col justify-between lg:gap-[150px] max-[450px]:gap-[50px] text-center">
+<section class="bg-[#1d1d1d] min-h-[241px] max-[767px]:py-[55px] min-[768px]:py-[39px] flex justify-center">
+  <div class="w-full max-w-[1620px] mx-auto px-5">
+    <div
+      class="flex flex-col md:flex-row justify-between gap-[35px]  lg:gap-[120px] xl:gap-[150px] text-center">
       <!-- Result Item 1 -->
       <div class="flex flex-col items-center">
-        <span class="lg:text-[96px] max-[1024px]:text-[64px] max-[450px]:text-[64px] font-['Wallpoet'] font-bold text-[#ba0108] counter" data-target="200">+0</span>
-        <span class="text-[24px] text-white lg:font-['Montserrat'] max-[450px]:font-['Unbounded'] font-medium">Задоволених клієнтів</span>
+        <span class="text-[64px] md:text-[96px] leading-[1.1] font-['Wallpoet'] font-[400] text-[#ba0108] counter"
+          data-target="200">+0</span>
+        <span class="text-[24px] text-white font-['Unbounded'] font-medium">Задоволених
+          клієнтів</span>
       </div>
-      
+
       <!-- Result Item 2 -->
       <div class="flex flex-col items-center">
-        <span class="lg:text-[96px] max-[1024px]:text-[64px] max-[450px]:text-[64px] font-['Wallpoet'] font-bold text-[#ba0108] counter" data-target="10">+0</span>
-        <span class="text-[24px] text-white lg:font-['Montserrat'] max-[450px]:font-['Unbounded'] font-medium">Виробничих локацій</span>
+        <span class="text-[64px] md:text-[96px] leading-[1.1] font-['Wallpoet'] font-[400] text-[#ba0108] counter"
+          data-target="10">+0</span>
+        <span class="text-[24px] text-white font-['Unbounded'] font-medium">Виробничих
+          локацій</span>
       </div>
-      
+
       <!-- Result Item 3 -->
       <div class="flex flex-col items-center">
-        <span class="lg:text-[96px] max-[1024px]:text-[64px] max-[450px]:text-[64px] font-['Wallpoet'] font-bold text-[#ba0108] counter" data-target="100">+0</span>
-        <span class="text-[24px] text-white lg:font-['Montserrat'] max-[450px]:font-['Unbounded'] font-medium">Знищеної ворожої техніки</span>
+        <span class="text-[64px] md:text-[96px] leading-[1.1] font-['Wallpoet'] font-[400] text-[#ba0108] counter"
+          data-target="100">+0</span>
+        <span class="text-[24px] text-white font-['Unbounded'] font-medium">Знищеної
+          ворожої техніки</span>
       </div>
     </div>
   </div>
 </section>
 
 <script>
-// Counter animation function
-function animateCounter(element) {
-  const target = parseInt(element.getAttribute('data-target'));
-  const duration = 2000; // 2 seconds
-  const increment = target / (duration / 16); // 60fps
-  let current = 0;
-  
-  const timer = setInterval(() => {
-    current += increment;
-    if (current >= target) {
-      current = target;
-      clearInterval(timer);
-    }
-    element.textContent = '+' + Math.floor(current);
-  }, 16);
-}
+  // Counter animation function
+  function animateCounter(element) {
+    const target = parseInt(element.getAttribute('data-target'));
+    const duration = 2000; // 2 seconds
+    const increment = target / (duration / 16); // 60fps
+    let current = 0;
 
-// Intersection Observer for triggering animation when visible
-const observerOptions = {
-  threshold: 0.5,
-  rootMargin: '0px 0px -100px 0px'
-};
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      element.textContent = '+' + Math.floor(current);
+    }, 16);
+  }
 
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
-      entry.target.classList.add('animated');
-      animateCounter(entry.target);
-    }
+  // Intersection Observer for triggering animation when visible
+  const observerOptions = {
+    threshold: 0.5,
+    rootMargin: '0px 0px -100px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+        entry.target.classList.add('animated');
+        animateCounter(entry.target);
+      }
+    });
+  }, observerOptions);
+
+  // Initialize when DOM is loaded
+  document.addEventListener('DOMContentLoaded', () => {
+    const counters = document.querySelectorAll('.counter');
+    counters.forEach(counter => {
+      observer.observe(counter);
+    });
   });
-}, observerOptions);
-
-// Initialize when DOM is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  const counters = document.querySelectorAll('.counter');
-  counters.forEach(counter => {
-    observer.observe(counter);
-  });
-});
 </script>

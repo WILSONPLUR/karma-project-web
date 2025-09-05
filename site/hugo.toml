@@ -1,4 +1,4 @@
-baseurl = "https://karma-project-web.netlify.app/"
+baseurl = "/"
 languageCode = "uk-UA"
 languageLang = "uk"
 title = "Karma - Електронні компоненти для дронів"
@@ -70,3 +70,13 @@ enableGitInfo = true
   [markup.goldmark]
     [markup.goldmark.renderer]
       unsafe = true
+  [markup.highlight]
+    codeFences = true
+    guessSyntax = false
+    hl_Lines = ""
+    lineNoStart = 1
+    lineNos = false
+    lineNumbersInTable = true
+    noClasses = true
+    style = "github"
+    tabWidth = 4
