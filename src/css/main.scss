@@ -101,7 +101,7 @@
   
   @media (min-width: 768px) and (max-width: 860px) {
     .swiper-container-products {
-      width: 90% !important;
+      width: 85% !important;
       max-width: 800px !important;
     }
     
@@ -195,9 +195,7 @@
     width: auto !important;
   }
 
-  .swiper-container-products .swiper-slide > div {
-    margin: 0 10px !important;
-  }
+ 
 
   /* Navigation arrows positioning */
   .swiper-button-prev-custom,
@@ -207,37 +205,30 @@
   }
 
   .swiper-button-prev-custom {
-    left: -60px !important;
+    left: 0 !important;
   }
 
   .swiper-button-next-custom {
-    right: -60px !important;
+    right: 0 !important;
   }
 
-  @media (max-width: 1400px) {
-    .swiper-button-prev-custom {
-      left: -20px !important;
-    }
-    .swiper-button-next-custom {
-      right: -20px !important;
-    }
-  }
+
 
   @media (max-width: 1300px) {
     .swiper-button-prev-custom {
-      left: -15px !important;
+      left: 15px !important;
     }
     .swiper-button-next-custom {
-      right: -15px !important;
+      right: 15px !important;
     }
   }
 
   @media (max-width: 1100px) {
     .swiper-button-prev-custom {
-      left: -10px !important;
+      left: 15px !important;
     }
     .swiper-button-next-custom {
-      right: -10px !important;
+      right: 15px !important;
     }
   }
 
@@ -262,25 +253,16 @@
   /* Closer arrows for tablets */
   @media (min-width: 768px) and (max-width: 1023px) {
     .swiper-button-prev-custom {
-      left: -10px !important;
+      left: 7px !important;
     }
     .swiper-button-next-custom {
-      right: -10px !important;
+      right: 7px !important;
     }
   }
 
   @media (max-width: 1023px) {
-    .swiper-button-prev-custom,
-    .swiper-button-next-custom {
-      width: 50px !important;
-      height: 50px !important;
-    }
-    
-    .swiper-button-prev-custom img,
-    .swiper-button-next-custom img {
-      width: 30px !important;
-      height: 30px !important;
-    }
+   
+   
   }
 }
 
@@ -328,11 +310,11 @@
 /* Responsive mobile arrow positioning */
 @media (min-width: 600px) and (max-width: 767px) {
   .mobile-prev {
-    left: 30px !important;
+    left: 80px !important;
   }
   
   .mobile-next {
-    right: 30px !important;
+    right: 80px !important;
   }
 }
 

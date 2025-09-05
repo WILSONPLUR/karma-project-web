@@ -2,9 +2,10 @@
 {{ $categoryData := index .Site.Data.products.categories $category }}
 
 <div class="bg-[#020303] text-white ">
-    <div class="flex flex-col justify-center items-center max-w-[1280px] w-full mx-auto px-[clamp(20px,4vw,40px)] py-[clamp(40px,6vw,69px)]">
+    <div
+        class="flex flex-col justify-center items-center max-w-[1280px] w-full mx-auto px-[clamp(20px,4vw,40px)] py-[clamp(40px,6vw,69px)]">
         <h3
-            class="color-[#fefefe] max-w-[clamp(352px,80vw,909px)] font-medium text-[clamp(24px,3vw,48px)] font-[Unbounded] text-center mb-[clamp(20px,4vw,40px)] leading-tight">
+            class="color-[#fefefe] max-w-[clamp(352px,80vw,909px)] font-medium text-[clamp(24px,3vw,48px)] font-[Unbounded] text-center mb-[clamp(20px,4vw,40px)] leading-tight uppercase">
             Чому варто обрати {{ $categoryData.name }} від karma?
         </h3>
         <div>
