@@ -1,4 +1,4 @@
-<header class="bg-[#020303] lg:py-[26px] max-[450px]:py-[13px] max-[768px]:h-[65px] flex justify-center mx-auto" role="banner">
+<header class="bg-[#020303] h-[60px] md:h-[72px] lg:h-[82px] flex justify-center mx-auto" role="banner">
   <style>
     .nav-link {
       position: relative;
@@ -46,7 +46,7 @@
 
     /* Dropdown menu positioning */
     .dropdown-menu {
-      min-width: 400px;
+      width: 237px;
       z-index: 1000;
       display: none;
       transition: all 0.3s ease-in-out;
@@ -92,6 +92,19 @@
       background-color: #ba0108;
     }
 
+    @media (min-width: 1024px) {
+      .dropdown-item:not(:last-child)::after {
+        right: auto;
+        top: auto;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 2px;
+        width: 58px; 
+        background-color: #ba0108;
+      }
+    }
+
     /* Responsive breakpoints */
     @media (max-width: 809px) {
       .desktop-nav {
@@ -133,7 +146,7 @@
       }
 
       .dropdown-menu {
-        min-width: 250px;
+        min-width: 506px;
       }
 
       .dropdown-item {
@@ -178,7 +191,7 @@
 
   <!-- Responsive container with breakpoint-specific widths -->
   <div
-    class="flex w-full max-w-[1237px] xl:max-w-[1237px] lg:max-w-[1024px] px-4 justify-between items-center nav-container"
+    class="flex w-full max-w-[1280px] px-[20px] justify-between items-center nav-container"
     style="padding-top: 20px; padding-bottom: 20px;">
     <!-- Logo -->
     <a href="/" class="relative z-[10] text-xl font-normal text-white font-inter" aria-label="Karma - головна сторінка">
@@ -192,15 +205,15 @@
     </a>
 
     <!-- Desktop Navigation -->
-    <nav class="nav-container desktop-nav flex items-center gap-[20px]" role="navigation" aria-label="Головне меню">
+    <nav class="nav-container desktop-nav flex items-center gap-[50px]" role="navigation" aria-label="Головне меню">
       <div class="relative dropdown-parent">
         <button onclick="toggleDropdown(event)" 
           class="nav-link lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-xl focus:font-bold text-white hover:text-[#ba0108] transition-colors {{ if or (eq .Page.Section "catalog") (hasPrefix .Page.RelPermalink "/catalog/" ) }}active{{ end }}"
           aria-expanded="false" aria-haspopup="true" aria-label="Каталог товарів">
           Каталог
         </button>
-        <div class="dropdown-menu absolute left-0 top-full mt-3 bg-[#020303] rounded-lg border-2" role="menu" aria-label="Підменю каталогу">
-          <div class="flex w-full">
+        <div class="dropdown-menu absolute left-[-50px] lg:left-[-80px] top-[30px] mt-3 bg-[#020303] rounded-b-[5px]" role="menu" aria-label="Підменю каталогу">
+          <div class="flex flex-row lg:flex-col w-full">
             <a href="/catalog/politni-steky/"
               class="dropdown-item flex-1 px-8 py-6 text-white lg:font-['Inter'] max-[450px]:font-['Unbounded'] text-lg font-medium hover:text-[#ba0108] transition-all duration-300 whitespace-nowrap" role="menuitem">Політні
               стеки</a>
@@ -230,7 +243,7 @@
     <div class="desktop-nav flex gap-[50px] justify-center items-center">
       <nav class="flex items-center gap-[30px]">
         <a href="tel:(067) 298-29-29"
-          class=" font-['Montserrat'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors"
+          class=" font-['Montserrat'] text-xl font-normal text-white hover:text-[#ba0108] transition-colors hidden lg:block"
           aria-label="Зателефонувати за номером (067) 298-29-29">
           (067) 298-29-29
         </a>
