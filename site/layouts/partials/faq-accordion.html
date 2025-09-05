@@ -2,29 +2,29 @@
 
 <section class="flex relative flex-col items-center bg-white" aria-labelledby="faq-accordion-heading">
     <div class="faq-accordion-container w-full max-w-[1280px] px-[20px]" {{ if not $isFirst
-        }}style="margin-top: clamp(60px,6vw,122px) !important; margin-bottom: 0!important;" {{ else
-        }}style="margin-top: clamp(60px,8vw,80px) !important; margin-bottom: clamp(60px,10vw,134px) !important;" {{ end
+        }}style="margin-top: clamp(40px,6vw,80px) !important; margin-bottom: 0!important;" {{ else
+        }}style="margin-top: clamp(60px,8vw,122px) !important; margin-bottom: clamp(60px,10vw,134px) !important;" {{ end
         }}>
         <h2 id="faq-accordion-heading"
-            class="faq-title font-[Unbounded] font-medium text-[clamp(20px,4vw,40px)] text-center text-[#020303] mb-[clamp(20px,3vw,30px)]">
+            class="faq-title font-[Unbounded] font-medium text-[24px] md:text-[32px]  lg:text-[40px] text-center text-[#020303] mb-[clamp(20px,3vw,30px)]">
             {{ $title }}
         </h2>
-        <div class="w-full flex flex-col gap-[30px]" data-accordion-list
+        <div class="w-full flex flex-col gap-[20px] max-w-[1280px]" data-accordion-list
             role="list" aria-label="Список питань та відповідей">
             {{ range $index, $item := $items }}
             <div class="faq-acc-wrapper" role="listitem">
-                <details class="faq-acc-root group border-b border-[#303030]">
-                    <summary class="flex cursor-pointer select-none faq-acc-summary"
+                <details class="faq-acc-root group border-b border-[#020303]">
+                    <summary class="flex !justify-center items-start md:items-center  cursor-pointer select-none faq-acc-summary py-[18px] px-[15px] lg:px-[45px]"
                         aria-label="Розгорнути відповідь на питання: {{ .question }}">
                         <h3
-                            class="font-[Unbounded] md:font-[Montserrat] lg:font-[Montserrat] text-[clamp(16px,2vw,24px)] font-normal md:font-medium  w-full">
+                            class="font-[Unbounded] md:font-[Montserrat] text-[16px] md:text-[20px] font-medium w-full">
                             {{ .question }}
                         </h3>
                         <img src="/img/arrow.svg" alt="Іконка розгортання" width="20" height="20"
                             class="faq-acc-icon" />
                     </summary>
-                    <div class="faq-acc-content">
-                        <p class="font-[Montserrat] text-[clamp(14px,2vw,20px)] font-normal text-[#1f2937]">
+                    <div class="faq-acc-content-wrapper js-accordion-content">
+                        <p class="font-[Montserrat] text-[20px] font-normal text-[#000000] faq-acc-content py-[16px] pl-[40px]">
                             {{ .answer }}
                         </p>
                     </div>
@@ -48,10 +48,8 @@
 
     .faq-acc-summary {
         position: relative !important;
-        display: flex !important;
-        align-items: center !important;
-        padding: clamp(15px, 3vw, 45px) clamp(20px, 4vw, 45px) !important;
-        transition: background-color 400ms ease, color 400ms ease !important;
+    /* background transitions smoothly; color transition overridden for immediate changes */
+    transition: background-color 400ms ease !important;
         background: #fff !important;
         color: #020303 !important;
         cursor: pointer;
@@ -66,7 +64,8 @@
         content: '';
     }
 
-    .faq-acc-root[open] .faq-acc-summary {
+    /* Use JS-driven class to control visual open state */
+    .faq-acc-root.is-open .faq-acc-summary {
         background: #ba0108 !important;
         color: #fff !important;
     }
@@ -80,28 +79,30 @@
         width: clamp(20px, 3vw, 33px) !important;
         height: clamp(12px, 2vw, 18px) !important;
         transform: rotate(0deg) !important;
-        transition: transform 500ms ease-in-out, filter 300ms ease-in-out !important;
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
         filter: brightness(0) !important;
-        align-self: flex-start !important;
+        flex-shrink: 0 !important;
+        transform-origin: center !important;
     }
 
-    .faq-acc-root[open] .faq-acc-icon {
-        transform: rotate(-180deg) !important;
+    /* Use class-based control so JS can animate arrow in sync with content */
+    .faq-acc-root.is-open .faq-acc-icon {
+        transform: rotate(180deg) !important;
         filter: brightness(0) invert(1) !important;
     }
 
-    .faq-acc-root::details-content {
-        transition: block-size 600ms, content-visibility 600ms allow-discrete !important;
-        overflow: hidden !important;
-        block-size: 0 !important;
-        inline-size: 100% !important;
-        content-visibility: hidden !important;
+    /* When not open, ensure color changes (text/icon filter) are immediate */
+    .faq-acc-root:not(.is-open) .faq-acc-summary {
+        color: #020303 !important;
+        transition: color 0ms !important;
     }
 
-    .faq-acc-root[open]::details-content {
-        block-size: auto !important;
-        content-visibility: visible !important;
+    .faq-acc-root:not(.is-open) .faq-acc-icon {
+        filter: brightness(0) !important;
+        transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     }
+
+    /* removed ::details-content rules because they conflicted with JS animation control */
 
     .faq-acc-content {
         overflow: visible !important;
@@ -109,39 +110,10 @@
         opacity: 1 !important;
         transition: none !important;
         width: 100% !important;
-        padding: clamp(10px, 2vw, 46px) !important;
     }
 
-    /* Responsive breakpoints for better control */
-    @media (min-width: 640px) {
-        .faq-acc-summary {
-            padding-left: clamp(24px, 4vw, 45px) !important;
-            padding-right: clamp(24px, 4vw, 45px) !important;
-        }
-    }
 
-    @media (min-width: 768px) {
-        .faq-acc-summary {
-            padding-left: clamp(30px, 5vw, 45px) !important;
-            padding-right: clamp(30px, 5vw, 45px) !important;
-        }
-    }
 
-    @media (min-width: 1024px) {
-        .faq-acc-summary {
-            padding-left: clamp(35px, 6vw, 45px) !important;
-            padding-right: clamp(35px, 6vw, 45px) !important;
-        }
-    }
-
-    @media (min-width: 1280px) {
-        .faq-acc-summary {
-            padding-left: 45px !important;
-            padding-right: 45px !important;
-        }
-    }
-
-    /* Mobile specific adjustments */
     @media (max-width: 640px) {
         .faq-accordion-container {
             margin-top: clamp(40px, 8vw, 60px) !important;
@@ -163,35 +135,128 @@
             padding: clamp(8px, 2vw, 12px) !important;
         }
 
-        .faq-acc-summary {
-            padding: clamp(10px, 3vw, 15px) !important;
-        }
+   
 
         .faq-acc-icon {
-            align-self: flex-start !important;
             margin-top: 0 !important;
         }
     }
 </style>
 
 <script>
-    (function () {
+(function () {
+    function initAccordion() {
         var lists = document.querySelectorAll('[data-accordion-list]');
+        if (!lists || lists.length === 0) return;
         lists.forEach(function (list) {
-            var items = Array.prototype.slice.call(
-                list.querySelectorAll('.faq-acc-root')
-            );
-            items.forEach(function (item) {
-                item.addEventListener('toggle', function () {
-                    if (item.open) {
-                        items.forEach(function (other) {
-                            if (other !== item) {
-                                other.open = false;
-                            }
-                        });
+        var items = Array.prototype.slice.call(
+            list.querySelectorAll('.faq-acc-root')
+        );
+        items.forEach(function (item) {
+            var contentWrapper = item.querySelector('.faq-acc-content-wrapper');
+            contentWrapper.style.overflow = "hidden";
+            contentWrapper.style.transition = "max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1) 0.1s";
+            if (item.open) {
+                contentWrapper.style.maxHeight = contentWrapper.scrollHeight + "px";
+                contentWrapper.style.opacity = "1";
+                item.classList.add('is-open');
+                requestAnimationFrame(function () {
+                    setTimeout(function () {
+                        if (item.open) contentWrapper.style.maxHeight = '';
+                    }, 50);
+                });
+            } else {
+                contentWrapper.style.maxHeight = "0px";
+                contentWrapper.style.opacity = "0";
+                item.classList.remove('is-open');
+            }
+            item._animating = false;
+            
+            function smoothClose() {
+                if (item._animating) return;
+                item._animating = true;
+                
+                // Close all other accordions first
+                items.forEach(function(otherItem) {
+                    if (otherItem !== item && otherItem.classList.contains('is-open')) {
+                        var otherWrapper = otherItem.querySelector('.faq-acc-content-wrapper');
+                        otherItem.classList.remove('is-open');
+                        otherWrapper.style.maxHeight = '0px';
+                        otherWrapper.style.opacity = '0';
+                        otherItem.open = false;
                     }
                 });
-            });
+                
+                var startHeight = contentWrapper.scrollHeight;
+                contentWrapper.style.maxHeight = startHeight + 'px';
+                contentWrapper.offsetHeight; // force reflow
+                
+                item.classList.remove('is-open');
+                requestAnimationFrame(function () {
+                    contentWrapper.style.maxHeight = '0px';
+                    contentWrapper.style.opacity = '0';
+                });
+                
+                setTimeout(function() {
+                    item.open = false;
+                    item._animating = false;
+                }, 400);
+            }
+            
+            function smoothOpen() {
+                if (item._animating) return;
+                item._animating = true;
+                
+                // Close all other accordions first
+                items.forEach(function(otherItem) {
+                    if (otherItem !== item && otherItem.classList.contains('is-open')) {
+                        var otherWrapper = otherItem.querySelector('.faq-acc-content-wrapper');
+                        otherItem.classList.remove('is-open');
+                        otherWrapper.style.maxHeight = '0px';
+                        otherWrapper.style.opacity = '0';
+                        otherItem.open = false;
+                    }
+                });
+                
+                item.open = true;
+                contentWrapper.style.maxHeight = '0px';
+                contentWrapper.style.opacity = '0';
+                
+                var full = contentWrapper.scrollHeight;
+                item.classList.add('is-open');
+                
+                requestAnimationFrame(function () {
+                    contentWrapper.style.maxHeight = full + 'px';
+                    contentWrapper.style.opacity = '1';
+                });
+                
+                setTimeout(function() {
+                    if (item.classList.contains('is-open')) {
+                        contentWrapper.style.maxHeight = 'auto';
+                    }
+                    item._animating = false;
+                }, 400);
+            }
+
+            var summary = item.querySelector('summary');
+            if (summary) {
+                summary.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    if (item._animating) return;
+                    if (item.classList.contains('is-open')) {
+                        smoothClose();
+                    } else {
+                        smoothOpen();
+                    }
+                });
+            }
         });
-    })();
+        });
+    }
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initAccordion);
+    } else {
+        initAccordion();
+    }
+})();
 </script>
